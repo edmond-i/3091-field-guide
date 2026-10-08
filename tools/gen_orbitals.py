@@ -232,7 +232,9 @@ def ionic_chart():
 
 if __name__ == "__main__":
     import sys
-    d = sys.argv[1]
+    d = sys.argv[1].rstrip("/")
+    import os
+    os.makedirs(d, exist_ok=True)
     open(d + "/orbital_panels.html", "w", encoding="utf-8").write(orbital_panels())
     open(d + "/o2_mo.html", "w", encoding="utf-8").write(o2_diagram())
     open(d + "/mo_small.html", "w", encoding="utf-8").write(mo_small_row())

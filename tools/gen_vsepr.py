@@ -300,7 +300,9 @@ def dipole_figure():
 
 if __name__ == "__main__":
     import sys
-    out_dir = sys.argv[1]
+    out_dir = sys.argv[1].rstrip("/")
+    import os
+    os.makedirs(out_dir, exist_ok=True)
     open(out_dir + "/vsepr_grid.html", "w", encoding="utf-8").write(grid_html())
     open(out_dir + "/groups_fig.html", "w", encoding="utf-8").write(groups_figure())
     open(out_dir + "/squeeze_fig.html", "w", encoding="utf-8").write(squeeze_figure())
