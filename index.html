@@ -27,6 +27,8 @@
     --unit-ionic-soft:#F7ECDD;
     --unit-covalent:#1E8F74;
     --unit-covalent-soft:#E3F3EE;
+    --unit-orbital:#A8336E;
+    --unit-orbital-soft:#F8E7F0;
     --warn:#AE4A2E;
     --warn-soft:#FAEBE4;
     --good:#1E8F74;
@@ -51,6 +53,8 @@
       --unit-ionic-soft:#332618;
       --unit-covalent:#6FD5B9;
       --unit-covalent-soft:#1A332C;
+      --unit-orbital:#F08DBD;
+      --unit-orbital-soft:#3A2030;
       --warn:#E89579;
       --warn-soft:#3A241C;
       --good:#6FD5B9;
@@ -75,6 +79,8 @@
     --unit-ionic-soft:#332618;
     --unit-covalent:#6FD5B9;
     --unit-covalent-soft:#1A332C;
+      --unit-orbital:#F08DBD;
+      --unit-orbital-soft:#3A2030;
     --warn:#E89579;
     --warn-soft:#3A241C;
     --good:#6FD5B9;
@@ -113,7 +119,7 @@
     gap:clamp(20px,4vw,56px);
   }
   @media (max-width:880px){
-    .shell{grid-template-columns:1fr;}
+    .shell{grid-template-columns:minmax(0,1fr);}
   }
 
   /* ---------- HERO ---------- */
@@ -421,6 +427,128 @@
 
   strong{color:var(--ink); font-weight:600;}
   .small{font-size:13.5px; color:var(--ink-faint);}
+  /* ---------- VSEPR diagrams ---------- */
+  .sv-bond{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;fill:none;}
+  .sv-wedge{fill:var(--ink);}
+  .sv-atom{fill:var(--ink-soft);}
+  .sv-center{fill:var(--unit-covalent);}
+  .sv-lp{fill:var(--unit-covalent-soft);stroke:var(--unit-covalent);stroke-width:1.4;}
+  .sv-dot{fill:var(--unit-covalent);}
+  .vs-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--raised);padding:14px;margin:18px 0;}
+  .vs-grid{display:grid;grid-template-columns:92px repeat(4,minmax(124px,1fr));gap:8px;min-width:640px;}
+  .vs-colhead{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);text-align:center;padding-bottom:6px;border-bottom:1px solid var(--line);}
+  .vs-corner{border-bottom:1px solid var(--line);}
+  .vs-rowhead{display:flex;flex-direction:column;justify-content:center;gap:1px;padding-right:6px;}
+  .vs-rowhead b{font-family:"Fraunces",serif;font-size:26px;line-height:1;color:var(--unit-covalent);}
+  .vs-rowhead span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);}
+  .vs-rowhead em{font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:3px;}
+  .vs-cell{border:1px solid var(--line-soft);border-radius:10px;padding:6px 4px 9px;text-align:center;background:var(--paper);}
+  .vs-cell.vs-lp1,.vs-cell.vs-lp2,.vs-cell.vs-lp3{background:var(--unit-covalent-soft);border-color:transparent;}
+  .vs-cell svg{width:100%;max-width:118px;height:auto;display:block;margin:0 auto 2px;}
+  .vs-name{font-family:"Fraunces",serif;font-weight:600;font-size:13.5px;line-height:1.2;}
+  .vs-meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+  .vs-axe{font-weight:600;color:var(--ink);}
+  .vs-ex{font-size:12px;color:var(--ink-faint);margin-top:2px;}
+  .vs-empty{border:1px dashed var(--line-soft);border-radius:10px;opacity:.55;}
+  .sv-dash{stroke:var(--ink);stroke-width:1.5;stroke-linecap:butt;}
+  .sv-arc{fill:none;stroke:var(--unit-ionic);stroke-width:1.6;stroke-linecap:round;}
+  .sv-txt{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;fill:var(--ink);}
+  .sv-txt-w{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:700;fill:#fff;}
+  .sv-ctr{fill:var(--unit-covalent);}
+  .sv-bd{stroke:var(--unit-ionic);stroke-width:1.9;stroke-linecap:round;}
+  .sv-bd-h{fill:var(--unit-ionic);}
+  .sv-net{stroke:var(--unit-covalent);stroke-width:3.4;stroke-linecap:round;}
+  .sv-net-h{fill:var(--unit-covalent);}
+  .gp-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin:18px 0;}
+  .gp-cell{position:relative;border:1px solid var(--line-soft);border-radius:12px;padding:8px 6px 10px;text-align:center;background:var(--raised);}
+  .gp-cell svg{width:100%;max-width:118px;height:auto;display:block;margin:0 auto 2px;}
+  .gp-n{font-family:"Fraunces",serif;font-weight:700;font-size:20px;color:var(--unit-covalent);line-height:1;}
+  .sq-ang{font-family:"Fraunces",serif;font-weight:700;font-size:22px;color:var(--unit-ionic);line-height:1.1;margin-top:2px;}
+  .dp-verdict{display:inline-block;margin-top:6px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:999px;}
+  .dp-zero .dp-verdict{background:var(--line-soft);color:var(--ink-soft);}
+  .dp-net .dp-verdict{background:var(--unit-covalent-soft);color:var(--unit-covalent);}
+  .sv-ghost{stroke:var(--ink-faint);stroke-width:1.3;stroke-dasharray:3 3;opacity:.8;}
+  .sq-row .gp-cell svg{max-width:200px;}
+  .sq-row{grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px;margin-left:auto;margin-right:auto;}
+  @media (max-width:560px){ .sq-row{grid-template-columns:1fr;} }
+
+  /* ---------- orbital + MO figures ---------- */
+  .ph-pos{fill:var(--unit-atoms);fill-opacity:.62;}
+  .ph-neg{fill:var(--warn);fill-opacity:.58;}
+  .ph-txt{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;fill:#fff;pointer-events:none;}
+  .ph-nuc{fill:var(--ink);}
+  .ph-node{stroke:var(--ink-soft);stroke-width:1.3;stroke-dasharray:3 3;}
+  .op-lab{font-family:"IBM Plex Mono",monospace;font-size:9px;fill:var(--ink-soft);}
+  .op-note{font-size:12px;color:var(--ink-faint);margin-top:2px;line-height:1.35;}
+  .op-note b{color:var(--ink-soft);font-weight:600;}
+  .op-row{grid-template-columns:repeat(2,minmax(0,1fr));max-width:600px;margin-left:auto;margin-right:auto;}
+  .mo-lv{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;}
+  .mo-lv-hi{stroke:var(--unit-orbital);stroke-width:2.8;}
+  .mo-e{fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .mo-cn{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3 3;opacity:.75;}
+  .mo-ax{fill:none;stroke:var(--ink-faint);stroke-width:1.4;}
+  .mo-lab{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;fill:var(--ink);paint-order:stroke;stroke:var(--raised);stroke-width:4px;stroke-linejoin:round;}
+  .mo-ao{font-family:"IBM Plex Mono",monospace;font-size:12px;fill:var(--ink-soft);}
+  .mo-title{font-family:"Fraunces",serif;font-size:13.5px;font-weight:600;fill:var(--ink);}
+  .mo-hi{fill:var(--unit-orbital-soft);}
+  .mo-hi-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:700;fill:var(--unit-orbital);paint-order:stroke;stroke:var(--raised);stroke-width:5px;stroke-linejoin:round;}
+  .mo-mini svg{max-width:210px;}
+  .mo-zero{opacity:.85;}
+  .ic-band{fill:var(--unit-covalent-soft);}
+  .ic-grid{stroke:var(--line);stroke-width:1;}
+  .ic-axis{stroke:var(--ink-faint);stroke-width:1.4;}
+  .ic-tick{font-family:"IBM Plex Mono",monospace;font-size:11px;fill:var(--ink-soft);}
+  .ic-lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;fill:var(--ink-soft);}
+  .ic-curve{fill:none;stroke:var(--unit-ionic);stroke-width:3;stroke-linejoin:round;}
+  .ic-band-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--unit-covalent);font-weight:600;}
+  .ic-pt{fill:var(--unit-ionic);}
+  .ic-pt-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--ink);}
+  .ic-real{fill:var(--raised);stroke:var(--ink);stroke-width:2;}
+  .ic-real-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:700;fill:var(--ink);}
+
+  /* ---------- cheat-code components ---------- */
+  .stat-link{text-decoration:none;color:var(--accent-ink);border-color:var(--accent);}
+  .stat-link:hover{background:var(--accent-soft);}
+  .box.cheat{border:2px solid var(--c, var(--accent));background:var(--raised);padding:16px 20px;}
+  .cheat .box-head{color:var(--c, var(--accent));}
+  .cc-steps{margin:0 0 8px;padding-left:1.3em;}
+  .cc-steps li{margin-bottom:6px;}
+  .cc-list{margin:0 0 8px;padding-left:1.2em;}
+  .cc-list li{margin-bottom:7px;}
+  .cc-foot{margin:0;padding-top:9px;border-top:1px dashed var(--line);font-size:15.5px;}
+  .cc-ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:0 0 20px;}
+  .cc-idea{border:1px solid var(--line);border-top:3px solid var(--c);border-radius:4px 4px 12px 12px;background:var(--raised);padding:12px 14px 14px;}
+  .cc-idea b{display:block;font-family:"Fraunces",serif;font-size:17px;margin-bottom:5px;color:var(--c);}
+  .cc-idea span{font-size:14.5px;color:var(--ink-soft);line-height:1.5;}
+  .cc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:0 0 22px;}
+  .cc-card{border:1px solid var(--line);border-radius:14px;background:var(--raised);padding:14px 16px 10px;}
+  .cc-tag{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--c);margin-bottom:4px;font-weight:600;}
+  .cc-code{font-family:"Fraunces",serif;font-weight:600;font-size:19px;line-height:1.2;margin:0 0 9px;}
+  .cc-card p{font-size:14.5px;line-height:1.5;margin:0 0 8px;color:var(--ink-soft);}
+  .cc-card p b{color:var(--ink);}
+  /* ---------- hybridization rows ---------- */
+  .hy-list{display:flex;flex-direction:column;gap:10px;margin:18px 0 8px;}
+  .hy-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px 14px;background:var(--raised);}
+  .hy-name{font-family:"Fraunces",serif;font-weight:700;font-size:23px;color:var(--unit-orbital);}
+  .hy-body{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;}
+  .hy-grp{display:inline-flex;flex-wrap:wrap;gap:5px;}
+  .hy-arrow{font-family:"IBM Plex Mono",monospace;color:var(--ink-faint);font-size:16px;}
+  .ob{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:26px;padding:0 6px;border:1.5px solid var(--ink-faint);border-radius:5px;font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:12px;background:var(--paper);color:var(--ink-soft);}
+  .ob.use{border-color:var(--unit-orbital);color:var(--ink);}
+  .ob.hy{background:var(--unit-orbital-soft);border-color:var(--unit-orbital);color:var(--unit-orbital);font-weight:600;}
+  .ob.un{border-style:dashed;color:var(--ink-faint);background:transparent;}
+  .hy-desc{flex-basis:100%;font-size:14.5px;color:var(--ink-soft);line-height:1.45;}
+  .hy-desc b{color:var(--ink);}
+  @media (max-width:560px){ .hy-row{grid-template-columns:1fr;gap:6px;} }
+  .cc-grid .cc-card:last-child{grid-column:1/-1;}
+  /* ---------- small-screen fixes ---------- */
+  .fig-frame{overflow-x:auto;}
+  .fig-frame > svg{min-width:640px;}
+  .vs-wrap > svg{min-width:520px;}
+  .vs-wrap > figure, .vs-wrap{max-width:100%;}
+  .unit-head{flex-wrap:wrap;row-gap:6px;}
+  .unit-tag{white-space:normal;}
+  @media (max-width:640px){ .unit-tag{margin-left:0;flex-basis:100%;} }
 </style>
 </head>
 <body>
@@ -429,12 +557,13 @@
   <header class="hero">
     <div class="hero-eyebrow"><span class="dot"></span> MIT 3.091 &middot; Fall 2026 &middot; Introduction to Solid State Chemistry</div>
     <h1>The <em>3.091</em> Field Guide</h1>
-    <p class="sub">Everything in your course folder — nine lectures, six recitations, three problem sets — read, cross-checked, and rebuilt into one document. Built assuming you are starting from close to zero: every term is defined before it's used, every formula is explained before it's applied.</p>
+    <p class="sub">Everything in your course folder — twelve lectures, six recitations, three problem sets — read, cross-checked, and rebuilt into one document. Built assuming you are starting from close to zero: every term is defined before it's used, every formula is explained before it's applied. Now with the VSEPR shape diagrams, orbital pictures, and a set of cheat codes.</p>
     <div class="hero-stats">
-      <span class="stat-pill">📚 <b>9</b> lectures</span>
-      <span class="stat-pill">🧪 <b>6</b> recitations</span>
-      <span class="stat-pill">📝 <b>3</b> problem sets</span>
-      <span class="stat-pill">🔬 covers L01&ndash;L09: atoms &rarr; bonding</span>
+      <span class="stat-pill"><b>12</b> lectures</span>
+      <span class="stat-pill"><b>6</b> recitations</span>
+      <span class="stat-pill"><b>3</b> problem sets</span>
+      <span class="stat-pill">covers L01&ndash;L12: atoms &rarr; molecular orbitals</span>
+      <a class="stat-pill stat-link" href="#cheatcodes">&#9733; jump to the cheat codes</a>
     </div>
   </header>
 
@@ -491,6 +620,31 @@
             <li><a href="#resonance">Resonance &amp; hypervalency</a></li>
           </ul>
         </li>
+        <li>
+          <a href="#unit5"><span class="u-dot" style="--c:var(--unit-covalent)"></span>05 &middot; Covalent compounds &amp; shape</a>
+          <ul class="sub-list">
+            <li><a href="#covalent-props">Ionic vs. covalent behavior</a></li>
+            <li><a href="#continuum">% ionic character</a></li>
+            <li><a href="#same-atoms">SiO₂ &amp; sulfur</a></li>
+            <li><a href="#vsepr">VSEPR in four steps</a></li>
+            <li><a href="#vsepr-grid">The staircase table</a></li>
+            <li><a href="#vsepr-lp">Lone pairs</a></li>
+            <li><a href="#vsepr-squeeze">The squeeze</a></li>
+            <li><a href="#polarity">Polarity</a></li>
+            <li><a href="#vsepr-practice">Practice molecules</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#unit6"><span class="u-dot" style="--c:var(--unit-orbital)"></span>06 &middot; Hybrids &amp; MOs</a>
+          <ul class="sub-list">
+            <li><a href="#why-more">What VSEPR can&rsquo;t tell you</a></li>
+            <li><a href="#hybrid">Hybridization</a></li>
+            <li><a href="#mo-basics">Molecular orbitals</a></li>
+            <li><a href="#mo-diagram">Filling an MO diagram</a></li>
+            <li><a href="#theories">Which theory explains what</a></li>
+          </ul>
+        </li>
+        <li><a href="#cheatcodes"><span class="u-dot" style="--c:var(--accent)"></span>&#9733; Cheat codes</a></li>
         <li><a href="#archetypes"><span class="u-dot" style="--c:var(--accent)"></span>Practice archetypes</a></li>
         <li><a href="#cheatsheet"><span class="u-dot" style="--c:var(--accent)"></span>Formula cheat&#8209;sheet</a></li>
         <li><a href="#traps"><span class="u-dot" style="--c:var(--warn)"></span>Exam traps</a></li>
@@ -501,7 +655,7 @@
   <main>
 
     <section id="howto">
-      <p class="lede"><strong>Read this guide top to bottom once, slowly.</strong> It follows the exact order the course does — it builds atoms from scratch, then uses those atoms to explain the periodic table, then uses the periodic table to explain how bonds form. Nothing later depends on something you haven't already met. After the first read, use the <a href="#archetypes">practice archetypes</a> and <a href="#cheatsheet">cheat&#8209;sheet</a> as your pre-exam refresher.</p>
+      <p class="lede"><strong>Read this guide top to bottom once, slowly.</strong> It follows the exact order the course does — it builds atoms from scratch, then uses those atoms to explain the periodic table, then uses the periodic table to explain how bonds form. Nothing later depends on something you haven't already met. After the first read, use the <a href="#archetypes">practice archetypes</a> and <a href="#cheatsheet">cheat&#8209;sheet</a> as your pre-exam refresher. Short on time? The <a href="#cheatcodes">cheat codes</a> squeeze the whole course into nine lines.</p>
     </section>
 
     <section id="bigpicture">
@@ -515,7 +669,7 @@
         <li><strong>Solutions &amp; Phase Diagrams</strong> — what happens when materials mix.</li>
         <li><strong>Organic &amp; Polymeric Materials</strong> — carbon-based materials and plastics.</li>
       </ol>
-      <p>This guide covers <strong>Part I and the start of Part II</strong> — everything from Lecture 1 through Lecture 9, which is where your course materials currently stop: atomic structure, the periodic table, and the first bonding types (ionic and covalent). That's the foundation everything later in the course stands on, so it's worth over-learning now.</p>
+      <p>This guide covers <strong>Part I and the start of Part II</strong> — everything from Lecture 1 through Lecture 12, which is where your course materials currently stop: atomic structure, the periodic table, ionic and covalent bonding, molecular shape (VSEPR), and the orbital theories (hybridization and molecular orbitals). That's the foundation everything later in the course stands on, so it's worth over-learning now.</p>
       <div class="box analogy">
         <div class="box-head">Logistics worth knowing cold</div>
         <p style="margin-bottom:0">Exams are <strong>closed-book</strong> except for: a periodic table, a table of constants, a calculator, and <strong>one 8.5×11&Prime; aid sheet you make yourself</strong>. Quizzes are 10 minutes, in recitation, and your lowest of 10 is dropped. Grading: quizzes 20%, three midterms 15% each (45%), final 35%. A = 85%+, B = 70%+, C = 55%+. Build your aid sheet from the <a href="#cheatsheet">cheat-sheet</a> section below.</p>
@@ -1438,6 +1592,524 @@
     </section>
 
     <!-- ============================================================ -->
+    <!-- UNIT 5 — COVALENT COMPOUNDS & MOLECULAR SHAPE (L10-L11) -->
+    <!-- ============================================================ -->
+    <section class="unit" id="unit5" style="--c:var(--unit-covalent)">
+      <div class="unit-head">
+        <span class="unit-num">05</span>
+        <h2>Covalent Compounds &amp; Molecular Shape</h2>
+        <span class="unit-tag">L10&ndash;L11</span>
+      </div>
+
+      <p class="lede">Unit 04 showed how to draw a molecule as dots and lines. Now two bigger questions: how do covalent substances <em>behave</em> (do they melt, dissolve, conduct?), and what 3D <strong>shape</strong> does a molecule actually take &mdash; because shape decides whether the molecule is polar, and polarity decides a huge amount of its behavior.</p>
+
+      <h3 class="topic" id="covalent-props" style="--c:var(--unit-covalent)">Ionic vs. covalent: how they behave</h3>
+      <p>Both kinds of solid are held together by electrical attraction, but covalent substances come in <strong>two very different families</strong>, and mixing them up is the number-one mistake in this topic.</p>
+      <ul>
+        <li><strong>Network (giant) covalent solids</strong> &mdash; every atom is covalently bonded to its neighbors, all the way through the crystal, so the whole piece is effectively <em>one giant molecule</em>. Examples: diamond, quartz/silica (SiO₂).</li>
+        <li><strong>Molecular covalent substances</strong> &mdash; made of separate, small molecules (water, sugar, CO₂, S₈). Covalent bonds hold each molecule together <em>inside</em>, but only weak attractions hold one molecule to the next.</li>
+      </ul>
+      <div class="box def">
+        <div class="box-head">Intra vs. inter (the lecture italicizes &ldquo;<em>inter</em>&rdquo; on purpose)</div>
+        <p style="margin-bottom:0"><strong>Intra</strong>molecular = <em>inside</em> one molecule: the strong covalent bonds. <strong>Inter</strong>molecular = <em>between</em> molecules: weak forces. When a molecular substance melts, boils, or dissolves, only the weak <em>between</em>-molecule forces are overcome &mdash; the covalent bonds inside each molecule stay intact. (Melting ice does not break H&ndash;O bonds.)</p>
+      </div>
+      <div class="box analogy">
+        <div class="box-head">Picture it</div>
+        <p style="margin-bottom:0">A network solid is a single welded steel frame: to melt it you have to cut through the metal itself. A molecular solid is a pile of separate toy cars: to &ldquo;melt&rdquo; the pile you only have to shake the cars loose from each other &mdash; nobody has to un-weld a car.</p>
+      </div>
+
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Property</th><th class="wrap">Ionic (e.g. NaCl)</th><th class="wrap">Network covalent (diamond, silica)</th><th class="wrap">Molecular covalent (water, S₈, sugar)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Melting point</strong></td><td class="wrap">High; rises with lattice energy / ionicity</td><td class="wrap">High &mdash; must break covalent bonds</td><td class="wrap"><strong>Low</strong> (weak forces between molecules); boiling point low too</td></tr>
+            <tr><td><strong>Dissolving</strong></td><td class="wrap">In polar solvents (water). Falls as lattice energy rises; water&ndash;ion attraction also matters</td><td class="wrap">Essentially insoluble: &ldquo;solvation needs to counter bond breaking!&rdquo;</td><td class="wrap">In solvents of <em>matching polarity</em> (like dissolves like) &mdash; only weak forces to beat</td></tr>
+            <tr><td><strong>Electrical conduction</strong></td><td class="wrap">None as a solid (ions locked in place); <strong>yes</strong> molten or dissolved (ions free to move)</td><td class="wrap">Usually poor. Exceptions: semiconductors (silicon)</td><td class="wrap">Usually poor. Exception: conducting polymers</td></tr>
+            <tr><td><strong>Mechanical</strong></td><td class="wrap">Hard but <strong>brittle</strong></td><td class="wrap">Hard, but not too brittle (very strong bonds)</td><td class="wrap">More <strong>plastic</strong> (soft, deformable)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box trap">
+        <div class="box-head">Trap: &ldquo;covalent means low melting point&rdquo;</div>
+        <p style="margin-bottom:0">Only true for <em>molecular</em> covalent substances. Diamond and quartz are covalent and melt at extremely high temperatures. Always ask first: is it a network solid or separate molecules?</p>
+      </div>
+      <p class="small">Why ionic crystals are brittle (from the L10 hammer picture): one blow slides a layer by a single ion position, which lines up like charges face to face. They repel, and the crystal splits &mdash; and once one bond goes, they all go.</p>
+
+      <h3 class="topic" id="continuum" style="--c:var(--unit-covalent)">Ionic vs. covalent is a dial, not a switch</h3>
+      <p>In Unit 04 you sorted bonds into three bins using the electronegativity difference &Delta;&chi;. In reality bonding slides smoothly from covalent to ionic, and L10 gives the formula that shows it:</p>
+      <div class="box formula-box">
+        <div class="box-head">Percent ionic character (L10)</div>
+        <div class="eq">% ionic = 100 &times; [ 1 &minus; exp( &minus;&Delta;&chi;² / 4 ) ]</div>
+        <div class="vars"><code>&Delta;&chi;</code> = difference in electronegativity (look the values up on your periodic table &mdash; the slide says &ldquo;Check your periodic table. There is a trend table.&rdquo;). <code>exp(x)</code> = e<sup>x</sup>, the exponential button on your calculator.</div>
+      </div>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 560 300" role="img" aria-label="Percent ionic character rises smoothly with electronegativity difference, following 1 minus exp of minus delta chi squared over 4. About 6 percent at 0.5, 43 percent at 1.5, 90 percent at 3."><rect class="ic-band" x="108.2" y="22" width="196.8" height="234"/><line class="ic-grid" x1="52" y1="256.0" x2="544" y2="256.0"/><text class="ic-tick" x="44" y="260.0" text-anchor="end">0%</text><line class="ic-grid" x1="52" y1="197.5" x2="544" y2="197.5"/><text class="ic-tick" x="44" y="201.5" text-anchor="end">25%</text><line class="ic-grid" x1="52" y1="139.0" x2="544" y2="139.0"/><text class="ic-tick" x="44" y="143.0" text-anchor="end">50%</text><line class="ic-grid" x1="52" y1="80.5" x2="544" y2="80.5"/><text class="ic-tick" x="44" y="84.5" text-anchor="end">75%</text><line class="ic-grid" x1="52" y1="22.0" x2="544" y2="22.0"/><text class="ic-tick" x="44" y="26.0" text-anchor="end">100%</text><text class="ic-tick" x="52.0" y="276" text-anchor="middle">0</text><text class="ic-tick" x="122.3" y="276" text-anchor="middle">0.5</text><text class="ic-tick" x="192.6" y="276" text-anchor="middle">1</text><text class="ic-tick" x="262.9" y="276" text-anchor="middle">1.5</text><text class="ic-tick" x="333.1" y="276" text-anchor="middle">2</text><text class="ic-tick" x="403.4" y="276" text-anchor="middle">2.5</text><text class="ic-tick" x="473.7" y="276" text-anchor="middle">3</text><text class="ic-tick" x="544.0" y="276" text-anchor="middle">3.5</text><line class="ic-axis" x1="52" y1="256" x2="544" y2="256"/><text class="ic-lab" x="298.0" y="294" text-anchor="middle">electronegativity difference, Δχ</text><text class="ic-lab" x="14" y="139.0" text-anchor="middle" transform="rotate(-90 14 139.0)">percent ionic character</text><polyline class="ic-curve" points="52.0,256.0 59.0,255.9 66.1,255.4 73.1,254.7 80.1,253.7 87.1,252.4 94.2,250.8 101.2,248.9 108.2,246.8 115.3,244.4 122.3,241.8 129.3,239.0 136.3,235.9 143.4,232.5 150.4,229.0 157.4,225.3 164.5,221.4 171.5,217.3 178.5,213.1 185.5,208.7 192.6,204.2 199.6,199.6 206.6,194.9 213.7,190.1 220.7,185.3 227.7,180.3 234.7,175.4 241.8,170.4 248.8,165.4 255.8,160.3 262.9,155.3 269.9,150.3 276.9,145.4 283.9,140.5 291.0,135.6 298.0,130.8 305.0,126.1 312.1,121.5 319.1,116.9 326.1,112.4 333.1,108.1 340.2,103.8 347.2,99.7 354.2,95.7 361.3,91.8 368.3,88.0 375.3,84.4 382.3,80.8 389.4,77.4 396.4,74.2 403.4,71.0 410.5,68.0 417.5,65.2 424.5,62.4 431.5,59.8 438.6,57.3 445.6,55.0 452.6,52.7 459.7,50.6 466.7,48.6 473.7,46.7 480.7,44.9 487.8,43.2 494.8,41.6 501.8,40.1 508.9,38.7 515.9,37.4 522.9,36.1 529.9,35.0 537.0,33.9 544.0,32.9"/><text class="ic-band-t" x="80.1" y="34" text-anchor="middle">covalent</text><text class="ic-band-t" x="206.6" y="34" text-anchor="middle">polar covalent</text><text class="ic-band-t" x="424.5" y="34" text-anchor="middle">mostly ionic</text><circle class="ic-pt" cx="122.3" cy="241.8" r="4"/><text class="ic-pt-t" x="113.3" y="233.8" text-anchor="end">Δχ 0.5 → 6%</text><circle class="ic-pt" cx="262.9" cy="155.3" r="4"/><text class="ic-pt-t" x="253.9" y="147.3" text-anchor="end">Δχ 1.5 → 43%</text><circle class="ic-pt" cx="473.7" cy="46.7" r="4"/><text class="ic-pt-t" x="473.7" y="74.7" text-anchor="middle">Δχ 3 → 89%</text><circle class="ic-real" cx="302.2" cy="160.1" r="4.5"/><text class="ic-real-t" x="293.2" y="164.1" text-anchor="end">HF</text><circle class="ic-real" cx="365.5" cy="71.1" r="4.5"/><text class="ic-real-t" x="356.5" y="75.1" text-anchor="end">NaCl</text></svg>
+        <figcaption>Smooth S-curve: no bond is ever 100% ionic. Filled dots are points on the formula; hollow dots are real compounds read by eye from the lecture's plot &mdash; real bonds scatter around the curve (HF is lower, NaCl is higher). Shaded band = the &ldquo;polar covalent&rdquo; range from Unit 04.</figcaption>
+      </figure>
+      <div class="box example">
+        <div class="box-head">Worked example &mdash; how ionic is H&ndash;Cl?</div>
+        <p class="mono">&chi;(Cl) &minus; &chi;(H) = 3.16 &minus; 2.20 = 0.96</p>
+        <p class="mono">1 &minus; exp(&minus;0.96²/4) = 1 &minus; exp(&minus;0.2304) = 1 &minus; 0.794 = 0.206</p>
+        <p style="margin-bottom:0"><strong>&asymp; 21% ionic</strong> &mdash; mostly covalent but clearly polarized (the lecture's plot puts HCl near 18%). The 0.4 and 1.8 cut-offs from Unit 04 are rules of thumb: at &Delta;&chi; = 1.8 the formula already gives 55%.</p>
+      </div>
+
+      <h3 class="topic" id="same-atoms" style="--c:var(--unit-covalent)">Same atoms, many structures: SiO₂ and sulfur</h3>
+      <p>Two examples from L10 hammer home that <strong>structure, not just composition, decides properties</strong>.</p>
+      <ul>
+        <li><strong>SiO₂ (silica)</strong> &mdash; &chi;(O) &minus; &chi;(Si) &asymp; 1.5, so the Si&ndash;O bond is &ldquo;mostly covalent but quite polarized&rdquo;. The same formula appears as <em>dense crystals</em> (quartz, tridymite, cristobalite), <em>nanoporous crystals</em> (zeolites, full of tiny channels), and <em>amorphous</em> glass: fused silica (&ldquo;quartz glass&rdquo;, transparent even to UV) and fumed silica (a fine powder).</li>
+        <li><strong>Sulfur</strong> &mdash; the S₈ crown-shaped ring is the common form (plus 3 polymorphs); other rings S<sub>n</sub> exist for n = 6, 7, 9&ndash;15, 18, 20; very long chains exist too; and at high temperature you get small gas molecules S₂ and S₃. The S₃ molecule is <strong>bent, with an angle of 117.36°</strong> &mdash; a preview of the VSEPR section below.</li>
+      </ul>
+      <div class="box def">
+        <div class="box-head">Two words the slides use without defining</div>
+        <p style="margin-bottom:0"><strong>Allotropes</strong> = different structural forms of the same <em>element</em> (diamond vs. graphite; S₈ rings vs. sulfur chains). <strong>Polymorphs</strong> = different crystal arrangements of the same <em>substance</em> (quartz vs. cristobalite). <span class="small">(Standard definitions &mdash; extra, not worded on the slides.)</span></p>
+      </div>
+
+      <!-- ===================== VSEPR ===================== -->
+      <h3 class="topic" id="vsepr" style="--c:var(--unit-covalent)">VSEPR: predicting shape in four steps</h3>
+      <p><strong>VSEPR</strong> (say &ldquo;vesper&rdquo;) stands for <em>Valence Shell Electron Pair Repulsion</em>. The whole theory is one idea: <strong>electrons repel each other, so the electron clouds around a central atom spread as far apart as possible.</strong> Think of tying balloons together at one point &mdash; they automatically push apart into the most spread-out arrangement.</p>
+
+      <div class="box cheat" style="--c:var(--unit-covalent)">
+        <div class="box-head">Cheat code &middot; the VSEPR staircase</div>
+        <ol class="cc-steps">
+          <li><b>Count electron groups</b> on the central atom = (atoms attached) + (lone pairs on the central atom). A double or triple bond counts as <b>one</b> group &mdash; it points in one direction.</li>
+          <li><b>Groups &rarr; parent shape</b> (the balloon rule): 2 line &middot; 3 flat triangle &middot; 4 tetrahedron &middot; 5 bipyramid &middot; 6 octahedron.</li>
+          <li><b>Each lone pair takes the place of one atom.</b> Name the shape by the <em>atoms only</em> (look at the staircase below).</li>
+          <li><b>Squeeze.</b> Lone pairs and double bonds are fat; they push the neighbors closer together, so real angles come out a little under the ideal ones.</li>
+        </ol>
+        <p class="cc-foot">Then: all outer atoms identical <em>and</em> no lone pair on the center &rarr; the arrows cancel &rarr; <b>nonpolar</b>. Otherwise, usually <b>polar</b>.</p>
+      </div>
+
+      <p><strong>Vocabulary (use the lecture's words).</strong> The lecture says <strong>&ldquo;electron groups&rdquo;</strong>; many books say &ldquo;electron domains&rdquo; or &ldquo;steric number&rdquo; &mdash; same thing. It labels shapes with the <strong>AX<sub>m</sub>E<sub>n</sub></strong> code: <b>A</b> = the central atom, <b>X</b> = an atom bonded to it, <b>E</b> = a lone pair (the lecture draws it as a pair of dots). So AX₃E means &ldquo;3 atoms and 1 lone pair&rdquo;, and <em>groups = m + n</em>.</p>
+
+      <h4>Step 1&ndash;2: how many groups, and what do they spread into?</h4>
+      <figure>
+        <div class="gp-row"><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="2 electron groups spread out as linear, 180°"><ellipse class="sv-lp" cx="33.0" cy="56.0" rx="12" ry="7.5" transform="rotate(-180 33.0 56.0)"/><circle class="sv-dot" cx="37.0" cy="56.0" r="1.9"/><circle class="sv-dot" cx="29.0" cy="56.0" r="1.9"/><ellipse class="sv-lp" cx="87.0" cy="56.0" rx="12" ry="7.5" transform="rotate(0 87.0 56.0)"/><circle class="sv-dot" cx="83.0" cy="56.0" r="1.9"/><circle class="sv-dot" cx="91.0" cy="56.0" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/></svg><div class="gp-n">2</div><div class="vs-name">Linear</div><div class="vs-meta">180°</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="3 electron groups spread out as trigonal planar, 120°"><ellipse class="sv-lp" cx="60.0" cy="29.0" rx="12" ry="7.5" transform="rotate(-90 60.0 29.0)"/><circle class="sv-dot" cx="60.0" cy="33.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="25.0" r="1.9"/><ellipse class="sv-lp" cx="36.6" cy="69.5" rx="12" ry="7.5" transform="rotate(-210 36.6 69.5)"/><circle class="sv-dot" cx="40.1" cy="67.5" r="1.9"/><circle class="sv-dot" cx="33.2" cy="71.5" r="1.9"/><ellipse class="sv-lp" cx="83.4" cy="69.5" rx="12" ry="7.5" transform="rotate(-330 83.4 69.5)"/><circle class="sv-dot" cx="79.9" cy="67.5" r="1.9"/><circle class="sv-dot" cx="86.8" cy="71.5" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/></svg><div class="gp-n">3</div><div class="vs-name">Trigonal planar</div><div class="vs-meta">120°</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="4 electron groups spread out as tetrahedral, 109.5°"><ellipse class="sv-lp" cx="60.0" cy="29.0" rx="12" ry="7.5" transform="rotate(-90 60.0 29.0)"/><circle class="sv-dot" cx="60.0" cy="33.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="25.0" r="1.9"/><ellipse class="sv-lp" cx="37.9" cy="71.5" rx="12" ry="7.5" transform="rotate(-215 37.9 71.5)"/><circle class="sv-dot" cx="41.2" cy="69.2" r="1.9"/><circle class="sv-dot" cx="34.6" cy="73.8" r="1.9"/><ellipse class="sv-lp" cx="82.1" cy="71.5" rx="12" ry="7.5" transform="rotate(-325 82.1 71.5)"/><circle class="sv-dot" cx="78.8" cy="69.2" r="1.9"/><circle class="sv-dot" cx="85.4" cy="73.8" r="1.9"/><ellipse class="sv-lp" cx="82.1" cy="40.5" rx="12" ry="7.5" transform="rotate(-35 82.1 40.5)"/><circle class="sv-dot" cx="78.8" cy="42.8" r="1.9"/><circle class="sv-dot" cx="85.4" cy="38.2" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/></svg><div class="gp-n">4</div><div class="vs-name">Tetrahedral</div><div class="vs-meta">109.5°</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="5 electron groups spread out as trigonal bipyramidal, 90° and 120°"><ellipse class="sv-lp" cx="60.0" cy="29.0" rx="12" ry="7.5" transform="rotate(-90 60.0 29.0)"/><circle class="sv-dot" cx="60.0" cy="33.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="25.0" r="1.9"/><ellipse class="sv-lp" cx="60.0" cy="83.0" rx="12" ry="7.5" transform="rotate(-270 60.0 83.0)"/><circle class="sv-dot" cx="60.0" cy="79.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="87.0" r="1.9"/><ellipse class="sv-lp" cx="33.0" cy="56.0" rx="12" ry="7.5" transform="rotate(-180 33.0 56.0)"/><circle class="sv-dot" cx="37.0" cy="56.0" r="1.9"/><circle class="sv-dot" cx="29.0" cy="56.0" r="1.9"/><ellipse class="sv-lp" cx="84.5" cy="67.4" rx="12" ry="7.5" transform="rotate(-335 84.5 67.4)"/><circle class="sv-dot" cx="80.8" cy="65.7" r="1.9"/><circle class="sv-dot" cx="88.1" cy="69.1" r="1.9"/><ellipse class="sv-lp" cx="84.5" cy="44.6" rx="12" ry="7.5" transform="rotate(-25 84.5 44.6)"/><circle class="sv-dot" cx="80.8" cy="46.3" r="1.9"/><circle class="sv-dot" cx="88.1" cy="42.9" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/></svg><div class="gp-n">5</div><div class="vs-name">Trigonal bipyramidal</div><div class="vs-meta">90° and 120°</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="6 electron groups spread out as octahedral, 90°"><ellipse class="sv-lp" cx="60.0" cy="29.0" rx="12" ry="7.5" transform="rotate(-90 60.0 29.0)"/><circle class="sv-dot" cx="60.0" cy="33.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="25.0" r="1.9"/><ellipse class="sv-lp" cx="60.0" cy="83.0" rx="12" ry="7.5" transform="rotate(-270 60.0 83.0)"/><circle class="sv-dot" cx="60.0" cy="79.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="87.0" r="1.9"/><ellipse class="sv-lp" cx="33.0" cy="56.0" rx="12" ry="7.5" transform="rotate(-180 33.0 56.0)"/><circle class="sv-dot" cx="37.0" cy="56.0" r="1.9"/><circle class="sv-dot" cx="29.0" cy="56.0" r="1.9"/><ellipse class="sv-lp" cx="87.0" cy="56.0" rx="12" ry="7.5" transform="rotate(0 87.0 56.0)"/><circle class="sv-dot" cx="83.0" cy="56.0" r="1.9"/><circle class="sv-dot" cx="91.0" cy="56.0" r="1.9"/><ellipse class="sv-lp" cx="40.9" cy="75.1" rx="12" ry="7.5" transform="rotate(-225 40.9 75.1)"/><circle class="sv-dot" cx="43.7" cy="72.3" r="1.9"/><circle class="sv-dot" cx="38.1" cy="77.9" r="1.9"/><ellipse class="sv-lp" cx="79.1" cy="36.9" rx="12" ry="7.5" transform="rotate(-45 79.1 36.9)"/><circle class="sv-dot" cx="76.3" cy="39.7" r="1.9"/><circle class="sv-dot" cx="81.9" cy="34.1" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/></svg><div class="gp-n">6</div><div class="vs-name">Octahedral</div><div class="vs-meta">90°</div></div></div>
+        <figcaption>Each teal lobe is one electron group (a bond or a lone pair &mdash; at this stage they all repel the same). Two groups end up opposite each other; three in a flat triangle; four at the corners of a tetrahedron; five as a bipyramid (a belt of three plus one above and one below); six as an octahedron.</figcaption>
+      </figure>
+      <p>Where do the angles come from? The groups sit on the surface of an imaginary sphere around the central atom and take the positions that keep them farthest apart. With five groups there are two <em>kinds</em> of position: the two <strong>axial</strong> spots (top and bottom) and the three <strong>equatorial</strong> spots (the belt around the middle), so you get two angles: 90° between an axial and an equatorial group, and 120° within the belt.</p>
+      <div class="box analogy">
+        <div class="box-head">How to read the diagrams</div>
+        <p style="margin-bottom:0">Plain line = bond lying in the page. <b>Solid wedge</b> = bond coming <em>toward</em> you. <b>Hashed wedge</b> = bond going <em>away</em> from you. Teal lobe with two dots = lone pair. Dark balls = outer atoms; the teal ball = the central atom.</p>
+      </div>
+
+      <h3 class="topic" id="vsepr-grid" style="--c:var(--unit-covalent)">The whole table, as one staircase</h3>
+      <p>This is the lecture's master table (L11 slide 12), redrawn so you can <em>see</em> the pattern: <strong>read across</strong> = add a lone pair (it replaces one atom); <strong>read down</strong> = add one electron group. The shapes with lone pairs are tinted teal.</p>
+      <figure>
+        <div class="vs-wrap">
+          <div class="vs-grid" role="group" aria-label="VSEPR shapes by electron groups and lone pairs">
+<div class="vs-corner"></div>
+<div class="vs-colhead">0 lone pairs</div>
+<div class="vs-colhead">1 lone pair</div>
+<div class="vs-colhead">2 lone pairs</div>
+<div class="vs-colhead">3 lone pairs</div>
+<div class="vs-rowhead"><b>2</b><span>electron groups</span><em>linear</em></div>
+<div class="vs-cell vs-lp0"><svg viewBox="0 0 120 110" role="img" aria-label="Linear shape, AX₂, ideal angle 180°"><line class="sv-bond" x1="53.5" y1="56.0" x2="34.5" y2="56.0"/><line class="sv-bond" x1="66.5" y1="56.0" x2="85.5" y2="56.0"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="27.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="93.0" cy="56.0" r="8.5"/></svg><div class="vs-name">Linear</div><div class="vs-meta"><span class="vs-axe">AX₂</span> &middot; 180°</div><div class="vs-ex">CO₂, BeCl₂</div></div>
+<div class="vs-empty"></div>
+<div class="vs-empty"></div>
+<div class="vs-empty"></div>
+<div class="vs-rowhead"><b>3</b><span>electron groups</span><em>trigonal planar</em></div>
+<div class="vs-cell vs-lp0"><svg viewBox="0 0 120 110" role="img" aria-label="Trigonal planar shape, AX₃, ideal angle 120°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="54.4" y1="59.2" x2="37.9" y2="68.8"/><line class="sv-bond" x1="65.6" y1="59.2" x2="82.1" y2="68.8"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="31.4" cy="72.5" r="8.5"/><circle class="sv-atom" cx="88.6" cy="72.5" r="8.5"/></svg><div class="vs-name">Trigonal planar</div><div class="vs-meta"><span class="vs-axe">AX₃</span> &middot; 120°</div><div class="vs-ex">BF₃, SO₃, NO₃⁻</div></div>
+<div class="vs-cell vs-lp1"><svg viewBox="0 0 120 110" role="img" aria-label="Bent shape, AX₂E, ideal angle less than 120°"><line class="sv-bond" x1="54.4" y1="59.2" x2="37.9" y2="68.8"/><line class="sv-bond" x1="65.6" y1="59.2" x2="82.1" y2="68.8"/><ellipse class="sv-lp" cx="60.0" cy="32.0" rx="12" ry="7.5" transform="rotate(-90 60.0 32.0)"/><circle class="sv-dot" cx="60.0" cy="36.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="28.0" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="31.4" cy="72.5" r="8.5"/><circle class="sv-atom" cx="88.6" cy="72.5" r="8.5"/></svg><div class="vs-name">Bent</div><div class="vs-meta"><span class="vs-axe">AX₂E</span> &middot; &lt;120°</div><div class="vs-ex">SO₂, O₃</div></div>
+<div class="vs-empty"></div>
+<div class="vs-empty"></div>
+<div class="vs-rowhead"><b>4</b><span>electron groups</span><em>tetrahedral</em></div>
+<div class="vs-cell vs-lp0"><svg viewBox="0 0 120 110" role="img" aria-label="Tetrahedral shape, AX₄, ideal angle 109.5°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="54.7" y1="59.7" x2="39.1" y2="70.6"/><polygon class="sv-wedge" points="65.3,59.7 83.3,67.2 78.5,74.1"/><line class="sv-dash" x1="66.8" y1="49.6" x2="68.4" y2="51.8"/><line class="sv-dash" x1="69.4" y1="46.9" x2="71.7" y2="50.3"/><line class="sv-dash" x1="72.0" y1="44.3" x2="75.1" y2="48.7"/><line class="sv-dash" x1="74.5" y1="41.7" x2="78.4" y2="47.2"/><line class="sv-dash" x1="77.1" y1="39.1" x2="81.7" y2="45.7"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="33.0" cy="74.9" r="8.5"/><circle class="sv-atom" cx="87.0" cy="74.9" r="8.5"/><circle class="sv-atom" cx="87.0" cy="37.1" r="8.5"/></svg><div class="vs-name">Tetrahedral</div><div class="vs-meta"><span class="vs-axe">AX₄</span> &middot; 109.5°</div><div class="vs-ex">CH₄, NH₄⁺</div></div>
+<div class="vs-cell vs-lp1"><svg viewBox="0 0 120 110" role="img" aria-label="Trigonal pyramidal shape, AX₃E, ideal angle ~107°"><line class="sv-bond" x1="54.7" y1="59.7" x2="39.1" y2="70.6"/><polygon class="sv-wedge" points="65.3,59.7 83.3,67.2 78.5,74.1"/><line class="sv-dash" x1="66.8" y1="49.6" x2="68.4" y2="51.8"/><line class="sv-dash" x1="69.4" y1="46.9" x2="71.7" y2="50.3"/><line class="sv-dash" x1="72.0" y1="44.3" x2="75.1" y2="48.7"/><line class="sv-dash" x1="74.5" y1="41.7" x2="78.4" y2="47.2"/><line class="sv-dash" x1="77.1" y1="39.1" x2="81.7" y2="45.7"/><ellipse class="sv-lp" cx="60.0" cy="32.0" rx="12" ry="7.5" transform="rotate(-90 60.0 32.0)"/><circle class="sv-dot" cx="60.0" cy="36.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="28.0" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="33.0" cy="74.9" r="8.5"/><circle class="sv-atom" cx="87.0" cy="74.9" r="8.5"/><circle class="sv-atom" cx="87.0" cy="37.1" r="8.5"/></svg><div class="vs-name">Trigonal pyramidal</div><div class="vs-meta"><span class="vs-axe">AX₃E</span> &middot; ~107°</div><div class="vs-ex">NH₃, PCl₃</div></div>
+<div class="vs-cell vs-lp2"><svg viewBox="0 0 120 110" role="img" aria-label="Bent shape, AX₂E₂, ideal angle ~104.5°"><line class="sv-bond" x1="54.7" y1="59.7" x2="39.1" y2="70.6"/><line class="sv-bond" x1="65.3" y1="59.7" x2="80.9" y2="70.6"/><ellipse class="sv-lp" cx="73.8" cy="36.3" rx="12" ry="7.5" transform="rotate(-55 73.8 36.3)"/><circle class="sv-dot" cx="71.5" cy="39.6" r="1.9"/><circle class="sv-dot" cx="76.1" cy="33.1" r="1.9"/><ellipse class="sv-lp" cx="46.2" cy="36.3" rx="12" ry="7.5" transform="rotate(-125 46.2 36.3)"/><circle class="sv-dot" cx="48.5" cy="39.6" r="1.9"/><circle class="sv-dot" cx="43.9" cy="33.1" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="33.0" cy="74.9" r="8.5"/><circle class="sv-atom" cx="87.0" cy="74.9" r="8.5"/></svg><div class="vs-name">Bent</div><div class="vs-meta"><span class="vs-axe">AX₂E₂</span> &middot; ~104.5°</div><div class="vs-ex">H₂O, H₂S</div></div>
+<div class="vs-empty"></div>
+<div class="vs-rowhead"><b>5</b><span>electron groups</span><em>trigonal bipyramidal</em></div>
+<div class="vs-cell vs-lp0"><svg viewBox="0 0 120 110" role="img" aria-label="Trigonal bipyramidal shape, AX₅, ideal angle 90° / 120°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="60.0" y1="62.5" x2="60.0" y2="81.5"/><line class="sv-bond" x1="53.5" y1="56.0" x2="34.5" y2="56.0"/><polygon class="sv-wedge" points="65.9,58.7 84.9,63.0 81.3,70.6"/><line class="sv-dash" x1="67.9" y1="50.9" x2="69.0" y2="53.3"/><line class="sv-dash" x1="70.8" y1="48.7" x2="72.5" y2="52.4"/><line class="sv-dash" x1="73.8" y1="46.6" x2="76.1" y2="51.5"/><line class="sv-dash" x1="76.8" y1="44.4" x2="79.6" y2="50.6"/><line class="sv-dash" x1="79.8" y1="42.3" x2="83.2" y2="49.7"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="60.0" cy="89.0" r="8.5"/><circle class="sv-atom" cx="27.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="89.9" cy="69.9" r="8.5"/><circle class="sv-atom" cx="89.9" cy="42.1" r="8.5"/></svg><div class="vs-name">Trigonal bipyramidal</div><div class="vs-meta"><span class="vs-axe">AX₅</span> &middot; 90° / 120°</div><div class="vs-ex">PCl₅, PF₅</div></div>
+<div class="vs-cell vs-lp1"><svg viewBox="0 0 120 110" role="img" aria-label="See-saw shape, AX₄E, ideal angle less than 90° / less than 120°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="60.0" y1="62.5" x2="60.0" y2="81.5"/><polygon class="sv-wedge" points="65.9,58.7 84.9,63.0 81.3,70.6"/><line class="sv-dash" x1="67.9" y1="50.9" x2="69.0" y2="53.3"/><line class="sv-dash" x1="70.8" y1="48.7" x2="72.5" y2="52.4"/><line class="sv-dash" x1="73.8" y1="46.6" x2="76.1" y2="51.5"/><line class="sv-dash" x1="76.8" y1="44.4" x2="79.6" y2="50.6"/><line class="sv-dash" x1="79.8" y1="42.3" x2="83.2" y2="49.7"/><ellipse class="sv-lp" cx="36.0" cy="56.0" rx="12" ry="7.5" transform="rotate(-180 36.0 56.0)"/><circle class="sv-dot" cx="40.0" cy="56.0" r="1.9"/><circle class="sv-dot" cx="32.0" cy="56.0" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="60.0" cy="89.0" r="8.5"/><circle class="sv-atom" cx="89.9" cy="69.9" r="8.5"/><circle class="sv-atom" cx="89.9" cy="42.1" r="8.5"/></svg><div class="vs-name">See-saw</div><div class="vs-meta"><span class="vs-axe">AX₄E</span> &middot; &lt;90° / &lt;120°</div><div class="vs-ex">SF₄</div></div>
+<div class="vs-cell vs-lp2"><svg viewBox="0 0 120 110" role="img" aria-label="T-shaped shape, AX₃E₂, ideal angle less than 90°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="60.0" y1="62.5" x2="60.0" y2="81.5"/><line class="sv-bond" x1="53.5" y1="56.0" x2="34.5" y2="56.0"/><ellipse class="sv-lp" cx="81.8" cy="66.1" rx="12" ry="7.5" transform="rotate(-335 81.8 66.1)"/><circle class="sv-dot" cx="78.1" cy="64.5" r="1.9"/><circle class="sv-dot" cx="85.4" cy="67.8" r="1.9"/><ellipse class="sv-lp" cx="81.8" cy="45.9" rx="12" ry="7.5" transform="rotate(-25 81.8 45.9)"/><circle class="sv-dot" cx="78.1" cy="47.5" r="1.9"/><circle class="sv-dot" cx="85.4" cy="44.2" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="60.0" cy="89.0" r="8.5"/><circle class="sv-atom" cx="27.0" cy="56.0" r="8.5"/></svg><div class="vs-name">T-shaped</div><div class="vs-meta"><span class="vs-axe">AX₃E₂</span> &middot; &lt;90°</div><div class="vs-ex">ClF₃, BrF₃</div></div>
+<div class="vs-cell vs-lp3"><svg viewBox="0 0 120 110" role="img" aria-label="Linear shape, AX₂E₃, ideal angle 180°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="60.0" y1="62.5" x2="60.0" y2="81.5"/><ellipse class="sv-lp" cx="36.0" cy="56.0" rx="12" ry="7.5" transform="rotate(-180 36.0 56.0)"/><circle class="sv-dot" cx="40.0" cy="56.0" r="1.9"/><circle class="sv-dot" cx="32.0" cy="56.0" r="1.9"/><ellipse class="sv-lp" cx="81.8" cy="66.1" rx="12" ry="7.5" transform="rotate(-335 81.8 66.1)"/><circle class="sv-dot" cx="78.1" cy="64.5" r="1.9"/><circle class="sv-dot" cx="85.4" cy="67.8" r="1.9"/><ellipse class="sv-lp" cx="81.8" cy="45.9" rx="12" ry="7.5" transform="rotate(-25 81.8 45.9)"/><circle class="sv-dot" cx="78.1" cy="47.5" r="1.9"/><circle class="sv-dot" cx="85.4" cy="44.2" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="60.0" cy="89.0" r="8.5"/></svg><div class="vs-name">Linear</div><div class="vs-meta"><span class="vs-axe">AX₂E₃</span> &middot; 180°</div><div class="vs-ex">XeF₂, I₃⁻</div></div>
+<div class="vs-rowhead"><b>6</b><span>electron groups</span><em>octahedral</em></div>
+<div class="vs-cell vs-lp0"><svg viewBox="0 0 120 110" role="img" aria-label="Octahedral shape, AX₆, ideal angle 90°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="60.0" y1="62.5" x2="60.0" y2="81.5"/><line class="sv-bond" x1="53.5" y1="56.0" x2="34.5" y2="56.0"/><line class="sv-bond" x1="66.5" y1="56.0" x2="85.5" y2="56.0"/><polygon class="sv-wedge" points="55.4,60.6 44.9,77.0 39.0,71.1"/><line class="sv-dash" x1="65.6" y1="48.5" x2="67.5" y2="50.4"/><line class="sv-dash" x1="67.7" y1="45.4" x2="70.6" y2="48.3"/><line class="sv-dash" x1="69.8" y1="42.4" x2="73.6" y2="46.2"/><line class="sv-dash" x1="71.8" y1="39.4" x2="76.6" y2="44.2"/><line class="sv-dash" x1="73.9" y1="36.4" x2="79.6" y2="42.1"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="60.0" cy="89.0" r="8.5"/><circle class="sv-atom" cx="27.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="93.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="36.7" cy="79.3" r="8.5"/><circle class="sv-atom" cx="83.3" cy="32.7" r="8.5"/></svg><div class="vs-name">Octahedral</div><div class="vs-meta"><span class="vs-axe">AX₆</span> &middot; 90°</div><div class="vs-ex">SF₆, PF₆⁻</div></div>
+<div class="vs-cell vs-lp1"><svg viewBox="0 0 120 110" role="img" aria-label="Square pyramidal shape, AX₅E, ideal angle less than 90°"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="53.5" y1="56.0" x2="34.5" y2="56.0"/><line class="sv-bond" x1="66.5" y1="56.0" x2="85.5" y2="56.0"/><polygon class="sv-wedge" points="55.4,60.6 44.9,77.0 39.0,71.1"/><line class="sv-dash" x1="65.6" y1="48.5" x2="67.5" y2="50.4"/><line class="sv-dash" x1="67.7" y1="45.4" x2="70.6" y2="48.3"/><line class="sv-dash" x1="69.8" y1="42.4" x2="73.6" y2="46.2"/><line class="sv-dash" x1="71.8" y1="39.4" x2="76.6" y2="44.2"/><line class="sv-dash" x1="73.9" y1="36.4" x2="79.6" y2="42.1"/><ellipse class="sv-lp" cx="60.0" cy="80.0" rx="12" ry="7.5" transform="rotate(-270 60.0 80.0)"/><circle class="sv-dot" cx="60.0" cy="76.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="84.0" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><circle class="sv-atom" cx="27.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="93.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="36.7" cy="79.3" r="8.5"/><circle class="sv-atom" cx="83.3" cy="32.7" r="8.5"/></svg><div class="vs-name">Square pyramidal</div><div class="vs-meta"><span class="vs-axe">AX₅E</span> &middot; &lt;90°</div><div class="vs-ex">BrF₅, IF₅</div></div>
+<div class="vs-cell vs-lp2"><svg viewBox="0 0 120 110" role="img" aria-label="Square planar shape, AX₄E₂, ideal angle 90°"><line class="sv-bond" x1="53.5" y1="56.0" x2="34.5" y2="56.0"/><line class="sv-bond" x1="66.5" y1="56.0" x2="85.5" y2="56.0"/><polygon class="sv-wedge" points="55.4,60.6 44.9,77.0 39.0,71.1"/><line class="sv-dash" x1="65.6" y1="48.5" x2="67.5" y2="50.4"/><line class="sv-dash" x1="67.7" y1="45.4" x2="70.6" y2="48.3"/><line class="sv-dash" x1="69.8" y1="42.4" x2="73.6" y2="46.2"/><line class="sv-dash" x1="71.8" y1="39.4" x2="76.6" y2="44.2"/><line class="sv-dash" x1="73.9" y1="36.4" x2="79.6" y2="42.1"/><ellipse class="sv-lp" cx="60.0" cy="32.0" rx="12" ry="7.5" transform="rotate(-90 60.0 32.0)"/><circle class="sv-dot" cx="60.0" cy="36.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="28.0" r="1.9"/><ellipse class="sv-lp" cx="60.0" cy="80.0" rx="12" ry="7.5" transform="rotate(-270 60.0 80.0)"/><circle class="sv-dot" cx="60.0" cy="76.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="84.0" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="27.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="93.0" cy="56.0" r="8.5"/><circle class="sv-atom" cx="36.7" cy="79.3" r="8.5"/><circle class="sv-atom" cx="83.3" cy="32.7" r="8.5"/></svg><div class="vs-name">Square planar</div><div class="vs-meta"><span class="vs-axe">AX₄E₂</span> &middot; 90°</div><div class="vs-ex">XeF₄, ICl₄⁻</div></div>
+<div class="vs-empty"></div>
+</div>
+        </div>
+        <figcaption>Scroll sideways on a phone. Example molecules are standard textbook ones (the lecture shows generic A/X/E drawings only). Angles are ideal values; real angles come out slightly smaller with lone pairs (see the squeeze section).</figcaption>
+      </figure>
+
+      <div class="box cheat" style="--c:var(--unit-covalent)">
+        <div class="box-head">Cheat code &middot; memorize it in one minute</div>
+        <ul class="cc-list">
+          <li><b>Left column (no lone pairs) &mdash; five names, learn these first:</b> linear &middot; trigonal planar &middot; tetrahedral &middot; trigonal bipyramidal &middot; octahedral (= 2, 3, 4, 5, 6 groups).</li>
+          <li><b>Every other cell is the parent shape with atoms &ldquo;snipped off&rdquo;:</b></li>
+        </ul>
+        <div class="tscroll" style="margin:6px 0 10px">
+          <table class="data">
+            <thead><tr><th>Parent (groups)</th><th>&minus;1 atom</th><th>&minus;2 atoms</th><th>&minus;3 atoms</th></tr></thead>
+            <tbody>
+              <tr><td>Triangle (3)</td><td>bent</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>Tetrahedron (4)</td><td>pyramid</td><td>bent</td><td>&mdash;</td></tr>
+              <tr><td>Bipyramid (5)</td><td>see-saw</td><td>T</td><td>line</td></tr>
+              <tr><td>Octahedron (6)</td><td>square pyramid</td><td>square planar</td><td>&mdash;</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="cc-list">
+          <li><b>Where do the lone pairs go?</b> &ldquo;<b>Five &rarr; equator. Six &rarr; opposite.</b>&rdquo; In a 5-group shape lone pairs take the roomy equatorial spots (the lecture's captions say &ldquo;equatorial&rdquo; for 1, 2, and 3 lone pairs). In a 6-group shape the second lone pair goes directly opposite the first, giving square planar.</li>
+          <li><b>&ldquo;Bent&rdquo; shows up twice</b> (3 groups and 4 groups) and &ldquo;linear&rdquo; shows up twice (2 groups, and 5 groups with 3 lone pairs). Tell them apart by counting groups, not by the name.</li>
+          <li><b>Angle ladder:</b> 180 &middot; 120 &middot; 109.5 &middot; 90/120 &middot; 90 (rows 2 to 6). Every lone pair then shaves a little off.</li>
+        </ul>
+      </div>
+
+      <div class="box def">
+        <div class="box-head">Counting lone pairs quickly (extra shortcut)</div>
+        <p>If the outer atoms are H or halogens (one bond each), then:</p>
+        <div class="eq mono" style="font-weight:600;margin:4px 0 8px">lone pairs on A = (V<sub>eff</sub> &minus; number of X) &divide; 2</div>
+        <p style="margin-bottom:6px"><code>V<sub>eff</sub></code> = valence electrons of A, <em>plus 1 per negative charge, minus 1 per positive charge</em>. Check: NH₃ (5 &minus; 3)/2 = 1 &#10003; &middot; H₂O (6 &minus; 2)/2 = 2 &#10003; &middot; SF₄ (6 &minus; 4)/2 = 1 &#10003; &middot; XeF₂ (8 &minus; 2)/2 = 3 &#10003; &middot; ICl₄⁻ (7 + 1 &minus; 4)/2 = 2 &#10003;.</p>
+        <p class="small" style="margin-bottom:0">For neutral molecules with double-bonded O or S, count each double bond as 2 (SO₂: (6 &minus; 4)/2 = 1). For odd-looking ions, just draw the Lewis structure from Unit 04.</p>
+      </div>
+
+      <h3 class="topic" id="vsepr-lp" style="--c:var(--unit-covalent)">Why lone pairs matter so much</h3>
+      <p>A bonding pair is stretched between <em>two</em> nuclei. A lone pair belongs to <em>one</em> nucleus, so its cloud sits closer in and is fatter. The lecture's wording: <em>&ldquo;Lone pairs are closer and take up more space&rdquo;</em> and they <em>&ldquo;push out&rdquo;</em> the other bonding pairs. The standard way to rank the pushing (extra, not worded on the slides):</p>
+      <div class="box formula-box">
+        <div class="box-head">Repulsion strength</div>
+        <div class="eq">lone pair&ndash;lone pair &nbsp;&gt;&nbsp; lone pair&ndash;bonding pair &nbsp;&gt;&nbsp; bonding pair&ndash;bonding pair</div>
+        <div class="vars">Lone pairs therefore claim the spots where they have the <b>fewest close neighbors</b> at 90°. That is why 5-group shapes put them equatorial (an equatorial spot has two 90° neighbors; an axial spot has three), and why the second lone pair in an octahedron sits opposite the first (180° apart, no 90° contact at all).</div>
+      </div>
+
+      <h3 class="topic" id="vsepr-squeeze" style="--c:var(--unit-covalent)">The squeeze: why 109.5° becomes 107° and 104.5°</h3>
+      <p>Take the tetrahedron (ideal 109.5°) and swap bonds for lone pairs, keeping 4 groups. Each fat lone pair presses the remaining bonds closer together:</p>
+      <figure>
+        <div class="gp-row sq-row"><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="CH₄ bond angle 109.5°"><line class="sv-bond" x1="54.7" y1="59.8" x2="39.2" y2="70.7"/><line class="sv-bond" x1="65.3" y1="59.8" x2="80.8" y2="70.7"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="33.1" cy="75.0" r="8.5"/><circle class="sv-atom" cx="86.9" cy="75.0" r="8.5"/><path class="sv-arc" d="M45.5,68.3 A19,19 0 0 1 74.5,68.3"/></svg><div class="vs-name">CH₄</div><div class="sq-ang">109.5°</div><div class="vs-meta">no lone pair</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="NH₃ bond angle 107°"><line class="sv-ghost" x1="60" y1="56" x2="33.1" y2="75.0"/><line class="sv-ghost" x1="60" y1="56" x2="86.9" y2="75.0"/><line class="sv-bond" x1="55.0" y1="60.2" x2="40.5" y2="72.5"/><line class="sv-bond" x1="65.0" y1="60.2" x2="79.5" y2="72.5"/><ellipse class="sv-lp" cx="60.0" cy="32.0" rx="12" ry="7.5" transform="rotate(-90 60.0 32.0)"/><circle class="sv-dot" cx="60.0" cy="36.0" r="1.9"/><circle class="sv-dot" cx="60.0" cy="28.0" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="34.8" cy="77.3" r="8.5"/><circle class="sv-atom" cx="85.2" cy="77.3" r="8.5"/><path class="sv-arc" d="M46.6,69.5 A19,19 0 0 1 73.4,69.5"/></svg><div class="vs-name">NH₃</div><div class="sq-ang">107°</div><div class="vs-meta">1 lone pair</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="H₂O bond angle 104.5°"><line class="sv-ghost" x1="60" y1="56" x2="33.1" y2="75.0"/><line class="sv-ghost" x1="60" y1="56" x2="86.9" y2="75.0"/><line class="sv-bond" x1="55.4" y1="60.6" x2="42.0" y2="74.1"/><line class="sv-bond" x1="64.6" y1="60.6" x2="78.0" y2="74.1"/><ellipse class="sv-lp" cx="73.8" cy="36.3" rx="12" ry="7.5" transform="rotate(-55 73.8 36.3)"/><circle class="sv-dot" cx="71.5" cy="39.6" r="1.9"/><circle class="sv-dot" cx="76.1" cy="33.1" r="1.9"/><ellipse class="sv-lp" cx="46.2" cy="36.3" rx="12" ry="7.5" transform="rotate(-125 46.2 36.3)"/><circle class="sv-dot" cx="48.5" cy="39.6" r="1.9"/><circle class="sv-dot" cx="43.9" cy="33.1" r="1.9"/><circle class="sv-center" cx="60" cy="56" r="6.5"/><circle class="sv-atom" cx="36.8" cy="79.4" r="8.5"/><circle class="sv-atom" cx="83.2" cy="79.4" r="8.5"/><path class="sv-arc" d="M47.9,70.6 A19,19 0 0 1 72.1,70.6"/></svg><div class="vs-name">H₂O</div><div class="sq-ang">104.5°</div><div class="vs-meta">2 lone pairs</div></div></div>
+        <figcaption>Same four-group parent shape, one more lone pair each step, and the H&ndash;X&ndash;H angle drops. (Drawn schematically with the squeeze exaggerated 4&times; so you can see it &mdash; the true differences are only 2.5° and 5°. Dashed lines = the undistorted 109.5° positions.)</figcaption>
+      </figure>
+      <p><strong>Double bonds do it too.</strong> The lecture's second picture is formaldehyde, H₂C=O: the C=O double bond is &ldquo;more voluminous&rdquo; than a single bond and pushes the two C&ndash;H bonds together, so the H&ndash;C&ndash;H angle is <strong>116.5°</strong> instead of 120°. Same story for the bent sulfur molecule S₃ (117.36°, under 120°).</p>
+      <div class="box trap">
+        <div class="box-head">Trap: the lecture's &ldquo;&lt;180°&rdquo; and &ldquo;&lt;120°&rdquo;</div>
+        <p style="margin-bottom:0">On the AX<sub>m</sub>E<sub>n</sub> slide the lecture writes <b>&lt;180°</b> for bent AX₂E and <b>&lt;120°</b> for pyramidal AX₃E. Those are true but loose. The tighter values are <b>&lt;120°</b> for AX₂E (SO₂ &asymp; 119°) and <b>&lt;109.5°</b> for AX₃E (NH₃ = 107°). If an exam asks for the angle, give the tight one and mention the parent shape.</p>
+      </div>
+
+      <h3 class="topic" id="polarity" style="--c:var(--unit-covalent)">Shape decides polarity: add the arrows</h3>
+      <p>A polar bond has a slightly positive end and a slightly negative end. Draw it as an arrow with a small <b>cross on the positive end</b> and the <b>arrowhead on the negative end</b> (the lecture's convention) &mdash; so the arrow points toward the <em>more electronegative</em> atom. A whole molecule's polarity is just <strong>all its bond arrows added as vectors</strong> (L11 slide 13). If they cancel, the molecule is nonpolar even though every bond in it is polar.</p>
+      <figure>
+        <div class="gp-row dp-row"><div class="gp-cell dp-cell dp-zero"><svg viewBox="0 0 120 110" role="img" aria-label="CO₂: cancel → nonpolar"><line class="sv-bond" x1="53.5" y1="56.0" x2="34.5" y2="56.0"/><line class="sv-bond" x1="66.5" y1="56.0" x2="85.5" y2="56.0"/><line class="sv-bd" x1="47.0" y1="61.5" x2="40.0" y2="61.5"/><polygon class="sv-bd-h" points="35.0,61.5 42.0,57.9 42.0,65.1"/><line class="sv-bd" x1="73.0" y1="50.5" x2="80.0" y2="50.5"/><polygon class="sv-bd-h" points="85.0,50.5 78.0,54.1 78.0,46.9"/><circle class="sv-ctr" cx="60" cy="56" r="9"/><text class="sv-txt-w" x="60.0" y="59.2" text-anchor="middle">C</text><circle class="sv-atom" cx="27.0" cy="56.0" r="8.5"/><text class="sv-txt-w" x="27.0" y="59.2" text-anchor="middle">O</text><circle class="sv-atom" cx="93.0" cy="56.0" r="8.5"/><text class="sv-txt-w" x="93.0" y="59.2" text-anchor="middle">O</text></svg><div class="vs-name">CO₂</div><div class="vs-meta">linear</div><div class="dp-verdict">cancel → nonpolar</div></div><div class="gp-cell dp-cell dp-zero"><svg viewBox="0 0 120 110" role="img" aria-label="BF₃: cancel → nonpolar"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="54.4" y1="59.2" x2="37.9" y2="68.8"/><line class="sv-bond" x1="65.6" y1="59.2" x2="82.1" y2="68.8"/><line class="sv-bd" x1="54.5" y1="43.0" x2="54.5" y2="36.0"/><polygon class="sv-bd-h" points="54.5,31.0 58.1,38.0 50.9,38.0"/><line class="sv-bd" x1="51.5" y1="67.3" x2="45.4" y2="70.8"/><polygon class="sv-bd-h" points="41.1,73.3 45.4,66.6 49.0,72.9"/><line class="sv-bd" x1="74.0" y1="57.7" x2="80.1" y2="61.2"/><polygon class="sv-bd-h" points="84.4,63.7 76.5,63.4 80.1,57.1"/><circle class="sv-ctr" cx="60" cy="56" r="9"/><text class="sv-txt-w" x="60.0" y="59.2" text-anchor="middle">B</text><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><text class="sv-txt-w" x="60.0" y="26.2" text-anchor="middle">F</text><circle class="sv-atom" cx="31.4" cy="72.5" r="8.5"/><text class="sv-txt-w" x="31.4" y="75.7" text-anchor="middle">F</text><circle class="sv-atom" cx="88.6" cy="72.5" r="8.5"/><text class="sv-txt-w" x="88.6" y="75.7" text-anchor="middle">F</text></svg><div class="vs-name">BF₃</div><div class="vs-meta">trigonal planar</div><div class="dp-verdict">cancel → nonpolar</div></div><div class="gp-cell dp-cell dp-zero"><svg viewBox="0 0 120 110" role="img" aria-label="CCl₄: cancel → nonpolar"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="54.7" y1="59.7" x2="39.1" y2="70.6"/><polygon class="sv-wedge" points="65.3,59.7 83.3,67.2 78.5,74.1"/><line class="sv-dash" x1="66.8" y1="49.6" x2="68.4" y2="51.8"/><line class="sv-dash" x1="69.4" y1="46.9" x2="71.7" y2="50.3"/><line class="sv-dash" x1="72.0" y1="44.3" x2="75.1" y2="48.7"/><line class="sv-dash" x1="74.5" y1="41.7" x2="78.4" y2="47.2"/><line class="sv-dash" x1="77.1" y1="39.1" x2="81.7" y2="45.7"/><line class="sv-bd" x1="54.5" y1="43.0" x2="54.5" y2="36.0"/><polygon class="sv-bd-h" points="54.5,31.0 58.1,38.0 50.9,38.0"/><line class="sv-bd" x1="52.5" y1="68.0" x2="46.8" y2="72.0"/><polygon class="sv-bd-h" points="42.7,74.8 46.3,67.9 50.5,73.8"/><line class="sv-bd" x1="73.8" y1="59.0" x2="79.5" y2="63.0"/><polygon class="sv-bd-h" points="83.6,65.8 75.8,64.8 80.0,58.9"/><line class="sv-bd" x1="67.5" y1="44.0" x2="73.2" y2="40.0"/><polygon class="sv-bd-h" points="77.3,37.2 73.7,44.1 69.5,38.2"/><circle class="sv-ctr" cx="60" cy="56" r="9"/><text class="sv-txt-w" x="60.0" y="59.2" text-anchor="middle">C</text><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><text class="sv-txt-w" x="60.0" y="26.2" text-anchor="middle">Cl</text><circle class="sv-atom" cx="33.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="33.0" y="78.1" text-anchor="middle">Cl</text><circle class="sv-atom" cx="87.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="87.0" y="78.1" text-anchor="middle">Cl</text><circle class="sv-atom" cx="87.0" cy="37.1" r="8.5"/><text class="sv-txt-w" x="87.0" y="40.3" text-anchor="middle">Cl</text></svg><div class="vs-name">CCl₄</div><div class="vs-meta">tetrahedral</div><div class="dp-verdict">cancel → nonpolar</div></div><div class="gp-cell dp-cell dp-net"><svg viewBox="0 0 120 110" role="img" aria-label="H₂O: add up → polar"><line class="sv-bond" x1="54.7" y1="59.7" x2="39.1" y2="70.6"/><line class="sv-bond" x1="65.3" y1="59.7" x2="80.9" y2="70.6"/><line class="sv-bd" x1="42.7" y1="74.8" x2="48.4" y2="70.8"/><polygon class="sv-bd-h" points="52.5,68.0 48.8,74.9 44.7,69.0"/><line class="sv-bd" x1="83.6" y1="65.8" x2="77.9" y2="61.8"/><polygon class="sv-bd-h" points="73.8,59.0 81.6,60.0 77.5,65.9"/><circle class="sv-ctr" cx="60" cy="56" r="9"/><text class="sv-txt-w" x="60.0" y="59.2" text-anchor="middle">O</text><circle class="sv-atom" cx="33.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="33.0" y="78.1" text-anchor="middle">H</text><circle class="sv-atom" cx="87.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="87.0" y="78.1" text-anchor="middle">H</text><line class="sv-net" x1="60.0" y1="47.0" x2="60.0" y2="15.0"/><polygon class="sv-net-h" points="60.0,10.0 63.6,17.0 56.4,17.0"/></svg><div class="vs-name">H₂O</div><div class="vs-meta">bent</div><div class="dp-verdict">add up → polar</div></div><div class="gp-cell dp-cell dp-net"><svg viewBox="0 0 120 110" role="img" aria-label="NH₃: add up → polar"><line class="sv-bond" x1="54.7" y1="59.7" x2="39.1" y2="70.6"/><polygon class="sv-wedge" points="65.3,59.7 83.3,67.2 78.5,74.1"/><line class="sv-dash" x1="66.8" y1="49.6" x2="68.4" y2="51.8"/><line class="sv-dash" x1="69.4" y1="46.9" x2="71.7" y2="50.3"/><line class="sv-dash" x1="72.0" y1="44.3" x2="75.1" y2="48.7"/><line class="sv-dash" x1="74.5" y1="41.7" x2="78.4" y2="47.2"/><line class="sv-dash" x1="77.1" y1="39.1" x2="81.7" y2="45.7"/><line class="sv-bd" x1="42.7" y1="74.8" x2="48.4" y2="70.8"/><polygon class="sv-bd-h" points="52.5,68.0 48.8,74.9 44.7,69.0"/><line class="sv-bd" x1="83.6" y1="65.8" x2="77.9" y2="61.8"/><polygon class="sv-bd-h" points="73.8,59.0 81.6,60.0 77.5,65.9"/><line class="sv-bd" x1="77.3" y1="37.2" x2="71.6" y2="41.2"/><polygon class="sv-bd-h" points="67.5,44.0 71.2,37.1 75.3,43.0"/><circle class="sv-ctr" cx="60" cy="56" r="9"/><text class="sv-txt-w" x="60.0" y="59.2" text-anchor="middle">N</text><circle class="sv-atom" cx="33.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="33.0" y="78.1" text-anchor="middle">H</text><circle class="sv-atom" cx="87.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="87.0" y="78.1" text-anchor="middle">H</text><circle class="sv-atom" cx="87.0" cy="37.1" r="8.5"/><text class="sv-txt-w" x="87.0" y="40.3" text-anchor="middle">H</text><line class="sv-net" x1="60.0" y1="47.0" x2="60.0" y2="15.0"/><polygon class="sv-net-h" points="60.0,10.0 63.6,17.0 56.4,17.0"/></svg><div class="vs-name">NH₃</div><div class="vs-meta">trigonal pyramidal</div><div class="dp-verdict">add up → polar</div></div><div class="gp-cell dp-cell dp-net"><svg viewBox="0 0 120 110" role="img" aria-label="CHCl₃: add up → polar"><line class="sv-bond" x1="60.0" y1="49.5" x2="60.0" y2="30.5"/><line class="sv-bond" x1="54.7" y1="59.7" x2="39.1" y2="70.6"/><polygon class="sv-wedge" points="65.3,59.7 83.3,67.2 78.5,74.1"/><line class="sv-dash" x1="66.8" y1="49.6" x2="68.4" y2="51.8"/><line class="sv-dash" x1="69.4" y1="46.9" x2="71.7" y2="50.3"/><line class="sv-dash" x1="72.0" y1="44.3" x2="75.1" y2="48.7"/><line class="sv-dash" x1="74.5" y1="41.7" x2="78.4" y2="47.2"/><line class="sv-dash" x1="77.1" y1="39.1" x2="81.7" y2="45.7"/><line class="sv-bd" x1="54.5" y1="31.0" x2="54.5" y2="38.0"/><polygon class="sv-bd-h" points="54.5,43.0 50.9,36.0 58.1,36.0"/><line class="sv-bd" x1="52.5" y1="68.0" x2="46.8" y2="72.0"/><polygon class="sv-bd-h" points="42.7,74.8 46.3,67.9 50.5,73.8"/><line class="sv-bd" x1="73.8" y1="59.0" x2="79.5" y2="63.0"/><polygon class="sv-bd-h" points="83.6,65.8 75.8,64.8 80.0,58.9"/><line class="sv-bd" x1="67.5" y1="44.0" x2="73.2" y2="40.0"/><polygon class="sv-bd-h" points="77.3,37.2 73.7,44.1 69.5,38.2"/><circle class="sv-ctr" cx="60" cy="56" r="9"/><text class="sv-txt-w" x="60.0" y="59.2" text-anchor="middle">C</text><circle class="sv-atom" cx="60.0" cy="23.0" r="8.5"/><text class="sv-txt-w" x="60.0" y="26.2" text-anchor="middle">H</text><circle class="sv-atom" cx="33.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="33.0" y="78.1" text-anchor="middle">Cl</text><circle class="sv-atom" cx="87.0" cy="74.9" r="8.5"/><text class="sv-txt-w" x="87.0" y="78.1" text-anchor="middle">Cl</text><circle class="sv-atom" cx="87.0" cy="37.1" r="8.5"/><text class="sv-txt-w" x="87.0" y="40.3" text-anchor="middle">Cl</text><line class="sv-net" x1="60.0" y1="65.0" x2="60.0" y2="97.0"/><polygon class="sv-net-h" points="60.0,102.0 56.4,95.0 63.6,95.0"/></svg><div class="vs-name">CHCl₃</div><div class="vs-meta">tetrahedral, but not identical</div><div class="dp-verdict">add up → polar</div></div></div>
+        <figcaption>Brown arrows = bond dipoles (pointing at the more electronegative atom). Teal arrow = the net molecular dipole. CO₂, BF₃ and CCl₄ are perfectly symmetric, so everything cancels. H₂O, NH₃ and CHCl₃ are lopsided, so a net dipole survives. The lecture's full row also shows HCl and CH₂O (polar) and PF₅ and SF₆ (nonpolar).</figcaption>
+      </figure>
+      <div class="box cheat" style="--c:var(--unit-covalent)">
+        <div class="box-head">Cheat code &middot; polar or nonpolar in 5 seconds</div>
+        <ul class="cc-list" style="margin-bottom:0">
+          <li>Zero-lone-pair column <b>and</b> all outer atoms identical &rarr; arrows cancel &rarr; <b>nonpolar</b> (CO₂, BF₃, CCl₄, PF₅, SF₆).</li>
+          <li>A lone pair on the center, or different outer atoms (CHCl₃) &rarr; <b>polar</b>.</li>
+          <li>Extra (standard, not on the slides): two lone-pair shapes are secretly symmetric, so they also cancel &mdash; <b>linear AX₂E₃</b> (XeF₂) and <b>square planar AX₄E₂</b> (XeF₄).</li>
+        </ul>
+      </div>
+      <div class="box trap">
+        <div class="box-head">Trap: polar bonds &ne; polar molecule</div>
+        <p style="margin-bottom:0">CO₂ has two very polar C=O bonds and is nonpolar overall. Always <em>draw the shape first</em>, then add the arrows.</p>
+      </div>
+
+      <h3 class="topic" id="vsepr-practice" style="--c:var(--unit-covalent)">Practice: fifteen molecules, fully worked</h3>
+      <p>Cover the right-hand columns and try to fill them in yourself. (The &ldquo;hybrid&rdquo; column previews Unit 06: hybrid orbitals = groups.)</p>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Molecule</th><th>Groups</th><th>Lone pairs</th><th>AXE</th><th class="wrap">Shape</th><th class="wrap">Ideal / real angle</th><th>Polar?</th><th>Hybrid</th></tr></thead>
+          <tbody>
+            <tr><td>CO₂</td><td>2</td><td>0</td><td>AX₂</td><td class="wrap">Linear</td><td class="wrap">180°</td><td>No</td><td>sp</td></tr>
+            <tr><td>BF₃</td><td>3</td><td>0</td><td>AX₃</td><td class="wrap">Trigonal planar</td><td class="wrap">120°</td><td>No</td><td>sp²</td></tr>
+            <tr><td>H₂C=O</td><td>3</td><td>0</td><td>AX₃</td><td class="wrap">Trigonal planar</td><td class="wrap">120° ideal; H&ndash;C&ndash;H = 116.5°</td><td>Yes</td><td>sp²</td></tr>
+            <tr><td>SO₂</td><td>3</td><td>1</td><td>AX₂E</td><td class="wrap">Bent</td><td class="wrap">&lt;120° (&asymp;119°)</td><td>Yes</td><td>sp²</td></tr>
+            <tr><td>CH₄</td><td>4</td><td>0</td><td>AX₄</td><td class="wrap">Tetrahedral</td><td class="wrap">109.5°</td><td>No</td><td>sp³</td></tr>
+            <tr><td>CHCl₃</td><td>4</td><td>0</td><td>AX₄</td><td class="wrap">Tetrahedral (outer atoms differ)</td><td class="wrap">&asymp;109.5°</td><td>Yes</td><td>sp³</td></tr>
+            <tr><td>NH₃</td><td>4</td><td>1</td><td>AX₃E</td><td class="wrap">Trigonal pyramidal</td><td class="wrap">&lt;109.5° (107°)</td><td>Yes</td><td>sp³</td></tr>
+            <tr><td>H₂O</td><td>4</td><td>2</td><td>AX₂E₂</td><td class="wrap">Bent</td><td class="wrap">&lt;109.5° (104.5°)</td><td>Yes</td><td>sp³</td></tr>
+            <tr><td>PCl₅</td><td>5</td><td>0</td><td>AX₅</td><td class="wrap">Trigonal bipyramidal</td><td class="wrap">90° and 120°</td><td>No</td><td>sp³d</td></tr>
+            <tr><td>SF₄</td><td>5</td><td>1</td><td>AX₄E</td><td class="wrap">See-saw</td><td class="wrap">&lt;90° and &lt;120°</td><td>Yes</td><td>sp³d</td></tr>
+            <tr><td>ClF₃</td><td>5</td><td>2</td><td>AX₃E₂</td><td class="wrap">T-shaped</td><td class="wrap">&lt;90° (&asymp;87.5°)</td><td>Yes</td><td>sp³d</td></tr>
+            <tr><td>XeF₂</td><td>5</td><td>3</td><td>AX₂E₃</td><td class="wrap">Linear</td><td class="wrap">180°</td><td>No</td><td>sp³d</td></tr>
+            <tr><td>SF₆</td><td>6</td><td>0</td><td>AX₆</td><td class="wrap">Octahedral</td><td class="wrap">90°</td><td>No</td><td>sp³d²</td></tr>
+            <tr><td>BrF₅</td><td>6</td><td>1</td><td>AX₅E</td><td class="wrap">Square pyramidal</td><td class="wrap">&lt;90°</td><td>Yes</td><td>sp³d²</td></tr>
+            <tr><td>XeF₄</td><td>6</td><td>2</td><td>AX₄E₂</td><td class="wrap">Square planar</td><td class="wrap">90°</td><td>No</td><td>sp³d²</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box example">
+        <div class="box-head">Worked example &mdash; SF₄, start to finish</div>
+        <p class="mono">1. S has 6 valence e⁻; four F atoms use 4 of them in bonds &rarr; 2 e⁻ left = <b>1 lone pair</b>.</p>
+        <p class="mono">2. Groups = 4 atoms + 1 lone pair = <b>5</b> &rarr; parent shape: trigonal bipyramid.</p>
+        <p class="mono">3. One lone pair goes <b>equatorial</b>; name the shape by the 4 atoms left: <b>see-saw (AX₄E)</b>.</p>
+        <p class="mono" style="margin-bottom:0">4. Lopsided and has a lone pair &rarr; <b>polar</b>. Hybrid = 5 groups &rarr; <b>sp³d</b>.</p>
+      </div>
+      <div class="box example">
+        <div class="box-head">Worked example &mdash; ICl₄⁻ (a trap with a charge)</div>
+        <p class="mono">1. I has 7 e⁻, plus 1 for the negative charge = 8; four Cl bonds use 4 &rarr; 4 left = <b>2 lone pairs</b>.</p>
+        <p class="mono">2. Groups = 4 + 2 = <b>6</b> &rarr; parent shape: octahedron.</p>
+        <p class="mono">3. The two lone pairs go <b>opposite</b> each other &rarr; the four Cl lie in one plane: <b>square planar</b>.</p>
+        <p class="mono" style="margin-bottom:0">4. Symmetric, so the Cl&ndash;I arrows cancel &rarr; <b>nonpolar</b>; hybrid sp³d².</p>
+      </div>
+      <p><a class="backtop" href="#top">&uarr; back to top</a></p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- UNIT 6 — HYBRIDIZATION & MOLECULAR ORBITALS (L12) -->
+    <!-- ============================================================ -->
+    <section class="unit" id="unit6" style="--c:var(--unit-orbital)">
+      <div class="unit-head">
+        <span class="unit-num">06</span>
+        <h2>Orbitals: Hybridization &amp; Molecular Orbitals</h2>
+        <span class="unit-tag">L12</span>
+      </div>
+
+      <p class="lede">Lewis structures and VSEPR are great at <em>what</em> and <em>where</em>, but they treat electrons as dots and ignore the orbitals you met in Unit 01. L12 brings the orbitals back in with two upgraded theories: <strong>valence bond theory</strong> (mix orbitals on <em>one</em> atom) and <strong>molecular orbital (MO) theory</strong> (mix orbitals from <em>two</em> atoms).</p>
+
+      <div class="box analogy">
+        <div class="box-head">Labeling used in this unit</div>
+        <p style="margin-bottom:0">Things that are on the L12 slides are stated plainly. Anything I added from standard chemistry to make the slides easier to understand is tagged <span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> so you know it is not lecture content.</p>
+      </div>
+
+      <h3 class="topic" id="why-more" style="--c:var(--unit-orbital)">What VSEPR can&rsquo;t tell you</h3>
+      <p>The lecture opens with an admission: <em>&ldquo;We have a great theory for molecular shape and dipole but it is missing some fundamental concepts.&rdquo;</em> Two gaps:</p>
+      <ul>
+        <li><b>Bond order.</b> Why is a double bond shorter and stronger than a single bond? VSEPR just counts a double bond as one group and moves on.</li>
+        <li><b>Orbitals.</b> Atomic orbitals have fixed directions &mdash; the three p orbitals point along x, y, and z, exactly <b>90°</b> apart &mdash; yet real molecules show 109.5° and 120°. Something must happen to the orbitals when atoms bond.</li>
+      </ul>
+      <p>A quick reminder of the shapes involved (L12 slide 5): <b>s</b> orbitals are spheres (2s has one node, 3s two); the <b>three p</b> orbitals are dumbbells along x, y, z, each with a nodal plane through the nucleus; the <b>five d</b> orbitals are cloverleaf shapes with nodal planes (3d<sub>z²</sub> is a dumbbell with a ring around the middle).</p>
+
+      <h3 class="topic" id="hybrid" style="--c:var(--unit-orbital)">Valence bond theory: hybridization</h3>
+      <p>The lecture states the key distinction in one sentence (slide 8): <strong>&ldquo;hybridization combines AOs on one atom, while molecular-orbital theory combines AOs from two atoms.&rdquo;</strong> Hybridization is a preparation step on a single atom &mdash; <em>&ldquo;This stage does not make a bond.&rdquo;</em> The atom first blends its s and p (and sometimes d) orbitals into new, identical <b>hybrid orbitals</b> that point where the VSEPR shape needs them; later, those hybrids overlap with orbitals on neighboring atoms to form the bonds.</p>
+      <div class="box analogy">
+        <div class="box-head">Paint-mixing picture</div>
+        <p style="margin-bottom:0">Mix one bucket of s-paint with three buckets of p-paint and you get <em>four identical</em> buckets of &ldquo;sp³&rdquo; paint &mdash; the blend, not the original colors, is what you paint with. <b>The number of hybrids you get always equals the number of orbitals you mixed</b> (n in, n out).</p>
+      </div>
+      <div class="hy-list">
+        <div class="hy-row">
+          <div class="hy-name">sp</div>
+          <div class="hy-body">
+            <span class="hy-grp"><i class="ob use">s</i><i class="ob use">p</i><i class="ob">p</i><i class="ob">p</i></span><span class="hy-arrow">&rarr;</span>
+            <span class="hy-grp"><i class="ob hy">sp</i><i class="ob hy">sp</i><i class="ob un">p</i><i class="ob un">p</i></span>
+            <div class="hy-desc"><b>2 groups &middot; 180° &middot; linear</b> &mdash; the lecture's example: BeH₂ (each H 1s overlaps one lobe of a Be sp hybrid)</div>
+          </div>
+        </div>
+        <div class="hy-row">
+          <div class="hy-name">sp²</div>
+          <div class="hy-body">
+            <span class="hy-grp"><i class="ob use">s</i><i class="ob use">p</i><i class="ob use">p</i><i class="ob">p</i></span><span class="hy-arrow">&rarr;</span>
+            <span class="hy-grp"><i class="ob hy">sp²</i><i class="ob hy">sp²</i><i class="ob hy">sp²</i><i class="ob un">p</i></span>
+            <div class="hy-desc"><b>3 groups &middot; 120° &middot; trigonal planar</b> &mdash; the lecture's example: BX₃ (such as BF₃); 2s + 2p<sub>x</sub> + 2p<sub>y</sub> give three hybrids in one plane</div>
+          </div>
+        </div>
+        <div class="hy-row">
+          <div class="hy-name">sp³</div>
+          <div class="hy-body">
+            <span class="hy-grp"><i class="ob use">s</i><i class="ob use">p</i><i class="ob use">p</i><i class="ob use">p</i></span><span class="hy-arrow">&rarr;</span>
+            <span class="hy-grp"><i class="ob hy">sp³</i><i class="ob hy">sp³</i><i class="ob hy">sp³</i><i class="ob hy">sp³</i></span>
+            <div class="hy-desc"><b>4 groups &middot; 109.5° &middot; tetrahedral</b> &mdash; listed on the lecture's Orbital Studio tool as &ldquo;four directed orbitals&rdquo;</div>
+          </div>
+        </div>
+        <div class="hy-row">
+          <div class="hy-name">sp³d</div>
+          <div class="hy-body">
+            <span class="hy-grp"><i class="ob use">s</i><i class="ob use">p</i><i class="ob use">p</i><i class="ob use">p</i><i class="ob use">d</i></span><span class="hy-arrow">&rarr;</span>
+            <span class="hy-grp"><i class="ob hy">sp³d</i><i class="ob hy">sp³d</i><i class="ob hy">sp³d</i><i class="ob hy">sp³d</i><i class="ob hy">sp³d</i></span>
+            <div class="hy-desc"><b>5 groups &middot; trigonal bipyramidal</b> &mdash; 3s + 3p<sub>x,y,z</sub> + 3d<sub>z²</sub> (&ldquo;three equatorial + two axial&rdquo;)</div>
+          </div>
+        </div>
+        <div class="hy-row">
+          <div class="hy-name">sp³d²</div>
+          <div class="hy-body">
+            <span class="hy-grp"><i class="ob use">s</i><i class="ob use">p</i><i class="ob use">p</i><i class="ob use">p</i><i class="ob use">d</i><i class="ob use">d</i></span><span class="hy-arrow">&rarr;</span>
+            <span class="hy-grp"><i class="ob hy">sp³d²</i><i class="ob hy">sp³d²</i><i class="ob hy">sp³d²</i><i class="ob hy">sp³d²</i><i class="ob hy">sp³d²</i><i class="ob hy">sp³d²</i></span>
+            <div class="hy-desc"><b>6 groups &middot; 90° &middot; octahedral</b> &mdash; adds 3d<sub>x²&minus;y²</sub> (&ldquo;four equatorial + two axial&rdquo;); the valence-bond way to handle hypervalent molecules like SF₆</div>
+          </div>
+        </div>
+      </div>
+      <p class="small">Key: outlined box = an orbital before mixing (highlighted when it is used); pink box = a hybrid; dashed = a leftover unmixed p orbital.</p>
+
+      <div class="box cheat" style="--c:var(--unit-orbital)">
+        <div class="box-head">Cheat code &middot; hybrid = groups</div>
+        <p style="margin-bottom:6px"><b>2 &rarr; sp &nbsp;&middot;&nbsp; 3 &rarr; sp² &nbsp;&middot;&nbsp; 4 &rarr; sp³ &nbsp;&middot;&nbsp; 5 &rarr; sp³d &nbsp;&middot;&nbsp; 6 &rarr; sp³d²</b></p>
+        <p style="margin-bottom:0">Add up the letters&rsquo; exponents: sp³ = 1 s + 3 p = <b>4</b> orbitals = 4 groups; sp³d² = 1 + 3 + 2 = <b>6</b>. So to get a hybridization, just count electron groups from the VSEPR staircase. <span class="small">(The slides show sp through sp³d² and the shapes separately; this pairing is the standard rule and matches both. <span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> Lone pairs sit in hybrids too: N in NH₃ is sp³ &mdash; three hybrids bond, one holds the lone pair.)</span></p>
+      </div>
+      <div class="box trap">
+        <div class="box-head">The lecture&rsquo;s own criticisms of valence bond theory</div>
+        <p style="margin-bottom:0">(1) <b>&ldquo;Why these combinations and not others?&rdquo;</b> (2) <b>&ldquo;Is there evidence for electron &lsquo;promotions&rsquo;?&rdquo;</b> Example: ground-state Be (2s²) has no unpaired electron to bond with, so the hybrid picture quietly assumes one 2s electron is &ldquo;promoted&rdquo; into a 2p orbital before mixing. It works, but it is a bookkeeping device, not something we directly observe.</p>
+      </div>
+
+      <h3 class="topic" id="mo-basics" style="--c:var(--unit-orbital)">Molecular orbitals: mixing orbitals from two atoms</h3>
+      <p>MO theory drops the idea of &ldquo;this bond belongs to this pair&rdquo;. Instead, when two atoms come close, their atomic orbitals overlap and combine into <b>new orbitals that belong to the whole molecule</b>. The combining works like waves, because orbitals <em>are</em> waves:</p>
+      <ul>
+        <li><b>In phase (add):</b> constructive interference &rarr; electron density piles up <em>between</em> the nuclei, which holds them together &rarr; a <b>bonding</b> MO, lower in energy than the starting orbitals.</li>
+        <li><b>Out of phase (subtract):</b> destructive interference &rarr; the wave cancels in the middle, leaving a <b>node</b> (zero density) between the nuclei &rarr; an <b>antibonding</b> MO (marked with an asterisk *), higher in energy.</li>
+      </ul>
+      <div class="box def">
+        <div class="box-head">&ldquo;Phase is not charge&rdquo; (lecture slide 8)</div>
+        <p style="margin-bottom:0">In every orbital picture below, <span style="color:var(--unit-atoms);font-weight:600">blue</span> and <span style="color:var(--warn);font-weight:600">red</span> mark the <em>sign of the wave</em> (+ or &minus;), <b>not</b> positive or negative electric charge. The actual electron density is the wave <em>squared</em> (&psi;²), which is never negative.</p>
+      </div>
+
+      <figure>
+        <div class="gp-row op-row"><div class="gp-cell op-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Sigma bonding orbital from two s orbitals added in phase"><ellipse class="ph-pos" cx="38.0" cy="55.0" rx="26" ry="26"/><ellipse class="ph-pos" cx="82.0" cy="55.0" rx="26" ry="26"/><text class="ph-txt" x="60" y="59" text-anchor="middle">+</text><circle class="ph-nuc" cx="38" cy="55" r="2.4"/><circle class="ph-nuc" cx="82" cy="55" r="2.4"/></svg><div class="vs-name">σ (bonding)</div><div class="vs-meta">1s + 1s, in phase</div><div class="op-note">density piles up <b>between</b> the nuclei</div></div><div class="gp-cell op-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Sigma antibonding orbital from two s orbitals out of phase, with a node between"><ellipse class="ph-pos" cx="32.0" cy="55.0" rx="20" ry="20"/><text class="ph-txt" x="32.0" y="58.6" text-anchor="middle">+</text><ellipse class="ph-neg" cx="88.0" cy="55.0" rx="20" ry="20"/><text class="ph-txt" x="88.0" y="58.6" text-anchor="middle">&minus;</text><line class="ph-node" x1="60" y1="14" x2="60" y2="96"/><circle class="ph-nuc" cx="32" cy="55" r="2.4"/><circle class="ph-nuc" cx="88" cy="55" r="2.4"/><text class="op-lab" x="60" y="108" text-anchor="middle">node</text></svg><div class="vs-name">σ* (antibonding)</div><div class="vs-meta">1s − 1s, out of phase</div><div class="op-note">a <b>node</b> sits between the nuclei</div></div><div class="gp-cell op-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Sigma bonding orbital from two p orbitals overlapping head on"><ellipse class="ph-neg" cx="17.0" cy="55.0" rx="12" ry="10"/><text class="ph-txt" x="17.0" y="58.6" text-anchor="middle">&minus;</text><ellipse class="ph-neg" cx="103.0" cy="55.0" rx="12" ry="10"/><text class="ph-txt" x="103.0" y="58.6" text-anchor="middle">&minus;</text><ellipse class="ph-pos" cx="47.0" cy="55.0" rx="16" ry="13"/><text class="ph-txt" x="47.0" y="58.6" text-anchor="middle">+</text><ellipse class="ph-pos" cx="73.0" cy="55.0" rx="16" ry="13"/><text class="ph-txt" x="73.0" y="58.6" text-anchor="middle">+</text><circle class="ph-nuc" cx="32" cy="55" r="2.4"/><circle class="ph-nuc" cx="88" cy="55" r="2.4"/></svg><div class="vs-name">σ (bonding)</div><div class="vs-meta">p + p, head-on</div><div class="op-note">facing lobes match: one big lobe between</div></div><div class="gp-cell op-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Sigma antibonding orbital from two p orbitals head on with a node across the bond"><ellipse class="ph-neg" cx="17.0" cy="55.0" rx="12" ry="10"/><text class="ph-txt" x="17.0" y="58.6" text-anchor="middle">&minus;</text><ellipse class="ph-pos" cx="103.0" cy="55.0" rx="12" ry="10"/><text class="ph-txt" x="103.0" y="58.6" text-anchor="middle">+</text><ellipse class="ph-pos" cx="47.0" cy="55.0" rx="12" ry="13"/><text class="ph-txt" x="47.0" y="58.6" text-anchor="middle">+</text><ellipse class="ph-neg" cx="73.0" cy="55.0" rx="12" ry="13"/><text class="ph-txt" x="73.0" y="58.6" text-anchor="middle">&minus;</text><line class="ph-node" x1="60" y1="14" x2="60" y2="96"/><circle class="ph-nuc" cx="32" cy="55" r="2.4"/><circle class="ph-nuc" cx="88" cy="55" r="2.4"/></svg><div class="vs-name">σ* (antibonding)</div><div class="vs-meta">p − p, head-on</div><div class="op-note">node cuts across the bond</div></div><div class="gp-cell op-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Pi bonding orbital from two p orbitals side by side, with a nodal plane along the bond axis"><ellipse class="ph-pos" cx="38.0" cy="33.0" rx="24" ry="15"/><text class="ph-txt" x="38.0" y="36.6" text-anchor="middle">+</text><ellipse class="ph-pos" cx="82.0" cy="33.0" rx="24" ry="15"/><text class="ph-txt" x="82.0" y="36.6" text-anchor="middle">+</text><ellipse class="ph-neg" cx="38.0" cy="77.0" rx="24" ry="15"/><text class="ph-txt" x="38.0" y="80.6" text-anchor="middle">&minus;</text><ellipse class="ph-neg" cx="82.0" cy="77.0" rx="24" ry="15"/><text class="ph-txt" x="82.0" y="80.6" text-anchor="middle">&minus;</text><line class="ph-node" x1="6" y1="55" x2="114" y2="55"/><circle class="ph-nuc" cx="38" cy="55" r="2.4"/><circle class="ph-nuc" cx="82" cy="55" r="2.4"/><text class="op-lab" x="112" y="52" text-anchor="end">axis</text></svg><div class="vs-name">π (bonding)</div><div class="vs-meta">p + p, side-by-side</div><div class="op-note">density is <b>off</b> the bond axis</div></div><div class="gp-cell op-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Pi antibonding orbital with a nodal plane along the axis and another between the atoms"><ellipse class="ph-pos" cx="38.0" cy="33.0" rx="24" ry="15"/><text class="ph-txt" x="38.0" y="36.6" text-anchor="middle">+</text><ellipse class="ph-neg" cx="82.0" cy="33.0" rx="24" ry="15"/><text class="ph-txt" x="82.0" y="36.6" text-anchor="middle">&minus;</text><ellipse class="ph-neg" cx="38.0" cy="77.0" rx="24" ry="15"/><text class="ph-txt" x="38.0" y="80.6" text-anchor="middle">&minus;</text><ellipse class="ph-pos" cx="82.0" cy="77.0" rx="24" ry="15"/><text class="ph-txt" x="82.0" y="80.6" text-anchor="middle">+</text><line class="ph-node" x1="6" y1="55" x2="114" y2="55"/><line class="ph-node" x1="60" y1="14" x2="60" y2="96"/><circle class="ph-nuc" cx="38" cy="55" r="2.4"/><circle class="ph-nuc" cx="82" cy="55" r="2.4"/></svg><div class="vs-name">π* (antibonding)</div><div class="vs-meta">p − p, side-by-side</div><div class="op-note">two nodal planes (axis + between atoms)</div></div></div>
+        <figcaption>Left column = bonding, right column = antibonding. Top: two 1s orbitals (the H₂ case on L12 slide 12). Middle: two p orbitals pointing at each other. Bottom: two p orbitals side by side. Dashed lines are nodes (places where the density is exactly zero). Facing lobes of the same color merge; facing lobes of opposite color cancel.</figcaption>
+      </figure>
+
+      <p><b>&sigma; vs. &pi;.</b> The lecture picks <b>z as the bond axis</b>. Overlap <em>head-on along that axis</em> gives a <b>&sigma;</b> orbital (density on the axis). Overlap <em>sideways</em> (p<sub>x</sub> with p<sub>x</sub>, p<sub>y</sub> with p<sub>y</sub>, perpendicular to the axis) gives a <b>&pi;</b> orbital, whose density is <em>not</em> on the axis &mdash; there is a nodal plane containing the bond axis. An antibonding orbital always has one <em>extra</em> node cutting across the bond: &sigma;* has one between the nuclei; &pi;* has two nodal planes (one along the axis, one between the atoms).</p>
+      <p class="small">Slide typos to ignore: slides 13&ndash;14 label the p<sub>z</sub> pictures &ldquo;&sigma;p<sub>x</sub>&rdquo;; slide 15&rsquo;s two sub-bullets both say &ldquo;bonding&rdquo; (the second means <i>antibonding</i>); slide 18 labels the antibonding &pi; pictures &ldquo;&pi;*np<sub>z</sub>&rdquo; for both x and y.</p>
+
+      <h4>The four MO rules of thumb (L12 slide 21)</h4>
+      <ol>
+        <li><b>Conservation:</b> the number of MOs equals the number of atomic orbitals you started with (two 1s &rarr; two MOs; six p orbitals &rarr; six MOs).</li>
+        <li><b>&ldquo;The higher the orbital, the larger the <em>splitting</em>.&rdquo;</b> Splitting = the energy gap between the bonding and antibonding partners.</li>
+        <li><b>Symmetric split:</b> bonding MO drops by the same amount the antibonding MO rises (a simplification, and it is how the diagrams are drawn).</li>
+        <li><b>Best mixing happens between orbitals of similar energy.</b></li>
+      </ol>
+
+      <h3 class="topic" id="mo-diagram" style="--c:var(--unit-orbital)">Reading and filling an MO diagram</h3>
+      <p>An MO energy diagram has the same three columns every time: <b>left</b> = one atom&rsquo;s own orbitals, <b>right</b> = the other atom&rsquo;s, <b>middle</b> = the molecule&rsquo;s MOs. Energy goes up the page; each horizontal line is one orbital; dashed lines show which atomic orbitals combine; arrows are electrons. Then you fill it with the <em>same three rules you used for atoms</em> in Unit 02: <b>lowest first (Aufbau), two per orbital with opposite spins (Pauli), and equal-energy orbitals get one electron each before any pair up (Hund).</b></p>
+      <p>For two atoms using only their p orbitals (L12 slide 19) the order from the bottom is &sigma; &lt; &pi; (two, equal energy) &lt; &pi;* (two, equal energy) &lt; &sigma;*. Six p orbitals in, six MOs out.</p>
+
+      <h4>The one diagram the lecture fills in: O₂</h4>
+      <p>Each oxygen atom contributes 6 valence electrons (2s² 2p⁴), so O₂ has <b>12 valence electrons</b> to place.</p>
+      <figure>
+        <div class="vs-wrap">
+          <svg viewBox="0 0 520 350" role="img" aria-label="Molecular orbital diagram of O2: twelve valence electrons fill sigma2s, sigma-star 2s, sigma2p, pi2p, and put one electron in each of the two pi-star 2p orbitals. Bond order 2, two unpaired electrons."><path class="mo-ax" d="M14,350 V30 M9,38 L14,28 L19,38"/><text class="mo-lab" x="14.0" y="18.0" text-anchor="middle">E</text><text class="mo-title" x="71.0" y="22.0" text-anchor="middle">O atom</text><text class="mo-title" x="260.0" y="14.0" text-anchor="middle">O₂ molecule</text><text class="mo-title" x="449.0" y="22.0" text-anchor="middle">O atom</text><line class="mo-lv" x1="40" y1="120" x2="58" y2="120"/><path class="mo-e" d="M45.0,121.0 V109.0 M42.4,112.6 L45.0,109.0 L47.6,112.6"/><path class="mo-e" d="M53.0,109.0 V121.0 M50.4,116.6 L53.0,121.0 L55.6,116.6"/><line class="mo-lv" x1="62" y1="120" x2="80" y2="120"/><path class="mo-e" d="M71.0,121.0 V109.0 M68.4,112.6 L71.0,109.0 L73.6,112.6"/><line class="mo-lv" x1="84" y1="120" x2="102" y2="120"/><path class="mo-e" d="M93.0,121.0 V109.0 M90.4,112.6 L93.0,109.0 L95.6,112.6"/><text class="mo-ao" x="71.0" y="140.0" text-anchor="middle">2p</text><line class="mo-lv" x1="58" y1="290" x2="84" y2="290"/><path class="mo-e" d="M67.0,291.0 V279.0 M64.4,282.6 L67.0,279.0 L69.6,282.6"/><path class="mo-e" d="M75.0,279.0 V291.0 M72.4,286.6 L75.0,291.0 L77.6,286.6"/><text class="mo-ao" x="71.0" y="310.0" text-anchor="middle">2s</text><line class="mo-lv" x1="418" y1="120" x2="436" y2="120"/><path class="mo-e" d="M423.0,121.0 V109.0 M420.4,112.6 L423.0,109.0 L425.6,112.6"/><path class="mo-e" d="M431.0,109.0 V121.0 M428.4,116.6 L431.0,121.0 L433.6,116.6"/><line class="mo-lv" x1="440" y1="120" x2="458" y2="120"/><path class="mo-e" d="M449.0,121.0 V109.0 M446.4,112.6 L449.0,109.0 L451.6,112.6"/><line class="mo-lv" x1="462" y1="120" x2="480" y2="120"/><path class="mo-e" d="M471.0,121.0 V109.0 M468.4,112.6 L471.0,109.0 L473.6,112.6"/><text class="mo-ao" x="449.0" y="140.0" text-anchor="middle">2p</text><line class="mo-lv" x1="436" y1="290" x2="462" y2="290"/><path class="mo-e" d="M445.0,291.0 V279.0 M442.4,282.6 L445.0,279.0 L447.6,282.6"/><path class="mo-e" d="M453.0,279.0 V291.0 M450.4,286.6 L453.0,291.0 L455.6,286.6"/><text class="mo-ao" x="449.0" y="310.0" text-anchor="middle">2s</text><line class="mo-cn" x1="84.0" y1="290.0" x2="232.0" y2="325.0"/><line class="mo-cn" x1="436.0" y1="290.0" x2="288.0" y2="325.0"/><line class="mo-cn" x1="84.0" y1="290.0" x2="232.0" y2="255.0"/><line class="mo-cn" x1="436.0" y1="290.0" x2="288.0" y2="255.0"/><line class="mo-cn" x1="102.0" y1="120.0" x2="232.0" y2="205.0"/><line class="mo-cn" x1="418.0" y1="120.0" x2="288.0" y2="205.0"/><line class="mo-cn" x1="102.0" y1="120.0" x2="210.0" y2="155.0"/><line class="mo-cn" x1="418.0" y1="120.0" x2="310.0" y2="155.0"/><line class="mo-cn" x1="102.0" y1="120.0" x2="210.0" y2="85.0"/><line class="mo-cn" x1="418.0" y1="120.0" x2="310.0" y2="85.0"/><line class="mo-cn" x1="102.0" y1="120.0" x2="232.0" y2="35.0"/><line class="mo-cn" x1="418.0" y1="120.0" x2="288.0" y2="35.0"/><line class="mo-lv" x1="232" y1="325" x2="288" y2="325"/><path class="mo-e" d="M256.0,326.0 V314.0 M253.4,317.6 L256.0,314.0 L258.6,317.6"/><path class="mo-e" d="M264.0,314.0 V326.0 M261.4,321.6 L264.0,326.0 L266.6,321.6"/><line class="mo-lv" x1="232" y1="255" x2="288" y2="255"/><path class="mo-e" d="M256.0,256.0 V244.0 M253.4,247.6 L256.0,244.0 L258.6,247.6"/><path class="mo-e" d="M264.0,244.0 V256.0 M261.4,251.6 L264.0,256.0 L266.6,251.6"/><line class="mo-lv" x1="232" y1="205" x2="288" y2="205"/><path class="mo-e" d="M256.0,206.0 V194.0 M253.4,197.6 L256.0,194.0 L258.6,197.6"/><path class="mo-e" d="M264.0,194.0 V206.0 M261.4,201.6 L264.0,206.0 L266.6,201.6"/><line class="mo-lv" x1="210" y1="155" x2="248" y2="155"/><path class="mo-e" d="M225.0,156.0 V144.0 M222.4,147.6 L225.0,144.0 L227.6,147.6"/><path class="mo-e" d="M233.0,144.0 V156.0 M230.4,151.6 L233.0,156.0 L235.6,151.6"/><line class="mo-lv" x1="272" y1="155" x2="310" y2="155"/><path class="mo-e" d="M287.0,156.0 V144.0 M284.4,147.6 L287.0,144.0 L289.6,147.6"/><path class="mo-e" d="M295.0,144.0 V156.0 M292.4,151.6 L295.0,156.0 L297.6,151.6"/><rect class="mo-hi" x="204" y="65" width="112" height="26" rx="5"/><line class="mo-lv mo-lv-hi" x1="210" y1="85" x2="248" y2="85"/><path class="mo-e" d="M229.0,86.0 V74.0 M226.4,77.6 L229.0,74.0 L231.6,77.6"/><line class="mo-lv mo-lv-hi" x1="272" y1="85" x2="310" y2="85"/><path class="mo-e" d="M291.0,86.0 V74.0 M288.4,77.6 L291.0,74.0 L293.6,77.6"/><line class="mo-lv" x1="232" y1="35" x2="288" y2="35"/><text class="mo-lab" x="224.0" y="329.0" text-anchor="end">σ2s</text><text class="mo-lab" x="224.0" y="259.0" text-anchor="end">σ*2s</text><text class="mo-lab" x="224.0" y="209.0" text-anchor="end">σ2p</text><text class="mo-lab" x="202.0" y="159.0" text-anchor="end">π2p</text><text class="mo-lab" x="202.0" y="89.0" text-anchor="end">π*2p</text><text class="mo-lab" x="224.0" y="39.0" text-anchor="end">σ*2p</text><text class="mo-hi-t" x="322.0" y="66.0" text-anchor="start">2 unpaired e⁻</text></svg>
+        </div>
+        <figcaption>Valence MO diagram of O₂ as drawn on L12 slides 22 and 25. Fill bottom to top: &sigma;2s (2), &sigma;*2s (2), &sigma;2p (2), &pi;2p (4), then <b>one electron in each &pi;*2p</b> (Hund&rsquo;s rule: equal-energy orbitals get one each first) = 12. &sigma;*2p stays empty.</figcaption>
+      </figure>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Level (low &rarr; high)</th><th>Type</th><th>Electrons</th><th>Running total</th></tr></thead>
+          <tbody>
+            <tr><td>&sigma;2s</td><td>bonding</td><td>2</td><td>2</td></tr>
+            <tr><td>&sigma;*2s</td><td>antibonding</td><td>2</td><td>4</td></tr>
+            <tr><td>&sigma;2p</td><td>bonding</td><td>2</td><td>6</td></tr>
+            <tr><td>&pi;2p (two orbitals)</td><td>bonding</td><td>2 + 2</td><td>10</td></tr>
+            <tr><td><b>&pi;*2p (two orbitals)</b></td><td>antibonding</td><td><b>1 + 1 (unpaired!)</b></td><td>12</td></tr>
+            <tr><td>&sigma;*2p</td><td>antibonding</td><td>0</td><td>12</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box formula-box">
+        <div class="box-head">Bond order <span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra formula</span></div>
+        <div class="eq">bond order = ( bonding e⁻ &minus; antibonding e⁻ ) &divide; 2</div>
+        <div class="vars">The lecture asks &ldquo;How do we explain bond order?&rdquo; and states <b>bond order = 2</b> for O₂ (slide 25) without printing a formula. This one reproduces it: bonding = 2 + 2 + 4 = 8, antibonding = 2 + 2 = 4, so (8 &minus; 4) &divide; 2 = <b>2</b> &#10003;. Higher bond order = shorter, stronger bond; bond order 0 = no bond.</div>
+      </div>
+      <p><b>The punchline of the O₂ diagram.</b> The two top electrons sit alone, with parallel spins, in the two antibonding &pi;* orbitals. The Lewis structure O=O has every electron paired, so <b>Lewis cannot explain this</b> &mdash; MO theory can. Slide 25 calls these two unpaired electrons &ldquo;the key to oxygen&rsquo;s chemistry&rdquo;. <span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> Substances with unpaired electrons are <b>paramagnetic</b> (pulled into a magnetic field); O₂ really is, and liquid oxygen sticks to a strong magnet. Substances with every electron paired are <b>diamagnetic</b>.</p>
+
+      <h4>Same method, simplest molecules</h4>
+      <figure>
+        <div class="gp-row"><div class="gp-cell mo-mini "><svg viewBox="0 0 200 150" role="img" aria-label="H₂: stable bond"><line class="mo-lv" x1="22" y1="78" x2="62" y2="78"/><path class="mo-e" d="M42.0,79.0 V67.0 M39.4,70.6 L42.0,67.0 L44.6,70.6"/><line class="mo-lv" x1="138" y1="78" x2="178" y2="78"/><path class="mo-e" d="M158.0,79.0 V67.0 M155.4,70.6 L158.0,67.0 L160.6,70.6"/><text class="mo-ao" x="42.0" y="96.0" text-anchor="middle">1s</text><text class="mo-ao" x="158.0" y="96.0" text-anchor="middle">1s</text><line class="mo-cn" x1="62.0" y1="78.0" x2="80.0" y2="118.0"/><line class="mo-cn" x1="138.0" y1="78.0" x2="120.0" y2="118.0"/><line class="mo-cn" x1="62.0" y1="78.0" x2="80.0" y2="38.0"/><line class="mo-cn" x1="138.0" y1="78.0" x2="120.0" y2="38.0"/><line class="mo-lv" x1="80" y1="118" x2="120" y2="118"/><path class="mo-e" d="M96.0,119.0 V107.0 M93.4,110.6 L96.0,107.0 L98.6,110.6"/><path class="mo-e" d="M104.0,107.0 V119.0 M101.4,114.6 L104.0,119.0 L106.6,114.6"/><line class="mo-lv" x1="80" y1="38" x2="120" y2="38"/><text class="mo-lab" x="100.0" y="136.0" text-anchor="middle">σ1s</text><text class="mo-lab" x="100.0" y="21.0" text-anchor="middle">σ*1s</text></svg><div class="vs-name">H₂</div><div class="sq-ang">bond order 1</div><div class="vs-meta">stable bond</div></div><div class="gp-cell mo-mini mo-zero"><svg viewBox="0 0 200 150" role="img" aria-label="He₂: does not exist"><line class="mo-lv" x1="22" y1="78" x2="62" y2="78"/><path class="mo-e" d="M38.0,79.0 V67.0 M35.4,70.6 L38.0,67.0 L40.6,70.6"/><path class="mo-e" d="M46.0,67.0 V79.0 M43.4,74.6 L46.0,79.0 L48.6,74.6"/><line class="mo-lv" x1="138" y1="78" x2="178" y2="78"/><path class="mo-e" d="M154.0,79.0 V67.0 M151.4,70.6 L154.0,67.0 L156.6,70.6"/><path class="mo-e" d="M162.0,67.0 V79.0 M159.4,74.6 L162.0,79.0 L164.6,74.6"/><text class="mo-ao" x="42.0" y="96.0" text-anchor="middle">1s</text><text class="mo-ao" x="158.0" y="96.0" text-anchor="middle">1s</text><line class="mo-cn" x1="62.0" y1="78.0" x2="80.0" y2="118.0"/><line class="mo-cn" x1="138.0" y1="78.0" x2="120.0" y2="118.0"/><line class="mo-cn" x1="62.0" y1="78.0" x2="80.0" y2="38.0"/><line class="mo-cn" x1="138.0" y1="78.0" x2="120.0" y2="38.0"/><line class="mo-lv" x1="80" y1="118" x2="120" y2="118"/><path class="mo-e" d="M96.0,119.0 V107.0 M93.4,110.6 L96.0,107.0 L98.6,110.6"/><path class="mo-e" d="M104.0,107.0 V119.0 M101.4,114.6 L104.0,119.0 L106.6,114.6"/><line class="mo-lv" x1="80" y1="38" x2="120" y2="38"/><path class="mo-e" d="M96.0,39.0 V27.0 M93.4,30.6 L96.0,27.0 L98.6,30.6"/><path class="mo-e" d="M104.0,27.0 V39.0 M101.4,34.6 L104.0,39.0 L106.6,34.6"/><text class="mo-lab" x="100.0" y="136.0" text-anchor="middle">σ1s</text><text class="mo-lab" x="100.0" y="21.0" text-anchor="middle">σ*1s</text></svg><div class="vs-name">He₂</div><div class="sq-ang">bond order 0</div><div class="vs-meta">does not exist</div></div><div class="gp-cell mo-mini "><svg viewBox="0 0 200 150" role="img" aria-label="He₂⁺: weak bond, exists"><line class="mo-lv" x1="22" y1="78" x2="62" y2="78"/><path class="mo-e" d="M38.0,79.0 V67.0 M35.4,70.6 L38.0,67.0 L40.6,70.6"/><path class="mo-e" d="M46.0,67.0 V79.0 M43.4,74.6 L46.0,79.0 L48.6,74.6"/><line class="mo-lv" x1="138" y1="78" x2="178" y2="78"/><path class="mo-e" d="M158.0,79.0 V67.0 M155.4,70.6 L158.0,67.0 L160.6,70.6"/><text class="mo-ao" x="42.0" y="96.0" text-anchor="middle">1s</text><text class="mo-ao" x="158.0" y="96.0" text-anchor="middle">1s</text><line class="mo-cn" x1="62.0" y1="78.0" x2="80.0" y2="118.0"/><line class="mo-cn" x1="138.0" y1="78.0" x2="120.0" y2="118.0"/><line class="mo-cn" x1="62.0" y1="78.0" x2="80.0" y2="38.0"/><line class="mo-cn" x1="138.0" y1="78.0" x2="120.0" y2="38.0"/><line class="mo-lv" x1="80" y1="118" x2="120" y2="118"/><path class="mo-e" d="M96.0,119.0 V107.0 M93.4,110.6 L96.0,107.0 L98.6,110.6"/><path class="mo-e" d="M104.0,107.0 V119.0 M101.4,114.6 L104.0,119.0 L106.6,114.6"/><line class="mo-lv" x1="80" y1="38" x2="120" y2="38"/><path class="mo-e" d="M100.0,39.0 V27.0 M97.4,30.6 L100.0,27.0 L102.6,30.6"/><text class="mo-lab" x="100.0" y="136.0" text-anchor="middle">σ1s</text><text class="mo-lab" x="100.0" y="21.0" text-anchor="middle">σ*1s</text></svg><div class="vs-name">He₂⁺</div><div class="sq-ang">bond order ½</div><div class="vs-meta">weak bond, exists</div></div></div>
+        <figcaption>H₂: two electrons go into the bonding orbital, none in the antibonding one &rarr; bond order 1. He₂: four electrons fill both, so the bonding and antibonding effects cancel &rarr; bond order 0 (no stable molecule). He₂⁺: three electrons &rarr; bond order &frac12;; MO theory predicts it can exist, and the lecture&rsquo;s theory table lists He₂⁺ among the things MO explains. <span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> These three fillings are derived from the lecture&rsquo;s rules, not shown on a slide.</figcaption>
+      </figure>
+
+      <div class="box def">
+        <div class="box-head">Why this matters: oxygen from air (L12 &ldquo;Future Five&rdquo; context)</div>
+        <p style="margin-bottom:0">Because O₂&rsquo;s &pi;* orbitals are only half full, they can accept extra electron density. A Cu⁺ site donates electrons into them &mdash; <span class="mono">Cu⁺ + O₂ &rightleftharpoons; Cu²⁺&ndash;O₂•⁻</span> &mdash; which weakens the O&ndash;O bond and lets the metal grab O₂ <em>reversibly</em>. A copper-based porous crystal (Cu(I)&ndash;MFU-4l) uses this to pull oxygen out of air at room temperature (&gt;99% O₂ in a lab study; not yet a medical device). <span class="small">(Extra, not on the slide: N₂ has no half-filled antibonding orbitals to offer.)</span></p>
+      </div>
+      <div class="box trap">
+        <div class="box-head">Heads-up: the order &sigma;2p vs. &pi;2p <span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span></div>
+        <p style="margin-bottom:0">The lecture only draws O₂, where &sigma;2p sits <em>below</em> &pi;2p. For lighter diatomics (N₂ and everything before it) mixing between the 2s and 2p orbitals flips that order in standard textbooks. It is not on the L12 slides &mdash; check with your TA before relying on it for N₂, B₂, or C₂.</p>
+      </div>
+
+      <h3 class="topic" id="theories" style="--c:var(--unit-orbital)">Scoreboard: which theory explains what?</h3>
+      <p>L12 slide 11 ends with a table that is practically an exam question waiting to happen. Here it is, word for word, plus the clues it gives you:</p>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Theory</th><th class="wrap">Pros</th><th class="wrap">Cons</th></tr></thead>
+          <tbody>
+            <tr><td><b>Lewis structures</b></td><td class="wrap">Explains bonding patterns &middot; simple &middot; needs only simple arithmetic</td><td class="wrap">Weird exceptions to the octet rule (hypervalence <b>SF₆</b>, incomplete octet <b>BF₃</b>) &middot; does not explain geometry &middot; does not explain odd-electron molecules (<b>NO</b>) &middot; ignores atomic orbitals</td></tr>
+            <tr><td><b>VSEPR</b></td><td class="wrap">Explains geometry &middot; simple rules</td><td class="wrap">Repulsion between lone pairs is a bit hand-wavy &middot; &ldquo;Why are double bonds like singles?&rdquo; &middot; ignores atomic orbitals</td></tr>
+            <tr><td><b>Valence bond / hybridization</b></td><td class="wrap">Explains geometry &middot; uses atomic orbitals</td><td class="wrap">&ldquo;Why these combinations and not others?&rdquo; &middot; &ldquo;Is there evidence for electron &lsquo;promotions&rsquo;?&rdquo;</td></tr>
+            <tr><td><b>Molecular orbitals</b></td><td class="wrap">Explains geometry &middot; uses atomic orbitals &middot; explains &ldquo;exceptions&rdquo; (<b>BeH₂, He₂⁺, NO</b>)</td><td class="wrap">Complex math; needs computers for larger molecules</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box cheat" style="--c:var(--unit-orbital)">
+        <div class="box-head">Cheat code &middot; match the symptom to the theory</div>
+        <ul class="cc-list" style="margin-bottom:0">
+          <li><b>&ldquo;Odd number of electrons&rdquo; (NO), &ldquo;two unpaired electrons&rdquo; (O₂), &ldquo;half bond&rdquo; (He₂⁺)</b> &rarr; only MO theory handles it.</li>
+          <li><b>&ldquo;Octet broken&rdquo; (SF₆, BF₃)</b> &rarr; Lewis fails; hybrids with d orbitals (valence bond) or MOs explain it.</li>
+          <li><b>&ldquo;What shape?&rdquo;</b> &rarr; VSEPR (fast) or hybridization (adds orbitals). <b>&ldquo;What bond order?&rdquo;</b> &rarr; MO.</li>
+          <li><b>One-atom vs. two-atom:</b> hybridization mixes orbitals on <em>one</em> atom (no bond made yet); MOs mix orbitals from <em>two</em> atoms.</li>
+        </ul>
+      </div>
+      <p class="small">The lecture links an interactive tool for this unit: the <a href="http://web.mit.edu/kdk/www/orbital-studio/">3.091 Orbital Studio</a> (build sp, sp², sp³ hybrids, then &sigma;/&sigma;* and &pi;/&pi;* combinations, with the blue/red phase colors used here).</p>
+      <p><a class="backtop" href="#top">&uarr; back to top</a></p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CHEAT CODES (whole course) -->
+    <!-- ============================================================ -->
+    <section class="unit" id="cheatcodes" style="--c:var(--accent)">
+      <div class="unit-head">
+        <span class="unit-num">&#9733;</span>
+        <h2>Cheat Codes: the whole course in nine lines</h2>
+        <span class="unit-tag">read after the units, then use as your recall deck</span>
+      </div>
+      <p class="lede">Memorizing 12 lectures one fact at a time doesn&rsquo;t work. What works: notice that almost everything in 3.091 so far is <strong>three ideas</strong> wearing different costumes, and each topic then has a one-line &ldquo;code&rdquo; that rebuilds the rest.</p>
+
+      <div class="cc-ideas">
+        <div class="cc-idea" style="--c:var(--unit-ionic)"><b>1 &middot; Opposites attract</b><span>Charges pull together or push apart: nuclear pull, shielding, lattice energy, lone-pair repulsion, bond polarity. <em>Energy &prop; (charge &times; charge) &divide; distance.</em></span></div>
+        <div class="cc-idea" style="--c:var(--unit-atoms)"><b>2 &middot; Energy comes in steps</b><span>Electrons only sit on allowed levels, and you fill them from the bottom: Bohr levels, shells, subshells, MO levels. <em>Lowest first, two per orbital, singles before pairs.</em></span></div>
+        <div class="cc-idea" style="--c:var(--unit-orbital)"><b>3 &middot; Waves add or cancel</b><span>Orbitals are waves. In phase they build density between nuclei (bond); out of phase they leave a node (antibond). <em>n orbitals in, n orbitals out.</em></span></div>
+      </div>
+
+      <div class="cc-grid">
+        <div class="cc-card" style="--c:var(--unit-trends)">
+          <div class="cc-tag">Periodic trends</div>
+          <div class="cc-code">Pull &divide; (distance &times; shielding)</div>
+          <p><b>Across</b> a period: more protons, same shell &rarr; tighter. <b>Down</b> a group: new shell &rarr; looser.</p>
+          <p>So ionization energy, electron affinity and electronegativity grow toward the <b>top-right</b> (electronegativity peaks at F); radius grows toward the <b>bottom-left</b> (Cs). Full or half-filled subshells hold on extra hard &rarr; the Be&gt;B and N&gt;O zig-zags.</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-atoms)">
+          <div class="cc-tag">Quantum numbers</div>
+          <div class="cc-code">Floor &rarr; room &rarr; seat &rarr; spin</div>
+          <p><b>n</b> = floor (1, 2, 3&hellip;). <b>l</b> = room type, must be <b>&lt; n</b> (0 s, 1 p, 2 d, 3 f). <b>m<sub>l</sub></b> = seat, from <b>&minus;l to +l</b>. <b>m<sub>s</sub></b> = &plusmn;&frac12;.</p>
+          <p>Checking a set? Run the four rules in that order and stop at the first violation.</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-atoms)">
+          <div class="cc-tag">Filling orbitals (atoms <u>and</u> MOs)</div>
+          <div class="cc-code">Fill the bus</div>
+          <p>Lowest seats first &middot; two per seat, opposite spins &middot; everyone takes their own seat before anyone doubles up. The same three rules fill electron configurations <em>and</em> molecular-orbital diagrams.</p>
+          <p>Configuration shortcut: read the periodic table as a map &mdash; s block, p block, d block one row behind, f block two rows behind. Cr and Cu steal an s electron to get half/full d.</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-covalent)">
+          <div class="cc-tag">Bond type</div>
+          <div class="cc-code">One subtraction: &Delta;&chi;</div>
+          <p>&lt; 0.4 covalent &middot; 0.4&ndash;1.8 polar covalent &middot; &gt; 1.8 ionic. It&rsquo;s really a dial: % ionic = 100(1 &minus; e<sup>&minus;&Delta;&chi;²/4</sup>).</p>
+          <p>Ionic &rarr; think <b>charges and distance</b>. Covalent &rarr; think <b>electron counting</b> (Lewis).</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-ionic)">
+          <div class="cc-tag">Lattice energy &amp; Born&ndash;Haber</div>
+          <div class="cc-code">Charges first, then size</div>
+          <p>Compare ionic solids by multiplying the charges (2&times;2 beats 1&times;1) and only then comparing radii (smaller = stronger). Higher lattice energy &rarr; higher melting point, harder to dissolve.</p>
+          <p>Born&ndash;Haber = a staircase: <b>up</b> (costs energy) to vaporize, ionize, split X₂; <b>down</b> (pays) for electron affinity and, biggest of all, the lattice: &Delta;H<sub>f</sub> = V + IE + &frac12;B + EA + U<sub>L</sub>.</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-covalent)">
+          <div class="cc-tag">Lewis &rarr; shape &rarr; polarity</div>
+          <div class="cc-code">The pipeline</div>
+          <p><b>Lewis structure</b> &rarr; count <b>electron groups</b> on the center &rarr; find the row of the <b>staircase</b> &rarr; each lone pair snips one atom &rarr; name the shape &rarr; <b>symmetric? then nonpolar</b> &rarr; hybrid = groups (2 sp, 3 sp², 4 sp³, 5 sp³d, 6 sp³d²).</p>
+          <p>Names: line &middot; triangle &middot; tetrahedron &middot; bipyramid &middot; octahedron. Lone pairs: <b>five &rarr; equator, six &rarr; opposite.</b></p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-covalent)">
+          <div class="cc-tag">Angles</div>
+          <div class="cc-code">180 &middot; 120 &middot; 109.5 &middot; 90/120 &middot; 90</div>
+          <p>Those are the ideal angles for 2, 3, 4, 5, 6 groups. <b>Squeeze rule:</b> lone pairs and double bonds are fat, so they shrink the angles next to them: 109.5° &rarr; 107° (NH₃) &rarr; 104.5° (H₂O).</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-orbital)">
+          <div class="cc-tag">Molecular orbitals</div>
+          <div class="cc-code">n in, n out. Down pays, up costs.</div>
+          <p>Bonding goes down, antibonding goes up by the same amount. Fill from the bottom. <b>Bond order = (bonding &minus; antibonding) &divide; 2.</b> Unpaired electrons = paramagnetic (O₂: two in &pi;*).</p>
+          <p><b>&sigma; = head-on, &pi; = sideways.</b> Antibonding = one more node across the bond. Hybridization = mixing on <em>one</em> atom; MO = mixing across <em>two</em>.</p>
+        </div>
+        <div class="cc-card" style="--c:var(--ink-faint)">
+          <div class="cc-tag">Any calculation</div>
+          <div class="cc-code">Let the units do the work</div>
+          <p>Write every number with its unit and chain conversion factors until only the wanted unit is left. Cube length factors for volumes (1 m³ = 10⁶ cm³). Photon chain: <b>&lambda; &rarr; &nu; = c/&lambda; &rarr; E = h&nu; &rarr; &divide; 1.602&times;10⁻¹⁹ &rarr; eV</b>.</p>
+          <p>Forgot a formula? Its units usually tell you its shape (g/cm³ &rarr; mass &divide; volume).</p>
+        </div>
+      </div>
+
+      <div class="box cheat" style="--c:var(--accent)">
+        <div class="box-head">When you&rsquo;re stuck on an exam question</div>
+        <p style="margin-bottom:0">Ask three questions in order: <b>(1) What is pulling or pushing on what?</b> (charge, distance, shielding) &nbsp;<b>(2) Which energy level or orbital does this electron sit in, and is it filled bottom-up?</b> &nbsp;<b>(3) Is this a place where waves add or cancel?</b> One of the three nearly always unlocks the problem.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- ARCHETYPES -->
     <!-- ============================================================ -->
     <section class="unit" id="archetypes" style="--c:var(--accent)">
@@ -1554,6 +2226,51 @@
             <p style="margin-bottom:0">Run the full 6-step algorithm in <a href="#lewis">Drawing Lewis structures</a>. Watch for oxyanions (NO₃⁻, BrO₃⁻-type) needing multiple resonance structures, and period-3+ central atoms (P, S, I…) that may need an expanded octet.</p>
           </div>
         </details>
+
+        <details class="arch-card">
+          <summary>Predict a molecule&rsquo;s shape, angle, hybridization and polarity <span class="arch-n">L11&ndash;L12 &middot; no recitation yet</span></summary>
+          <div class="arch-body">
+            <p>Pipeline: (1) Lewis structure (Unit 04). (2) <b>Electron groups</b> on the center = atoms attached + lone pairs. (3) Find that row of the <a href="#vsepr-grid">staircase</a>; each lone pair removes one atom; name the shape from the atoms only. (4) Ideal angle from the row, then nudge it down for lone pairs/double bonds. (5) Hybrid = groups (2 sp &middot; 3 sp² &middot; 4 sp³ &middot; 5 sp³d &middot; 6 sp³d²).</p>
+            <p style="margin-bottom:0"><em>Worked examples:</em> SF₄ and ICl₄⁻ in <a href="#vsepr-practice">Practice: fifteen molecules</a>. Common slips: forgetting the charge when counting valence electrons; naming the shape from the parent shape instead of the atoms.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Polar or nonpolar? Add the bond arrows <span class="arch-n">L11</span></summary>
+          <div class="arch-body">
+            <p style="margin-bottom:0">Draw the shape first. Arrows point at the more electronegative atom; add them as vectors. Symmetric with identical outer atoms (CO₂, BF₃, CCl₄, PF₅, SF₆) &rarr; cancel &rarr; nonpolar. A lone pair on the center or different outer atoms (H₂O, NH₃, CHCl₃, CH₂O, HCl) &rarr; polar. Polar <em>bonds</em> do not guarantee a polar <em>molecule</em>.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Fill an MO diagram: bond order and magnetism <span class="arch-n">L12 &middot; no recitation yet</span></summary>
+          <div class="arch-body">
+            <p>Count valence electrons (O₂: 6 + 6 = 12). Fill the diagram bottom-up: two per orbital, one each in equal-energy orbitals first. Bond order = (bonding &minus; antibonding) &divide; 2. Any unpaired electron &rarr; paramagnetic.</p>
+            <p style="margin-bottom:0"><em>Check yourself:</em> O₂ &rarr; (8 &minus; 4)/2 = 2, two unpaired &pi;* electrons. H₂ &rarr; 1. He₂ &rarr; 0 (no molecule). He₂⁺ &rarr; &frac12;. See <a href="#mo-diagram">Reading and filling an MO diagram</a>.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Ionic vs. covalent: predict melting point, solubility, conduction <span class="arch-n">L10</span></summary>
+          <div class="arch-body">
+            <p style="margin-bottom:0">First decide: ionic, network covalent, or molecular covalent? Ionic &rarr; high m.p., dissolves in polar solvents, conducts only molten/dissolved, brittle. Network (diamond, silica) &rarr; very high m.p., insoluble, hard. Molecular &rarr; low m.p./b.p., dissolves in like-polarity solvents, soft. See the <a href="#covalent-props">comparison table</a>.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Percent ionic character from &Delta;&chi; <span class="arch-n">L10</span></summary>
+          <div class="arch-body">
+            <p style="margin-bottom:0">Look up both electronegativities, subtract, then 100 &times; [1 &minus; exp(&minus;&Delta;&chi;²/4)]. HCl: &Delta;&chi; = 0.96 &rarr; 21%. Si&ndash;O: &Delta;&chi; &asymp; 1.5 &rarr; 43%. Remember it never reaches 100%.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>&ldquo;Which theory explains it?&rdquo; (Lewis / VSEPR / valence bond / MO) <span class="arch-n">L12</span></summary>
+          <div class="arch-body">
+            <p style="margin-bottom:0">Odd electron count (NO), unpaired electrons (O₂), half bonds (He₂⁺) &rarr; MO only. Octet exceptions (SF₆, BF₃) break Lewis. Geometry &rarr; VSEPR or hybridization. Bond order &rarr; MO. Table in <a href="#theories">Scoreboard</a>.</p>
+          </div>
+        </details>
+
       </div>
     </section>
 
@@ -1583,6 +2300,12 @@
             <tr><td>Born&ndash;Land&eacute; equation</td><td class="mono">E = &minus;(N<sub>A</sub>MZ&#8314;Z&#8315;e²)/(4&pi;&epsilon;&#8320;r&#8320;) &times; (1&minus;1/n)</td></tr>
             <tr><td>Kapustinskii shortcut</td><td class="mono">n=9 fixed; M &asymp; 0.88 &times; (ion count)</td></tr>
             <tr><td>Formal charge</td><td class="mono">FC = valence e&minus; &minus; lone-pair e&minus; &minus; (bonding e&minus;)/2</td></tr>
+            <tr><td>Percent ionic character</td><td class="mono">100 &times; [1 &minus; exp(&minus;&Delta;&chi;²/4)]</td></tr>
+            <tr><td>Electron groups (VSEPR)</td><td class="mono">groups = atoms attached + lone pairs on the center</td></tr>
+            <tr><td>Lone pairs (outer atoms H / halogen)</td><td class="mono">LP = (V<sub>eff</sub> &minus; n<sub>X</sub>) / 2 &nbsp;[V<sub>eff</sub>: +1 per &minus; charge, &minus;1 per + charge]</td></tr>
+            <tr><td>Ideal angle by groups</td><td class="mono">2: 180° &middot; 3: 120° &middot; 4: 109.5° &middot; 5: 90°/120° &middot; 6: 90°</td></tr>
+            <tr><td>Hybridization by groups</td><td class="mono">2 sp &middot; 3 sp² &middot; 4 sp³ &middot; 5 sp³d &middot; 6 sp³d²</td></tr>
+            <tr><td>MO bond order</td><td class="mono">(bonding e⁻ &minus; antibonding e⁻) / 2</td></tr>
             <tr><td>Electronegativity &rarr; bond type</td><td class="mono">&Delta;&chi;&lt;0.4 covalent &middot; 0.4&ndash;1.8 polar &middot; &gt;1.8 ionic</td></tr>
             <tr><td>Avogadro's number</td><td class="mono">N<sub>A</sub> = 6.022×10²³ /mol</td></tr>
             <tr><td>Ideal gas constant</td><td class="mono">R = 8.314 J/(mol&middot;K) = 0.08206 L&middot;atm/(mol&middot;K)</td></tr>
@@ -1640,15 +2363,38 @@
         <li><strong>Hydrogen is always terminal</strong> in a Lewis structure, never the central atom — it can only form one bond.</li>
         <li><strong>Expanded octets</strong> are only possible for period 3 and below (accessible d-orbitals) — never for C, N, O, or F.</li>
         <li><strong>A pure element cannot bond ionically with itself</strong> — ionic bonding requires an electronegativity difference between two different elements.</li>
+        <li><strong>Count groups, name by atoms.</strong> Electron groups = atoms attached + lone pairs; the shape&rsquo;s <em>name</em> uses only the atoms (4 groups with 1 lone pair = trigonal <em>pyramidal</em>, not tetrahedral).</li>
+        <li><strong>&ldquo;Bent&rdquo; (and &ldquo;linear&rdquo;) appear twice</strong> in the VSEPR table &mdash; tell them apart by group count (bent: &lt;120° for 3 groups, &asymp;104.5° for 4).</li>
+        <li><strong>Double and triple bonds count as one electron group</strong> but are fatter, so they squeeze angles (H₂C=O: 116.5°).</li>
+        <li><strong>Polar bonds &ne; polar molecule.</strong> CO₂, BF₃, CCl₄, PF₅ and SF₆ have polar bonds that cancel. Draw the shape before adding arrows.</li>
+        <li><strong>Lone pairs: five &rarr; equatorial, six &rarr; opposite.</strong> (Seesaw, T-shaped, linear AX₂E₃; square planar.)</li>
+        <li><strong>The lecture&rsquo;s loose angles:</strong> slide writes &lt;180° for AX₂E and &lt;120° for AX₃E; the tight values are &lt;120° and &lt;109.5°.</li>
+        <li><strong>&ldquo;Covalent&rdquo; does not mean &ldquo;low melting point&rdquo;.</strong> Only molecular covalent substances melt low; network solids (diamond, silica) melt very high.</li>
+        <li><strong>Hybridization makes no bond by itself</strong> &mdash; it prepares orbitals on one atom. MOs combine orbitals from two atoms. Number of hybrids (or MOs) = number of orbitals mixed.</li>
+        <li><strong>Phase is not charge.</strong> Blue/red in orbital pictures = sign of the wave, not + / &minus; charge; density = (wave)².</li>
+        <li><strong>L12 slide typos:</strong> slides 13&ndash;14 label the p<sub>z</sub> pictures &ldquo;&sigma;p<sub>x</sub>&rdquo;; slide 15 says &ldquo;bonding&rdquo; twice (second = antibonding); slide 18 labels both antibonding &pi; pictures &ldquo;&pi;*np<sub>z</sub>&rdquo;.</li>
+        <li><strong>Bond order = (bonding &minus; antibonding)/2.</strong> Don&rsquo;t forget to count the 2s-derived MOs (&sigma;2s and &sigma;*2s) &mdash; they&rsquo;re filled in O₂ and cancel each other.</li>
+        <li><strong>The &sigma;2p / &pi;2p order flips for N₂ and lighter</strong> (extra, not on L12 slides); the lecture only fills O₂.</li>
       </ul>
     </section>
 
     <div class="closing">
       <h2>That's the whole foundation.</h2>
-      <p>Everything from here (bonding types, crystal structures, molecular geometry) builds directly on these four units. Re-read the <a href="#archetypes">archetypes</a> section the night before each quiz, and keep refining your aid sheet from the <a href="#cheatsheet">cheat-sheet</a> as new lectures add material.</p>
+      <p>Everything from here (metallic bonding, crystal structures, thermodynamics) builds directly on these six units. Re-read the <a href="#archetypes">archetypes</a> section the night before each quiz, and keep refining your aid sheet from the <a href="#cheatsheet">cheat-sheet</a> as new lectures add material. Spotted a mistake or want to add the next lecture? This guide is open for corrections on <a href="https://github.com/edmond-i/3091-field-guide">GitHub</a>.</p>
     </div>
 
   </main>
 </div>
+<script>
+  // Mobile "Contents" menu: reuse the desktop table of contents.
+  (function () {
+    var src = document.getElementById("toc-desktop"), dst = document.getElementById("toc-mobile-nav");
+    if (!src || !dst) return;
+    dst.innerHTML = src.innerHTML;
+    dst.addEventListener("click", function (e) {
+      if (e.target.closest("a")) document.querySelector("details.toc-mobile").open = false;
+    });
+  })();
+</script>
 </body>
 </html>
