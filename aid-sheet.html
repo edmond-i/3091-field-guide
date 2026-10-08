@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.091 Aid Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* on-screen chrome (follows the viewer's theme) */
+    --page-bg:#E7E9F1;
+    --chrome-ink:#2A2D3A;
+
+    /* the sheet itself is simulated paper: always white with dark ink */
+    --ink:#141620;
+    --ink-soft:#4A4E5E;
+    --hair:#C7CAD6;
+    --hair-soft:#E2E4EC;
+    --blue:#2546B8;     /* atoms */
+    --blue-soft:#EAEEFC;
+    --violet:#6B3FC2;   /* trends */
+    --violet-soft:#F0E9FB;
+    --copper:#9C5E24;   /* ionic */
+    --copper-soft:#F7EBDC;
+    --teal:#136F58;     /* covalent */
+    --teal-soft:#E2F3EE;
+    --rose:#9A2F66;     /* orbitals / MO */
+    --rose-soft:#F9E6F0;
+    --warn:#9C3A22;
+    --warn-soft:#FBEAE3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --page-bg:#0F1117; --chrome-ink:#C9CCDA; }
+  }
+  :root[data-theme="dark"]{ --page-bg:#0F1117; --chrome-ink:#C9CCDA; }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--page-bg);
+    color:var(--chrome-ink);
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    -webkit-font-smoothing:antialiased;
+  }
+  .screen-chrome{
+    max-width:940px;
+    margin:0 auto;
+    padding:22px 16px 60px;
+    text-align:center;
+  }
+  .screen-chrome h1{
+    font-family:"Fraunces";
+    font-weight:700;
+    font-size:22px;
+    margin:0 0 4px;
+    color:var(--chrome-ink);
+  }
+  .screen-chrome p{
+    font-size:12.5px;
+    color:var(--chrome-ink);
+    opacity:0.72;
+    margin:0 0 18px;
+    line-height:1.5;
+  }
+  .screen-chrome .kbd{
+    font-family:"IBM Plex Mono";
+    background:rgba(127,127,127,.18);
+    border-radius:5px;
+    padding:1px 6px;
+    font-size:11.5px;
+  }
+
+  /* ---------------- THE SHEET (always white/black, simulated paper) ---------------- */
+  .sheet{
+    width:8.5in;
+    min-height:11in;
+    margin:0 auto;
+    background:#FFFFFF;
+    color:var(--ink);
+    padding:0.38in 0.42in 0.3in;
+    box-shadow:0 18px 50px -14px rgba(0,0,0,.45);
+    border-radius:3px;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .head{
+    border-bottom:2.2pt solid var(--ink);
+    padding-bottom:3.5pt;
+    margin-bottom:5.5pt;
+  }
+  .head .t1{font-family:"Fraunces"; font-weight:700; font-style:italic; font-size:15.5pt; letter-spacing:.01em;}
+  .head .t2{font-size:7.3pt; color:var(--ink-soft); line-height:1.4; margin-top:2pt;}
+  .head .t2 b{color:var(--ink);}
+
+  /* Columns are floats with explicit widths on purpose: CSS grid/flex let long lines
+     run past the page edge in headless-Chrome PDF output. Keep it this way. */
+  .cols{overflow:hidden;}
+  .cols::after{content:""; display:block; clear:both;}
+  .col{
+    float:left;
+    width:2.3in;
+    margin-right:0.26in;
+    border-right:0.6pt solid var(--hair-soft);
+    padding-right:0.18in;
+  }
+  .col:nth-child(3){border-right:none; padding-right:0; margin-right:0;}
+  .blk{
+    break-inside:avoid;
+    margin-bottom:5pt;
+    overflow-wrap:break-word;
+    word-break:break-word;
+    max-width:100%;
+    min-width:0;
+  }
+  .blk h2{
+    font-family:"Fraunces";
+    font-weight:700;
+    font-size:8pt;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    margin:0 0 2pt;
+    padding:1pt 5pt;
+    border-radius:3pt;
+    display:inline-block;
+  }
+  .c-atoms h2{background:var(--blue-soft); color:var(--blue);}
+  .c-trends h2{background:var(--violet-soft); color:var(--violet);}
+  .c-ionic h2{background:var(--copper-soft); color:var(--copper);}
+  .c-covalent h2{background:var(--teal-soft); color:var(--teal);}
+  .c-orbital h2{background:var(--rose-soft); color:var(--rose);}
+
+  .ln{font-size:6.7pt; line-height:1.34; margin:0 0 1pt;}
+  .ln b{font-weight:700;}
+  .lbl{color:var(--ink-soft); font-size:6.3pt;}
+
+  table.ref{border-collapse:collapse; width:100%; table-layout:fixed; margin:1.5pt 0 0;}
+  table.ref th, table.ref td{
+    font-size:6.2pt;
+    padding:0.9pt 3pt;
+    text-align:left;
+    border-bottom:0.5pt solid var(--hair-soft);
+    line-height:1.25;
+    vertical-align:top;
+    overflow-wrap:break-word;
+  }
+  table.ref th{font-weight:700; color:var(--ink-soft); border-bottom:0.8pt solid var(--hair);}
+  table.ref tr:last-child td{border-bottom:none;}
+  table.w12 th:first-child{width:12%;}
+  table.w40 th:first-child{width:50%;}
+  table.w30 th:nth-child(1){width:33%;}
+  table.w30 th:nth-child(2){width:28%;}
+  table.w30 th:nth-child(3){width:12%;}
+  table.w30 th:nth-child(4){width:27%;}
+
+  .eqbox{
+    background:#F4F5F9;
+    border-radius:3pt;
+    padding:2pt 5pt;
+    margin:1.5pt 0;
+    font-size:6.8pt;
+    font-weight:600;
+    display:block;
+    overflow-wrap:break-word;
+  }
+
+  .steps{margin:1.5pt 0 0; padding-left:10pt;}
+  .steps li{font-size:6.5pt; line-height:1.32; margin-bottom:0.5pt;}
+
+  .traps{
+    margin-top:4pt;
+    padding-top:3.5pt;
+    border-top:2.2pt solid var(--warn);
+  }
+  .traps h2{
+    font-family:"Fraunces"; font-weight:700; font-size:8.2pt; text-transform:uppercase; letter-spacing:.03em;
+    color:var(--warn); margin:0 0 3pt;
+  }
+  .traps-grid{overflow:hidden;}
+  .traps-grid::after{content:""; display:block; clear:both;}
+  .traps-grid ul{float:left; width:3.56in; margin:0; padding:0;}
+  .traps-grid ul:first-child{margin-right:0.3in;}
+  .traps-grid li{
+    font-size:6.4pt;
+    line-height:1.3;
+    margin-bottom:1.8pt;
+    list-style:none;
+    padding-left:8pt;
+    position:relative;
+    overflow-wrap:break-word;
+  }
+  .traps-grid li::before{
+    content:"▸";
+    position:absolute; left:0; color:var(--warn); font-size:6.5pt;
+  }
+
+  @media print{
+    @page{ size: letter; margin:0; }
+    body{background:#fff;}
+    .screen-chrome{display:none;}
+    .sheet{box-shadow:none; margin:0; border-radius:0; width:100%; height:11in; max-height:11in; overflow:hidden;}
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-chrome">
+  <h1>3.091 — One-Page Aid Sheet</h1>
+  <p>Dense recall card built from every recurring pattern across Rec 01&ndash;06 and PP01&ndash;03 &mdash; not a teaching doc, just what you should not forget. Sized to print as a single 8.5&times;11&Prime; page.<br>
+  Print with <span class="kbd">⌘/Ctrl</span>+<span class="kbd">P</span> &middot; scale <b>100%</b> &middot; margins <b>none</b> &middot; background graphics <b>on</b> (for the color tags).</p>
+</div>
+
+<div class="sheet">
+
+  <div class="head">
+    <div class="t1">3.091 Aid Sheet</div>
+    <div class="t2"><b>Atomic structure &middot; Periodic trends &middot; Ionic &amp; covalent bonding</b> &mdash; built from recitation &amp; problem-set archetypes, L01&ndash;L09</div>
+  </div>
+
+  <div class="cols">
+
+    <div class="col">
+
+    <div class="blk c-atoms">
+      <h2>Constants</h2>
+      <div class="ln"><span class="lbl">h</span> = 6.626×10⁻³⁴ J·s = 4.136×10⁻¹⁵ eV·s</div>
+      <div class="ln"><span class="lbl">ħ=h/2π</span> = 1.055×10⁻³⁴ J·s</div>
+      <div class="ln"><span class="lbl">c</span> = 2.998×10⁸ m/s</div>
+      <div class="ln"><span class="lbl">e</span> = 1.602×10⁻¹⁹ C &nbsp;|&nbsp; <b>1 eV = 1.602×10⁻¹⁹ J</b></div>
+      <div class="ln"><span class="lbl">mₑ</span>=9.109×10⁻³¹kg <span class="lbl">mₚ</span>=1.673×10⁻²⁷kg <span class="lbl">mₙ</span>=1.675×10⁻²⁷kg</div>
+      <div class="ln"><span class="lbl">Nₐ</span> = 6.022×10²³ /mol</div>
+      <div class="ln"><span class="lbl">R</span> = 8.314 J/mol·K = 0.08206 L·atm/mol·K</div>
+      <div class="ln"><span class="lbl">a₀</span> (Bohr radius) = 0.529 Å</div>
+      <div class="ln"><span class="lbl">R∞</span> = 13.6 eV = 2.18×10⁻¹⁸ J = 1.097×10⁷ m⁻¹</div>
+      <div class="ln"><span class="lbl">ε₀</span> = 8.854×10⁻¹² F/m</div>
+    </div>
+
+    <div class="blk c-atoms">
+      <h2>Light &amp; Bohr Model</h2>
+      <div class="eqbox">c = νλ &nbsp; E = hν = hc/λ</div>
+      <div class="eqbox">Eₙ = −13.6 eV·Z²/n² &nbsp;(H-like ions)</div>
+      <div class="eqbox">1/λ = R·Z²|1/n꜀² − 1/nᵢ²|</div>
+      <div class="eqbox">mvr = n(h/2π) &nbsp; rₙ = n²a₀</div>
+      <div class="ln"><b>Series</b> (final n): Lyman=1(UV) Balmer=2(vis) Paschen=3 Brackett=4 Pfund=5 Humphreys=6</div>
+      <div class="ln"><b>Trap:</b> |λ|&gt;0 always — emission(n↓)=+ΔE sign as written; absorption flip order or take abs value.</div>
+    </div>
+
+    <div class="blk c-atoms">
+      <h2>Quantum Numbers</h2>
+      <table class="ref w12">
+        <tr><th>n</th><td>1,2,3… shell/energy</td></tr>
+        <tr><th>l</th><td>0…n−1 → s,p,d,f</td></tr>
+        <tr><th>mₗ</th><td>−l…+l, orientation</td></tr>
+        <tr><th>mₛ</th><td>±1/2 only, spin</td></tr>
+      </table>
+      <div class="ln">s=1 orbital/2e⁻ &middot; p=3/6 &middot; d=5/10 &middot; f=7/14</div>
+      <div class="ln"><b>Check order:</b> n≥1 int → 0≤l≤n−1 → |mₗ|≤l → mₛ=±½ exactly.</div>
+    </div>
+
+    <div class="blk c-trends">
+      <h2>Photoelectron Spectroscopy</h2>
+      <div class="eqbox">E_binding = E_incident − E_photoelectron</div>
+      <div class="ln">Peak <b>position</b> = binding energy → identity/Z. Peak <b>height/area</b> = e⁻ count in that orbital → configuration.</div>
+      <div class="ln"><b>Trap:</b> isoelectronic species (same e⁻ count) share the exact peak <i>pattern</i> but shift to different <i>positions</i> (more protons → higher BE, shifts left). 1st IE(X⁺) = 2nd IE(X).</div>
+    </div>
+
+    </div>
+
+    <div class="col">
+
+    <div class="blk c-trends">
+      <h2>Filling Rules</h2>
+      <div class="ln"><b>Pauli:</b> no 2 e⁻ share all 4 QNs (max 2/orbital, opposite spin)</div>
+      <div class="ln"><b>Aufbau:</b> lowest energy first</div>
+      <div class="ln"><b>Hund:</b> fill degenerate orbitals singly (∥ spin) before pairing</div>
+      <div class="ln"><b>n+l rule:</b> ascending (n+l); tie → ascending n (4s n+l=4 fills before 3d n+l=5)</div>
+      <div class="ln"><b>Exceptions</b> (half/full-d stability): Cr=[Ar]4s¹3d⁵ &middot; Cu=[Ar]4s¹3d¹⁰ &middot; same pattern: Mo, Ag, Au</div>
+      <div class="ln"><b>Trap:</b> derive config from PT position, don't memorize. Ionizing transition metals → remove <i>ns</i> before (n−1)d, always.</div>
+    </div>
+
+    <div class="blk c-trends">
+      <h2>Periodic Trends</h2>
+      <table class="ref w40">
+        <tr><th>Trend</th><th>→ period</th><th>↓ group</th></tr>
+        <tr><td>Atomic radius</td><td>↓</td><td>↑</td></tr>
+        <tr><td>1st IE</td><td>↑</td><td>↓</td></tr>
+        <tr><td>Electron affinity</td><td>↑</td><td>↓</td></tr>
+        <tr><td>Electronegativity</td><td>↑</td><td>↓</td></tr>
+      </table>
+      <div class="ln">Driven by: nuclear charge (→) vs. shielding/distance (↓). Cation&lt;parent atom&lt;anion, always.</div>
+      <div class="ln"><b>IE zig-zag (real, not typos):</b> Be&gt;B, Mg&gt;Al (full s² easier to keep than lone p¹) &middot; N&gt;O, P&gt;S (half-filled p³ extra-stable)</div>
+    </div>
+
+    <div class="blk c-ionic">
+      <h2>Ionic Bond Energetics</h2>
+      <div class="ln">1. Ionize metal: +IE &nbsp; 2. Attach e⁻ to nonmetal: −EA &nbsp; 3. Coulomb attraction of ions: large −ΔE (this is what actually pays for the bond)</div>
+      <div class="ln"><b>Trap:</b> steps 1+2 alone are usually unfavorable — step 3 always wins. Pure element can never bond ionically with itself (needs Δχ&gt;0).</div>
+    </div>
+
+    <div class="blk c-ionic">
+      <h2>Born&ndash;Haber Cycle</h2>
+      <div class="eqbox">ΔH_f = V + IE + ½B(X₂) + EA + U_L</div>
+      <div class="ln">2+/2− case (e.g. CaO): use IE₁+IE₂ and EA₁+EA₂.</div>
+      <div class="ln"><b>Traps:</b> ½B only if ½ mol diatomic gas needed/formula unit. 2nd EA step (X⁻+e⁻→X²⁻) is net endothermic — still used as given data.</div>
+    </div>
+
+    </div>
+
+    <div class="col">
+
+    <div class="blk c-ionic">
+      <h2>Lattice Energy (Born&ndash;Land&eacute;)</h2>
+      <div class="eqbox">E = −(NₐMZ⁺Z⁻e²)/(4πε₀r₀) × (1−1/n)</div>
+      <div class="ln">Kapustinskii shortcut: n=9 fixed, M≈0.88×(ion count). U_L ∝ Z⁺Z⁻ (↑charge) and ∝ 1/r₀ (↓size) — tracks melting point directly.</div>
+      <table class="ref w30">
+        <tr><th>Structure</th><th>r⁺/r⁻</th><th>CN</th><th>M</th></tr>
+        <tr><td>Zinc blende</td><td>.225&ndash;.414</td><td>4</td><td>1.638</td></tr>
+        <tr><td>Rock salt</td><td>.414&ndash;.732</td><td>6</td><td>1.748</td></tr>
+        <tr><td>CsCl</td><td>.732&ndash;1.0</td><td>8</td><td>1.763</td></tr>
+        <tr><td>Fluorite (1:2)</td><td>.732&ndash;1.0</td><td>8/4</td><td>2.52</td></tr>
+      </table>
+      <div class="ln">Born exp. n: He⁵ Ne⁷ Ar/Cu⁺⁹ Kr/Ag⁺10 Xe/Au⁺12 (avg of ion pair)</div>
+    </div>
+
+    <div class="blk c-covalent">
+      <h2>Covalent: Bond Type</h2>
+      <table class="ref">
+        <tr><th>Δχ</th><th>Bond</th></tr>
+        <tr><td>&lt; 0.4</td><td>pure covalent</td></tr>
+        <tr><td>0.4&ndash;1.8</td><td>polar covalent</td></tr>
+        <tr><td>&gt; 1.8</td><td>ionic</td></tr>
+      </table>
+      <div class="ln">H₂ bond curve: r₀=74pm, well depth=−432kJ/mol = bond dissociation energy. Same curve shape for ionic bonds.</div>
+    </div>
+
+    <div class="blk c-covalent">
+      <h2>Lewis Structures — Algorithm</h2>
+      <ol class="steps">
+        <li>Arrange: least-χ atom central, H always terminal</li>
+        <li>Count valence e⁻ (+charge→subtract, −charge→add)</li>
+        <li>Odd total → radical, incomplete octet, stop</li>
+        <li>Draw single-bond skeleton</li>
+        <li>Lone pairs to terminal atoms' octets first</li>
+        <li>Leftover e⁻ → central atom (hypervalent if &gt;8; only period≥3)</li>
+        <li>Still missing octet? → lone pair becomes double/triple bond; recheck</li>
+      </ol>
+      <div class="eqbox">FC = valence e⁻ − lone-pair e⁻ − bonding e⁻/2</div>
+      <div class="ln">Best structure: FC→0 (fewest nonzero); any − FC on more-electronegative atom. <b>FC≠oxidation state</b> (FC splits bond 50/50; ox. state gives both e⁻ to more-χ atom).</div>
+      <div class="ln">Sanity check: N→3 bonds/1 LP &middot; O→2 bonds/2 LP &middot; halogen→1 bond/3 LP. Resonance = multiple equal structures, true form is the hybrid.</div>
+    </div>
+
+    </div>
+
+  </div>
+
+  <div class="traps">
+    <h2>Don't forget — recitation-flagged traps</h2>
+    <div class="traps-grid">
+      <ul>
+        <li>Cubing volume conversions: 1 m³=10⁶ cm³, not 10².</li>
+        <li>Isotope "A≈atomic mass" shortcut only valid for single-isotope elements.</li>
+        <li>Weighted-avg atomic mass = Σ(isotope mass × fractional abundance).</li>
+        <li>Rydberg eq.: take |value| for λ; emission/absorption only differ by sign.</li>
+        <li>Match units inside one equation (R∞ in J vs eV, matching h's units).</li>
+        <li>Config from PT position, not memorized — that's the actual tested skill.</li>
+        <li>Transition-metal ions: always lose <i>ns</i> electrons before (n−1)d.</li>
+        <li>1st IE(X⁺) = 2nd IE(X) — a disguised identity in comparison questions.</li>
+      </ul>
+      <ul>
+        <li>Co²⁺ and friends: favor half/full d-subshell, not "isoelectronic w/ noble gas."</li>
+        <li>PES: height=count, position=identity; isoelectronic ⇒ same pattern, shifted position.</li>
+        <li>Be&gt;B and N&gt;O ionization dips are expected exceptions, not errors.</li>
+        <li>Born&ndash;Haber: remember the ½B(X₂) factor whenever only half a mole is needed.</li>
+        <li>O²⁻'s 2nd electron-affinity step is net endothermic, yet still used as given data.</li>
+        <li>Formal charge (50/50 split) ≠ oxidation state (all e⁻ to more-χ atom) — don't conflate.</li>
+        <li>H is always terminal in a Lewis structure, never central.</li>
+        <li>Expanded octets only exist for period ≥3 (accessible d-orbitals) — never C,N,O,F.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
