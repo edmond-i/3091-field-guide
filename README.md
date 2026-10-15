@@ -33,7 +33,7 @@ No build step and no dependencies. Open `index.html` in a browser. (Web fonts lo
 | L14 | Metals, energy bands, conductors/semiconductors/insulators, work function | 08 |
 | all | Cheat codes, practice archetypes, formula sheet, exam traps | end of page |
 
-Recitations 01-06 and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
+Recitations 01-06 and 09 (slides) and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
 
 ## Contributing
 

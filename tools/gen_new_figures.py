@@ -179,30 +179,31 @@ def hy_ethene():
 def ip_dipoles():
     cells = []
 
-    def cell(title, verdict, kind, body, arrows):
-        col = "fm-attr" if kind == "a" else "fm-rep"
-        cells.append(
-            f'<div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="{title}: {verdict}">{body}{arrows}</svg>'
-            f'<div class="vs-name">{title}</div><div class="dp-verdict {"dp-net" if kind == "a" else "dp-zero"}">{verdict}</div></div>')
+    def mk(c, i):
+        return (f'<defs><marker id="{c}-{i}" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" '
+                f'orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="{c}"/></marker></defs>')
 
-    mk = lambda c: f'<defs><marker id="{c}" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="{c}"/></marker></defs>'
-    # (a) stacked antiparallel: attract
-    body = mk("fm-attr-h") + _pill(60, 36) + _pill(60, 78, True)
-    arr = f'<path class="fm-attr" d="M48,52 V62" marker-end="url(#fm-attr-h)" marker-start="url(#fm-attr-h)"/><path class="fm-attr" d="M72,52 V62" marker-end="url(#fm-attr-h)" marker-start="url(#fm-attr-h)"/>'
-    cell("Side by side, opposite ways", "attract", "a", body, arr)
-    # (b) head to tail
-    body = mk("fm-attr-h") + _pill(32, 55) + _pill(88, 55)
-    arr = '<path class="fm-attr" d="M52,55 H66" marker-end="url(#fm-attr-h)" marker-start="url(#fm-attr-h)"/>'
-    cell("Head to tail", "attract", "a", body, arr)
-    # (c) stacked parallel: repel
-    mkr = mk("fm-rep-h")
-    body = mkr + _pill(60, 36) + _pill(60, 78)
-    arr = '<path class="fm-rep" d="M48,52 V62" marker-end="url(#fm-rep-h)" marker-start="url(#fm-rep-h)"/><path class="fm-rep" d="M72,52 V62" marker-end="url(#fm-rep-h)" marker-start="url(#fm-rep-h)"/>'
-    cell("Side by side, same way", "repel", "r", body, arr)
-    # (d) head to head
-    body = mkr + _pill(32, 55) + _pill(88, 55, True)
-    arr = '<path class="fm-rep" d="M52,55 H66" marker-end="url(#fm-rep-h)" marker-start="url(#fm-rep-h)"/>'
-    cell("Head to head", "repel", "r", body, arr)
+    def arrows(kind, i, xs, ys):
+        c = "fm-attr" if kind == "a" else "fm-rep"
+        out = ""
+        for (x1, y1, x2, y2) in xs:
+            out += (f'<path class="{c}" d="M{x1},{y1} L{x2},{y2}" marker-end="url(#{c}-h-{i})" marker-start="url(#{c}-h-{i})"/>')
+        return out
+
+    specs = [
+        ("Side by side, opposite ways", "attract", "a", [(60, 36, False), (60, 78, True)], [(48, 52, 48, 62), (72, 52, 72, 62)]),
+        ("Head to tail", "attract", "a", [(32, 55, False), (88, 55, False)], [(52, 55, 66, 55)]),
+        ("Side by side, same way", "repel", "r", [(60, 36, False), (60, 78, False)], [(48, 52, 48, 62), (72, 52, 72, 62)]),
+        ("Head to head", "repel", "r", [(32, 55, False), (88, 55, True)], [(52, 55, 66, 55)]),
+    ]
+    for i, (title, verdict, kind, pills, arr) in enumerate(specs):
+        c = "fm-attr" if kind == "a" else "fm-rep"
+        defs = (f'<defs><marker id="{c}-h-{i}" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" '
+                f'orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="{c}-h"/></marker></defs>')
+        body = defs + "".join(_pill(x, y, fl) for (x, y, fl) in pills) + arrows(kind, i, arr, None)
+        cells.append(
+            f'<div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="{title}: {verdict}">{body}</svg>'
+            f'<div class="vs-name">{title}</div><div class="dp-verdict {"dp-net" if kind == "a" else "dp-zero"}">{verdict}</div></div>')
     return '<div class="gp-row ip-row">' + "".join(cells) + '</div>'
 
 
@@ -548,12 +549,102 @@ def mt_workfn():
     return svg(W, H, "Work function: the energy needed to remove an electron from the solid to outside the metal. A photon of energy h nu supplies it, and any leftover energy appears as the electron's kinetic energy.", "".join(o))
 
 
+# =================================================================== RECITATION 9 ADDITIONS
+def _mo_up(x, y):
+    return f'<path class="mo-e" d="M{f(x)},{f(y + 1)} V{f(y - 11)} M{f(x - 2.6)},{f(y - 7.4)} L{f(x)},{f(y - 11)} L{f(x + 2.6)},{f(y - 7.4)}"/>'
+
+
+def _mo_dn(x, y):
+    return f'<path class="mo-e" d="M{f(x)},{f(y - 11)} V{f(y + 1)} M{f(x - 2.6)},{f(y - 3.4)} L{f(x)},{f(y + 1)} L{f(x + 2.6)},{f(y - 3.4)}"/>'
+
+
+def _mo_level(x1, x2, y, spin, cls="mo-lv"):
+    out = f'<line class="{cls}" x1="{f(x1)}" y1="{f(y)}" x2="{f(x2)}" y2="{f(y)}"/>'
+    cx = (x1 + x2) / 2
+    if spin == "ud":
+        out += _mo_up(cx - 4, y) + _mo_dn(cx + 4, y)
+    elif spin == "u":
+        out += _mo_up(cx, y)
+    return out
+
+
+def _mo_cn(x1, y1, x2, y2):
+    return f'<line class="mo-cn" x1="{f(x1)}" y1="{f(y1)}" x2="{f(x2)}" y2="{f(y2)}"/>'
+
+
+def _mo_lab(x, y, t, anchor="middle", cls="mo-lab"):
+    return f'<text class="{cls}" x="{f(x)}" y="{f(y)}" text-anchor="{anchor}">{t}</text>'
+
+
+def mo_f2():
+    """F2: 14 valence electrons; sigma2p below pi2p; no hybrids used (Recitation 9)."""
+    W, H = 560, 380
+    yP, yS = 130, 292
+    y_ss, y_ps, y_pp, y_p, y_ss2, y_s = 36, 78, 164, 214, 262, 330
+    o = ['<path class="mo-ax" d="M14,356 V28 M9,36 L14,26 L19,36"/>', _mo_lab(8, 16, "E", "start")]
+    o.append(_mo_lab(78, 22, "F atom", cls="mo-title") + _mo_lab(280, 14, "F&#8322; molecule", cls="mo-title") + _mo_lab(482, 22, "F atom", cls="mo-title"))
+    for x0 in (46, 440):
+        o.append(_mo_level(x0, x0 + 24, yP, "ud") + _mo_level(x0 + 28, x0 + 52, yP, "ud") + _mo_level(x0 + 56, x0 + 80, yP, "u"))
+        o.append(_mo_lab(x0 + 40, yP + 20, "2p", cls="mo-ao"))
+    o.append(_mo_level(62, 98, yS, "ud") + _mo_lab(80, yS + 20, "2s", cls="mo-ao"))
+    o.append(_mo_level(456, 492, yS, "ud") + _mo_lab(474, yS + 20, "2s", cls="mo-ao"))
+    for ym in (y_s, y_ss2):
+        o.append(_mo_cn(98, yS, 250, ym) + _mo_cn(456, yS, 310, ym))
+    for (ym, xl, xr) in ((y_p, 250, 310), (y_ss, 250, 310)):
+        o.append(_mo_cn(126, yP, xl, ym) + _mo_cn(440, yP, xr, ym))
+    o.append(_mo_cn(126, yP, 226, y_pp) + _mo_cn(440, yP, 334, y_pp))
+    o.append(_mo_cn(126, yP, 226, y_ps) + _mo_cn(440, yP, 334, y_ps))
+    o.append(_mo_level(250, 310, y_s, "ud") + _mo_level(250, 310, y_ss2, "ud") + _mo_level(250, 310, y_p, "ud"))
+    o.append(_mo_level(226, 262, y_pp, "ud") + _mo_level(298, 334, y_pp, "ud"))
+    o.append(_mo_level(226, 262, y_ps, "ud") + _mo_level(298, 334, y_ps, "ud"))
+    o.append(_mo_level(250, 310, y_ss, ""))
+    o.append(_mo_lab(242, y_s + 4, "&sigma;2s", "end") + _mo_lab(242, y_ss2 + 4, "&sigma;*2s", "end") + _mo_lab(242, y_p + 4, "&sigma;2p", "end"))
+    o.append(_mo_lab(218, y_pp + 4, "&pi;2p", "end") + _mo_lab(218, y_ps + 4, "&pi;*2p", "end") + _mo_lab(242, y_ss + 4, "&sigma;*2p", "end"))
+    o.append(_mo_lab(350, y_ps + 4, "both full", "start", "mo-hi-t"))
+    return svg(W, H, "Molecular orbital diagram of F2 with 14 valence electrons: sigma2s, sigma-star 2s, sigma2p, pi2p and pi-star 2p are all full and sigma-star 2p is empty, giving bond order 1 and no unpaired electrons.", "".join(o))
+
+
+def mo_ethene():
+    """Partial MO diagram for the C=C unit of ethene (sp2 hybrids -> sigma, leftover 2p -> pi)."""
+    W, H = 700, 400
+    y_sp2, y_2p = 250, 170
+    y_sig, y_pi, y_pis, y_sigs = 345, 222, 118, 36
+    cl, cr = 290, 410          # centre levels x-range
+    o = ['<path class="mo-ax" d="M14,380 V26 M9,34 L14,24 L19,34"/>', _mo_lab(8, 14, "E", "start")]
+    o.append(_mo_lab(100, 22, "C atom", cls="mo-title") + _mo_lab(350, 14, "C=C bonds", cls="mo-title") + _mo_lab(590, 22, "C atom", cls="mo-title"))
+    for x0 in (50, 550):
+        o.append(_mo_level(x0, x0 + 22, y_sp2, "u") + _mo_level(x0 + 26, x0 + 48, y_sp2, "u") + _mo_level(x0 + 52, x0 + 74, y_sp2, "u"))
+        o.append(_mo_lab(x0 + 37, y_sp2 + 20, "sp&sup2;", cls="mo-ao"))
+        o.append(_mo_level(x0 + 26, x0 + 48, y_2p, "u"))
+        o.append(_mo_lab(x0 + 37, y_2p + 20, "2p", cls="mo-ao"))
+    o.append(_mo_cn(124, y_sp2, cl, y_sig) + _mo_cn(550, y_sp2, cr, y_sig))
+    o.append(_mo_cn(124, y_sp2, cl, y_sigs) + _mo_cn(550, y_sp2, cr, y_sigs))
+    o.append(_mo_cn(98, y_2p, cl, y_pi) + _mo_cn(576, y_2p, cr, y_pi))
+    o.append(_mo_cn(98, y_2p, cl, y_pis) + _mo_cn(576, y_2p, cr, y_pis))
+    pi_cls = "mo-lv fm-pi"
+    o.append(_mo_level(cl, cr, y_sig, "ud") + _mo_level(cl, cr, y_pi, "ud", pi_cls) + _mo_level(cl, cr, y_pis, "", pi_cls) + _mo_level(cl, cr, y_sigs, ""))
+    o.append(_mo_lab(cl - 8, y_sig + 4, "&sigma; (C&ndash;C bonding)", "end"))
+    o.append(_mo_lab(cl - 8, y_pi + 4, "&pi; bonding", "end", "mo-lab fm-pi-t"))
+    o.append(_mo_lab(cl - 8, y_pis + 4, "&pi;* antibonding", "end", "mo-lab fm-pi-t"))
+    o.append(_mo_lab(cl - 8, y_sigs + 4, "&sigma;* (C&ndash;C antibonding)", "end"))
+    o.append(_mo_lab(cr + 8, y_pi + 4, "HOMO", "start", "mo-hi-t"))
+    o.append(_mo_lab(cr + 8, y_pis + 4, "LUMO", "start", "mo-hi-t"))
+    o.append(f'<path class="fm-dim2" d="M458,{y_pi} V{y_pis}" marker-start="url(#gapA2)" marker-end="url(#gapA2)"/>')
+    o.append(_mo_lab(468, (y_pi + y_pis) / 2 - 2, "&Delta;E (&pi;&rarr;&pi;*)", "start", "fm-note fm-halo"))
+    o.append(_mo_lab(468, (y_pi + y_pis) / 2 + 14, "small", "start", "fm-note fm-halo"))
+    o.append(f'<path class="fm-dim2" d="M676,{y_sig} V{y_sigs}" marker-start="url(#gapA2)" marker-end="url(#gapA2)"/>')
+    o.append(_mo_lab(666, 70, "&Delta;E (&sigma;&rarr;&sigma;*)", "end", "fm-note fm-halo") + _mo_lab(666, 86, "much larger", "end", "fm-note fm-halo"))
+    o.append('<defs><marker id="gapA2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="fm-arrow-h"/></marker></defs>')
+    return svg(W, H, "Partial molecular orbital diagram for ethene: each carbon contributes three sp2 electrons and one 2p electron. The sigma bonding orbital and the pi bonding orbital are filled; the pi bonding orbital is the HOMO and the pi-star orbital is the LUMO, separated by a much smaller gap than sigma to sigma-star.", "".join(o))
+
+
 ALL = {
     "hy_promote": hy_promote, "hy_shape": hy_shape, "hy_ethene": hy_ethene,
     "ip_dipoles": ip_dipoles, "ip_hbond": ip_hbond, "ip_water4": ip_water4, "ip_hydride_bp": ip_hydride_bp,
     "ip_alkane_bp": ip_alkane_bp, "ip_shape": ip_shape, "ip_instant": ip_instant,
     "mt_band": mt_band, "mt_namgal": mt_namgal, "mt_gap": mt_gap, "mt_group14": mt_group14,
     "mt_resist": mt_resist, "mt_workfn": mt_workfn,
+    "mo_f2": mo_f2, "mo_ethene": mo_ethene,
 }
 
 if __name__ == "__main__":
