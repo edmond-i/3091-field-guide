@@ -29,6 +29,10 @@
     --unit-covalent-soft:#E3F3EE;
     --unit-orbital:#A8336E;
     --unit-orbital-soft:#F8E7F0;
+    --unit-forces:#8A6A0C;
+    --unit-forces-soft:#F5EDCF;
+    --unit-metal:#4F6378;
+    --unit-metal-soft:#E4E9EF;
     --warn:#AE4A2E;
     --warn-soft:#FAEBE4;
     --good:#1E8F74;
@@ -55,6 +59,10 @@
       --unit-covalent-soft:#1A332C;
       --unit-orbital:#F08DBD;
       --unit-orbital-soft:#3A2030;
+      --unit-forces:#E6C25A;
+      --unit-forces-soft:#332B12;
+      --unit-metal:#A9BBD0;
+      --unit-metal-soft:#222A33;
       --warn:#E89579;
       --warn-soft:#3A241C;
       --good:#6FD5B9;
@@ -81,6 +89,10 @@
     --unit-covalent-soft:#1A332C;
       --unit-orbital:#F08DBD;
       --unit-orbital-soft:#3A2030;
+      --unit-forces:#E6C25A;
+      --unit-forces-soft:#332B12;
+      --unit-metal:#A9BBD0;
+      --unit-metal-soft:#222A33;
     --warn:#E89579;
     --warn-soft:#3A241C;
     --good:#6FD5B9;
@@ -549,6 +561,77 @@
   .unit-head{flex-wrap:wrap;row-gap:6px;}
   .unit-tag{white-space:normal;}
   @media (max-width:640px){ .unit-tag{margin-left:0;flex-basis:100%;} }
+  /* ---------- hybridization / forces / metals figures ---------- */
+  .fm-t,.fm-h,.fm-note,.fm-cap,.fm-cap-s,.fm-ao,.fm-hy-t,.fm-orb-t,.fm-op,.fm-ax-t,.fm-tiny,.fm-lab-r,.fm-hb-t,.hy-lab,.pl-t,.bd-blk-t{font-family:"IBM Plex Mono",monospace;fill:var(--ink);}
+  .fm-h{font-family:"Fraunces",serif;font-size:14.5px;font-weight:600;}
+  .fm-note{font-size:11.5px;fill:var(--ink-soft);}
+  .fm-cap{font-size:13px;font-weight:600;}
+  .fm-cap-s{font-size:11.5px;fill:var(--ink-soft);}
+  .fm-ao{font-size:12px;fill:var(--ink-soft);}
+  .fm-hy-t{font-size:12.5px;font-weight:700;fill:var(--unit-orbital);}
+  .fm-orb-t{font-size:12.5px;font-weight:600;}
+  .fm-op{font-size:22px;font-weight:600;fill:var(--ink-faint);}
+  .fm-ax-t{font-size:11px;fill:var(--ink-faint);}
+  .fm-tiny{font-size:9px;font-weight:700;fill:var(--ink);}
+  .fm-lab-r{font-size:12px;}
+  .fm-hb-t{font-size:12px;font-weight:700;fill:var(--unit-forces);}
+  .fm-box{fill:var(--paper);stroke:var(--ink);stroke-width:1.8;}
+  .fm-box-hi{stroke:var(--unit-orbital);stroke-width:2.6;fill:var(--unit-orbital-soft);}
+  .fm-box-hy{stroke:var(--unit-orbital);stroke-width:2.2;fill:var(--unit-orbital-soft);}
+  .fm-sp{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .fm-ax{fill:none;stroke:var(--ink-faint);stroke-width:1.4;}
+  .fm-curve{fill:none;stroke:var(--unit-orbital);stroke-width:2.4;stroke-linecap:round;}
+  .fm-big-arrow{fill:none;stroke:var(--ink-faint);stroke-width:2.4;}
+  .fm-arrow-h{fill:var(--ink-faint);}
+  .fm-sigma{stroke:var(--ink);stroke-width:3;stroke-linecap:round;}
+  .fm-bond{stroke:var(--ink-soft);stroke-width:2.4;stroke-linecap:round;}
+  .fm-dim{stroke:var(--ink-faint);stroke-width:1.4;stroke-dasharray:4 3;fill:none;}
+  .fm-dim2{stroke:var(--ink);stroke-width:1.6;fill:none;}
+  .hb-dot{stroke:var(--unit-forces);stroke-width:3;stroke-dasharray:1.5 6;stroke-linecap:round;fill:none;}
+  .hb-dim{stroke:var(--unit-forces);}
+  .at-o{fill:var(--warn);}
+  .at-h{fill:var(--raised);stroke:var(--ink-soft);stroke-width:1.6;}
+  .at-c{fill:var(--ink-soft);}
+  .fm-contact{fill:var(--warn);fill-opacity:.85;}
+  .fm-contact-bar{fill:var(--warn);fill-opacity:.22;}
+  .pl-pos{fill:var(--warn);fill-opacity:.7;} .pl-neg{fill:var(--unit-atoms);fill-opacity:.7;}
+  .pl-t{font-size:8.5px;font-weight:700;fill:#fff;}
+  .fm-attr{stroke:var(--unit-covalent);stroke-width:2.6;fill:none;} .fm-attr-h{fill:var(--unit-covalent);}
+  .fm-rep{stroke:var(--warn);stroke-width:2.6;fill:none;} .fm-rep-h{fill:var(--warn);}
+  .ip-row{grid-template-columns:repeat(4,minmax(0,1fr));max-width:760px;margin-left:auto;margin-right:auto;}
+  @media (max-width:560px){.ip-row{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  .cl-cloud{fill:var(--unit-atoms);fill-opacity:.14;stroke:var(--unit-atoms);stroke-width:1.6;}
+  .hy-line{fill:none;stroke-width:2.6;stroke-linejoin:round;}
+  .hy-g14{stroke:var(--unit-trends);}
+  .hy-g15{stroke:var(--unit-covalent);}
+  .hy-g16{stroke:var(--warn);}
+  .hy-g17{stroke:var(--unit-atoms);}
+  .hy-pt.hy-g14{fill:var(--unit-trends);} .hy-pt.hy-g15{fill:var(--unit-covalent);} .hy-pt.hy-g16{fill:var(--warn);} .hy-pt.hy-g17{fill:var(--unit-atoms);}
+  .hy-line.hy-g14,.hy-line.hy-g15,.hy-line.hy-g16,.hy-line.hy-g17{fill:none;}
+  .hy-lab{font-size:11.5px;font-weight:700;}
+  .bd-lv{stroke:var(--ink-faint);stroke-width:2.4;stroke-linecap:round;}
+  .bd-fill{stroke:var(--unit-metal);stroke-width:3;}
+  .bd-filled{fill:var(--unit-metal);fill-opacity:.55;}
+  .bd-filled-hi{fill:var(--unit-metal);fill-opacity:.8;}
+  .bd-empty{fill:var(--line);fill-opacity:.9;}
+  .bd-overlap{fill:var(--unit-metal);fill-opacity:.95;}
+  .bd-3s{fill:var(--unit-metal);fill-opacity:.18;stroke:var(--unit-metal);stroke-width:1.2;}
+  .bd-3p{fill:var(--unit-atoms);fill-opacity:.14;stroke:var(--unit-atoms);stroke-width:1.2;}
+  .bd-blk-t{font-size:11.5px;font-weight:600;}
+  .gp-bar.gp-ins{fill:var(--warn);} .gp-bar.gp-semi{fill:var(--unit-forces);} .gp-bar.gp-met{fill:var(--unit-metal);}
+  .gp-bar.rs-bar{fill:var(--unit-metal);} .gp-bar.rs-top{fill:var(--unit-ionic);} .gp-bar.rs-alloy{fill:var(--unit-trends);}
+  .ph-nuc-line{stroke:var(--ink);stroke-width:1.6;}
+  .fm-photon{fill:none;stroke:var(--unit-atoms);stroke-width:2.4;stroke-linecap:round;}
+  .fm-sub{font-size:8.5px;}
+  .hy-t14{fill:var(--unit-trends);} .hy-t15{fill:var(--unit-covalent);} .hy-t16{fill:var(--warn);} .hy-t17{fill:var(--unit-atoms);}
+  .hy-lab{stroke:none;}
+  .ip-row .gp-cell svg{max-width:100%;}
+
+  .hy-puzzle{display:flex;flex-direction:column;gap:6px;margin:10px 0 14px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--raised);width:fit-content;max-width:100%;}
+  .hp-row{display:flex;align-items:center;gap:10px;}
+  .hp-lab{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);width:24px;}
+  .ob.up,.ob.up2{border-color:var(--ink);color:var(--ink);font-size:15px;background:var(--paper);}
+  .ob.up2{letter-spacing:2px;}
 </style>
 </head>
 <body>
@@ -557,12 +640,12 @@
   <header class="hero">
     <div class="hero-eyebrow"><span class="dot"></span> MIT 3.091 &middot; Fall 2026 &middot; Introduction to Solid State Chemistry</div>
     <h1>The <em>3.091</em> Field Guide</h1>
-    <p class="sub">Everything in your course folder — twelve lectures, six recitations, three problem sets — read, cross-checked, and rebuilt into one document. Built assuming you are starting from close to zero: every term is defined before it's used, every formula is explained before it's applied. Now with the VSEPR shape diagrams, orbital pictures, and a set of cheat codes.</p>
+    <p class="sub">Everything in your course folder — fourteen lectures, six recitations, three problem sets — read, cross-checked, and rebuilt into one document. Built assuming you are starting from close to zero: every term is defined before it's used, every formula is explained before it's applied. Includes VSEPR shape diagrams, a ground-up hybridization walkthrough, orbital and band pictures, and a set of cheat codes.</p>
     <div class="hero-stats">
-      <span class="stat-pill"><b>12</b> lectures</span>
+      <span class="stat-pill"><b>14</b> lectures</span>
       <span class="stat-pill"><b>6</b> recitations</span>
       <span class="stat-pill"><b>3</b> problem sets</span>
-      <span class="stat-pill">covers L01&ndash;L12: atoms &rarr; molecular orbitals</span>
+      <span class="stat-pill">covers L01&ndash;L14: atoms &rarr; metals</span>
       <a class="stat-pill stat-link" href="#cheatcodes">&#9733; jump to the cheat codes</a>
     </div>
   </header>
@@ -638,10 +721,31 @@
           <a href="#unit6"><span class="u-dot" style="--c:var(--unit-orbital)"></span>06 &middot; Hybrids &amp; MOs</a>
           <ul class="sub-list">
             <li><a href="#why-more">What VSEPR can&rsquo;t tell you</a></li>
-            <li><a href="#hybrid">Hybridization</a></li>
+            <li><a href="#hybrid">Hybridization, from scratch</a></li>
             <li><a href="#mo-basics">Molecular orbitals</a></li>
             <li><a href="#mo-diagram">Filling an MO diagram</a></li>
             <li><a href="#theories">Which theory explains what</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#unit7"><span class="u-dot" style="--c:var(--unit-forces)"></span>07 &middot; Intermolecular forces</a>
+          <ul class="sub-list">
+            <li><a href="#if-dipole">Dipole&ndash;dipole</a></li>
+            <li><a href="#if-hbond">Hydrogen bonds</a></li>
+            <li><a href="#if-bp">Boiling-point evidence</a></li>
+            <li><a href="#if-disp">Dispersion forces</a></li>
+            <li><a href="#if-rank">Ranking &amp; predicting</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#unit8"><span class="u-dot" style="--c:var(--unit-metal)"></span>08 &middot; Metals &amp; bands</a>
+          <ul class="sub-list">
+            <li><a href="#band-form">How a band forms</a></li>
+            <li><a href="#band-fill">Filling the band</a></li>
+            <li><a href="#band-gap">Metal / semi / insulator</a></li>
+            <li><a href="#band-bonding">Bonding in elements</a></li>
+            <li><a href="#band-conductivity">Conductivity</a></li>
+            <li><a href="#band-workfn">Work function</a></li>
           </ul>
         </li>
         <li><a href="#cheatcodes"><span class="u-dot" style="--c:var(--accent)"></span>&#9733; Cheat codes</a></li>
@@ -655,7 +759,7 @@
   <main>
 
     <section id="howto">
-      <p class="lede"><strong>Read this guide top to bottom once, slowly.</strong> It follows the exact order the course does — it builds atoms from scratch, then uses those atoms to explain the periodic table, then uses the periodic table to explain how bonds form. Nothing later depends on something you haven't already met. After the first read, use the <a href="#archetypes">practice archetypes</a> and <a href="#cheatsheet">cheat&#8209;sheet</a> as your pre-exam refresher. Short on time? The <a href="#cheatcodes">cheat codes</a> squeeze the whole course into nine lines.</p>
+      <p class="lede"><strong>Read this guide top to bottom once, slowly.</strong> It follows the exact order the course does — it builds atoms from scratch, then uses those atoms to explain the periodic table, then uses the periodic table to explain how bonds form. Nothing later depends on something you haven't already met. After the first read, use the <a href="#archetypes">practice archetypes</a> and <a href="#cheatsheet">cheat&#8209;sheet</a> as your pre-exam refresher. Short on time? The <a href="#cheatcodes">cheat codes</a> squeeze the whole course into eleven lines.</p>
     </section>
 
     <section id="bigpicture">
@@ -669,7 +773,7 @@
         <li><strong>Solutions &amp; Phase Diagrams</strong> — what happens when materials mix.</li>
         <li><strong>Organic &amp; Polymeric Materials</strong> — carbon-based materials and plastics.</li>
       </ol>
-      <p>This guide covers <strong>Part I and the start of Part II</strong> — everything from Lecture 1 through Lecture 12, which is where your course materials currently stop: atomic structure, the periodic table, ionic and covalent bonding, molecular shape (VSEPR), and the orbital theories (hybridization and molecular orbitals). That's the foundation everything later in the course stands on, so it's worth over-learning now.</p>
+      <p>This guide covers <strong>Part I and the start of Part II</strong> — everything from Lecture 1 through Lecture 14, which is where your course materials currently stop: atomic structure, the periodic table, ionic and covalent bonding, molecular shape (VSEPR), the orbital theories (hybridization and molecular orbitals), the forces between molecules, and metals. That's the foundation everything later in the course stands on, so it's worth over-learning now.</p>
       <div class="box analogy">
         <div class="box-head">Logistics worth knowing cold</div>
         <p style="margin-bottom:0">Exams are <strong>closed-book</strong> except for: a periodic table, a table of constants, a calculator, and <strong>one 8.5×11&Prime; aid sheet you make yourself</strong>. Quizzes are 10 minutes, in recitation, and your lowest of 10 is dropped. Grading: quizzes 20%, three midterms 15% each (45%), final 35%. A = 85%+, B = 70%+, C = 55%+. Build your aid sheet from the <a href="#cheatsheet">cheat-sheet</a> section below.</p>
@@ -1611,7 +1715,7 @@
       </ul>
       <div class="box def">
         <div class="box-head">Intra vs. inter (the lecture italicizes &ldquo;<em>inter</em>&rdquo; on purpose)</div>
-        <p style="margin-bottom:0"><strong>Intra</strong>molecular = <em>inside</em> one molecule: the strong covalent bonds. <strong>Inter</strong>molecular = <em>between</em> molecules: weak forces. When a molecular substance melts, boils, or dissolves, only the weak <em>between</em>-molecule forces are overcome &mdash; the covalent bonds inside each molecule stay intact. (Melting ice does not break H&ndash;O bonds.)</p>
+        <p style="margin-bottom:0"><strong>Intra</strong>molecular = <em>inside</em> one molecule: the strong covalent bonds. <strong>Inter</strong>molecular = <em>between</em> molecules: weak forces. When a molecular substance melts, boils, or dissolves, only the weak <em>between</em>-molecule forces are overcome &mdash; the covalent bonds inside each molecule stay intact. (Melting ice does not break H&ndash;O bonds.) The three kinds of weak force between molecules are the subject of <a href="#unit7">Unit 07</a>.</p>
       </div>
       <div class="box analogy">
         <div class="box-head">Picture it</div>
@@ -1869,12 +1973,73 @@
       </ul>
       <p>A quick reminder of the shapes involved (L12 slide 5): <b>s</b> orbitals are spheres (2s has one node, 3s two); the <b>three p</b> orbitals are dumbbells along x, y, z, each with a nodal plane through the nucleus; the <b>five d</b> orbitals are cloverleaf shapes with nodal planes (3d<sub>z²</sub> is a dumbbell with a ring around the middle).</p>
 
-      <h3 class="topic" id="hybrid" style="--c:var(--unit-orbital)">Valence bond theory: hybridization</h3>
-      <p>The lecture states the key distinction in one sentence (slide 8): <strong>&ldquo;hybridization combines AOs on one atom, while molecular-orbital theory combines AOs from two atoms.&rdquo;</strong> Hybridization is a preparation step on a single atom &mdash; <em>&ldquo;This stage does not make a bond.&rdquo;</em> The atom first blends its s and p (and sometimes d) orbitals into new, identical <b>hybrid orbitals</b> that point where the VSEPR shape needs them; later, those hybrids overlap with orbitals on neighboring atoms to form the bonds.</p>
-      <div class="box analogy">
-        <div class="box-head">Paint-mixing picture</div>
-        <p style="margin-bottom:0">Mix one bucket of s-paint with three buckets of p-paint and you get <em>four identical</em> buckets of &ldquo;sp³&rdquo; paint &mdash; the blend, not the original colors, is what you paint with. <b>The number of hybrids you get always equals the number of orbitals you mixed</b> (n in, n out).</p>
+            <h3 class="topic" id="hybrid" style="--c:var(--unit-orbital)">Hybridization, built from scratch</h3>
+
+      <div class="box cheat" style="--c:var(--unit-orbital)">
+        <div class="box-head">The idea in one breath</div>
+        <p style="margin-bottom:0">Before an atom bonds, you <b>blend</b> its s and p orbitals (sometimes d too) into <b>new, identical orbitals</b> that point exactly where the bonds need to go. Nothing is created or destroyed: <b>n orbitals in &rarr; n hybrid orbitals out</b>. The rest of this section is just the story of why we bother, how to do the blending on paper, and how to read the result.</p>
       </div>
+
+      <div class="box analogy">
+        <div class="box-head">Five things this topic quietly assumes (tap a link if one feels shaky)</div>
+        <ol class="cc-steps" style="margin-bottom:0">
+          <li><b>An orbital is a region, not a track.</b> It is where an electron is likely to be. s = a sphere. p = a dumbbell; there are three of them, pointing along x, y, z, at 90° to each other. <a href="#orbital-shapes">&rarr; orbital shapes</a></li>
+          <li><b>Electrons fill orbital &ldquo;boxes&rdquo; from the bottom, one per box before doubling up.</b> A box diagram is just this rule drawn out. <a href="#filling-rules">&rarr; filling rules</a></li>
+          <li><b>A covalent bond is a shared pair, and usually each atom brings one unpaired electron.</b> More unpaired electrons = more bonds possible. <a href="#lewis">&rarr; Lewis structures</a></li>
+          <li><b>A &ldquo;group&rdquo; is one atom or one lone pair around the center.</b> VSEPR turned the group count into a shape. <a href="#vsepr">&rarr; VSEPR</a></li>
+          <li><b>Orbitals are waves.</b> Two waves in step make a bigger wave; out of step they cancel. That is all &ldquo;mixing&rdquo; will mean.</li>
+        </ol>
+      </div>
+
+      <h4>Part 1 &middot; The puzzle hybridization was invented to solve</h4>
+      <p>Take carbon. Its six electrons are 1s² 2s² 2p², but only the four <em>outer</em> (valence) ones matter for bonding. Draw them as boxes, the same way as in Unit 02:</p>
+      <div class="hy-puzzle">
+        <div class="hp-row"><span class="hp-lab">2p</span><span class="hy-grp"><i class="ob up">&uarr;</i><i class="ob up">&uarr;</i><i class="ob un">&nbsp;</i></span></div>
+        <div class="hp-row"><span class="hp-lab">2s</span><span class="hy-grp"><i class="ob up2">&uarr;&darr;</i></span></div>
+      </div>
+      <p>The simple valence-bond rule is: <strong>a bond forms when two orbitals that each hold <em>one</em> electron overlap head-on and the two electrons pair up.</strong> So the number of bonds an atom can make = its number of <em>unpaired</em> electrons. Carbon has <b>two</b>. We would predict <b>CH₂</b>, with the two bonds pointing 90° apart (that is how far apart the two p orbitals are).</p>
+      <p>Reality: methane is <b>CH₄</b> &mdash; four bonds, <b>all identical</b>, at 109.5°. No experiment can tell one C&ndash;H bond from another. Two facts fail at once:</p>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Question</th><th class="wrap">What the simple picture says</th><th class="wrap">What we actually measure</th></tr></thead>
+          <tbody>
+            <tr><td>How many bonds?</td><td class="wrap">2 (two unpaired electrons)</td><td class="wrap"><b>4</b></td></tr>
+            <tr><td>Are they alike?</td><td class="wrap">No: s is a sphere with no direction, p is a dumbbell</td><td class="wrap"><b>All four identical</b></td></tr>
+            <tr><td>Angle?</td><td class="wrap">90° (p orbitals are perpendicular)</td><td class="wrap"><b>109.5°</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Hybridization is the patch: a way of describing the <em>bonded</em> carbon so that all three facts come out right.</p>
+
+      <h4>Part 2 &middot; The fix, in three moves</h4>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 760 300" role="img" aria-label="Carbon starts with two unpaired electrons; one 2s electron is promoted to give four unpaired electrons; the 2s and three 2p orbitals then mix into four identical sp3 hybrid orbitals each holding one electron."><defs><marker id="hpA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="fm-arrow-h"/></marker></defs><path class="fm-ax" d="M16,278 V40 M11,48 L16,38 L21,48"/><text class="fm-ax-t" x="6.0" y="26.0" text-anchor="start">energy</text><text class="fm-h" x="140.0" y="30.0" text-anchor="middle">1  Ground-state carbon</text><text class="fm-h" x="390.0" y="30.0" text-anchor="middle">2  Promote one electron</text><text class="fm-h" x="640.0" y="30.0" text-anchor="middle">3  Mix into four hybrids</text><rect class="fm-box" x="89.0" y="82.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M104.0,106.0 V88.0 M100.6,92.0 L104.0,88.0 L107.4,92.0"/><rect class="fm-box" x="125.0" y="82.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M140.0,106.0 V88.0 M136.6,92.0 L140.0,88.0 L143.4,92.0"/><rect class="fm-box" x="161.0" y="82.0" width="30.0" height="30.0" rx="4"/><rect class="fm-box" x="125.0" y="190.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M135.0,214.0 V196.0 M131.6,200.0 L135.0,196.0 L138.4,200.0"/><path class="fm-sp" d="M145.0,196.0 V214.0 M141.6,210.0 L145.0,214.0 L148.4,210.0"/><text class="fm-ao" x="78.0" y="102.0" text-anchor="end">2p</text><text class="fm-ao" x="114.0" y="210.0" text-anchor="end">2s</text><text class="fm-cap" x="140.0" y="252.0" text-anchor="middle">only 2 unpaired electrons</text><text class="fm-cap-s" x="140.0" y="269.0" text-anchor="middle">so only 2 bonds?</text><text class="fm-cap-s" x="140.0" y="286.0" text-anchor="middle">(and p orbitals are 90&deg; apart)</text><rect class="fm-box" x="339.0" y="82.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M354.0,106.0 V88.0 M350.6,92.0 L354.0,88.0 L357.4,92.0"/><rect class="fm-box" x="375.0" y="82.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M390.0,106.0 V88.0 M386.6,92.0 L390.0,88.0 L393.4,92.0"/><rect class="fm-box fm-box-hi" x="411.0" y="82.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M426.0,106.0 V88.0 M422.6,92.0 L426.0,88.0 L429.4,92.0"/><rect class="fm-box" x="375.0" y="190.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M390.0,214.0 V196.0 M386.6,200.0 L390.0,196.0 L393.4,200.0"/><text class="fm-ao" x="328.0" y="102.0" text-anchor="end">2p</text><text class="fm-ao" x="364.0" y="210.0" text-anchor="end">2s</text><path class="fm-curve" d="M390,187 C390,152 426,160 426,116" marker-end="url(#hpA)"/><text class="fm-cap" x="390.0" y="252.0" text-anchor="middle">4 unpaired electrons</text><text class="fm-cap-s" x="390.0" y="269.0" text-anchor="middle">promotion costs a little energy,</text><text class="fm-cap-s" x="390.0" y="286.0" text-anchor="middle">repaid by two extra bonds</text><rect class="fm-box fm-box-hy" x="571.0" y="136.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M586.0,160.0 V142.0 M582.6,146.0 L586.0,142.0 L589.4,146.0"/><rect class="fm-box fm-box-hy" x="607.0" y="136.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M622.0,160.0 V142.0 M618.6,146.0 L622.0,142.0 L625.4,146.0"/><rect class="fm-box fm-box-hy" x="643.0" y="136.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M658.0,160.0 V142.0 M654.6,146.0 L658.0,142.0 L661.4,146.0"/><rect class="fm-box fm-box-hy" x="679.0" y="136.0" width="30.0" height="30.0" rx="4"/><path class="fm-sp" d="M694.0,160.0 V142.0 M690.6,146.0 L694.0,142.0 L697.4,146.0"/><text class="fm-hy-t" x="640.0" y="188.0" text-anchor="middle">four identical sp&sup3; hybrids</text><text class="fm-cap" x="640.0" y="252.0" text-anchor="middle">4 equal bonds, 109.5&deg;</text><text class="fm-cap-s" x="640.0" y="269.0" text-anchor="middle">1 s + 3 p orbitals in</text><text class="fm-cap-s" x="640.0" y="286.0" text-anchor="middle">= 4 hybrid orbitals out</text><path class="fm-big-arrow" d="M224,150 H298" marker-end="url(#hpA)"/><path class="fm-big-arrow" d="M474,150 H540" marker-end="url(#hpA)"/></svg>
+        <figcaption>The three moves for carbon in CH₄. Read it left to right. Each small square is one orbital; an arrow is one electron. Energy goes up the page.</figcaption>
+      </figure>
+      <ol class="cc-steps">
+        <li><b>Promote.</b> Lift one electron from the 2s box into the empty 2p box. Now there are <b>four</b> unpaired electrons, so four bonds are possible. This costs a little energy (the 2p box sits higher), but each new bond releases energy, and two extra bonds repay the cost with interest. <span class="small"><span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> For carbon the promotion costs roughly as much as one C&ndash;H bond releases, so two additional bonds are a clear net win.</span></li>
+        <li><b>Mix.</b> Blend the one 2s orbital and the three 2p orbitals. The result is <b>four brand-new orbitals, identical to each other</b>, each with one electron, pointing to the corners of a tetrahedron. Their energy sits between 2s and 2p. We call them <b>sp³</b> (one s + three p).</li>
+        <li><b>Bond.</b> Each sp³ hybrid overlaps head-on with the 1s orbital of a hydrogen (also one electron). Each overlap is one &sigma; bond. Four hybrids, four identical bonds, 109.5° apart: exactly what VSEPR said for four groups.</li>
+      </ol>
+      <div class="box trap">
+        <div class="box-head">Common confusion: &ldquo;is this really a sequence of events?&rdquo;</div>
+        <p style="margin-bottom:0">No. The atom does not literally wait, promote, mix, then bond. Promote &rarr; mix &rarr; bond is simply the <b>order you write it on paper</b> so the bookkeeping works. It is a description, not a movie.</p>
+      </div>
+
+      <h4>Part 3 &middot; What does a hybrid orbital actually look like?</h4>
+      <p>Orbitals are waves, and waves have a sign (the L12 slides colour it blue = + and red = &minus;; it is the sign of the wave, not an electric charge). An <b>s</b> orbital is + everywhere. A <b>p</b> orbital is + on one side of the nucleus and &minus; on the other. Add them:</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 640 312" role="img" aria-label="An s orbital added to a p orbital gives an sp hybrid: a large lobe on one side where the signs match and a small lobe on the other where they oppose. Subtracting the p instead gives the mirror-image hybrid pointing the other way."><circle class="ph-pos" cx="70.0" cy="62.0" r="26.0"/><text class="fm-orb-t" x="70.0" y="66.0" text-anchor="middle">s</text><text class="fm-op" x="128.0" y="67.0" text-anchor="middle">+</text><ellipse class="ph-neg" cx="190.0" cy="62.0" rx="23.0" ry="16.0"/><ellipse class="ph-pos" cx="236.0" cy="62.0" rx="23.0" ry="16.0"/><circle class="ph-nuc" cx="213.0" cy="62.0" r="2.4"/><text class="fm-orb-t" x="213.0" y="100.0" text-anchor="middle">p</text><text class="fm-op" x="300.0" y="67.0" text-anchor="middle">=</text><ellipse class="ph-neg" cx="402.0" cy="62.0" rx="17.0" ry="11.0"/><ellipse class="ph-pos" cx="460.0" cy="62.0" rx="44.0" ry="27.0"/><circle class="ph-nuc" cx="420.0" cy="62.0" r="2.6"/><text class="fm-orb-t" x="420.0" y="112.0" text-anchor="middle">sp hybrid #1 (points right)</text><circle class="ph-pos" cx="70.0" cy="176.0" r="26.0"/><text class="fm-orb-t" x="70.0" y="180.0" text-anchor="middle">s</text><text class="fm-op" x="128.0" y="181.0" text-anchor="middle">&minus;</text><ellipse class="ph-neg" cx="190.0" cy="176.0" rx="23.0" ry="16.0"/><ellipse class="ph-pos" cx="236.0" cy="176.0" rx="23.0" ry="16.0"/><circle class="ph-nuc" cx="213.0" cy="176.0" r="2.4"/><text class="fm-orb-t" x="213.0" y="214.0" text-anchor="middle">p</text><text class="fm-op" x="300.0" y="181.0" text-anchor="middle">=</text><ellipse class="ph-neg" cx="438.0" cy="176.0" rx="17.0" ry="11.0"/><ellipse class="ph-pos" cx="380.0" cy="176.0" rx="44.0" ry="27.0"/><circle class="ph-nuc" cx="420.0" cy="176.0" r="2.6"/><text class="fm-orb-t" x="420.0" y="226.0" text-anchor="middle">sp hybrid #2 (points left)</text><text class="fm-cap-s" x="320.0" y="250.0" text-anchor="middle">Where the signs match the waves add: the big lobe.</text><text class="fm-cap-s" x="320.0" y="268.0" text-anchor="middle">Where they oppose they partly cancel: the small lobe.</text><text class="fm-cap" x="320.0" y="294.0" text-anchor="middle">2 orbitals in (s &plusmn; p) &rarr; 2 hybrids out, opposite directions: linear, 180&deg;</text></svg>
+        <figcaption>One s plus one p gives one lopsided hybrid. Flip the sign of the p and you get its mirror image. Two orbitals in, two hybrids out.</figcaption>
+      </figure>
+      <ul>
+        <li>On the side where the p is <b>+</b>, the s (+) adds to it: a <b>big lobe</b>.</li>
+        <li>On the side where the p is <b>&minus;</b>, the s (+) partly cancels it: a <b>small lobe</b>.</li>
+        <li>The big lobe sticks out further, so it overlaps more with a neighbor&rsquo;s orbital, which makes a stronger bond. That is the whole reason hybrids &ldquo;point&rdquo;.</li>
+        <li>More ingredients, same logic: 1 s + 2 p gives three hybrids 120° apart in a plane (sp²); 1 s + 3 p gives four hybrids 109.5° apart (sp³).</li>
+      </ul>
+
+      <h4>Part 4 &middot; The five hybrid types</h4>
       <div class="hy-list">
         <div class="hy-row">
           <div class="hy-name">sp</div>
@@ -1918,16 +2083,115 @@
         </div>
       </div>
       <p class="small">Key: outlined box = an orbital before mixing (highlighted when it is used); pink box = a hybrid; dashed = a leftover unmixed p orbital.</p>
-
       <div class="box cheat" style="--c:var(--unit-orbital)">
         <div class="box-head">Cheat code &middot; hybrid = groups</div>
         <p style="margin-bottom:6px"><b>2 &rarr; sp &nbsp;&middot;&nbsp; 3 &rarr; sp² &nbsp;&middot;&nbsp; 4 &rarr; sp³ &nbsp;&middot;&nbsp; 5 &rarr; sp³d &nbsp;&middot;&nbsp; 6 &rarr; sp³d²</b></p>
         <p style="margin-bottom:0">Add up the letters&rsquo; exponents: sp³ = 1 s + 3 p = <b>4</b> orbitals = 4 groups; sp³d² = 1 + 3 + 2 = <b>6</b>. So to get a hybridization, just count electron groups from the VSEPR staircase. <span class="small">(The slides show sp through sp³d² and the shapes separately; this pairing is the standard rule and matches both. <span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> Lone pairs sit in hybrids too: N in NH₃ is sp³ &mdash; three hybrids bond, one holds the lone pair.)</span></p>
       </div>
+
+      <h4>Part 5 &middot; How to find the hybridization of <em>any</em> atom</h4>
+      <div class="box cheat" style="--c:var(--unit-orbital)">
+        <div class="box-head">Cheat code &middot; the three-step recipe</div>
+        <ol class="cc-steps" style="margin-bottom:6px">
+          <li><b>Draw the Lewis structure</b> (Unit 04).</li>
+          <li><b>Count the groups on the atom you care about</b> = (atoms bonded to it) + (lone pairs on it). A double or triple bond to a neighbor still counts as <b>one</b> atom.</li>
+          <li><b>Read off the hybrid:</b> 2 &rarr; sp &middot; 3 &rarr; sp² &middot; 4 &rarr; sp³ &middot; 5 &rarr; sp³d &middot; 6 &rarr; sp³d².</li>
+        </ol>
+        <p class="cc-foot">Why don&rsquo;t double bonds add to the count? Because only the <em>first</em> bond of a multiple bond uses hybrids (&sigma;). The second and third use leftover, <b>unmixed p orbitals</b> (&pi;).</p>
+      </div>
+      <div class="box cheat" style="--c:var(--unit-orbital)">
+        <div class="box-head">Shortcut &middot; count the &pi; bonds</div>
+        <p style="margin-bottom:6px"><b>0 &pi; bonds &rarr; sp³ &nbsp;&middot;&nbsp; 1 &pi; bond &rarr; sp² &nbsp;&middot;&nbsp; 2 &pi; bonds &rarr; sp</b> &nbsp; (a double bond has one &pi;, a triple bond has two).</p>
+        <p style="margin-bottom:0" class="small">It works because an sp atom keeps 2 unmixed p orbitals, sp² keeps 1, sp³ keeps 0 (3 p orbitals total minus the ones used). Valid for atoms with 4 or fewer groups.</p>
+      </div>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Atom (in molecule)</th><th>&sigma; neighbors</th><th>Lone pairs</th><th>Groups</th><th>Hybrid</th><th>&pi; bonds</th><th class="wrap">Shape around it</th></tr></thead>
+          <tbody>
+            <tr><td>C in CH₄</td><td>4</td><td>0</td><td>4</td><td><b>sp³</b></td><td>0</td><td class="wrap">tetrahedral</td></tr>
+            <tr><td>N in NH₃</td><td>3</td><td>1</td><td>4</td><td><b>sp³</b></td><td>0</td><td class="wrap">trigonal pyramidal</td></tr>
+            <tr><td>O in H₂O</td><td>2</td><td>2</td><td>4</td><td><b>sp³</b></td><td>0</td><td class="wrap">bent</td></tr>
+            <tr><td>C in C₂H₄ (ethene)</td><td>3</td><td>0</td><td>3</td><td><b>sp²</b></td><td>1</td><td class="wrap">trigonal planar</td></tr>
+            <tr><td>C in H₂C=O</td><td>3</td><td>0</td><td>3</td><td><b>sp²</b></td><td>1</td><td class="wrap">trigonal planar</td></tr>
+            <tr><td>O in H₂C=O</td><td>1</td><td>2</td><td>3</td><td><b>sp²</b></td><td>1</td><td class="wrap">(one neighbor)</td></tr>
+            <tr><td>B in BF₃</td><td>3</td><td>0</td><td>3</td><td><b>sp²</b></td><td>0</td><td class="wrap">trigonal planar; an empty p is left</td></tr>
+            <tr><td>S in SO₂</td><td>2</td><td>1</td><td>3</td><td><b>sp²</b></td><td>1</td><td class="wrap">bent</td></tr>
+            <tr><td>C in CO₂</td><td>2</td><td>0</td><td>2</td><td><b>sp</b></td><td>2</td><td class="wrap">linear</td></tr>
+            <tr><td>C in C₂H₂ (ethyne)</td><td>2</td><td>0</td><td>2</td><td><b>sp</b></td><td>2</td><td class="wrap">linear</td></tr>
+            <tr><td>C and N in HCN</td><td>2 / 1</td><td>0 / 1</td><td>2 / 2</td><td><b>sp / sp</b></td><td>2</td><td class="wrap">linear</td></tr>
+            <tr><td>P in PCl₅</td><td>5</td><td>0</td><td>5</td><td><b>sp³d</b></td><td>0</td><td class="wrap">trigonal bipyramidal</td></tr>
+            <tr><td>S in SF₆</td><td>6</td><td>0</td><td>6</td><td><b>sp³d²</b></td><td>0</td><td class="wrap">octahedral</td></tr>
+            <tr><td>Xe in XeF₄</td><td>4</td><td>2</td><td>6</td><td><b>sp³d²</b></td><td>0</td><td class="wrap">square planar</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">The &sigma;/lone-pair/group counts are exactly the VSEPR counts from Unit 05, so hybridization adds <em>no</em> new counting, just a label for the orbitals involved.</p>
+
+      <h4>Part 6 &middot; Where do double and triple bonds come from?</h4>
+      <p>Every bond between two atoms has <b>exactly one &sigma; bond</b> (head-on overlap along the line between them). A second or third bond in the same pair of atoms is a <b>&pi; bond</b>, built from p orbitals that were <em>not</em> used in the hybrids. Those leftover p orbitals stand perpendicular to the bond and overlap <em>sideways</em>.</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 680 300" role="img" aria-label="Ethene: each carbon uses three sp2 hybrids to make three sigma bonds in one plane, and its one leftover unmixed p orbital overlaps sideways with the other carbon's to make a pi bond above and below the plane."><text class="fm-h" x="160.0" y="24.0" text-anchor="middle">Top view: the flat sigma framework</text><line class="fm-sigma" x1="105.0" y1="120.0" x2="215.0" y2="120.0"/><line class="fm-sigma" x1="105.0" y1="120.0" x2="79.0" y2="75.0"/><line class="fm-sigma" x1="105.0" y1="120.0" x2="79.0" y2="165.0"/><line class="fm-sigma" x1="215.0" y1="120.0" x2="241.0" y2="75.0"/><line class="fm-sigma" x1="215.0" y1="120.0" x2="241.0" y2="165.0"/><circle class="sv-center" cx="105.0" cy="120.0" r="11.0"/><text class="sv-txt-w" x="105.0" y="124.0" text-anchor="middle">C</text><circle class="sv-center" cx="215.0" cy="120.0" r="11.0"/><text class="sv-txt-w" x="215.0" y="124.0" text-anchor="middle">C</text><circle class="at-h" cx="79.0" cy="75.0" r="8.0"/><text class="fm-tiny" x="79.0" y="78.0" text-anchor="middle">H</text><circle class="at-h" cx="79.0" cy="165.0" r="8.0"/><text class="fm-tiny" x="79.0" y="168.0" text-anchor="middle">H</text><circle class="at-h" cx="241.0" cy="75.0" r="8.0"/><text class="fm-tiny" x="241.0" y="78.0" text-anchor="middle">H</text><circle class="at-h" cx="241.0" cy="165.0" r="8.0"/><text class="fm-tiny" x="241.0" y="168.0" text-anchor="middle">H</text><text class="fm-cap-s" x="160.0" y="236.0" text-anchor="middle">each C: 3 sp&sup2; hybrids, 120&deg; apart</text><text class="fm-cap-s" x="160.0" y="254.0" text-anchor="middle">(2 C&ndash;H bonds + the C&ndash;C bond)</text><text class="fm-cap" x="160.0" y="278.0" text-anchor="middle">= sigma bonds, head-on overlap</text><text class="fm-h" x="500.0" y="24.0" text-anchor="middle">Side view: the leftover p orbitals</text><line class="ph-node" x1="380.0" y1="130.0" x2="620.0" y2="130.0"/><ellipse class="ph-pos" cx="430.0" cy="88.0" rx="30.0" ry="38.0"/><ellipse class="ph-pos" cx="570.0" cy="88.0" rx="30.0" ry="38.0"/><ellipse class="ph-neg" cx="430.0" cy="172.0" rx="30.0" ry="38.0"/><ellipse class="ph-neg" cx="570.0" cy="172.0" rx="30.0" ry="38.0"/><ellipse class="ph-pos" cx="500.0" cy="90.0" rx="82.0" ry="30.0" fill-opacity="0.25"/><ellipse class="ph-neg" cx="500.0" cy="170.0" rx="82.0" ry="30.0" fill-opacity="0.25"/><line class="fm-sigma" x1="430.0" y1="130.0" x2="570.0" y2="130.0"/><circle class="sv-center" cx="430.0" cy="130.0" r="10.0"/><text class="sv-txt-w" x="430.0" y="134.0" text-anchor="middle">C</text><circle class="sv-center" cx="570.0" cy="130.0" r="10.0"/><text class="sv-txt-w" x="570.0" y="134.0" text-anchor="middle">C</text><text class="fm-cap-s" x="500.0" y="236.0" text-anchor="middle">the unmixed p orbitals overlap sideways</text><text class="fm-cap-s" x="500.0" y="254.0" text-anchor="middle">density above and below the plane</text><text class="fm-cap" x="500.0" y="278.0" text-anchor="middle">= one pi bond</text><text class="fm-tiny" x="618.0" y="124.0" text-anchor="end">plane</text></svg>
+        <figcaption>Ethene, C₂H₄. Left: each carbon makes three &sigma; bonds with its sp² hybrids (two to H, one to the other C), all in one flat plane. Right, same molecule seen edge-on: each carbon&rsquo;s leftover p orbital overlaps sideways with the other&rsquo;s, putting electron density above and below the plane. That is the &pi; bond.</figcaption>
+      </figure>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Molecule</th><th>C&ndash;C bond</th><th>C hybrid</th><th>&sigma; + &pi;</th><th>C&ndash;C length</th><th>Shape at C</th></tr></thead>
+          <tbody>
+            <tr><td>Ethane C₂H₆</td><td>single</td><td>sp³</td><td>1 &sigma;</td><td>1.54 &Aring;</td><td>tetrahedral, &asymp;109.5°</td></tr>
+            <tr><td>Ethene C₂H₄</td><td>double</td><td>sp²</td><td>1 &sigma; + 1 &pi;</td><td>1.34 &Aring;</td><td>planar, &asymp;120°</td></tr>
+            <tr><td>Ethyne C₂H₂</td><td>triple</td><td>sp</td><td>1 &sigma; + 2 &pi;</td><td>1.20 &Aring;</td><td>linear, 180°</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small"><span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> The bond lengths are standard values, not from the slides. More bonds between the same two atoms pulls them closer: shorter and stronger. A &pi; bond also stops a double bond from twisting freely, because twisting would break the sideways overlap.</p>
+      <p>These are the same &sigma; and &pi; as in the molecular-orbital pictures below. The difference is only the starting point: hybridization builds them from hybrids on <em>one</em> atom, MO theory builds them from the orbitals of <em>both</em> atoms at once.</p>
+
+      <h4>Part 7 &middot; Questions that trip people up</h4>
+      <details class="arch-card">
+        <summary>Do hybrid orbitals physically exist? <span class="arch-n">model vs reality</span></summary>
+        <div class="arch-body"><p style="margin-bottom:0">They are a <b>model</b>. A lone carbon atom in space has a plain 2s and 2p; nobody observes sp³ orbitals directly. The hybrid description is a convenient way to describe the <em>bonded</em> atom, and it matches the shapes we measure. That is also why the lecture lists &ldquo;is there evidence for electron promotions?&rdquo; as a weakness.</p></div>
+      </details>
+      <details class="arch-card">
+        <summary>What does the little &ldquo;3&rdquo; in sp³ mean? <span class="arch-n">notation</span></summary>
+        <div class="arch-body"><p style="margin-bottom:0">It is a <b>recipe, not a power</b>: sp³ = one s plus three p. sp² = one s plus two p. sp = one s plus one p. No number on the s means exactly one. <span class="small"><span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> Percent s-character is then 1 &divide; (1 + number of p): sp = 50%, sp² = 33%, sp³ = 25%.</span></p></div>
+      </details>
+      <details class="arch-card">
+        <summary>Where did the original s and p orbitals go? <span class="arch-n">n in, n out</span></summary>
+        <div class="arch-body"><p style="margin-bottom:0">They were <b>used up</b> to make the hybrids. In sp³ all four are consumed. In sp² only two of the three p orbitals are used, and the third stays as an ordinary p &mdash; that is the one that becomes a &pi; bond.</p></div>
+      </details>
+      <details class="arch-card">
+        <summary>Do lone pairs get hybrids too? <span class="arch-n">NH₃, H₂O</span></summary>
+        <div class="arch-body"><p style="margin-bottom:0">Yes. In NH₃ the nitrogen is sp³: three of the four hybrids make N&ndash;H bonds and the fourth holds the lone pair. That is why lone pairs count as groups in the recipe.</p></div>
+      </details>
+      <details class="arch-card">
+        <summary>If NH₃ is sp³, why is its angle 107° and not 109.5°? <span class="arch-n">label vs angle</span></summary>
+        <div class="arch-body"><p style="margin-bottom:0">The hybrid label only tells you <em>how many</em> groups there are, hence the parent shape. The exact angle then comes from the VSEPR &ldquo;squeeze&rdquo;: the lone pair is fatter than a bonding pair and presses the N&ndash;H bonds closer together.</p></div>
+      </details>
+      <details class="arch-card">
+        <summary>Do atoms really use d orbitals in sp³d and sp³d²? <span class="arch-n">expanded octets</span></summary>
+        <div class="arch-body"><p style="margin-bottom:0">For this course, <b>yes: use sp³d and sp³d² exactly as the slides do</b> (L12 slide 10 shows them as the valence-bond way to handle PCl₅ and SF₆). <span class="small"><span class="pill" style="--c:var(--unit-orbital);--c-soft:var(--unit-orbital-soft)">extra</span> Be aware that many chemists now think d orbitals contribute very little in these molecules, and describe them with MO theory instead &mdash; which is one reason the lecture lists MO as the more complete theory.</span></p></div>
+      </details>
+      <details class="arch-card">
+        <summary>Hybridization or molecular orbitals: which do I use? <span class="arch-n">choosing a theory</span></summary>
+        <div class="arch-body"><p style="margin-bottom:0"><b>Shape, and which orbitals make a given bond:</b> VSEPR and hybridization. <b>Bond order, unpaired electrons, odd-electron molecules, excited states:</b> molecular orbitals. See the <a href="#theories">scoreboard</a>.</p></div>
+      </details>
+
+      <h4>Part 8 &middot; Try it yourself</h4>
+      <p>Give the hybridization of the <b>bold</b> atom. Work it out, then open the answer.</p>
+      <div class="arch-grid">
+        <details class="arch-card"><summary>(a) N in <b>N</b>H₄⁺</summary><div class="arch-body"><p style="margin-bottom:0">4 &sigma; bonds, 0 lone pairs &rarr; 4 groups &rarr; <b>sp³</b> (tetrahedral).</p></div></details>
+        <details class="arch-card"><summary>(b) both carbons in CH₃&ndash;C&equiv;N</summary><div class="arch-body"><p style="margin-bottom:0">CH₃ carbon: 4 &sigma; (3 H + 1 C) &rarr; <b>sp³</b>. The carbon in C&equiv;N: 2 &sigma; (CH₃-carbon and N), and 2 &pi; bonds &rarr; <b>sp</b>.</p></div></details>
+        <details class="arch-card"><summary>(c) each O in O=<b>C</b>=O (the oxygens)</summary><div class="arch-body"><p style="margin-bottom:0">Each O: 1 &sigma; (to C) + 2 lone pairs = 3 groups &rarr; <b>sp²</b> (and one &pi; bond). The carbon is sp.</p></div></details>
+        <details class="arch-card"><summary>(d) S in <b>S</b>F₄</summary><div class="arch-body"><p style="margin-bottom:0">4 &sigma; + 1 lone pair = 5 groups &rarr; <b>sp³d</b> (see-saw).</p></div></details>
+        <details class="arch-card"><summary>(e) I in <b>I</b>Cl₄⁻</summary><div class="arch-body"><p style="margin-bottom:0">4 &sigma; + 2 lone pairs = 6 groups &rarr; <b>sp³d²</b> (square planar).</p></div></details>
+        <details class="arch-card"><summary>(f) O in H₃<b>O</b>⁺</summary><div class="arch-body"><p style="margin-bottom:0">3 &sigma; + 1 lone pair = 4 groups &rarr; <b>sp³</b> (pyramidal), just like NH₃.</p></div></details>
+      </div>
+
       <div class="box trap">
         <div class="box-head">The lecture&rsquo;s own criticisms of valence bond theory</div>
         <p style="margin-bottom:0">(1) <b>&ldquo;Why these combinations and not others?&rdquo;</b> (2) <b>&ldquo;Is there evidence for electron &lsquo;promotions&rsquo;?&rdquo;</b> Example: ground-state Be (2s²) has no unpaired electron to bond with, so the hybrid picture quietly assumes one 2s electron is &ldquo;promoted&rdquo; into a 2p orbital before mixing. It works, but it is a bookkeeping device, not something we directly observe.</p>
       </div>
+
 
       <h3 class="topic" id="mo-basics" style="--c:var(--unit-orbital)">Molecular orbitals: mixing orbitals from two atoms</h3>
       <p>MO theory drops the idea of &ldquo;this bond belongs to this pair&rdquo;. Instead, when two atoms come close, their atomic orbitals overlap and combine into <b>new orbitals that belong to the whole molecule</b>. The combining works like waves, because orbitals <em>are</em> waves:</p>
@@ -2031,15 +2295,285 @@
     </section>
 
     <!-- ============================================================ -->
+    <!-- UNIT 7 — INTERMOLECULAR FORCES (L13) -->
+    <!-- ============================================================ -->
+    <section class="unit" id="unit7" style="--c:var(--unit-forces)">
+      <div class="unit-head">
+        <span class="unit-num">07</span>
+        <h2>Intermolecular Forces</h2>
+        <span class="unit-tag">L13</span>
+      </div>
+
+      <p class="lede">Unit 05 ended with a question the L10 slide asked and left hanging: <em>&ldquo;Why would molecules even aggregate?&rdquo;</em> A water molecule is neutral and has no ionic bonds to its neighbors &mdash; yet water forms a liquid and ice. The answer is a family of <strong>weak attractions between molecules</strong>. They are far weaker than the covalent bonds inside a molecule, but they decide whether a substance is a gas, a liquid, or a solid at room temperature.</p>
+
+      <div class="box analogy">
+        <div class="box-head">Gap-filler &middot; two words you need first</div>
+        <p><b>Dipole.</b> A molecule (or bond) with one slightly positive end (δ+) and one slightly negative end (δ&minus;), because the electrons are shared unevenly. Polar molecules like H₂O, NH₃, HCl are dipoles; symmetric ones like CO₂ and CH₄ are not (Unit 05).</p>
+        <p style="margin-bottom:0"><b>Boiling point as a thermometer for sticking.</b> To boil a liquid you must pull molecules apart from each other. So <em>the stronger the forces between molecules, the higher the boiling point.</em> Almost every question in this unit is secretly &ldquo;which one boils higher, and why?&rdquo;</p>
+      </div>
+
+      <h3 class="topic" id="if-dipole" style="--c:var(--unit-forces)">Force 1 &middot; Dipole&ndash;dipole</h3>
+      <p>The L13 slide: <em>&ldquo;Molecules with permanent dipole moments will attract each other and create strong intermolecular interactions.&rdquo;</em> Each polar molecule is a tiny magnet with a plus end and a minus end. Plus ends attract minus ends of neighbors.</p>
+      <figure>
+        <div class="gp-row ip-row"><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Side by side, opposite ways: attract"><defs><marker id="fm-attr-h" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="fm-attr-h"/></marker></defs><path class="pl-pos" d="M60,27 H47 a9,9 0 0 0 0,18 H60 Z"/><path class="pl-neg" d="M60,27 H73 a9,9 0 0 1 0,18 H60 Z"/><text class="pl-t" x="48.0" y="39.0" text-anchor="middle">&delta;+</text><text class="pl-t" x="72.0" y="39.0" text-anchor="middle">&delta;&minus;</text><path class="pl-neg" d="M60,69 H47 a9,9 0 0 0 0,18 H60 Z"/><path class="pl-pos" d="M60,69 H73 a9,9 0 0 1 0,18 H60 Z"/><text class="pl-t" x="48.0" y="81.0" text-anchor="middle">&delta;&minus;</text><text class="pl-t" x="72.0" y="81.0" text-anchor="middle">&delta;+</text><path class="fm-attr" d="M48,52 V62" marker-end="url(#fm-attr-h)" marker-start="url(#fm-attr-h)"/><path class="fm-attr" d="M72,52 V62" marker-end="url(#fm-attr-h)" marker-start="url(#fm-attr-h)"/></svg><div class="vs-name">Side by side, opposite ways</div><div class="dp-verdict dp-net">attract</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Head to tail: attract"><defs><marker id="fm-attr-h" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="fm-attr-h"/></marker></defs><path class="pl-pos" d="M32,46 H19 a9,9 0 0 0 0,18 H32 Z"/><path class="pl-neg" d="M32,46 H45 a9,9 0 0 1 0,18 H32 Z"/><text class="pl-t" x="20.0" y="58.0" text-anchor="middle">&delta;+</text><text class="pl-t" x="44.0" y="58.0" text-anchor="middle">&delta;&minus;</text><path class="pl-pos" d="M88,46 H75 a9,9 0 0 0 0,18 H88 Z"/><path class="pl-neg" d="M88,46 H101 a9,9 0 0 1 0,18 H88 Z"/><text class="pl-t" x="76.0" y="58.0" text-anchor="middle">&delta;+</text><text class="pl-t" x="100.0" y="58.0" text-anchor="middle">&delta;&minus;</text><path class="fm-attr" d="M52,55 H66" marker-end="url(#fm-attr-h)" marker-start="url(#fm-attr-h)"/></svg><div class="vs-name">Head to tail</div><div class="dp-verdict dp-net">attract</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Side by side, same way: repel"><defs><marker id="fm-rep-h" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="fm-rep-h"/></marker></defs><path class="pl-pos" d="M60,27 H47 a9,9 0 0 0 0,18 H60 Z"/><path class="pl-neg" d="M60,27 H73 a9,9 0 0 1 0,18 H60 Z"/><text class="pl-t" x="48.0" y="39.0" text-anchor="middle">&delta;+</text><text class="pl-t" x="72.0" y="39.0" text-anchor="middle">&delta;&minus;</text><path class="pl-pos" d="M60,69 H47 a9,9 0 0 0 0,18 H60 Z"/><path class="pl-neg" d="M60,69 H73 a9,9 0 0 1 0,18 H60 Z"/><text class="pl-t" x="48.0" y="81.0" text-anchor="middle">&delta;+</text><text class="pl-t" x="72.0" y="81.0" text-anchor="middle">&delta;&minus;</text><path class="fm-rep" d="M48,52 V62" marker-end="url(#fm-rep-h)" marker-start="url(#fm-rep-h)"/><path class="fm-rep" d="M72,52 V62" marker-end="url(#fm-rep-h)" marker-start="url(#fm-rep-h)"/></svg><div class="vs-name">Side by side, same way</div><div class="dp-verdict dp-zero">repel</div></div><div class="gp-cell"><svg viewBox="0 0 120 110" role="img" aria-label="Head to head: repel"><defs><marker id="fm-rep-h" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="fm-rep-h"/></marker></defs><path class="pl-pos" d="M32,46 H19 a9,9 0 0 0 0,18 H32 Z"/><path class="pl-neg" d="M32,46 H45 a9,9 0 0 1 0,18 H32 Z"/><text class="pl-t" x="20.0" y="58.0" text-anchor="middle">&delta;+</text><text class="pl-t" x="44.0" y="58.0" text-anchor="middle">&delta;&minus;</text><path class="pl-neg" d="M88,46 H75 a9,9 0 0 0 0,18 H88 Z"/><path class="pl-pos" d="M88,46 H101 a9,9 0 0 1 0,18 H88 Z"/><text class="pl-t" x="76.0" y="58.0" text-anchor="middle">&delta;&minus;</text><text class="pl-t" x="100.0" y="58.0" text-anchor="middle">&delta;+</text><path class="fm-rep" d="M52,55 H66" marker-end="url(#fm-rep-h)" marker-start="url(#fm-rep-h)"/></svg><div class="vs-name">Head to head</div><div class="dp-verdict dp-zero">repel</div></div></div>
+        <figcaption>Four ways to place two polar molecules next to each other. Opposite ends facing = attraction (green). Like ends facing = repulsion (red). In a liquid the molecules keep tumbling, but they spend more time in the attracting arrangements, so the net effect is attraction.</figcaption>
+      </figure>
+      <p>Bigger dipole = stronger attraction. That is why polar molecules usually boil higher than nonpolar ones of similar size.</p>
+
+      <h3 class="topic" id="if-hbond" style="--c:var(--unit-forces)">Force 2 &middot; The hydrogen bond</h3>
+      <p>A <b>hydrogen bond</b> is an especially strong dipole&ndash;dipole attraction. It needs two ingredients:</p>
+      <ul>
+        <li>A <b>donor</b>: a hydrogen attached to <b>N, O or F</b> (very electronegative, so that H is left strongly δ+).</li>
+        <li>An <b>acceptor</b>: a lone pair on a nearby <b>N, O or F</b>, which the δ+ hydrogen points at.</li>
+      </ul>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 640 256" role="img" aria-label="A hydrogen bond: the hydrogen on one molecule (the donor, attached to N, O or F) is attracted to a lone pair on a neighbor (the acceptor). The H to lone-pair distance is about 1.5 to 2.0 angstroms, compared with about 1.1 for the covalent X to H."><line class="fm-bond" x1="120.0" y1="120.0" x2="188.0" y2="120.0"/><line class="fm-bond" x1="120.0" y1="120.0" x2="92.0" y2="62.0"/><circle class="at-o" cx="120.0" cy="120.0" r="10.0"/><text class="sv-txt-w" x="120.0" y="123.5" text-anchor="middle">O</text><circle class="at-h" cx="188.0" cy="120.0" r="6.5"/><circle class="at-h" cx="92.0" cy="62.0" r="6.5"/><ellipse class="sv-lp" cx="306.0" cy="100.0" rx="15.0" ry="9.0" transform="rotate(-30 306.0 100.0)"/><ellipse class="sv-lp" cx="306.0" cy="140.0" rx="15.0" ry="9.0" transform="rotate(30 306.0 140.0)"/><line class="fm-bond" x1="340.0" y1="120.0" x2="392.0" y2="68.0"/><line class="fm-bond" x1="340.0" y1="120.0" x2="392.0" y2="172.0"/><circle class="at-o" cx="340.0" cy="120.0" r="10.0"/><text class="sv-txt-w" x="340.0" y="123.5" text-anchor="middle">O</text><circle class="at-h" cx="392.0" cy="68.0" r="6.5"/><circle class="at-h" cx="392.0" cy="172.0" r="6.5"/><line class="hb-dot" x1="196.0" y1="120.0" x2="326.0" y2="120.0"/><line class="fm-dim" x1="120.0" y1="170.0" x2="188.0" y2="170.0"/><text class="fm-note" x="154.0" y="190.0" text-anchor="middle">X&ndash;H &asymp; 1.1 &Aring;</text><line class="fm-dim hb-dim" x1="196.0" y1="170.0" x2="326.0" y2="170.0"/><text class="fm-note" x="268.0" y="190.0" text-anchor="middle">H&middot;&middot;&middot;Y &asymp; 1.5&ndash;2.0 &Aring;</text><text class="fm-h" x="120.0" y="34.0" text-anchor="middle">donor</text><text class="fm-note" x="120.0" y="50.0" text-anchor="middle">the H sits on N, O or F</text><text class="fm-h" x="340.0" y="34.0" text-anchor="middle">acceptor</text><text class="fm-note" x="340.0" y="50.0" text-anchor="middle">has a lone pair to point at</text><text class="fm-hb-t" x="236.0" y="104.0" text-anchor="middle">hydrogen bond</text><text class="fm-cap-s" x="320.0" y="218.0" text-anchor="middle">dots = hydrogen bond;  solid line = covalent bond</text><text class="fm-cap-s" x="320.0" y="236.0" text-anchor="middle">It is directional: the H points straight at the lone pair.</text></svg>
+        <figcaption>L13 slide 4: draw the hydrogen bond as dots; the H&middot;&middot;&middot;acceptor distance is about 1.5&ndash;2.0 &Aring;, compared with about 1.1 &Aring; for the covalent X&ndash;H. Hydrogen bonds are strong and <b>directional</b>.</figcaption>
+      </figure>
+      <div class="box cheat" style="--c:var(--unit-forces)">
+        <div class="box-head">Cheat code &middot; spotting a hydrogen bond</div>
+        <p style="margin-bottom:0"><b>&ldquo;H on F, O or N &mdash; and a lone pair on F, O or N next door.&rdquo;</b> Check both halves. CH₄ has hydrogens but no N/O/F, so no hydrogen bonding. Dimethyl ether CH₃&ndash;O&ndash;CH₃ has an O with lone pairs but its H&rsquo;s sit on carbon, so it can only <em>accept</em>, never donate: not enough to bond to itself.</p>
+      </div>
+
+      <h4>Why water is the champion</h4>
+      <p>The lecture says: <em>&ldquo;Each water molecule acts as donor twice and as acceptor twice. NH₃ and HF each make two hydrogen bonds at a time on average.&rdquo;</em> Here is where those numbers come from, by counting:</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 420 360" role="img" aria-label="One water molecule can donate two hydrogen bonds from its two hydrogens and accept two hydrogen bonds on its two lone pairs, so up to four hydrogen bonds per molecule."><ellipse class="sv-lp" cx="186.0" cy="140.0" rx="16.0" ry="9.0" transform="rotate(-40 186 140)"/><ellipse class="sv-lp" cx="234.0" cy="140.0" rx="16.0" ry="9.0" transform="rotate(40 234 140)"/><line class="fm-bond" x1="210.0" y1="170.0" x2="158.0" y2="222.0"/><line class="fm-bond" x1="210.0" y1="170.0" x2="262.0" y2="222.0"/><circle class="at-o" cx="210.0" cy="170.0" r="10.0"/><text class="sv-txt-w" x="210.0" y="173.5" text-anchor="middle">O</text><circle class="at-h" cx="158.0" cy="222.0" r="6.5"/><circle class="at-h" cx="262.0" cy="222.0" r="6.5"/><line class="fm-bond" x1="92.0" y1="284.0" x2="56.0" y2="260.0"/><line class="fm-bond" x1="92.0" y1="284.0" x2="120.0" y2="318.0"/><circle class="at-o" cx="92.0" cy="284.0" r="10.0"/><text class="sv-txt-w" x="92.0" y="287.5" text-anchor="middle">O</text><circle class="at-h" cx="56.0" cy="260.0" r="6.5"/><circle class="at-h" cx="120.0" cy="318.0" r="6.5"/><line class="fm-bond" x1="328.0" y1="284.0" x2="364.0" y2="260.0"/><line class="fm-bond" x1="328.0" y1="284.0" x2="300.0" y2="318.0"/><circle class="at-o" cx="328.0" cy="284.0" r="10.0"/><text class="sv-txt-w" x="328.0" y="287.5" text-anchor="middle">O</text><circle class="at-h" cx="364.0" cy="260.0" r="6.5"/><circle class="at-h" cx="300.0" cy="318.0" r="6.5"/><line class="hb-dot" x1="153.0" y1="229.0" x2="100.0" y2="277.0"/><line class="hb-dot" x1="267.0" y1="229.0" x2="320.0" y2="277.0"/><line class="fm-bond" x1="88.0" y1="52.0" x2="122.0" y2="86.0"/><line class="fm-bond" x1="88.0" y1="52.0" x2="62.0" y2="24.0"/><circle class="at-o" cx="88.0" cy="52.0" r="10.0"/><text class="sv-txt-w" x="88.0" y="55.5" text-anchor="middle">O</text><circle class="at-h" cx="122.0" cy="86.0" r="6.5"/><circle class="at-h" cx="62.0" cy="24.0" r="6.5"/><line class="fm-bond" x1="332.0" y1="52.0" x2="298.0" y2="86.0"/><line class="fm-bond" x1="332.0" y1="52.0" x2="358.0" y2="24.0"/><circle class="at-o" cx="332.0" cy="52.0" r="10.0"/><text class="sv-txt-w" x="332.0" y="55.5" text-anchor="middle">O</text><circle class="at-h" cx="298.0" cy="86.0" r="6.5"/><circle class="at-h" cx="358.0" cy="24.0" r="6.5"/><line class="hb-dot" x1="127.0" y1="91.0" x2="172.0" y2="130.0"/><line class="hb-dot" x1="293.0" y1="91.0" x2="248.0" y2="130.0"/><text class="fm-note" x="210.0" y="36.0" text-anchor="middle" fill="var(--unit-forces)">receives 2 (on its lone pairs)</text><text class="fm-note" x="210.0" y="352.0" text-anchor="middle" fill="var(--unit-forces)">gives 2 (from its two H atoms)</text></svg>
+        <figcaption>One water molecule: its two H atoms can each donate to a neighbor&rsquo;s oxygen, and its two lone pairs can each accept a neighbor&rsquo;s hydrogen. Up to four hydrogen bonds per molecule, in 3-D.</figcaption>
+      </figure>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Molecule</th><th>H atoms to donate</th><th>Lone pairs to accept</th><th class="wrap">Average H bonds per molecule</th></tr></thead>
+          <tbody>
+            <tr><td>H₂O</td><td>2</td><td>2</td><td class="wrap"><b>4</b> (2 given + 2 received)</td></tr>
+            <tr><td>NH₃</td><td>3</td><td>1</td><td class="wrap"><b>2</b> (limited by the single lone pair)</td></tr>
+            <tr><td>HF</td><td>1</td><td>3</td><td class="wrap"><b>2</b> (limited by the single H)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small"><span class="pill" style="--c:var(--unit-forces);--c-soft:var(--unit-forces-soft)">extra</span> Why it works out to 2 for NH₃ and HF: every hydrogen bond is given by one molecule and received by another, so on average a molecule gives as many as it receives. NH₃ can receive only 1 (one lone pair), so about 1 + 1 = 2. HF can give only 1, so about 1 + 1 = 2. Water can do 2 + 2 = 4.</p>
+      <p>The lecture adds one remarkable example: <b>bifluoride [F&ndash;H&ndash;F]⁻</b>, where the hydrogen is held at about <b>160 kJ/mol</b> &mdash; so strong that it &ldquo;blurs the line between covalent and hydrogen bond.&rdquo;</p>
+
+      <h3 class="topic" id="if-bp" style="--c:var(--unit-forces)">The evidence: boiling points of hydrides</h3>
+      <p>Compare the hydrogen compounds of the elements in groups 14&ndash;17, going down the periodic table. Bigger molecules should boil higher (we will see why in a moment), and group 14 does exactly that. The others do <em>not</em>.</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 640 380" role="img" aria-label="Boiling points of hydrogen compounds of groups 14 to 17 by period. Group 14 rises smoothly with size, while NH3, H2O and HF are far above the trend because of hydrogen bonding."><line class="ic-grid" x1="60.0" y1="20.0" x2="584.0" y2="20.0"/><text class="ic-tick" x="52.0" y="24.0" text-anchor="end">150</text><line class="ic-grid" x1="60.0" y1="64.6" x2="584.0" y2="64.6"/><text class="ic-tick" x="52.0" y="68.6" text-anchor="end">100</text><line class="ic-grid" x1="60.0" y1="109.1" x2="584.0" y2="109.1"/><text class="ic-tick" x="52.0" y="113.1" text-anchor="end">50</text><line class="ic-axis" x1="60.0" y1="153.7" x2="584.0" y2="153.7"/><text class="ic-tick" x="52.0" y="157.7" text-anchor="end">0</text><line class="ic-grid" x1="60.0" y1="198.3" x2="584.0" y2="198.3"/><text class="ic-tick" x="52.0" y="202.3" text-anchor="end">-50</text><line class="ic-grid" x1="60.0" y1="242.9" x2="584.0" y2="242.9"/><text class="ic-tick" x="52.0" y="246.9" text-anchor="end">-100</text><line class="ic-grid" x1="60.0" y1="287.4" x2="584.0" y2="287.4"/><text class="ic-tick" x="52.0" y="291.4" text-anchor="end">-150</text><line class="ic-grid" x1="60.0" y1="332.0" x2="584.0" y2="332.0"/><text class="ic-tick" x="52.0" y="336.0" text-anchor="end">-200</text><text class="ic-tick" x="110.0" y="350.0" text-anchor="middle">period 2</text><text class="ic-tick" x="248.0" y="350.0" text-anchor="middle">period 3</text><text class="ic-tick" x="386.0" y="350.0" text-anchor="middle">period 4</text><text class="ic-tick" x="524.0" y="350.0" text-anchor="middle">period 5</text><text class="ic-lab" x="322.0" y="374.0" text-anchor="middle">period of the element bonded to hydrogen</text><text class="ic-lab" x="14" y="176.0" text-anchor="middle" transform="rotate(-90 14 176.0)">boiling point (&deg;C)</text><polyline class="hy-line hy-g14" points="110.0,297.2 248.0,253.6 386.0,232.2 524.0,200.1"/><circle class="hy-pt hy-g14" cx="110.0" cy="297.2" r="4"/><circle class="hy-pt hy-g14" cx="248.0" cy="253.6" r="4"/><circle class="hy-pt hy-g14" cx="386.0" cy="232.2" r="4"/><circle class="hy-pt hy-g14" cx="524.0" cy="200.1" r="4"/><polyline class="hy-line hy-g15" points="110.0,183.1 248.0,232.2 386.0,209.0 524.0,168.9"/><circle class="hy-pt hy-g15" cx="110.0" cy="183.1" r="4"/><circle class="hy-pt hy-g15" cx="248.0" cy="232.2" r="4"/><circle class="hy-pt hy-g15" cx="386.0" cy="209.0" r="4"/><circle class="hy-pt hy-g15" cx="524.0" cy="168.9" r="4"/><polyline class="hy-line hy-g16" points="110.0,64.6 248.0,207.2 386.0,190.3 524.0,155.5"/><circle class="hy-pt hy-g16" cx="110.0" cy="64.6" r="4"/><circle class="hy-pt hy-g16" cx="248.0" cy="207.2" r="4"/><circle class="hy-pt hy-g16" cx="386.0" cy="190.3" r="4"/><circle class="hy-pt hy-g16" cx="524.0" cy="155.5" r="4"/><polyline class="hy-line hy-g17" points="110.0,135.9 248.0,229.5 386.0,212.5 524.0,185.8"/><circle class="hy-pt hy-g17" cx="110.0" cy="135.9" r="4"/><circle class="hy-pt hy-g17" cx="248.0" cy="229.5" r="4"/><circle class="hy-pt hy-g17" cx="386.0" cy="212.5" r="4"/><circle class="hy-pt hy-g17" cx="524.0" cy="185.8" r="4"/><text class="hy-lab hy-t14" x="100.0" y="301.2" text-anchor="end">CH&#8324;</text><text class="hy-lab hy-t14" x="534.0" y="204.1" text-anchor="start">SnH&#8324;</text><text class="hy-lab hy-t15" x="100.0" y="187.1" text-anchor="end">NH&#8323;</text><text class="hy-lab hy-t15" x="534.0" y="172.9" text-anchor="start">SbH&#8323;</text><text class="hy-lab hy-t16" x="100.0" y="68.6" text-anchor="end">H&#8322;O</text><text class="hy-lab hy-t16" x="534.0" y="159.5" text-anchor="start">H&#8322;Te</text><text class="hy-lab hy-t17" x="100.0" y="139.9" text-anchor="end">HF</text><text class="hy-lab hy-t17" x="534.0" y="189.8" text-anchor="start">HI</text><line class="hy-line hy-g14" x1="472.0" y1="28.9" x2="496.0" y2="28.9"/><text class="fm-note" x="504.0" y="32.9" text-anchor="start">Group 14</text><line class="hy-line hy-g15" x1="472.0" y1="45.9" x2="496.0" y2="45.9"/><text class="fm-note" x="504.0" y="49.9" text-anchor="start">Group 15</text><line class="hy-line hy-g16" x1="472.0" y1="62.9" x2="496.0" y2="62.9"/><text class="fm-note" x="504.0" y="66.9" text-anchor="start">Group 16</text><line class="hy-line hy-g17" x1="472.0" y1="79.9" x2="496.0" y2="79.9"/><text class="fm-note" x="504.0" y="83.9" text-anchor="start">Group 17</text><text class="fm-note" x="134.0" y="39.6" text-anchor="start">NH&#8323;, H&#8322;O, HF: hydrogen bonding</text><text class="fm-note" x="248.0" y="307.0" text-anchor="start">no H bond: smooth rise with size</text></svg>
+        <figcaption>Boiling points read from the L13 plot (approximate, by eye). Down group 14 (CH₄, SiH₄, &hellip;) the rise is smooth. But NH₃, H₂O and HF (the period-2 members of groups 15, 16, 17) sit far above where their group&rsquo;s trend would put them. The lecture&rsquo;s summary: <em>&ldquo;N/O/F have way higher boiling points than expected.&rdquo;</em></figcaption>
+      </figure>
+      <div class="box example">
+        <div class="box-head">Worked example &mdash; why does H₂O boil 160 °C above H₂S?</div>
+        <p>H₂S is a bigger molecule with more electrons, so on size alone it should boil <em>higher</em> than H₂O. It boils at about &minus;60 °C against water&rsquo;s 100 °C.</p>
+        <p style="margin-bottom:0">The reason: oxygen is small and very electronegative, so its H atoms are strongly δ+ and its lone pairs are accessible: <b>hydrogen bonding</b>. Sulfur is larger and less electronegative, so H₂S has only the weaker dipole&ndash;dipole and dispersion forces. The extra hydrogen-bond attractions must be broken before water can boil.</p>
+      </div>
+
+      <h3 class="topic" id="if-disp" style="--c:var(--unit-forces)">Force 3 &middot; Dispersion (London) forces</h3>
+      <p>Everything so far needed a permanent dipole. But <b>helium, argon, and methane have none</b> &mdash; and they still liquefy if you cool them enough. L13 slide 7 asked exactly that (&ldquo;Why do noble gases or diatomic gases liquefy? What holds graphite together?&rdquo;). The answer applies to <em>every</em> atom and molecule:</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 760 310" role="img" aria-label="Dispersion forces in three steps: neutral atoms, then a momentary fluctuation of one electron cloud creating an instantaneous dipole, then that dipole inducing an opposite dipole in the neighboring atom so they attract."><defs><marker id="idA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="fm-arrow-h"/></marker></defs><circle class="cl-cloud" cx="100.0" cy="60.0" r="30.0"/><circle class="ph-nuc" cx="100.0" cy="60.0" r="3.0"/><circle class="cl-cloud" cx="230.0" cy="60.0" r="30.0"/><circle class="ph-nuc" cx="230.0" cy="60.0" r="3.0"/><text class="fm-h" x="340.0" y="52.0" text-anchor="start">1  Neutral atoms</text><text class="fm-note" x="340.0" y="70.0" text-anchor="start">On average each electron cloud is centered</text><text class="fm-note" x="340.0" y="86.0" text-anchor="start">on its nucleus: no dipole.</text><circle class="cl-cloud" cx="110.0" cy="158.0" r="30.0"/><circle class="ph-nuc" cx="100.0" cy="158.0" r="3.0"/><circle class="cl-cloud" cx="230.0" cy="158.0" r="30.0"/><circle class="ph-nuc" cx="230.0" cy="158.0" r="3.0"/><text class="fm-note" x="80.0" y="120.0" text-anchor="middle">&delta;+</text><text class="fm-note" x="142.0" y="120.0" text-anchor="middle">&delta;&minus;</text><text class="fm-h" x="340.0" y="150.0" text-anchor="start">2  A fluctuation</text><text class="fm-note" x="340.0" y="168.0" text-anchor="start">Atom A's cloud sloshes to one side:</text><text class="fm-note" x="340.0" y="184.0" text-anchor="start">an instantaneous dipole.</text><circle class="cl-cloud" cx="110.0" cy="256.0" r="30.0"/><circle class="ph-nuc" cx="100.0" cy="256.0" r="3.0"/><circle class="cl-cloud" cx="240.0" cy="256.0" r="30.0"/><circle class="ph-nuc" cx="230.0" cy="256.0" r="3.0"/><text class="fm-note" x="80.0" y="218.0" text-anchor="middle">&delta;+</text><text class="fm-note" x="142.0" y="218.0" text-anchor="middle">&delta;&minus;</text><text class="fm-note" x="210.0" y="218.0" text-anchor="middle">&delta;+</text><text class="fm-note" x="272.0" y="218.0" text-anchor="middle">&delta;&minus;</text><text class="fm-h" x="340.0" y="248.0" text-anchor="start">3  An induced dipole</text><text class="fm-note" x="340.0" y="266.0" text-anchor="start">A's &delta;&minus; end pushes B's electrons away, so B's</text><text class="fm-note" x="340.0" y="282.0" text-anchor="start">near side turns &delta;+. The two dipoles attract.</text><path class="fm-attr" d="M168,256 H196" marker-end="url(#idA)"/></svg>
+        <figcaption>L13 slide 8: &ldquo;It is the fluctuations.&rdquo; Electron clouds are never perfectly still, so for an instant one side is a little more negative. That instantaneous dipole <b>induces</b> an opposite dipole in the neighbor, and the two attract. This is called <b>dispersion</b> (also London forces).</figcaption>
+      </figure>
+      <div class="box def">
+        <div class="box-head">Polarizability</div>
+        <p style="margin-bottom:0">How easily an electron cloud can be distorted into a dipole. The lecture: <em>&ldquo;the amount of instantaneous dipole is proportional to polarizability.&rdquo;</em> <b>Big, floppy electron clouds distort more</b> (more electrons, further from the nucleus), so bigger atoms and longer molecules have stronger dispersion forces.</p>
+      </div>
+      <h4>Two things make dispersion stronger</h4>
+      <ol class="cc-steps">
+        <li><b>More electrons / bigger cloud</b> (&ldquo;larger electron clouds will polarize more&rdquo;). Methane (16 g/mol, boils &minus;161.5 °C) &rarr; ethane (30, &minus;88.6) &rarr; propane (44, &minus;42.1) &rarr; butane (58, &minus;0.5).</li>
+        <li><b>Closer alignment / more contact area</b> (&ldquo;closer alignment will result in higher interaction&rdquo;). Same mass, different shape:</li>
+      </ol>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 600 250" role="img" aria-label="Two isomers of C5H12 with the same mass: compact neopentane touches a neighbor at one point and boils at 9.5 C, while the long n-pentane lies alongside a neighbor over its whole length and boils at 36.1 C."><text class="fm-h" x="150.0" y="24.0" text-anchor="middle">Compact: neopentane, 72 g/mol</text><text class="fm-h" x="450.0" y="24.0" text-anchor="middle">Long: n-pentane, 72 g/mol</text><line class="fm-bond" x1="150.0" y1="85.0" x2="150.0" y2="63.0"/><line class="fm-bond" x1="150.0" y1="85.0" x2="150.0" y2="107.0"/><line class="fm-bond" x1="150.0" y1="85.0" x2="128.0" y2="85.0"/><line class="fm-bond" x1="150.0" y1="85.0" x2="172.0" y2="85.0"/><circle class="at-c" cx="150.0" cy="85.0" r="9.0"/><circle class="at-c" cx="150.0" cy="63.0" r="9.0"/><circle class="at-c" cx="150.0" cy="107.0" r="9.0"/><circle class="at-c" cx="128.0" cy="85.0" r="9.0"/><circle class="at-c" cx="172.0" cy="85.0" r="9.0"/><line class="fm-bond" x1="150.0" y1="165.0" x2="150.0" y2="143.0"/><line class="fm-bond" x1="150.0" y1="165.0" x2="150.0" y2="187.0"/><line class="fm-bond" x1="150.0" y1="165.0" x2="128.0" y2="165.0"/><line class="fm-bond" x1="150.0" y1="165.0" x2="172.0" y2="165.0"/><circle class="at-c" cx="150.0" cy="165.0" r="9.0"/><circle class="at-c" cx="150.0" cy="143.0" r="9.0"/><circle class="at-c" cx="150.0" cy="187.0" r="9.0"/><circle class="at-c" cx="128.0" cy="165.0" r="9.0"/><circle class="at-c" cx="172.0" cy="165.0" r="9.0"/><circle class="fm-contact" cx="150.0" cy="125.0" r="7.0"/><text class="fm-cap-s" x="150.0" y="215.0" text-anchor="middle">small contact area</text><text class="fm-cap" x="150.0" y="234.0" text-anchor="middle">boils at 9.5 &deg;C</text><line class="fm-bond" x1="385.0" y1="90.0" x2="411.0" y2="102.0"/><line class="fm-bond" x1="411.0" y1="102.0" x2="437.0" y2="90.0"/><line class="fm-bond" x1="437.0" y1="90.0" x2="463.0" y2="102.0"/><line class="fm-bond" x1="463.0" y1="102.0" x2="489.0" y2="90.0"/><circle class="at-c" cx="385.0" cy="90.0" r="9.0"/><circle class="at-c" cx="411.0" cy="102.0" r="9.0"/><circle class="at-c" cx="437.0" cy="90.0" r="9.0"/><circle class="at-c" cx="463.0" cy="102.0" r="9.0"/><circle class="at-c" cx="489.0" cy="90.0" r="9.0"/><line class="fm-bond" x1="385.0" y1="130.0" x2="411.0" y2="142.0"/><line class="fm-bond" x1="411.0" y1="142.0" x2="437.0" y2="130.0"/><line class="fm-bond" x1="437.0" y1="130.0" x2="463.0" y2="142.0"/><line class="fm-bond" x1="463.0" y1="142.0" x2="489.0" y2="130.0"/><circle class="at-c" cx="385.0" cy="130.0" r="9.0"/><circle class="at-c" cx="411.0" cy="142.0" r="9.0"/><circle class="at-c" cx="437.0" cy="130.0" r="9.0"/><circle class="at-c" cx="463.0" cy="142.0" r="9.0"/><circle class="at-c" cx="489.0" cy="130.0" r="9.0"/><rect class="fm-contact-bar" x="372" y="103" width="126" height="14" rx="7"/><text class="fm-cap-s" x="450.0" y="215.0" text-anchor="middle">long contact area</text><text class="fm-cap" x="450.0" y="234.0" text-anchor="middle">boils at 36.1 &deg;C</text></svg>
+        <figcaption>Both are C₅H₁₂ (72 g/mol). Compact neopentane can only touch a neighbor at one spot; long n-pentane lies alongside its neighbor. More contact = more dispersion = higher boiling point, 26.6 °C higher (L13 slide 10).</figcaption>
+      </figure>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 640 340" role="img" aria-label="Boiling points of straight-chain alkanes rise steadily with molecular weight: methane to butane are gases at room temperature, pentane and heavier are liquids, and the heaviest become waxy solids."><rect class="ic-band" x="64.0" y="150.1" width="548.0" height="137.9" rx="0"/><line class="ic-grid" x1="64.0" y1="18.0" x2="612.0" y2="18.0"/><text class="ic-tick" x="56.0" y="22.0" text-anchor="end">250</text><line class="ic-grid" x1="64.0" y1="47.3" x2="612.0" y2="47.3"/><text class="ic-tick" x="56.0" y="51.3" text-anchor="end">200</text><line class="ic-grid" x1="64.0" y1="76.7" x2="612.0" y2="76.7"/><text class="ic-tick" x="56.0" y="80.7" text-anchor="end">150</text><line class="ic-grid" x1="64.0" y1="106.0" x2="612.0" y2="106.0"/><text class="ic-tick" x="56.0" y="110.0" text-anchor="end">100</text><line class="ic-grid" x1="64.0" y1="135.4" x2="612.0" y2="135.4"/><text class="ic-tick" x="56.0" y="139.4" text-anchor="end">50</text><line class="ic-axis" x1="64.0" y1="164.7" x2="612.0" y2="164.7"/><text class="ic-tick" x="56.0" y="168.7" text-anchor="end">0</text><line class="ic-grid" x1="64.0" y1="194.1" x2="612.0" y2="194.1"/><text class="ic-tick" x="56.0" y="198.1" text-anchor="end">-50</text><line class="ic-grid" x1="64.0" y1="223.4" x2="612.0" y2="223.4"/><text class="ic-tick" x="56.0" y="227.4" text-anchor="end">-100</text><line class="ic-grid" x1="64.0" y1="252.8" x2="612.0" y2="252.8"/><text class="ic-tick" x="56.0" y="256.8" text-anchor="end">-150</text><line class="ic-grid" x1="64.0" y1="282.1" x2="612.0" y2="282.1"/><text class="ic-tick" x="56.0" y="286.1" text-anchor="end">-200</text><text class="ic-tick" x="124.9" y="306.0" text-anchor="middle">20</text><text class="ic-tick" x="185.8" y="306.0" text-anchor="middle">40</text><text class="ic-tick" x="246.7" y="306.0" text-anchor="middle">60</text><text class="ic-tick" x="307.6" y="306.0" text-anchor="middle">80</text><text class="ic-tick" x="368.4" y="306.0" text-anchor="middle">100</text><text class="ic-tick" x="429.3" y="306.0" text-anchor="middle">120</text><text class="ic-tick" x="490.2" y="306.0" text-anchor="middle">140</text><text class="ic-tick" x="551.1" y="306.0" text-anchor="middle">160</text><text class="ic-tick" x="612.0" y="306.0" text-anchor="middle">180</text><text class="ic-lab" x="338.0" y="334.0" text-anchor="middle">molecular weight (g/mol)</text><text class="ic-lab" x="14" y="153.0" text-anchor="middle" transform="rotate(-90 14 153.0)">boiling point (&deg;C)</text><line class="fm-dim" x1="64.0" y1="150.1" x2="612.0" y2="150.1"/><text class="fm-note" x="606.0" y="144.1" text-anchor="end">room temperature (25 &deg;C)</text><text class="fm-note" x="604.0" y="273.3" text-anchor="end">gases at room temperature</text><text class="fm-note" x="76.0" y="26.8" text-anchor="start">liquids, then waxy solids (above the dashed line)</text><polyline class="ic-curve" points="112.7,259.5 155.3,216.7 198.0,189.4 240.6,165.0 283.2,143.6 325.8,124.4 368.4,107.0 411.1,91.0 453.7,76.2 496.3,62.5 581.6,37.8"/><circle class="ic-pt" cx="112.7" cy="259.5" r="4"/><text class="ic-pt-t" x="120.7" y="273.5" text-anchor="start">CH&#8324;</text><circle class="ic-pt" cx="155.3" cy="216.7" r="4"/><text class="ic-pt-t" x="163.3" y="230.7" text-anchor="start">C&#8322;H&#8326;</text><circle class="ic-pt" cx="198.0" cy="189.4" r="4"/><text class="ic-pt-t" x="206.0" y="203.4" text-anchor="start">C&#8323;H&#8328;</text><circle class="ic-pt" cx="240.6" cy="165.0" r="4"/><text class="ic-pt-t" x="248.6" y="179.0" text-anchor="start">C&#8324;H&#8321;&#8320;</text><circle class="ic-pt" cx="283.2" cy="143.6" r="4"/><text class="ic-pt-t" x="291.2" y="157.6" text-anchor="start">C&#8325;H&#8321;&#8322;</text><circle class="ic-pt" cx="325.8" cy="124.4" r="4"/><circle class="ic-pt" cx="368.4" cy="107.0" r="4"/><text class="ic-pt-t" x="376.4" y="123.0" text-anchor="start">C&#8327;H&#8321;&#8326;</text><circle class="ic-pt" cx="411.1" cy="91.0" r="4"/><circle class="ic-pt" cx="453.7" cy="76.2" r="4"/><text class="ic-pt-t" x="461.7" y="92.2" text-anchor="start">C&#8329;H&#8322;&#8320;</text><circle class="ic-pt" cx="496.3" cy="62.5" r="4"/><circle class="ic-pt" cx="581.6" cy="37.8" r="4"/><text class="ic-pt-t" x="571.6" y="29.8" text-anchor="end">C&#8321;&#8322;H&#8322;&#8326;</text></svg>
+        <figcaption>Straight-chain alkanes get steadily less volatile as the chain grows. The first four and pentane are the numbers on L13 slides 9&ndash;10; the longer ones are standard handbook values (extra) that lie on the lecture&rsquo;s curve. Past about C₅ they are liquids at room temperature, and the heaviest become waxy solids &mdash; with no dipole anywhere in the molecule.</figcaption>
+      </figure>
+      <p><b>What holds graphite together?</b> Inside each layer, carbon atoms are joined by strong covalent bonds. Between layers there is only dispersion (the layers are stacked, as the slide&rsquo;s drawing shows). <span class="small"><span class="pill" style="--c:var(--unit-forces);--c-soft:var(--unit-forces-soft)">extra</span> That is why graphite flakes off in sheets and feels slippery, while diamond (covalent in all directions) is the hardest natural material.</span></p>
+
+      <h3 class="topic" id="if-rank" style="--c:var(--unit-forces)">Ranking forces and predicting boiling points</h3>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Interaction</th><th class="wrap">Where it acts</th><th class="wrap">Needs</th><th class="wrap">Rough strength <span class="pill" style="--c:var(--unit-forces);--c-soft:var(--unit-forces-soft)">extra</span></th></tr></thead>
+          <tbody>
+            <tr><td>Covalent bond</td><td class="wrap">inside a molecule</td><td class="wrap">shared electrons</td><td class="wrap">150&ndash;1000 kJ/mol</td></tr>
+            <tr><td>Hydrogen bond</td><td class="wrap">between molecules</td><td class="wrap">H on N/O/F + lone pair on N/O/F</td><td class="wrap">about 10&ndash;40 kJ/mol (bifluoride: 160)</td></tr>
+            <tr><td>Dipole&ndash;dipole</td><td class="wrap">between molecules</td><td class="wrap">a permanent dipole</td><td class="wrap">about 5&ndash;25 kJ/mol</td></tr>
+            <tr><td>Dispersion (London)</td><td class="wrap">between <em>all</em> molecules</td><td class="wrap">nothing (electrons)</td><td class="wrap">under 1 to about 40 kJ/mol; grows with size</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box cheat" style="--c:var(--unit-forces)">
+        <div class="box-head">Cheat code &middot; &ldquo;which boils higher?&rdquo; in four questions</div>
+        <ol class="cc-steps" style="margin-bottom:0">
+          <li><b>Ionic or network solid?</b> Those beat everything here.</li>
+          <li><b>Any H on N/O/F?</b> Hydrogen bonding wins over a similar-size molecule without it.</li>
+          <li><b>Polar?</b> Dipole&ndash;dipole beats pure dispersion at similar size.</li>
+          <li><b>Otherwise compare size and shape:</b> more electrons and a longer, less branched molecule boil higher.</li>
+        </ol>
+      </div>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Pair (higher boiling point in bold)</th><th class="wrap">Reasoning</th></tr></thead>
+          <tbody>
+            <tr><td><b>Ar</b> vs Ne</td><td class="wrap">Both nonpolar. Argon has more electrons, a bigger cloud, more dispersion (&minus;186 °C vs &minus;246 °C).</td></tr>
+            <tr><td><b>HF</b> vs HCl</td><td class="wrap">HF hydrogen-bonds; HCl only has weaker dipole&ndash;dipole + dispersion (about +20 °C vs &minus;85 °C).</td></tr>
+            <tr><td><b>Ethanol</b> CH₃CH₂OH vs dimethyl ether CH₃OCH₃</td><td class="wrap">Same formula C₂H₆O and mass, but only ethanol has an O&ndash;H to donate (78 °C vs &minus;24 °C).</td></tr>
+            <tr><td><b>n-Pentane</b> vs neopentane</td><td class="wrap">Same mass, same atoms; the long molecule has more contact area (36.1 °C vs 9.5 °C).</td></tr>
+            <tr><td><b>CH₃OH</b> (methanol) vs CH₃CH₃ (ethane)</td><td class="wrap">Nearly equal mass; methanol has O&ndash;H hydrogen bonds (65 °C vs &minus;89 °C).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box trap">
+        <div class="box-head">Traps</div>
+        <ul style="margin-bottom:0">
+          <li><b>Hydrogen bond &ne; &ldquo;any bond containing hydrogen&rdquo;.</b> The H must be on N, O or F, and it is the <em>attraction between molecules</em>, not the covalent O&ndash;H inside one.</li>
+          <li><b>Boiling does not break covalent bonds.</b> Boiling water leaves H₂O intact; only the hydrogen bonds between molecules are broken.</li>
+          <li><b>&ldquo;Nonpolar&rdquo; does not mean &ldquo;no forces&rdquo;.</b> Dispersion acts between everything, and for big molecules it can outweigh a small dipole.</li>
+          <li><b>Size beats polarity only when the size gap is large.</b> Compare like with like first.</li>
+        </ul>
+      </div>
+
+      <h3 class="topic" id="if-proteins" style="--c:var(--unit-forces)">Context &middot; proteins fold by these forces</h3>
+      <p>L13 closes with biology. A protein is a long chain that folds into a precise 3-D shape, and the folding is steered by exactly the interactions above: <b>hydrogen bonds</b> (holding helices and sheets), <b>London dispersion</b> (tucking oily side-chains together), <b>electrostatic attraction</b> between charged groups, and one covalent link, the <b>disulfide bond</b> (S&ndash;S).</p>
+      <p>When a protein <b>misfolds</b>, its sticky surfaces can make aggregates that kill brain cells; clumps of misfolded &alpha;-synuclein (&ldquo;Lewy bodies&rdquo;) are a hallmark of Parkinson&rsquo;s disease. The student paper presented (Sant et al., <em>Nature Communications</em> 2025) found that a <b>small early oligomer</b> cut neuroblast cell viability to about 25%, while the mature fibril did not in the reported comparison: <em>&ldquo;the most damaging aggregate may not be the largest one.&rdquo;</em></p>
+      <p><a class="backtop" href="#top">&uarr; back to top</a></p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- UNIT 8 — METALS & BANDS (L14) -->
+    <!-- ============================================================ -->
+    <section class="unit" id="unit8" style="--c:var(--unit-metal)">
+      <div class="unit-head">
+        <span class="unit-num">08</span>
+        <h2>Metals &amp; Energy Bands</h2>
+        <span class="unit-tag">L14</span>
+      </div>
+
+      <p class="lede">The third and last bond type: <strong>metallic bonding</strong>. Ionic bonds move electrons from one atom to another. Covalent bonds share them between two atoms. In a metal, the valence electrons are shared among <em>all</em> the atoms at once. The tool to understand that is one you already have &mdash; molecular orbitals &mdash; pushed from 2 atoms to 10²³.</p>
+
+      <div class="box analogy">
+        <div class="box-head">Gap-filler &middot; what &ldquo;conducting electricity&rdquo; needs</div>
+        <p style="margin-bottom:0">To carry current, electrons must be able to <b>speed up a little</b> when you apply a voltage. In energy terms that means each electron needs an <b>empty energy level right next to the one it sits in</b>, to step into. A material conducts if there are such empty neighbors; it does not if every nearby level is full and the next empty one is far away. Everything in this unit is about which of those two cases a solid is in.</p>
+      </div>
+
+      <h3 class="topic" id="band-form" style="--c:var(--unit-metal)">From 2 atoms to 10²³: how a band forms</h3>
+      <p>Unit 06 showed that <b>n atomic orbitals make n molecular orbitals</b>. Two atoms: a bonding and an antibonding level. Add more atoms in a line, each bringing one s orbital and one electron, and the same rule keeps working:</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 820 420" role="img" aria-label="Molecular orbitals of a chain of n atoms with one s electron each: the n levels spread out as n grows, and for a macroscopic crystal they merge into a continuous band whose lower half is filled and upper half empty."><path class="fm-ax" d="M24,300 V20 M19,28 L24,18 L29,28"/><text class="fm-ax-t" x="10.0" y="12.0" text-anchor="start">energy</text><text class="ic-tick" x="80.0" y="318.0" text-anchor="middle">1</text><line class="bd-lv bd-fill" x1="62" y1="160.0" x2="98" y2="160.0"/><text class="ic-tick" x="170.0" y="318.0" text-anchor="middle">2</text><line class="bd-lv bd-fill" x1="152" y1="222.0" x2="188" y2="222.0"/><line class="bd-lv" x1="152" y1="98.0" x2="188" y2="98.0"/><text class="ic-tick" x="260.0" y="318.0" text-anchor="middle">4</text><line class="bd-lv bd-fill" x1="242" y1="260.3" x2="278" y2="260.3"/><line class="bd-lv bd-fill" x1="242" y1="198.3" x2="278" y2="198.3"/><line class="bd-lv" x1="242" y1="121.7" x2="278" y2="121.7"/><line class="bd-lv" x1="242" y1="59.7" x2="278" y2="59.7"/><text class="ic-tick" x="350.0" y="318.0" text-anchor="middle">6</text><line class="bd-lv bd-fill" x1="332" y1="271.7" x2="368" y2="271.7"/><line class="bd-lv bd-fill" x1="332" y1="237.3" x2="368" y2="237.3"/><line class="bd-lv bd-fill" x1="332" y1="187.6" x2="368" y2="187.6"/><line class="bd-lv" x1="332" y1="132.4" x2="368" y2="132.4"/><line class="bd-lv" x1="332" y1="82.7" x2="368" y2="82.7"/><line class="bd-lv" x1="332" y1="48.3" x2="368" y2="48.3"/><text class="ic-tick" x="440.0" y="318.0" text-anchor="middle">10</text><line class="bd-lv bd-fill" x1="422" y1="279.0" x2="458" y2="279.0"/><line class="bd-lv bd-fill" x1="422" y1="264.3" x2="458" y2="264.3"/><line class="bd-lv bd-fill" x1="422" y1="241.2" x2="458" y2="241.2"/><line class="bd-lv bd-fill" x1="422" y1="211.5" x2="458" y2="211.5"/><line class="bd-lv bd-fill" x1="422" y1="177.6" x2="458" y2="177.6"/><line class="bd-lv" x1="422" y1="142.4" x2="458" y2="142.4"/><line class="bd-lv" x1="422" y1="108.5" x2="458" y2="108.5"/><line class="bd-lv" x1="422" y1="78.8" x2="458" y2="78.8"/><line class="bd-lv" x1="422" y1="55.7" x2="458" y2="55.7"/><line class="bd-lv" x1="422" y1="41.0" x2="458" y2="41.0"/><text class="ic-lab" x="260.0" y="345.0" text-anchor="middle">number of atoms in the chain  &rarr;</text><rect class="bd-empty" x="600.0" y="30.0" width="70.0" height="130.0" rx="0"/><rect class="bd-filled" x="600.0" y="160.0" width="70.0" height="130.0" rx="0"/><text class="bd-blk-t" x="635.0" y="99.0" text-anchor="middle">empty</text><text class="bd-blk-t" x="635.0" y="229.0" text-anchor="middle">filled</text><text class="ic-tick" x="635.0" y="318.0" text-anchor="middle">~10&sup2;&sup3;</text><text class="fm-h" x="635.0" y="22.0" text-anchor="middle">a band</text><path class="fm-dim" d="M684,30.0 V290.0"/><text class="fm-note" x="690.0" y="164.0" text-anchor="start">bandwidth</text><circle class="ph-pos" cx="190.0" cy="375.0" r="11.0"/><circle class="ph-pos" cx="220.0" cy="375.0" r="11.0"/><circle class="ph-pos" cx="250.0" cy="375.0" r="11.0"/><circle class="ph-pos" cx="280.0" cy="375.0" r="11.0"/><circle class="ph-pos" cx="310.0" cy="375.0" r="11.0"/><circle class="ph-pos" cx="340.0" cy="375.0" r="11.0"/><text class="fm-note" x="30.0" y="379.0" text-anchor="start">lowest level:</text><text class="fm-note" x="400.0" y="379.0" text-anchor="start">all in phase, no nodes: most bonding</text><circle class="ph-pos" cx="190.0" cy="405.0" r="11.0"/><circle class="ph-neg" cx="220.0" cy="405.0" r="11.0"/><circle class="ph-pos" cx="250.0" cy="405.0" r="11.0"/><circle class="ph-neg" cx="280.0" cy="405.0" r="11.0"/><circle class="ph-pos" cx="310.0" cy="405.0" r="11.0"/><circle class="ph-neg" cx="340.0" cy="405.0" r="11.0"/><line class="ph-node" x1="205.0" y1="390.0" x2="205.0" y2="420.0"/><line class="ph-node" x1="235.0" y1="390.0" x2="235.0" y2="420.0"/><line class="ph-node" x1="265.0" y1="390.0" x2="265.0" y2="420.0"/><line class="ph-node" x1="295.0" y1="390.0" x2="295.0" y2="420.0"/><line class="ph-node" x1="325.0" y1="390.0" x2="325.0" y2="420.0"/><text class="fm-note" x="30.0" y="409.0" text-anchor="start">highest level:</text><text class="fm-note" x="400.0" y="409.0" text-anchor="start">signs alternate, a node between every pair: most antibonding</text></svg>
+        <figcaption>L14 slide 3 (after Averill). The number under each column is how many atoms are in the chain. The levels spread out as the chain grows and fill the same energy range ever more densely. For a real crystal (about 10²³ atoms) they are so close together that they form a continuous <b>energy band</b>. Dark levels hold electrons (n atoms with one electron each fill the lowest n/2 levels); gray levels are empty.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Bottom of the band:</b> every orbital in phase, no nodes &mdash; the most bonding combination. <b>Top of the band:</b> signs alternate, a node between every pair of neighbors &mdash; the most antibonding. Between them the number of nodes steps up level by level.</li>
+        <li><b>Bandwidth</b> = the energy spread from bottom to top. <span class="small"><span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra</span> Atoms that overlap strongly (close neighbors, bigger orbitals) give a wider band.</span></li>
+        <li>Note what is <b>not</b> there: no two levels are exactly equal and no electron &ldquo;belongs&rdquo; to a pair of atoms. Each level is spread over the whole solid &mdash; which is exactly the idea of a sea of shared electrons.</li>
+      </ul>
+
+      <h3 class="topic" id="band-fill" style="--c:var(--unit-metal)">Filling the band: why Na is a metal (and so is Mg)</h3>
+      <p>Now count electrons, filling from the bottom like always. Sodium has <b>one</b> valence electron per atom (3s¹). Each level holds two electrons, so the 3s band has room for <b>two</b> per atom. One electron fills it exactly <b>half</b>. The top filled electrons have empty levels immediately above &mdash; so a small push moves them: <b>a metal</b>.</p>
+      <p>Magnesium has two valence electrons (3s²). Then the 3s band alone would be exactly <em>full</em>, and you would predict an insulator. But Mg is a metal. Why? Because the 3p band is not far above, and in a solid <b>the 3s and 3p bands overlap in energy</b> (L14 slide 4, &ldquo;s and p-block metals&rdquo;). The electrons just fill the bottom of one merged band, with empty levels right above.</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 700 360" role="img" aria-label="Schematic energy bands of sodium, magnesium and aluminium: narrow filled core bands separated by gaps, and a merged overlapping 3s and 3p valence band that is only partly filled by one, two or three valence electrons per atom, so there are always empty states just above."><path class="fm-ax" d="M20,336 V40 M15,48 L20,38 L25,48"/><text class="fm-ax-t" x="8.0" y="26.0" text-anchor="start">energy</text><text class="fm-note" x="124.0" y="204.0" text-anchor="middle">core bands (full)</text><rect class="bd-filled" x="84.0" y="216.0" width="80.0" height="52.0" rx="0"/><text class="bd-blk-t" x="124.0" y="246.0" text-anchor="middle">2p</text><rect class="bd-filled" x="84.0" y="278.0" width="80.0" height="18.0" rx="0"/><text class="bd-blk-t" x="124.0" y="291.0" text-anchor="middle">2s</text><rect class="bd-filled" x="84.0" y="306.0" width="80.0" height="14.0" rx="0"/><text class="bd-blk-t" x="124.0" y="317.0" text-anchor="middle">1s</text><text class="fm-note" x="124.0" y="340.0" text-anchor="middle">narrow, deep, with gaps</text><rect class="bd-3p" x="260.0" y="44.0" width="100.0" height="86.8" rx="0"/><rect class="bd-3s" x="260.0" y="97.2" width="100.0" height="86.8" rx="0"/><rect class="bd-filled-hi" x="260.0" y="166.5" width="100.0" height="17.5" rx="0"/><text class="fm-h" x="310.0" y="206.0" text-anchor="middle">Na</text><text class="fm-note" x="310.0" y="224.0" text-anchor="middle">1 e&#8315; / atom</text><rect class="bd-3p" x="390.0" y="44.0" width="100.0" height="86.8" rx="0"/><rect class="bd-3s" x="390.0" y="97.2" width="100.0" height="86.8" rx="0"/><rect class="bd-filled-hi" x="390.0" y="149.0" width="100.0" height="35.0" rx="0"/><text class="fm-h" x="440.0" y="206.0" text-anchor="middle">Mg</text><text class="fm-note" x="440.0" y="224.0" text-anchor="middle">2 e&#8315; / atom</text><rect class="bd-3p" x="520.0" y="44.0" width="100.0" height="86.8" rx="0"/><rect class="bd-3s" x="520.0" y="97.2" width="100.0" height="86.8" rx="0"/><rect class="bd-filled-hi" x="520.0" y="131.5" width="100.0" height="52.5" rx="0"/><text class="fm-h" x="570.0" y="206.0" text-anchor="middle">Al</text><text class="fm-note" x="570.0" y="224.0" text-anchor="middle">3 e&#8315; / atom</text><text class="fm-note" x="630.0" y="56.0" text-anchor="start">3p</text><text class="fm-note" x="630.0" y="118.0" text-anchor="start">overlap</text><text class="fm-note" x="630.0" y="178.0" text-anchor="start">3s</text><text class="fm-cap-s" x="440.0" y="292.0" text-anchor="middle">3s and 3p overlap, so the 1, 2 or 3 valence electrons per atom</text><text class="fm-cap-s" x="440.0" y="309.0" text-anchor="middle">just fill the bottom of one merged band (dark = occupied):</text><text class="fm-cap" x="440.0" y="330.0" text-anchor="middle">there are always empty levels right above &rarr; metal</text></svg>
+        <figcaption>Schematic after L14 slide 4. Deep, narrow <b>core bands</b> (1s, 2s, 2p) are completely full and separated by gaps &mdash; those electrons just sit there. The <b>valence bands</b> 3s and 3p overlap into one wide band; Na, Mg and Al fill a bit more of its bottom with 1, 2 and 3 electrons per atom. The drawn fill heights are schematic (1/8, 2/8, 3/8 of the merged band&rsquo;s capacity of 8 per atom).</figcaption>
+      </figure>
+
+      <h3 class="topic" id="band-gap" style="--c:var(--unit-metal)">Metal, semiconductor, insulator: it is all about the gap</h3>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 760 290" role="img" aria-label="Band pictures of a metal, a semiconductor and an insulator: a metal has filled and empty states touching or overlapping; a semiconductor has a small gap; an insulator has a large gap between the filled and empty bands."><defs><marker id="gapA" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="fm-arrow-h"/></marker></defs><text class="fm-h" x="140.0" y="24.0" text-anchor="middle">Metal</text><path class="fm-ax" d="M40,230 V44 M36,52 L40,42 L44,52"/><text class="fm-cap-s" x="140.0" y="252.0" text-anchor="middle">no gap: filled and empty</text><text class="fm-cap-s" x="140.0" y="268.0" text-anchor="middle">levels touch or overlap</text><text class="fm-cap-s" x="140.0" y="284.0" text-anchor="middle">e.g. Na, Cu</text><text class="fm-h" x="390.0" y="24.0" text-anchor="middle">Semiconductor</text><path class="fm-ax" d="M290,230 V44 M286,52 L290,42 L294,52"/><text class="fm-cap-s" x="390.0" y="252.0" text-anchor="middle">small gap</text><text class="fm-cap-s" x="390.0" y="268.0" text-anchor="middle">e.g. Si, 1.1 eV</text><text class="fm-h" x="640.0" y="24.0" text-anchor="middle">Insulator</text><path class="fm-ax" d="M540,230 V44 M536,52 L540,42 L544,52"/><text class="fm-cap-s" x="640.0" y="252.0" text-anchor="middle">large gap</text><text class="fm-cap-s" x="640.0" y="268.0" text-anchor="middle">e.g. diamond, 5.4 eV</text><rect class="bd-filled" x="60.0" y="120.0" width="160.0" height="100.0" rx="0"/><rect class="bd-empty" x="60.0" y="70.0" width="160.0" height="50.0" rx="0"/><rect class="bd-overlap" x="60.0" y="112.0" width="160.0" height="16.0" rx="0"/><text class="bd-blk-t" x="140.0" y="176.0" text-anchor="middle">filled</text><text class="bd-blk-t" x="140.0" y="96.0" text-anchor="middle">empty</text><text class="bd-blk-t" x="140.0" y="124.0" text-anchor="middle">overlap</text><rect class="bd-filled" x="310.0" y="126.0" width="160.0" height="94.0" rx="0"/><rect class="bd-empty" x="310.0" y="62.0" width="160.0" height="52.0" rx="0"/><text class="bd-blk-t" x="390.0" y="176.0" text-anchor="middle">filled</text><text class="bd-blk-t" x="390.0" y="92.0" text-anchor="middle">empty</text><path class="fm-dim2" d="M486,114 V126" marker-start="url(#gapA)" marker-end="url(#gapA)"/><text class="fm-note" x="494" y="124">E<tspan class="fm-sub" dy="3">g</tspan></text><rect class="bd-filled" x="560.0" y="170.0" width="160.0" height="50.0" rx="0"/><rect class="bd-empty" x="560.0" y="56.0" width="160.0" height="40.0" rx="0"/><text class="bd-blk-t" x="640.0" y="200.0" text-anchor="middle">filled</text><text class="bd-blk-t" x="640.0" y="80.0" text-anchor="middle">empty</text><path class="fm-dim2" d="M736,96 V170" marker-start="url(#gapA)" marker-end="url(#gapA)"/><text class="fm-note" x="744" y="136">E<tspan class="fm-sub" dy="3">g</tspan></text></svg>
+        <figcaption>L14 slide 6. <b>Metal:</b> the filled band runs into an empty one (or is only partly filled), so empty levels sit right there. <b>Semiconductor:</b> the filled band is full, but the empty band is only a small step away. <b>Insulator:</b> the same picture with a large gap.</figcaption>
+      </figure>
+      <div class="box def">
+        <div class="box-head">Band gap, E<sub>g</sub></div>
+        <p style="margin-bottom:0">The energy between the top of the filled band and the bottom of the next empty band, in eV. To conduct, an electron must first be given at least E<sub>g</sub> (by heat or by light). Small gap: a modest amount of heating or light does it. Large gap: practically none can.</p>
+      </div>
+      <h4>Group 14: the whole range in one column</h4>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 700 250" role="img" aria-label="Band gaps down group 14: carbon as diamond 5.4 eV, insulator; silicon 1.1 eV and germanium 0.67 eV, semiconductors; tin 0.08 eV semiconductor or metal; lead 0 eV, a metal."><text class="fm-lab-r" x="118.0" y="38.0" text-anchor="end">C (diamond)</text><rect class="gp-bar gp-ins" x="130.0" y="24.0" width="270.0" height="26.0" rx="4"/><text class="fm-note" x="410.0" y="42">E<tspan class="fm-sub" dy="3">g</tspan><tspan dy="-3"> = 5.4 eV &middot; insulator</tspan></text><text class="fm-lab-r" x="118.0" y="80.0" text-anchor="end">Si</text><rect class="gp-bar gp-semi" x="130.0" y="66.0" width="55.0" height="26.0" rx="4"/><text class="fm-note" x="195.0" y="84">E<tspan class="fm-sub" dy="3">g</tspan><tspan dy="-3"> = 1.1 eV &middot; semiconductor</tspan></text><text class="fm-lab-r" x="118.0" y="122.0" text-anchor="end">Ge</text><rect class="gp-bar gp-semi" x="130.0" y="108.0" width="33.5" height="26.0" rx="4"/><text class="fm-note" x="173.5" y="126">E<tspan class="fm-sub" dy="3">g</tspan><tspan dy="-3"> = 0.67 eV &middot; semiconductor</tspan></text><text class="fm-lab-r" x="118.0" y="164.0" text-anchor="end">Sn</text><rect class="gp-bar gp-semi" x="130.0" y="150.0" width="4.0" height="26.0" rx="4"/><text class="fm-note" x="144.0" y="168">E<tspan class="fm-sub" dy="3">g</tspan><tspan dy="-3"> = 0.08 eV &middot; semiconductor / metal</tspan></text><text class="fm-lab-r" x="118.0" y="206.0" text-anchor="end">Pb</text><rect class="gp-bar gp-met" x="130.0" y="192.0" width="2.0" height="26.0" rx="4"/><text class="fm-note" x="142.0" y="210">E<tspan class="fm-sub" dy="3">g</tspan><tspan dy="-3"> = 0 eV &middot; metal</tspan></text><line class="ic-axis" x1="130.0" y1="12.0" x2="130.0" y2="232.0"/><text class="ic-tick" x="130.0" y="246.0" text-anchor="middle">0 eV</text></svg>
+        <figcaption>L14 slide 7. Same group, same outer-electron count, and the gap shrinks steadily down the column until it vanishes at lead. (The 5.4 eV value is for diamond, the insulating form of carbon; graphite, the other common form, conducts.)</figcaption>
+      </figure>
+      <p>Why does the gap shrink going down? <span class="small"><span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra</span> A common explanation: bigger atoms have larger, more spread-out valence orbitals that overlap more strongly with their neighbors, so the bands get wider and the filled and empty bands move toward each other until they meet.</span> The lecture just states the trend; the size effect is the same story as the periodic trends in Unit 02.</p>
+      <div class="box example">
+        <div class="box-head">Worked example &mdash; what light can cross the gap? <span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra</span></div>
+        <p>A photon of wavelength &lambda; has energy E = 1240 eV&middot;nm &divide; &lambda;. It can lift an electron across the gap only if E &ge; E<sub>g</sub>, so the longest useful wavelength is &lambda; = 1240 &divide; E<sub>g</sub>.</p>
+        <p class="mono">Si, E<sub>g</sub> = 1.1 eV: &lambda; &le; 1240/1.1 &asymp; <b>1130 nm</b> (infrared) &rarr; it absorbs visible light and looks dark gray.</p>
+        <p class="mono" style="margin-bottom:0">Diamond, E<sub>g</sub> = 5.4 eV: &lambda; &le; 1240/5.4 &asymp; <b>230 nm</b> (ultraviolet) &rarr; visible light (400&ndash;700 nm) cannot excite it, so a pure diamond is transparent.</p>
+      </div>
+
+      <h3 class="topic" id="band-bonding" style="--c:var(--unit-metal)">Bonding in the elements: metallic, covalent &mdash; or ionic only in compounds</h3>
+      <p>L14 slide 8 shows the periodic table with a legend: <span style="color:var(--unit-ionic);font-weight:600">ionic</span>, <span style="color:var(--unit-covalent);font-weight:600">covalent</span>, <span style="color:var(--warn);font-weight:600">metallic</span>. In the PDF the table itself is uncolored, so here is the rule behind it.</p>
+      <div class="tscroll">
+        <table class="data">
+          <thead><tr><th>Bond type</th><th class="wrap">What the electrons do</th><th class="wrap">Typical atoms</th><th class="wrap">Typical properties</th></tr></thead>
+          <tbody>
+            <tr><td><b>Metallic</b></td><td class="wrap">shared among <em>all</em> atoms; delocalized in bands</td><td class="wrap">left side and middle of the table: s-block, d-block, lower p-block (Na, Fe, Cu, Al, Pb)</td><td class="wrap">conduct, shiny (luster), malleable</td></tr>
+            <tr><td><b>Covalent</b></td><td class="wrap">shared between specific neighbors</td><td class="wrap">upper right: nonmetals and metalloids (C, Si, S, N₂, Cl₂)</td><td class="wrap">molecules, or hard network solids</td></tr>
+            <tr><td><b>Ionic</b></td><td class="wrap">transferred; ions attract</td><td class="wrap">metal + nonmetal <em>compounds</em> (NaCl, MgO)</td><td class="wrap">brittle, high m.p.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box trap">
+        <div class="box-head">Reminder from Unit 04</div>
+        <p style="margin-bottom:0">A <b>pure element</b> can never be ionic (no electronegativity difference), so an element is either metallic or covalent. Ionic bonding shows up when two <em>different</em> elements combine. The metalloids (B, Si, Ge, As, Sb, Te) sit on the dividing staircase and can behave as either, as in Unit 03.</p>
+      </div>
+      <p>The L14 &ldquo;Future Five&rdquo; talk lists the properties that made metals revolutionary 5,000 years ago: <b>luster, conductivity, and malleability</b>. <span class="small"><span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra</span> All three come from the same picture: electrons in a band are free to move (conductivity), can absorb and re-emit visible light (luster), and are not tied to particular bonds, so planes of atoms can slide past each other without a like-charge collapse as in ionic crystals (malleability).</span></p>
+
+      <h3 class="topic" id="band-conductivity" style="--c:var(--unit-metal)">Conductivity and resistivity</h3>
+      <div class="box formula-box">
+        <div class="box-head">Conductivity vs. resistivity <span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra</span></div>
+        <div class="eq">&sigma; = 1 / &rho;</div>
+        <div class="vars"><code>&sigma;</code> = electrical conductivity (S/m); <code>&rho;</code> = resistivity (&Omega;&middot;m). Big conductivity = good conductor = small resistivity. The lecture plots one (conductivity, slide 9) and tabulates the other (resistivity, slide 10).</div>
+      </div>
+      <p>L14 slide 9 plots conductivity against atomic number: tall spikes at atomic numbers <b>29 (Cu), 47 (Ag), and 79 (Au)</b> &mdash; about 6&times;10⁷ S/m for Cu and Ag and about 4.5&times;10⁷ for Au; aluminum (13) is also high; nonmetals sit near zero; and the lanthanides form a low plateau.</p>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 640 516" role="img" aria-label="Electrical resistivity of metals and alloys in units of 10 to the minus 8 ohm-metres, sorted from silver 1.6 and copper 1.67 up to nichrome 100; the alloys sit far above the pure metals."><text class="fm-lab-r" x="182.0" y="27.0" text-anchor="end">Silver</text><rect class="gp-bar rs-top" x="190.0" y="16.0" width="5.8" height="15.0" rx="3"/><text class="ic-pt-t" x="201.8" y="28.0" text-anchor="start">1.6</text><text class="fm-lab-r" x="182.0" y="48.0" text-anchor="end">Copper</text><rect class="gp-bar rs-top" x="190.0" y="37.0" width="6.0" height="15.0" rx="3"/><text class="ic-pt-t" x="202.0" y="49.0" text-anchor="start">1.67</text><text class="fm-lab-r" x="182.0" y="69.0" text-anchor="end">Gold</text><rect class="gp-bar rs-top" x="190.0" y="58.0" width="8.3" height="15.0" rx="3"/><text class="ic-pt-t" x="204.3" y="70.0" text-anchor="start">2.3</text><text class="fm-lab-r" x="182.0" y="90.0" text-anchor="end">Aluminum</text><rect class="gp-bar rs-bar" x="190.0" y="79.0" width="9.7" height="15.0" rx="3"/><text class="ic-pt-t" x="205.7" y="91.0" text-anchor="start">2.69</text><text class="fm-lab-r" x="182.0" y="111.0" text-anchor="end">Magnesium</text><rect class="gp-bar rs-bar" x="190.0" y="100.0" width="15.8" height="15.0" rx="3"/><text class="ic-pt-t" x="211.8" y="112.0" text-anchor="start">4.4</text><text class="fm-lab-r" x="182.0" y="132.0" text-anchor="end">Sodium</text><rect class="gp-bar rs-bar" x="190.0" y="121.0" width="16.6" height="15.0" rx="3"/><text class="ic-pt-t" x="212.6" y="133.0" text-anchor="start">4.61</text><text class="fm-lab-r" x="182.0" y="153.0" text-anchor="end">Tungsten</text><rect class="gp-bar rs-bar" x="190.0" y="142.0" width="19.8" height="15.0" rx="3"/><text class="ic-pt-t" x="215.8" y="154.0" text-anchor="start">5.5</text><text class="fm-lab-r" x="182.0" y="174.0" text-anchor="end">Zinc</text><rect class="gp-bar rs-bar" x="190.0" y="163.0" width="21.3" height="15.0" rx="3"/><text class="ic-pt-t" x="217.3" y="175.0" text-anchor="start">5.92</text><text class="fm-lab-r" x="182.0" y="195.0" text-anchor="end">Cobalt</text><rect class="gp-bar rs-bar" x="190.0" y="184.0" width="22.5" height="15.0" rx="3"/><text class="ic-pt-t" x="218.5" y="196.0" text-anchor="start">6.24</text><text class="fm-lab-r" x="182.0" y="216.0" text-anchor="end">Nickel</text><rect class="gp-bar rs-bar" x="190.0" y="205.0" width="24.6" height="15.0" rx="3"/><text class="ic-pt-t" x="220.6" y="217.0" text-anchor="start">6.84</text><text class="fm-lab-r" x="182.0" y="237.0" text-anchor="end">Cadmium</text><rect class="gp-bar rs-bar" x="190.0" y="226.0" width="26.6" height="15.0" rx="3"/><text class="ic-pt-t" x="222.6" y="238.0" text-anchor="start">7.4</text><text class="fm-lab-r" x="182.0" y="258.0" text-anchor="end">Iron</text><rect class="gp-bar rs-bar" x="190.0" y="247.0" width="35.0" height="15.0" rx="3"/><text class="ic-pt-t" x="231.0" y="259.0" text-anchor="start">9.71</text><text class="fm-lab-r" x="182.0" y="279.0" text-anchor="end">Tin</text><rect class="gp-bar rs-bar" x="190.0" y="268.0" width="46.1" height="15.0" rx="3"/><text class="ic-pt-t" x="242.1" y="280.0" text-anchor="start">12.8</text><text class="fm-lab-r" x="182.0" y="300.0" text-anchor="end">Lead</text><rect class="gp-bar rs-bar" x="190.0" y="289.0" width="74.2" height="15.0" rx="3"/><text class="ic-pt-t" x="270.2" y="301.0" text-anchor="start">20.6</text><text class="fm-lab-r" x="182.0" y="321.0" text-anchor="end">Uranium</text><rect class="gp-bar rs-bar" x="190.0" y="310.0" width="104.4" height="15.0" rx="3"/><text class="ic-pt-t" x="300.4" y="322.0" text-anchor="start">29</text><text class="fm-lab-r" x="182.0" y="342.0" text-anchor="end">Zirconium</text><rect class="gp-bar rs-bar" x="190.0" y="331.0" width="147.6" height="15.0" rx="3"/><text class="ic-pt-t" x="343.6" y="343.0" text-anchor="start">41</text><text class="fm-lab-r" x="182.0" y="363.0" text-anchor="end">Manganin (alloy)</text><rect class="gp-bar rs-alloy" x="190.0" y="352.0" width="158.4" height="15.0" rx="3"/><text class="ic-pt-t" x="354.4" y="364.0" text-anchor="start">44</text><text class="fm-lab-r" x="182.0" y="384.0" text-anchor="end">Titanium</text><rect class="gp-bar rs-bar" x="190.0" y="373.0" width="198.0" height="15.0" rx="3"/><text class="ic-pt-t" x="394.0" y="385.0" text-anchor="start">55</text><text class="fm-lab-r" x="182.0" y="405.0" text-anchor="end">Lanthanum</text><rect class="gp-bar rs-bar" x="190.0" y="394.0" width="212.4" height="15.0" rx="3"/><text class="ic-pt-t" x="408.4" y="406.0" text-anchor="start">59</text><text class="fm-lab-r" x="182.0" y="426.0" text-anchor="end">96% Fe &ndash; 4% Si (alloy)</text><rect class="gp-bar rs-alloy" x="190.0" y="415.0" width="223.2" height="15.0" rx="3"/><text class="ic-pt-t" x="419.2" y="427.0" text-anchor="start">62</text><text class="fm-lab-r" x="182.0" y="447.0" text-anchor="end">Cerium</text><rect class="gp-bar rs-bar" x="190.0" y="436.0" width="280.8" height="15.0" rx="3"/><text class="ic-pt-t" x="476.8" y="448.0" text-anchor="start">78</text><text class="fm-lab-r" x="182.0" y="468.0" text-anchor="end">Nichrome (alloy)</text><rect class="gp-bar rs-alloy" x="190.0" y="457.0" width="360.0" height="15.0" rx="3"/><text class="ic-pt-t" x="556.0" y="469.0" text-anchor="start">100</text><line class="ic-axis" x1="190.0" y1="8.0" x2="190.0" y2="482.0"/><text class="ic-lab" x="340.0" y="502.0" text-anchor="middle">resistivity, 10&#8315;&#8312; &Omega;&middot;m  (smaller = better conductor)</text></svg>
+        <figcaption>The resistivity table from L14 slide 10 (units: 10⁻⁸ &Omega;&middot;m; smaller is better). Silver, copper and gold are the best conductors. Brown = best three; gray = other pure metals; purple = alloys.</figcaption>
+      </figure>
+      <div class="box example">
+        <div class="box-head">Worked example &mdash; do the two slides agree?</div>
+        <p class="mono">Copper: &rho; = 1.67×10⁻⁸ &Omega;&middot;m &rarr; &sigma; = 1 / (1.67×10⁻⁸) &asymp; <b>6.0×10⁷ S/m</b> &mdash; right at the copper spike on the conductivity plot.</p>
+        <p class="mono" style="margin-bottom:0">Aluminum: &rho; = 2.69×10⁻⁸ &rarr; &sigma; &asymp; <b>3.7×10⁷ S/m</b> &mdash; the &ldquo;second&rdquo; peak near atomic number 13.</p>
+      </div>
+      <p><b>Alloys are worse conductors than pure metals.</b> Compare iron (9.71) with 96% Fe&ndash;4% Si (62), and nichrome (100) with any of its parent metals. <span class="small"><span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra</span> Foreign atoms disturb the regular crystal that the electrons&rsquo; waves travel through, so electrons scatter more. That is why nichrome is used for heating wire, where you <em>want</em> resistance.</span></p>
+
+      <h3 class="topic" id="band-workfn" style="--c:var(--unit-metal)">Work function</h3>
+      <div class="box def">
+        <div class="box-head">Work function, &phi;</div>
+        <p style="margin-bottom:0">L14 slide 11: &ldquo;Energy to extract an electron from the solid.&rdquo; In band terms: the energy needed to lift the least-bound electron from the top of the filled levels out to the free-electron level outside the metal. It is the solid&rsquo;s version of an ionization energy.</p>
+      </div>
+      <figure class="fig-frame">
+        <svg viewBox="0 0 720 300" role="img" aria-label="Work function: the energy needed to remove an electron from the solid to outside the metal. A photon of energy h nu supplies it, and any leftover energy appears as the electron's kinetic energy."><defs><marker id="wfA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" class="fm-arrow-h"/></marker></defs><rect class="bd-filled" x="40.0" y="190.0" width="170.0" height="90.0" rx="0"/><rect class="bd-empty" x="40.0" y="150.0" width="170.0" height="40.0" rx="0"/><text class="bd-blk-t" x="125.0" y="240.0" text-anchor="middle">filled levels</text><text class="bd-blk-t" x="125.0" y="174.0" text-anchor="middle">empty levels</text><line class="fm-dim" x1="210.0" y1="190.0" x2="480.0" y2="190.0"/><line class="fm-dim" x1="30.0" y1="60.0" x2="560.0" y2="60.0"/><text class="fm-note" x="36.0" y="52.0" text-anchor="start">outside the metal: electron is free (E = 0)</text><text class="fm-note" x="220.0" y="208.0" text-anchor="start">top of the filled levels</text><path class="fm-big-arrow" d="M250,188 V64" marker-end="url(#wfA)"/><text class="fm-h" x="262.0" y="120.0" text-anchor="start">&phi;  (work function)</text><text class="fm-note" x="262.0" y="138.0" text-anchor="start">energy to pull the least-bound</text><text class="fm-note" x="262.0" y="154.0" text-anchor="start">electron out of the solid</text><path class="fm-photon" d="M480,190 q8,-12 0,-24 q-8,-12 0,-24 q8,-12 0,-24 q-8,-12 0,-24 q8,-12 0,-24 q-8,-12 0,-24 q8,-12 0,-24" marker-end="url(#wfA)"/><text class="fm-h" x="480.0" y="214.0" text-anchor="middle">photon of energy h&nu;</text><text class="fm-note" x="512.0" y="36.0" text-anchor="start">leftover becomes kinetic</text><text class="fm-h" x="512.0" y="53.0" text-anchor="start">energy:  KE = h&nu; &minus; &phi;</text></svg>
+        <figcaption>Photoelectric picture: a photon of energy h&nu; pays the work function &phi; first; anything left over becomes the escaping electron&rsquo;s kinetic energy. This is the same bookkeeping as the photoelectric effect in Unit 01 and PES in Unit 02.</figcaption>
+      </figure>
+      <p>The chart on the slide is colour-coded from about 2 eV to 6 eV: the <b>alkali metals (Li, Na, K, Rb, Cs) are the lowest</b> (about 2&ndash;3 eV, easy to pull an electron off), and the late <b>d-block metals around Pt, Ir, Ni, Re, Au are highest</b> (about 5&ndash;6 eV).</p>
+      <div class="box formula-box">
+        <div class="box-head">Photoelectric energy balance <span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra</span></div>
+        <div class="eq">KE = h&nu; &minus; &phi; &nbsp;&nbsp; &lambda;<sub>threshold</sub> = hc / &phi; = 1240 eV&middot;nm / &phi;</div>
+        <div class="vars">Light with a wavelength longer than &lambda;<sub>threshold</sub> ejects <em>no</em> electrons, however bright.</div>
+      </div>
+      <div class="box example">
+        <div class="box-head">Worked example &mdash; blue light on sodium <span class="pill" style="--c:var(--unit-metal);--c-soft:var(--unit-metal-soft)">extra values</span></div>
+        <p>Sodium&rsquo;s work function is about 2.3 eV (a typical handbook value, consistent with the slide&rsquo;s cyan color). Shine 450 nm blue light.</p>
+        <p class="mono">E<sub>photon</sub> = 1240/450 = 2.76 eV</p>
+        <p class="mono">KE = 2.76 &minus; 2.3 = <b>0.46 eV</b> &rarr; electrons escape.</p>
+        <p class="mono" style="margin-bottom:0">Threshold: &lambda; = 1240/2.3 &asymp; <b>540 nm</b>. Red light (700 nm, 1.77 eV) is below it: nothing comes out.</p>
+      </div>
+
+      <h3 class="topic" id="band-future" style="--c:var(--unit-metal)">Context &middot; the oldest problem in metallurgy</h3>
+      <p>The L14 &ldquo;Future Five&rdquo; talk (Oliver Van Peteghem) starts at Tepe Hissar in present-day Iran, about 5,000 years ago, where people first smelted copper-bearing minerals: <b>ore + heat + reduction &rarr; metal + waste</b>. The hard part is always <em>separating the metal from everything that came with it</em>: the metal must form droplets, coalesce, move through thick molten slag and settle before it cools, so viscosity, surface tension, temperature and time all matter.</p>
+      <p>Today the question is climate. The old iron recipe is <b>iron oxide + carbon &rarr; iron + CO₂</b>, and steelmaking produces roughly 7&ndash;9% of global greenhouse-gas emissions. The challenge: use electricity to drive ore &rarr; metal with <b>oxygen, not CO₂, as the byproduct</b>. (This is the same idea as the carbon-free aluminum electrolysis cell in L07, which makes oxygen instead of CO₂.)</p>
+      <p><a class="backtop" href="#top">&uarr; back to top</a></p>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- CHEAT CODES (whole course) -->
     <!-- ============================================================ -->
     <section class="unit" id="cheatcodes" style="--c:var(--accent)">
       <div class="unit-head">
         <span class="unit-num">&#9733;</span>
-        <h2>Cheat Codes: the whole course in nine lines</h2>
+        <h2>Cheat Codes: the whole course in eleven lines</h2>
         <span class="unit-tag">read after the units, then use as your recall deck</span>
       </div>
-      <p class="lede">Memorizing 12 lectures one fact at a time doesn&rsquo;t work. What works: notice that almost everything in 3.091 so far is <strong>three ideas</strong> wearing different costumes, and each topic then has a one-line &ldquo;code&rdquo; that rebuilds the rest.</p>
+      <p class="lede">Memorizing 14 lectures one fact at a time doesn&rsquo;t work. What works: notice that almost everything in 3.091 so far is <strong>three ideas</strong> wearing different costumes, and each topic then has a one-line &ldquo;code&rdquo; that rebuilds the rest.</p>
 
       <div class="cc-ideas">
         <div class="cc-idea" style="--c:var(--unit-ionic)"><b>1 &middot; Opposites attract</b><span>Charges pull together or push apart: nuclear pull, shielding, lattice energy, lone-pair repulsion, bond polarity. <em>Energy &prop; (charge &times; charge) &divide; distance.</em></span></div>
@@ -2087,13 +2621,25 @@
         <div class="cc-card" style="--c:var(--unit-covalent)">
           <div class="cc-tag">Angles</div>
           <div class="cc-code">180 &middot; 120 &middot; 109.5 &middot; 90/120 &middot; 90</div>
-          <p>Those are the ideal angles for 2, 3, 4, 5, 6 groups. <b>Squeeze rule:</b> lone pairs and double bonds are fat, so they shrink the angles next to them: 109.5° &rarr; 107° (NH₃) &rarr; 104.5° (H₂O).</p>
+          <p>Those are the ideal angles for 2, 3, 4, 5, 6 groups (and the hybrid is sp, sp², sp³, sp³d, sp³d² to match). <b>Squeeze rule:</b> lone pairs and double bonds are fat, so they shrink the angles next to them: 109.5° &rarr; 107° (NH₃) &rarr; 104.5° (H₂O).</p>
         </div>
         <div class="cc-card" style="--c:var(--unit-orbital)">
           <div class="cc-tag">Molecular orbitals</div>
           <div class="cc-code">n in, n out. Down pays, up costs.</div>
           <p>Bonding goes down, antibonding goes up by the same amount. Fill from the bottom. <b>Bond order = (bonding &minus; antibonding) &divide; 2.</b> Unpaired electrons = paramagnetic (O₂: two in &pi;*).</p>
           <p><b>&sigma; = head-on, &pi; = sideways.</b> Antibonding = one more node across the bond. Hybridization = mixing on <em>one</em> atom; MO = mixing across <em>two</em>.</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-forces)">
+          <div class="cc-tag">Forces between molecules</div>
+          <div class="cc-code">Size, then polarity, then H-on-N/O/F</div>
+          <p><b>Boiling point = stickiness.</b> Three forces: <b>dispersion</b> (everyone; grows with electrons and contact area), <b>dipole&ndash;dipole</b> (polar molecules), <b>hydrogen bond</b> (H on N/O/F pointing at a lone pair on N/O/F).</p>
+          <p>Compare like with like: ask &ldquo;any H&ndash;N/O/F?&rdquo; first, then &ldquo;polar?&rdquo;, then size and shape (long beats compact). Water gives 2 + receives 2, so it is the champion.</p>
+        </div>
+        <div class="cc-card" style="--c:var(--unit-metal)">
+          <div class="cc-tag">Metals &amp; bands</div>
+          <div class="cc-code">n atoms in, n levels out &rarr; a band</div>
+          <p>Fill the band from the bottom. <b>Empty levels right above the filled ones = metal.</b> Filled band, small gap (Si 1.1 eV) = semiconductor; large gap (diamond 5.4 eV) = insulator.</p>
+          <p>Gap down group 14 shrinks C&nbsp;&rarr;&nbsp;Pb. Work function &phi;: KE = h&nu; &minus; &phi;. Conductivity &sigma; = 1/&rho; (Ag, Cu, Au best; alloys worse).</p>
         </div>
         <div class="cc-card" style="--c:var(--ink-faint)">
           <div class="cc-tag">Any calculation</div>
@@ -2271,6 +2817,45 @@
           </div>
         </details>
 
+        <details class="arch-card">
+          <summary>Find the hybridization of an atom <span class="arch-n">L12 &middot; no recitation yet</span></summary>
+          <div class="arch-body">
+            <p>Lewis structure &rarr; count <b>&sigma; neighbors + lone pairs</b> on that atom &rarr; 2 sp &middot; 3 sp² &middot; 4 sp³ &middot; 5 sp³d &middot; 6 sp³d². Shortcut: 0 &pi; bonds &rarr; sp³, 1 &pi; &rarr; sp², 2 &pi; &rarr; sp.</p>
+            <p style="margin-bottom:0">Practice and the full recipe: <a href="#hybrid">Hybridization, built from scratch</a> (Part 5 and Part 8).</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Name the intermolecular force / rank boiling points <span class="arch-n">L13</span></summary>
+          <div class="arch-body">
+            <p>Ask in order: ionic or network? &rarr; any <b>H on N/O/F</b> (and a lone pair to accept it)? &rarr; polar? &rarr; otherwise compare electrons and shape (long &gt; compact). Water: donates 2, accepts 2.</p>
+            <p style="margin-bottom:0">Examples: HF &gt; HCl; ethanol &gt; dimethyl ether; n-pentane &gt; neopentane; Ar &gt; Ne. See <a href="#if-rank">Ranking and predicting</a>.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Metal, semiconductor or insulator? Band picture and gap <span class="arch-n">L14</span></summary>
+          <div class="arch-body">
+            <p>Fill the band from the bottom. Empty levels immediately above the filled ones (or overlapping bands) &rarr; metal. Full band + small gap &rarr; semiconductor. Full band + large gap &rarr; insulator. Compare the gap with photon energy: &lambda;<sub>max</sub> = 1240 / E<sub>g</sub> (nm, eV).</p>
+            <p style="margin-bottom:0">Why Mg conducts although 3s² is &ldquo;full&rdquo;: 3s and 3p bands overlap. See <a href="#band-fill">Filling the band</a>.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Work function and photoelectron kinetic energy <span class="arch-n">L14, PP02 #8</span></summary>
+          <div class="arch-body">
+            <p style="margin-bottom:0">KE = h&nu; &minus; &phi;. Convert the wavelength with E = 1240 eV&middot;nm / &lambda;. If h&nu; &lt; &phi; nothing is emitted. Threshold &lambda; = 1240 / &phi;. See <a href="#band-workfn">Work function</a>.</p>
+          </div>
+        </details>
+
+        <details class="arch-card">
+          <summary>Conductivity &harr; resistivity, and why alloys are worse <span class="arch-n">L14</span></summary>
+          <div class="arch-body">
+            <p style="margin-bottom:0">&sigma; = 1/&rho;. Cu: 1.67×10⁻⁸ &Omega;&middot;m &rarr; 6.0×10⁷ S/m. Best: Ag, Cu, Au, then Al. Alloys (nichrome, Fe&ndash;Si, manganin) have much higher resistivity than the pure metals.</p>
+          </div>
+        </details>
+
+
       </div>
     </section>
 
@@ -2306,6 +2891,12 @@
             <tr><td>Ideal angle by groups</td><td class="mono">2: 180° &middot; 3: 120° &middot; 4: 109.5° &middot; 5: 90°/120° &middot; 6: 90°</td></tr>
             <tr><td>Hybridization by groups</td><td class="mono">2 sp &middot; 3 sp² &middot; 4 sp³ &middot; 5 sp³d &middot; 6 sp³d²</td></tr>
             <tr><td>MO bond order</td><td class="mono">(bonding e⁻ &minus; antibonding e⁻) / 2</td></tr>
+            <tr><td>Hybridization of an atom</td><td class="mono">groups = &sigma; neighbors + lone pairs &rarr; 2 sp, 3 sp², 4 sp³, 5 sp³d, 6 sp³d²</td></tr>
+            <tr><td>&pi; bonds on an atom</td><td class="mono">single=0, double=1, triple=2; one &sigma; per bond always</td></tr>
+            <tr><td>Photon vs. band gap</td><td class="mono">E(eV) = 1240 / &lambda;(nm); crosses the gap if E &ge; E<sub>g</sub></td></tr>
+            <tr><td>Conductivity / resistivity</td><td class="mono">&sigma; = 1 / &rho; &nbsp;(S/m vs &Omega;&middot;m)</td></tr>
+            <tr><td>Photoelectric / work function</td><td class="mono">KE = h&nu; &minus; &phi; ; &lambda;<sub>threshold</sub> = 1240 / &phi;</td></tr>
+            <tr><td>Hydrogen-bond check</td><td class="mono">H on N/O/F &rarr; lone pair on N/O/F (typ. 10&ndash;40 kJ/mol)</td></tr>
             <tr><td>Electronegativity &rarr; bond type</td><td class="mono">&Delta;&chi;&lt;0.4 covalent &middot; 0.4&ndash;1.8 polar &middot; &gt;1.8 ionic</td></tr>
             <tr><td>Avogadro's number</td><td class="mono">N<sub>A</sub> = 6.022×10²³ /mol</td></tr>
             <tr><td>Ideal gas constant</td><td class="mono">R = 8.314 J/(mol&middot;K) = 0.08206 L&middot;atm/(mol&middot;K)</td></tr>
@@ -2375,12 +2966,21 @@
         <li><strong>L12 slide typos:</strong> slides 13&ndash;14 label the p<sub>z</sub> pictures &ldquo;&sigma;p<sub>x</sub>&rdquo;; slide 15 says &ldquo;bonding&rdquo; twice (second = antibonding); slide 18 labels both antibonding &pi; pictures &ldquo;&pi;*np<sub>z</sub>&rdquo;.</li>
         <li><strong>Bond order = (bonding &minus; antibonding)/2.</strong> Don&rsquo;t forget to count the 2s-derived MOs (&sigma;2s and &sigma;*2s) &mdash; they&rsquo;re filled in O₂ and cancel each other.</li>
         <li><strong>The &sigma;2p / &pi;2p order flips for N₂ and lighter</strong> (extra, not on L12 slides); the lecture only fills O₂.</li>
+        <li><strong>Hybridization is a recipe, not a power:</strong> sp³ = one s + three p. Count <em>groups</em> (&sigma; neighbors + lone pairs); double/triple bonds still count one neighbor each, because the extra bonds are &pi;, built from leftover p orbitals.</li>
+        <li><strong>The hybrid label gives the parent shape, not the exact angle.</strong> NH₃ and H₂O are sp³ but 107° and 104.5°, not 109.5°.</li>
+        <li><strong>&ldquo;Hydrogen bond&rdquo; needs H on N, O or F</strong> and a lone pair on N, O or F next door. A C&ndash;H hydrogen does not count; neither does the covalent O&ndash;H <em>inside</em> one molecule.</li>
+        <li><strong>Boiling and melting break forces <em>between</em> molecules,</strong> not the covalent bonds inside them.</li>
+        <li><strong>Nonpolar molecules still attract</strong> (dispersion). Bigger and longer molecules attract more; compare size and shape before concluding.</li>
+        <li><strong>A full s band does not make an insulator by itself:</strong> in Mg the 3s and 3p bands overlap. Look for empty levels right above the filled ones.</li>
+        <li><strong>The band gap is a step between bands,</strong> not the width of a band. Metals have no gap at all; E<sub>g</sub> shrinks down group 14 (C 5.4, Si 1.1, Ge 0.67, Sn 0.08, Pb 0 eV).</li>
+        <li><strong>Small resistivity = good conductor.</strong> Do not mix up &sigma; and &rho; (&sigma; = 1/&rho;). Alloys conduct worse than their pure metals.</li>
+        <li><strong>If h&nu; &lt; &phi;, no electrons are emitted,</strong> however intense the light.</li>
       </ul>
     </section>
 
     <div class="closing">
       <h2>That's the whole foundation.</h2>
-      <p>Everything from here (metallic bonding, crystal structures, thermodynamics) builds directly on these six units. Re-read the <a href="#archetypes">archetypes</a> section the night before each quiz, and keep refining your aid sheet from the <a href="#cheatsheet">cheat-sheet</a> as new lectures add material. Spotted a mistake or want to add the next lecture? This guide is open for corrections on <a href="https://github.com/edmond-i/3091-field-guide">GitHub</a>.</p>
+      <p>Everything from here (metallic bonding, crystal structures, thermodynamics) builds directly on these eight units. Re-read the <a href="#archetypes">archetypes</a> section the night before each quiz, and keep refining your aid sheet from the <a href="#cheatsheet">cheat-sheet</a> as new lectures add material. Spotted a mistake or want to add the next lecture? This guide is open for corrections on <a href="https://github.com/edmond-i/3091-field-guide">GitHub</a>.</p>
     </div>
 
   </main>

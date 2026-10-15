@@ -13,7 +13,7 @@ It is written for people who are starting from close to zero chemistry: every te
 | [`index.html`](index.html) | The Field Guide: one scrollable page with a table of contents, diagrams, worked examples, practice archetypes, a formula sheet, and an exam-traps list. Light and dark mode, works on phones. |
 | [`aid-sheet.html`](aid-sheet.html) / [`aid-sheet.pdf`](aid-sheet.pdf) | A dense one-page recall card sized for the course's allowed 8.5×11" exam aid sheet. |
 | [`scripts/build-aid-sheet-pdf.sh`](scripts/build-aid-sheet-pdf.sh) | Rebuilds the PDF from the HTML (headless Chrome) and checks it is exactly one page. |
-| [`tools/`](tools) | Small Python scripts that generate the VSEPR and orbital/MO diagrams as inline SVG. Optional. |
+| [`tools/`](tools) | Small Python scripts that generate the diagrams as inline SVG: `gen_vsepr.py` (shapes), `gen_orbitals.py` (orbitals, MO diagrams), `gen_new_figures.py` (hybridization, intermolecular forces, bands). Optional. |
 
 ## View it
 
@@ -28,7 +28,9 @@ No build step and no dependencies. Open `index.html` in a browser. (Web fonts lo
 | L07-L08 | Octet rule, ionic bonding, Born-Haber, lattice energy, crystal structures | 03 |
 | L09 | Covalent bonding, Lewis structures | 04 |
 | L10-L11 | Covalent compound properties, VSEPR, polarity | 05 |
-| L12 | Hybridization, molecular orbitals | 06 |
+| L12 | Hybridization (built from scratch), molecular orbitals | 06 |
+| L13 | Intermolecular forces: dipole-dipole, hydrogen bonds, dispersion | 07 |
+| L14 | Metals, energy bands, conductors/semiconductors/insulators, work function | 08 |
 | all | Cheat codes, practice archetypes, formula sheet, exam traps | end of page |
 
 Recitations 01-06 and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).

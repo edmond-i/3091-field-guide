@@ -42,7 +42,7 @@ Everything lives in `index.html`:
 - Draw as inline `<svg>` with a `viewBox`, a `role="img"`, and an `aria-label` that states the point of the figure; put the explanation in the `<figcaption>`.
 - Theme with CSS variables or `currentColor`. Text sizes below ~10px are unreadable on phones, so size the `viewBox` for the content.
 - VSEPR convention used here: plain line = bond in the page, solid wedge = toward you, hashed wedge = away, teal lobe with two dots = lone pair. Orbital pictures: blue = positive phase, red = negative phase (phase, **not** charge).
-- `tools/gen_vsepr.py` and `tools/gen_orbitals.py` generate the shape and orbital/MO figures. Run `python3 tools/gen_vsepr.py out/` then paste the produced `.html` snippets into `index.html`.
+- `tools/gen_vsepr.py`, `tools/gen_orbitals.py` and `tools/gen_new_figures.py` generate the shape, orbital/MO, hybridization, intermolecular-force and band figures. Run e.g. `python3 tools/gen_new_figures.py out/` and paste the produced `.html` snippets into `index.html`. Their CSS classes live in the page's `<style>` block.
 
 ## Before you open a PR
 
