@@ -37,6 +37,16 @@ Everything lives in `index.html`:
 4. Add a one-liner to **Cheat codes** if the topic has a memory hook.
 5. Update the coverage table in `README.md`.
 
+### Adding practice questions
+
+Questions live in `tools/practice_bank_*.py` and are written with three helpers from `tools/practice_lib.py`:
+
+- `num(id, topic, difficulty, tag, question, answer, unit, solution, ...)`: a number the page checks (tolerance 2% by default). **Compute `answer` and the numbers in the solution from the same Python variables.**
+- `mc(id, topic, difficulty, tag, question, choices, solution, ...)`: multiple choice; `choices[0]` must be the correct one (the page shuffles them).
+- `selfq(id, topic, difficulty, tag, question, solution)`: open response; the reader compares with the solution and rates themselves.
+
+Rules: write **new** problems (never paste past quiz or recitation text), give every question a worked solution that explains *why*, tag anything beyond the slides as "extra", and use `&middot;`-style HTML entities as in the rest of the page. Then run `python3 tools/build_practice.py` from the repo root; it regenerates the "Check yourself" blocks in `index.html` (choose which questions appear inline in the `INLINE` table at the top of that script) and `quiz-review.html`. Open both pages and try your question before you commit.
+
 ### Diagrams
 
 - Draw as inline `<svg>` with a `viewBox`, a `role="img"`, and an `aria-label` that states the point of the figure; put the explanation in the `<figcaption>`.

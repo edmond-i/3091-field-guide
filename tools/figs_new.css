@@ -1,0 +1,31 @@
+  /* ---------- units 09-11 figures ---------- */
+  .cx-edge{stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;}
+  .cx-hid{stroke:var(--ink-faint);stroke-dasharray:4 4;stroke-width:1.4;}
+  .cx-atom{stroke:var(--ink);stroke-width:1.4;}
+  .cx-corner{fill:var(--unit-trends);fill-opacity:.85;}
+  .cx-centre{fill:var(--unit-atoms);}
+  .cx-face{fill:var(--unit-ionic);}
+  .cx-plane{stroke:var(--ink-faint);stroke-width:1.2;}
+  .cx-ray{fill:none;stroke:var(--unit-atoms);stroke-width:2.4;}
+  .cx-ray2{stroke:var(--warn);}
+  .cx-arc{fill:none;stroke:var(--ink);stroke-width:1.4;}
+  .cx-plane-fill{fill:var(--unit-orbital);fill-opacity:.35;stroke:var(--unit-orbital);stroke-width:2;}
+  .cx-origin{fill:var(--ink);}
+  .cx-normal{fill:none;stroke:var(--warn);stroke-width:2.6;}
+  .cx-normal-h{fill:var(--warn);}
+  .cx-normal-t{fill:var(--warn);font-weight:700;}
+  .cx-bond{stroke:var(--ink-soft);stroke-width:1.6;stroke-dasharray:3 3;}
+  .cx-dis{font-family:"IBM Plex Mono",monospace;font-size:34px;font-weight:700;fill:var(--warn);}
+  .ion-an{fill:var(--unit-atoms);fill-opacity:.55;stroke:var(--unit-atoms);stroke-width:1.4;}
+  .ion-cat{fill:var(--warn);fill-opacity:.7;stroke:var(--warn);stroke-width:1.4;}
+  .ion-t{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:700;fill:#fff;}
+  .cx-vac{fill:none;stroke:var(--ink-faint);stroke-width:1.6;stroke-dasharray:3 3;}
+  .vc{fill:none;stroke-width:2.6;stroke-linecap:round;}
+  .vc-sl{stroke:var(--warn);} .vc-bo{stroke:var(--unit-covalent);} .vc-96{stroke:var(--unit-atoms);} .vc-fs{stroke:var(--unit-orbital);}
+  .vc-sl-t{fill:var(--warn);} .vc-bo-t{fill:var(--unit-covalent);} .vc-96-t{fill:var(--unit-atoms);} .vc-fs-t{fill:var(--unit-orbital);}
+  .vc-ref{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:2 4;}
+  .vc-grid{opacity:.35;}
+  .dif-a{stroke:var(--unit-covalent);stroke-width:2.6;} .dif-b{stroke:var(--warn);stroke-width:2.6;}
+  .dif-a-t{fill:var(--unit-covalent);} .dif-b-t{fill:var(--warn);}
+  .dif{fill:none;stroke-width:2.6;}
+  .dif-t1{stroke:var(--unit-trends);} .dif-t2{stroke:var(--unit-atoms);} .dif-t3{stroke:var(--unit-orbital);}
