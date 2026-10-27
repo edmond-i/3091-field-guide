@@ -312,3 +312,44 @@ mc("miller-13", "miller", 3, "L17 slide 16 &middot; extra",
    "A powder XRD pattern of an FCC metal shows peaks indexed (111), (200), (220), (311), (222). Which of these peaks would you <b>not</b> expect for an FCC metal? <span class=\"pill\" style=\"--c:var(--ink-soft);--c-soft:var(--line-soft)\">extra</span>",
    ["(100)", "(111)", "(200)", "(220)"],
    "<p>On the L17 slide every indexed peak has indices that are <b>all odd or all even</b>: (111), (200), (220), (311), (222), (400), (331), (420). That is the signature of an FCC lattice (an extra, not stated on the slide). (100) is mixed odd/even, so it is absent for FCC.</p>")
+
+# ---- added from L15 (semiconductors), L16 (crystallography)
+lam_gan = HC / 3.4
+num("bands-11", "bands", 1, "L15 style",
+    "GaN is a III&ndash;V semiconductor with band gap <b>3.4 eV</b> (L15 slide 15). What wavelength does a GaN LED emit, in nm? Is it visible?",
+    lam_gan, "nm",
+    "<p>&lambda; = 1240 / 3.4 = <b>%s nm</b>: ultraviolet (visible is about 400&ndash;750 nm). Blue LEDs use GaN mixed with In to lower the gap a little.</p>" % fmt(lam_gan, 4),
+    tol=0.015, text="%s nm" % fmt(lam_gan, 4))
+
+mc("bands-12", "bands", 2, "L15 slide 15",
+   "Among GaN, GaP, GaAs and GaSb (all with gallium), which has the <b>largest</b> band gap, and why?",
+   ["GaN (3.4 eV): the gap shrinks going down the group-15 column (N &gt; P &gt; As &gt; Sb)", "GaSb (0.7 eV): the largest atom has the largest gap", "GaAs (1.4 eV): it is the most common", "They all have the same gap"],
+   "<p>L15 slide 15: GaN 3.4, GaP 2.3, GaAs 1.4, GaSb 0.7 eV; the same decrease down a column appears for Al (AlN 6.3 &rarr; AlSb 1.5) and In (InN 2.1 &rarr; InSb 0.2). Smaller atoms hold their electrons more tightly and give a bigger gap.</p>")
+
+mc("bands-13", "bands", 2, "L15 slide 15",
+   "Which of these semiconductors has a band gap that corresponds to <b>visible</b> light (about 1.65&ndash;3.1 eV)?",
+   ["ZnSe (2.7 eV, about 460 nm, blue)", "GaAs (1.4 eV, about 890 nm)", "AlN (6.3 eV, about 200 nm)", "InSb (0.2 eV, about 6200 nm)"],
+   "<p>Convert each with &lambda; = 1240/E. ZnSe gives 459 nm (blue, visible). GaAs and InSb are infrared; AlN is deep ultraviolet. (The gap in a compound can be tuned by mixing, e.g. Ga(P,As) between GaP and GaAs, which L15 poses as an open question.)</p>")
+
+mc("bands-14", "bands", 2, "L15 slide 14",
+   "Pure Si has about 1 conducting electron per 10<sup>12</sup> atoms at room temperature. About how many atoms per conducting electron does <b>doped (extrinsic)</b> Si have (L15 slide 14)?",
+   ["between 10<sup>2</sup> and 10<sup>7</sup> atoms per conducting electron", "10<sup>15</sup> atoms", "exactly 1 per atom", "the same 10<sup>12</sup>"],
+   "<p>Doping puts a carrier in every 10<sup>2</sup>&ndash;10<sup>7</sup> atoms: a million to ten orders of magnitude more carriers than the pure crystal. (Rec 10 problem 4 works one of these numbers out.)</p>")
+
+a_au = 407.0
+r_au = a_au / (2 * math.sqrt(2))
+num("lattice-16", "lattice", 1, "L16 slide 16",
+    "Gold is FCC with lattice parameter <b>a = 407 pm</b> (L16 slide 16). Find the atomic radius r in pm.",
+    r_au, "pm",
+    "<p>In FCC the atoms touch along the face diagonal: 4r = a&radic;2, so r = a/(2&radic;2) = 407 / 2.828 = <b>%s pm</b> (the gold radius, 144 pm).</p>" % fmt(r_au, 4),
+    tol=0.01, text="%s pm" % fmt(r_au, 4))
+
+mc("lattice-17", "lattice", 1, "L16 slide 12",
+   "How many Bravais lattices does the <b>cubic</b> system have, and how many are there in total across all seven crystal systems?",
+   ["3 (SC, BCC, FCC); 14 in total", "1; 7 in total", "4 (SC, BCC, FCC, HCP); 14 in total", "3; 7 in total"],
+   "<p>Cubic has three: simple, body-centred, face-centred. Counting all systems on L16 slide 12: cubic 3, tetragonal 2, orthorhombic 4, hexagonal 1, rhombohedral 1, monoclinic 2, triclinic 1 = <b>14</b>. (HCP is a stacking pattern with a hexagonal lattice, not a cubic one.)</p>")
+
+mc("lattice-18", "lattice", 3, "L16 slide 11 &middot; extra",
+   "L16 shows a Penrose tiling of two rhombus shapes that covers the plane but never repeats by translation, and asks &ldquo;Is this a crystal?&rdquo; With the definition <b>crystal = lattice + motif</b>, the answer is&hellip;",
+   ["No: it has no lattice (no translational periodicity), even though it is ordered", "Yes: any ordered pattern is a crystal", "Yes: it has a motif of two tiles", "No: it has no motif"],
+   "<p>A lattice requires that sliding the pattern by a repeat vector maps it exactly onto itself. A Penrose tiling is ordered but never does that. (The slide does not print the answer; such structures exist in materials as <em>quasicrystals</em>.)</p>")

@@ -235,3 +235,29 @@ selfq("hybmo-9", "hybmo", 3, "Rec 9 style",
       "<li>Valence electrons: C 4 + O 6 = 10. Fill the MOs bottom to top: &sigma;2s<sup>2</sup> &sigma;*2s<sup>2</sup> &pi;2p<sup>4</sup> &sigma;2p<sup>2</sup> (the &pi;-below-&sigma; order applies, as for N<sub>2</sub>, because CO is isoelectronic with N<sub>2</sub>).</li>"
       "<li>Bonding electrons = 2 + 4 + 2 = 8; antibonding = 2. <b>Bond order = &frac12;(8 &minus; 2) = 3</b>, matching the Lewis triple bond C&equiv;O.</li>"
       "<li>The &pi;*2p and &sigma;*2p levels are empty; the highest filled orbital (HOMO) is the &sigma;2p, which has most of its density on carbon, which is why CO binds to metals through carbon.</li></ol>")
+
+# ---- added from Recitation 8 (VSEPR review)
+mc("vsepr-10", "vsepr", 2, "Rec 8 style",
+   "What are the AXE notation, shape and polarity of <b>SeO<sub>2</sub></b>?",
+   ["AX<sub>2</sub>E, bent, polar", "AX<sub>2</sub>, linear, nonpolar", "AX<sub>2</sub>E, bent, nonpolar", "AX<sub>3</sub>, trigonal planar, nonpolar"],
+   "<p>Se has 2 bonded O and 1 lone pair: 3 groups, AX<sub>2</sub>E, bent. The two Se&ndash;O dipoles do not cancel in a bent molecule, so there is a net dipole towards the oxygen side: <b>polar</b> (Rec 8, 2c).</p>")
+
+mc("vsepr-11", "vsepr", 2, "Rec 8 style",
+   "Which of these molecules is <b>nonpolar</b>: IF<sub>5</sub>, SeF<sub>4</sub>, PCl<sub>5</sub>, IF<sub>3</sub>?",
+   ["PCl<sub>5</sub> (trigonal bipyramidal, AX<sub>5</sub>)", "IF<sub>5</sub> (square pyramidal, AX<sub>5</sub>E)", "SeF<sub>4</sub> (see-saw, AX<sub>4</sub>E)", "IF<sub>3</sub> (T-shaped, AX<sub>3</sub>E<sub>2</sub>)"],
+   "<p>PCl<sub>5</sub> has no lone pair and five identical bonds spread symmetrically: the dipoles cancel. The other three each have lone pairs that break the symmetry, so each has a net dipole (Rec 8: IF<sub>5</sub> towards the axial F, SeF<sub>4</sub> towards the bottom, IF<sub>3</sub> towards the F side).</p>")
+
+mc("vsepr-12", "vsepr", 3, "Rec 8 style",
+   "CF<sub>2</sub>H<sub>2</sub> has a tetrahedral shape (AX<sub>4</sub>), just like CH<sub>4</sub> and CF<sub>4</sub>. Why is it <b>polar</b> when those two are not?",
+   ["Its substituents differ (F vs H), so the bond dipoles have different sizes and cannot cancel in any orientation", "It has a lone pair on carbon", "Fluorine atoms are always on the same side, so the bonds are ionic", "It is bent, not tetrahedral"],
+   "<p>Cancellation needs identical bonds arranged symmetrically. With two C&ndash;F (big dipoles) and two C&ndash;H (small dipoles) the sum is never zero, however you rotate the molecule. The bond angles also deviate slightly from 109.5&deg; because of the different electronegativities (Rec 8, 2i).</p>")
+
+mc("vsepr-13", "vsepr", 2, "Rec 8 style",
+   "AlH<sub>3</sub> has no lone pair on Al (Al has only 6 electrons around it). Give the AXE notation, shape and polarity.",
+   ["AX<sub>3</sub>, trigonal planar, nonpolar", "AX<sub>3</sub>E, trigonal pyramidal, polar", "AX<sub>3</sub>, trigonal pyramidal, nonpolar", "AX<sub>2</sub>E, bent, polar"],
+   "<p>Three bonded H and no lone pair: AX<sub>3</sub> &rarr; trigonal planar (120&deg;). The three identical dipoles in a plane cancel: nonpolar. Compare NH<sub>3</sub>, which has a lone pair and is polar.</p>")
+
+mc("vsepr-14", "vsepr", 2, "Rec 8 style",
+   "HCN is linear (AX<sub>2</sub>). Is it polar?",
+   ["Yes: the two bond dipoles (C&ndash;H and C&equiv;N) have different sizes, so they do not cancel", "No: all linear molecules are nonpolar", "No: the C&equiv;N bond has no dipole", "Yes, because it has a lone pair on carbon"],
+   "<p>CO<sub>2</sub> is a linear molecule whose two <em>identical</em> dipoles cancel. In HCN the two ends are different (H&ndash;C and C&equiv;N), so the dipoles are unequal and add to a net dipole: <b>linear does not automatically mean nonpolar</b> (Rec 8, 2d).</p>")

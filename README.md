@@ -31,15 +31,15 @@ No build step and no dependencies. Open `index.html` in a browser. (Web fonts lo
 | L10-L11 | Covalent compound properties, VSEPR, polarity | 05 |
 | L12 | Hybridization (built from scratch), molecular orbitals | 06 |
 | L13 | Intermolecular forces: dipole-dipole, hydrogen bonds, dispersion | 07 |
-| L14 (+ L15 via Rec 10) | Metals, energy bands, conductors/semiconductors/insulators, work function, doping | 08 |
-| L16-L17 (L16 via Rec 11) | Lattices and motifs, SC/BCC/FCC, close packing, holes and ionic structures, Miller indices, d-spacing, Bragg's law | 09 |
+| L14-L15 | Metals, energy bands, conductors/semiconductors/insulators, work function, electron-hole pairs, doping, compound semiconductors | 08 |
+| L16-L17 | Early crystallography, lattices and motifs, 7 systems / 14 Bravais lattices, SC/BCC/FCC, close packing, holes and ionic structures, Miller indices, d-spacing, Bragg's law | 09 |
 | L18-L19 | Point and line defects, alloys, dislocations, amorphous solids, silica glass, polymers | 10 |
 | L20 | Diffusion: Fick's laws, activation energy, Exam 2 scope | 11 |
 | all | Cheat codes, practice archetypes, formula sheet, exam traps | end of page |
 
-Recitations 01-07, 09, 09.5, 10 and 11 and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
+Recitations 01-11 (including 9.5) and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
 
-**Not yet covered:** the L15, L16 and Recitation 8 slides were not available (their topics appear via Recitations 10, 11 and the L18 slides), and the Recitation 11 slide deck was unreadable. Material after Lecture 20 (kinetics, equilibrium, phase diagrams, organic) is not in the guide yet.
+**Not yet covered:** the Recitation 11 slide deck was unreadable (the Rec 11 solutions are covered), and material after Lecture 20 (kinetics, equilibrium, phase diagrams, organic) is not in the guide yet.
 
 ## Practice and quiz review
 
