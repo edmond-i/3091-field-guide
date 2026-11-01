@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.091 Exam 2 Aid Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* on-screen chrome (follows the viewer's theme) */
+    --page-bg:#E7E9F1;
+    --chrome-ink:#2A2D3A;
+
+    /* the sheet itself is simulated paper: always white with dark ink */
+    --ink:#141620;
+    --ink-soft:#4A4E5E;
+    --hair:#C7CAD6;
+    --hair-soft:#E2E4EC;
+    --blue:#2546B8;     /* atoms */
+    --blue-soft:#EAEEFC;
+    --violet:#6B3FC2;   /* trends */
+    --violet-soft:#F0E9FB;
+    --copper:#9C5E24;   /* ionic */
+    --copper-soft:#F7EBDC;
+    --teal:#136F58;     /* covalent */
+    --teal-soft:#E2F3EE;
+    --rose:#9A2F66;     /* orbitals / MO */
+    --rose-soft:#F9E6F0;
+    --warn:#9C3A22;
+    --warn-soft:#FBEAE3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --page-bg:#0F1117; --chrome-ink:#C9CCDA; }
+  }
+  :root[data-theme="dark"]{ --page-bg:#0F1117; --chrome-ink:#C9CCDA; }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--page-bg);
+    color:var(--chrome-ink);
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    -webkit-font-smoothing:antialiased;
+  }
+  .screen-chrome{
+    max-width:940px;
+    margin:0 auto;
+    padding:22px 16px 60px;
+    text-align:center;
+  }
+  .screen-chrome h1{
+    font-family:"Fraunces";
+    font-weight:700;
+    font-size:22px;
+    margin:0 0 4px;
+    color:var(--chrome-ink);
+  }
+  .screen-chrome p{
+    font-size:12.5px;
+    color:var(--chrome-ink);
+    opacity:0.72;
+    margin:0 0 18px;
+    line-height:1.5;
+  }
+  .screen-chrome .kbd{
+    font-family:"IBM Plex Mono";
+    background:rgba(127,127,127,.18);
+    border-radius:5px;
+    padding:1px 6px;
+    font-size:11.5px;
+  }
+
+  /* ---------------- THE SHEET (always white/black, simulated paper) ---------------- */
+  .sheet{
+    width:8.5in;
+    min-height:11in;
+    margin:0 auto;
+    background:#FFFFFF;
+    color:var(--ink);
+    padding:0.38in 0.42in 0.3in;
+    box-shadow:0 18px 50px -14px rgba(0,0,0,.45);
+    border-radius:3px;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .head{
+    border-bottom:2.2pt solid var(--ink);
+    padding-bottom:3.5pt;
+    margin-bottom:5.5pt;
+  }
+  .head .t1{font-family:"Fraunces"; font-weight:700; font-style:italic; font-size:15.5pt; letter-spacing:.01em;}
+  .head .t2{font-size:7.3pt; color:var(--ink-soft); line-height:1.4; margin-top:2pt;}
+  .head .t2 b{color:var(--ink);}
+
+  /* Columns are floats with explicit widths on purpose: CSS grid/flex let long lines
+     run past the page edge in headless-Chrome PDF output. Keep it this way. */
+  .cols{overflow:hidden;}
+  .cols::after{content:""; display:block; clear:both;}
+  .col{
+    float:left;
+    width:2.3in;
+    margin-right:0.26in;
+    border-right:0.6pt solid var(--hair-soft);
+    padding-right:0.18in;
+  }
+  .col:nth-child(3){border-right:none; padding-right:0; margin-right:0;}
+  .blk{
+    break-inside:avoid;
+    margin-bottom:5pt;
+    overflow-wrap:break-word;
+    word-break:break-word;
+    max-width:100%;
+    min-width:0;
+  }
+  .blk h2{
+    font-family:"Fraunces";
+    font-weight:700;
+    font-size:8pt;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    margin:0 0 2pt;
+    padding:1pt 5pt;
+    border-radius:3pt;
+    display:inline-block;
+  }
+  .c-atoms h2{background:var(--blue-soft); color:var(--blue);}
+  .c-trends h2{background:var(--violet-soft); color:var(--violet);}
+  .c-ionic h2{background:var(--copper-soft); color:var(--copper);}
+  .c-covalent h2{background:var(--teal-soft); color:var(--teal);}
+  .c-orbital h2{background:var(--rose-soft); color:var(--rose);}
+
+  .ln{font-size:6.7pt; line-height:1.34; margin:0 0 1pt;}
+  .ln b{font-weight:700;}
+  .lbl{color:var(--ink-soft); font-size:6.3pt;}
+
+  table.ref{border-collapse:collapse; width:100%; table-layout:fixed; margin:1.5pt 0 0;}
+  table.ref th, table.ref td{
+    font-size:6.2pt;
+    padding:0.9pt 3pt;
+    text-align:left;
+    border-bottom:0.5pt solid var(--hair-soft);
+    line-height:1.25;
+    vertical-align:top;
+    overflow-wrap:break-word;
+  }
+  table.ref th{font-weight:700; color:var(--ink-soft); border-bottom:0.8pt solid var(--hair);}
+  table.ref tr:last-child td{border-bottom:none;}
+  table.w12 th:first-child{width:12%;}
+  table.w40 th:first-child{width:50%;}
+  table.w30 th:nth-child(1){width:33%;}
+  table.w30 th:nth-child(2){width:28%;}
+  table.w30 th:nth-child(3){width:12%;}
+  table.w30 th:nth-child(4){width:27%;}
+
+  .eqbox{
+    background:#F4F5F9;
+    border-radius:3pt;
+    padding:2pt 5pt;
+    margin:1.5pt 0;
+    font-size:6.8pt;
+    font-weight:600;
+    display:block;
+    overflow-wrap:break-word;
+  }
+
+  .steps{margin:1.5pt 0 0; padding-left:10pt;}
+  .steps li{font-size:6.5pt; line-height:1.32; margin-bottom:0.5pt;}
+
+  .traps{
+    margin-top:4pt;
+    padding-top:3.5pt;
+    border-top:2.2pt solid var(--warn);
+  }
+  .traps h2{
+    font-family:"Fraunces"; font-weight:700; font-size:8.2pt; text-transform:uppercase; letter-spacing:.03em;
+    color:var(--warn); margin:0 0 3pt;
+  }
+  .traps-grid{overflow:hidden;}
+  .traps-grid::after{content:""; display:block; clear:both;}
+  .traps-grid ul{float:left; width:3.56in; margin:0; padding:0;}
+  .traps-grid ul:first-child{margin-right:0.3in;}
+  .traps-grid li{
+    font-size:6.4pt;
+    line-height:1.3;
+    margin-bottom:1.8pt;
+    list-style:none;
+    padding-left:8pt;
+    position:relative;
+    overflow-wrap:break-word;
+  }
+  .traps-grid li::before{
+    content:"▸";
+    position:absolute; left:0; color:var(--warn); font-size:6.5pt;
+  }
+
+  @media print{
+    @page{ size: letter; margin:0; }
+    body{background:#fff;}
+    .screen-chrome{display:none;}
+    .sheet{box-shadow:none; margin:0; border-radius:0; width:100%; height:11in; max-height:11in; overflow:hidden;}
+  }
+
+  .c-forces h2{background:#F5EDCF; color:#7A5C08;}
+  .c-metal h2{background:#E4E9EF; color:#3E5266;}
+  .c-crystal h2{background:#F1EAD6; color:#7C5F18;}
+  .c-defect h2{background:#F5E2E9; color:#932E50;}
+  .c-diff h2{background:#DDF0F3; color:#176A7B;}
+  .sheet + .sheet{margin-top:22px;}
+  .ln{font-size:7.35pt; line-height:1.36; margin-bottom:1.6pt;}
+  .lbl{font-size:7pt;}
+  .eqbox{font-size:7.5pt; padding:2.5pt 5pt;}
+  table.ref th, table.ref td{font-size:6.9pt; padding:1pt 2.5pt; line-height:1.25;}
+  .blk{margin-bottom:6.5pt;}
+  .blk h2{font-size:8.6pt; margin-bottom:2.5pt;}
+  .head .t1{font-size:17pt;} .head .t2{font-size:8.2pt;}
+  @media print{
+    .sheet{page-break-after:always; break-after:page;}
+    .sheet:last-of-type{page-break-after:auto; break-after:auto;}
+    .sheet + .sheet{margin-top:0;}
+  }
+</style>
+</head>
+<body>
+<div class="screen-chrome"><h1>3.091 &mdash; Exam 2 Aid Sheet (front and back)</h1><p>L10&ndash;L20 &middot; Rec 7&ndash;13. Print double-sided on letter paper at <span class="kbd">100%</span> scale, margins none, background graphics on. Check that this year&rsquo;s rules allow a double-sided sheet; page 1 stands alone if only one side is allowed.</p></div>
+<div class="sheet"><div class="head"><div class="t1">3.091 Exam 2 &middot; side 1</div><div class="t2"><b>Covalent bonding &rarr; VSEPR &rarr; orbitals &rarr; forces &rarr; bands &amp; semiconductors</b> (L10&ndash;L15)</div></div><div class="cols"><div class="col"><div class="blk c-atoms"><h2>Constants</h2><div class="ln">hc = <b>1240 eV·nm</b> &nbsp; 1 eV = 1.602×10⁻¹⁹ J &nbsp; N<sub>A</sub> = 6.022×10²³</div><div class="ln">R = 8.314 J/(mol·K) &nbsp; 1 D = 0.2082 e·Å &nbsp; c = 2.998×10⁸ m/s</div><div class="ln">Visible: 1.65–3.1 eV (400–750 nm). E(eV) = 1240/λ(nm)</div></div><div class="blk c-covalent"><h2>Bond type &amp; strength</h2><div class="eqbox">% ionic = 100·[1 − exp(−Δχ²/4)] &nbsp; μ = δ·r</div><div class="ln">Δχ &lt;0.4 nonpolar · 0.4–1.7 polar covalent · &gt;1.7 ionic</div><div class="ln">Stronger bond: <b>smaller atoms</b>, <b>higher bond order</b> (C≡C &gt; C=C &gt; C–C; HF &gt; HCl &gt; HBr &gt; HI)</div><div class="ln">Ionic solid: brittle (shift → like charges repel), conducts only molten/dissolved. Covalent network: hard, high mp. Molecular: low mp (IMF).</div></div><div class="blk c-covalent"><h2>Lewis recipe</h2><div class="ln">① valence e⁻ (+1 per − charge) ② centre = least EN, H never ③ singles, octets outside, leftovers on centre ④ FC = V − L − B/2 ⑤ expanded octet only period ≥ 3 (C,N,O,F never); BF₃, AlH₃, BeF₂ electron-poor ⑥ resonance = average</div></div><div class="blk c-covalent"><h2>VSEPR: groups = atoms + lone pairs (=bond counts 1)</h2><div class="ln"><table class="ref"><tr><th>grp</th><th>0 LP</th><th>1 LP</th><th>2 LP</th><th>3 LP</th></tr><tr><td>2</td><td>linear 180°</td><td></td><td></td><td></td></tr><tr><td>3</td><td>trig-plan 120°</td><td>bent &lt;120°</td><td></td><td></td></tr><tr><td>4</td><td>tetrah 109.5°</td><td>trig-pyr &lt;109.5°</td><td>bent 104.5°</td><td></td></tr><tr><td>5</td><td>TBP 90/120°</td><td>seesaw</td><td>T-shape</td><td>linear</td></tr><tr><td>6</td><td>octah 90°</td><td>sq-pyr</td><td>sq-planar</td><td></td></tr></table></div><div class="ln">LP–LP &gt; LP–BP &gt; BP–BP. 5 groups: LP <b>equatorial</b>; 6 groups: 2nd LP <b>opposite</b>. Name the shape by <b>atoms only</b>.</div><div class="ln"><b>Nonpolar</b>: identical atoms, symmetric (CO₂ BF₃ CCl₄ PCl₅ SF₆ XeF₄ AlH₃ XeF₂). <b>Polar</b>: LP breaking symmetry or unlike groups (NH₃ H₂O SF₄ IF₅ IF₃ SeO₂ CF₂H₂ HCN).</div></div></div><div class="col"><div class="blk c-orbital"><h2>Hybridization &amp; σ/π</h2><div class="ln">groups on centre: <b>2 sp · 3 sp² · 4 sp³ · 5 sp³d · 6 sp³d²</b> (lone pairs count; double/triple = 1 group)</div><div class="ln">σ: 1 per bond (head-on); π: bond order − 1 (side-on p). Triple = 1σ + 2π. #hybrids = #AOs mixed. Label gives parent shape, not exact angle (NH₃ 107°, H₂O 104.5°).</div><div class="ln">C₂H₄: C sp², HOMO = π, LUMO = π*. C₂H₂: C sp.</div></div><div class="blk c-orbital"><h2>Molecular orbitals</h2><div class="ln">n AOs → n MOs (bonding + antibonding pair). Fill lowest first, Hund.</div><div class="eqbox">BO = ½(e⁻ bonding − e⁻ antibonding)</div><div class="ln">Order O₂, F₂: σ2s σ*2s <b>σ2p π2p π*2p σ*2p</b>. <b>N₂ and lighter (B₂ C₂ N₂): π2p below σ2p.</b> Core 1s cancel.</div><div class="ln"><table class="ref"><tr><th>species</th><th>e⁻</th><th>BO</th><th>note</th></tr><tr><td>H₂</td><td>2</td><td>1</td><td></td></tr><tr><td>He₂ / He₂⁺</td><td>4 / 3</td><td>0 / 0.5</td><td></td></tr><tr><td>N₂</td><td>10</td><td>3</td><td>diamagn.</td></tr><tr><td>O₂</td><td>12</td><td>2</td><td>2 unpaired π*</td></tr><tr><td>O₂⁺</td><td>11</td><td>2.5</td><td></td></tr><tr><td>F₂ / Ne₂</td><td>14 / 16</td><td>1 / 0</td><td></td></tr><tr><td>NO</td><td>11</td><td>2.5</td><td>1 e⁻ in π*</td></tr><tr><td>CO</td><td>10</td><td>3</td><td>like N₂; O lower</td></tr><tr><td>HCl</td><td>8</td><td>1</td><td>H1s+Cl3p; 3 LP nonbonding</td></tr></table></div><div class="ln">More electronegative atom has <b>lower</b> AO energy (draw it lower). Nonbonding e⁻ don't count in BO. Unpaired e⁻ = paramagnetic.</div></div></div><div class="col"><div class="blk c-metal"><h2>Bands &amp; conductivity</h2><div class="ln">n AOs → n levels → band. <b>Metal</b>: partly filled or overlapping (Na ½ full; Mg, Be: s–p overlap). <b>Semiconductor</b>: full VB, small gap ~1 eV. <b>Insulator</b>: gap &gt; ~3 eV.</div><div class="ln">E<sub>g</sub>(eV): C 5.4 · Si 1.1 · Ge 0.67 · Sn 0.08 · Pb 0 <b>(decreases down a group)</b>. Longer/weaker bonds → <b>smaller gap</b> (tensile strain).</div><div class="ln">σ = 1/ρ (S/m; Ω·m). Cu, Ag, Au (s¹d¹⁰) best; alloys worse. Metals: σ ↓ with T. Semiconductors: σ ↑ with T (e⁻ <b>and</b> holes carry).</div><div class="ln">Photon crosses gap if hν ≥ E<sub>g</sub>; LED λ = 1240/E<sub>g</sub> (Si 1127 nm IR; GaN 365 nm UV). Work function KE = hν − φ.</div></div><div class="blk c-metal"><h2>Doping</h2><div class="ln"><b>n-type</b>: dopant has <b>more</b> valence e⁻ than the atom it replaces (group 15 in Si; Te) → donor level just <b>below</b> CB. <b>p-type</b>: <b>fewer</b> (group 13: B Al Ga; Zn; Ca on Ga) → acceptor level just <b>above</b> VB (holes).</div><div class="ln">Pure Si ≈ 1 carrier/10¹² atoms; doped 1 per 10²–10⁷. Dopant fixed, carrier mobile. Too much dopant: saturation + scattering.</div><div class="ln">Dopant mass: atoms = (ρ/M)·N<sub>A</sub>·V → ÷ (atoms per carrier, e.g. 10⁵) → ÷N<sub>A</sub> × M<sub>dopant</sub>.</div><div class="ln">Compound: III–V, II–VI average 4 e⁻. E<sub>g</sub>: GaN 3.4 · GaP 2.3 · GaAs 1.4 · GaSb 0.7 · AlN 6.3 · InSb 0.2 · ZnO 4.4 · ZnSe 2.7 · CdSe 1.7 · SiC 3.0; mixing tunes E<sub>g</sub>.</div></div><div class="blk c-forces"><h2>Intermolecular forces</h2><div class="ln">Strength: ion–ion &gt; ion–dipole &gt; <b>H-bond</b> &gt; dipole–dipole &gt; dispersion. Decision: ions? → H on N/O/F + LP? → polar shape? → else dispersion. Polar + nonpolar = dipole–induced dipole.</div><div class="ln">Dispersion ↑ with size/polarizability (CH₄ gas → C₁₇H₃₆ solid). BP rises with IMF: Ne &lt; O₂ &lt; N(CH₃)₃ &lt; NaCl &lt; CaO (2+/2− beats 1+/1−). HF high BP = H-bonds. IMF are <b>between</b> molecules, never covalent bonds.</div><div class="ln">V(r): ion–ion ∝ 1/r, ion–dipole 1/r², dipole–dipole 1/r³.</div></div></div></div></div>
+<div class="sheet"><div class="head"><div class="t1">3.091 Exam 2 &middot; side 2</div><div class="t2"><b>Crystals &rarr; diffraction &rarr; defects &rarr; glass &amp; polymers &rarr; diffusion</b> (L16&ndash;L20)</div></div><div class="cols"><div class="col"><div class="blk c-crystal"><h2>Crystal = lattice + motif</h2><div class="ln">Lattice: periodic array of <b>equivalent</b> points; motif/basis: what sits at each. Honeycomb = hex lattice + 2-atom motif. 7 systems / <b>14 Bravais</b> (3 cubic, 2 tetr., 4 orthorh., 2 monocl., 1 hex., 1 rhombo., 1 tricl.). 2D: oblique, rect., square, hex.</div><div class="ln">Cubic a=b=c, 90°. Tetr. a=b≠c. Hex γ=120°. Rhombo a=b=c, α=β=γ≠90°.</div></div><div class="blk c-crystal"><h2>Cubic cells</h2><div class="ln"><table class="ref"><tr><th></th><th>SC</th><th>BCC</th><th>FCC</th></tr><tr><td>pts/cell</td><td>1</td><td>2</td><td>4</td></tr><tr><td>atoms touch along</td><td>edge</td><td>body diag.</td><td>face diag.</td></tr><tr><td>a(r)</td><td>2r</td><td>4r/√3</td><td>2√2 r</td></tr><tr><td>packing</td><td>0.52</td><td>0.68</td><td>0.74</td></tr><tr><td>nn dist.</td><td>a</td><td>a√3/2</td><td>a/√2</td></tr><tr><td># nn</td><td>6</td><td>8</td><td>12</td></tr></table></div><div class="eqbox">ρ = (points·M) / (N<sub>A</sub>·a³) &nbsp; packing = N·(4/3)πr³ / a³</div><div class="ln">Corner 1/8, face 1/2, edge 1/4, body 1. FCC = ABCABC (CCP), HCP = ABAB; both 74%, 12 nn.</div></div><div class="blk c-crystal"><h2>Structures</h2><div class="ln"><b>NaCl</b>: FCC, 4Na+4Cl (8 ions), oct. holes. <b>CsCl</b>: <b>simple cubic</b>, 2-ion motif, 8-fold. <b>ZnS</b>: FCC S, Zn in ½ tetr. holes (8 ions). <b>CaF₂</b>: FCC, 4Ca+8F (12). <b>CaTiO₃</b> perovskite: Ca corners, Ti centre, O faces. Per FCC cell: 4 oct., 8 tetr. holes. 1:1 ratio necessary, not sufficient for rock salt.</div><div class="ln">Au: a = 407 pm → r = 144 pm. Fe BCC a = 2.86 Å (r 1.24). Cu FCC a = 3.61 Å.</div></div></div><div class="col"><div class="blk c-crystal"><h2>Miller indices &amp; families</h2><div class="ln">Intercepts (in a,b,c) → reciprocals → clear fractions → (hkl). ∞→0. Negative: bar. (hkl) plane, {hkl} family, [uvw] direction, &lt;uvw&gt; family, point x,y,z. Cubic only: (hkl) ⊥ [hkl].</div><div class="ln"><table class="ref"><tr><th>family</th><th>count</th></tr><tr><td>&lt;100&gt;</td><td>6 dirs</td></tr><tr><td>&lt;110&gt;</td><td>12 dirs</td></tr><tr><td>&lt;111&gt;</td><td>8 dirs</td></tr><tr><td>{100}</td><td>6 faces (3 orient.)</td></tr><tr><td>{110}</td><td>6 planes</td></tr><tr><td>{111}</td><td>4 planes</td></tr></table></div><div class="ln">Planar density: sketch plane, atoms inside (corner ¼, edge ½), ÷ area. BCC (110): 2 atoms / (a·a√2). FCC (100): 2 / a². FCC (111) densest, BCC (110) densest.</div><div class="ln">Slip: FCC {111}&lt;110&gt;; BCC {110}&lt;111&gt;.</div></div><div class="blk c-crystal"><h2>Diffraction</h2><div class="eqbox">d<sub>hkl</sub> = a/√(h²+k²+l²) (cubic) &nbsp; 2d sinθ = nλ</div><div class="ln">θ = glancing angle; patterns plot <b>2θ</b> → halve! Cu Kα 1.54 Å = 0.154 nm. Calc in degree mode. d<sub>220</sub> = d<sub>110</sub>/2. r (atom), a (cell edge), d (plane spacing) are different.</div><div class="ln"><b>Selection rules</b>: SC all · <b>BCC h+k+l even</b> (110, 200, 211, 220…) · <b>FCC all odd or all even</b> (111, 200, 220, 311, 222…).</div><div class="ln">sin²θ ∝ h²+k²+l²: SC 1:2:3:4:5:6:8 · BCC 2:4:6:8:10:12 · FCC <b>3:4:8:11:12:16</b>. Powder peaks give structure; peak angle gives a.</div><div class="ln">Example: λ=1.54 Å, Fe BCC a=2.866 → d₁₁₀=2.03, θ=22.3°, 2θ=44.7°.</div></div></div><div class="col"><div class="blk c-defect"><h2>Defects</h2><div class="ln"><b>Point (0D)</b>: vacancy · interstitial (small atom, C in Fe) · substitutional (similar size, Zn in Cu, dopants). Ionic: <b>Schottky</b> = cation + anion vacancy pair; <b>Frenkel</b> = ion moves to a gap (vacancy + interstitial, usually cation). <b>Line (1D)</b>: edge dislocation ⊥ = extra half-plane; moves along slip plane → plastic deformation at 10³–10⁴× lower stress. <b>Planar (2D)</b>: grain boundary; polycrystal vs single crystal.</div><div class="ln"><b>Work hardening</b>: more, tangled dislocations → harder, more brittle. <b>Anything blocking dislocations hardens</b> (alloy atoms, C in steel, hammering). <b>Annealing</b>: heat (no melting) → diffusion removes dislocations → softer, tougher.</div></div><div class="blk c-defect"><h2>Glass &amp; polymers</h2><div class="ln">Amorphous: no long-range order; forms if structure packs badly or cools fast. SiO₄ tetrahedron: Si–O 162 pm, 109.5°; quartz periodic, glass random. <b>Network modifiers</b> (Na, Ca) → non-bridging O → lower softening T (soda-lime &lt; borosilicate &lt; 96% silica &lt; fused silica). No sharp melting: viscosity falls smoothly.</div><div class="ln">Faster cooling → <b>higher molar volume, higher T<sub>g</sub></b>; crystal drops suddenly at T<sub>m</sub>. Polymers: monomers → chains; crosslink (S, vulcanization) → does not melt; HDPE semicrystalline.</div></div><div class="blk c-diff"><h2>Diffusion</h2><div class="eqbox">J = −D dC/dx &nbsp; D = D₀ exp(−Q/RT) &nbsp; x ≈ √(Dt)</div><div class="ln">ln D vs 1/T: slope = <b>−Q/R</b> (steeper = larger Q; use J/mol). Q = R ln(D₂/D₁)/(1/T₁−1/T₂). D ↑ strongly with T. <b>Interstitial</b> (C, H in Fe): low Q, fast. <b>Vacancy / self</b> (Fe in Fe): high Q, Q<sub>v</sub> ↑ with T<sub>m</sub>. Fick 2nd: ∂C/∂t = D ∂²C/∂x² (profile changes with time); surface at fixed C → erfc profile; depth ∝ √t.</div><div class="ln">Flux ×area = rate (doors: D·ΔC/Δx·A).</div></div></div></div></div>
+</body>
+</html>

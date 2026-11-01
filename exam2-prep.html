@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.091 Exam 2 Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F5F9;
+    --raised:#FFFFFF;
+    --ink:#171A24;
+    --ink-soft:#4C5062;
+    --ink-faint:#787D92;
+    --line:#DBDEE8;
+    --line-soft:#E9EAF1;
+    --accent:#2F55D4;
+    --accent-ink:#1E3BA3;
+    --accent-soft:#E8ECFB;
+    --unit-atoms:#2F55D4;
+    --unit-atoms-soft:#E8ECFB;
+    --unit-trends:#7A4FD6;
+    --unit-trends-soft:#EFE9FB;
+    --unit-ionic:#AD6A2A;
+    --unit-ionic-soft:#F7ECDD;
+    --unit-covalent:#1E8F74;
+    --unit-covalent-soft:#E3F3EE;
+    --unit-orbital:#A8336E;
+    --unit-orbital-soft:#F8E7F0;
+    --unit-forces:#8A6A0C;
+    --unit-forces-soft:#F5EDCF;
+    --unit-metal:#4F6378;
+    --unit-metal-soft:#E4E9EF;
+    --unit-crystal:#8A6A1F;
+    --unit-crystal-soft:#F1EAD6;
+    --unit-defect:#A33F5F;
+    --unit-defect-soft:#F5E2E9;
+    --unit-diffusion:#1F7A8C;
+    --unit-diffusion-soft:#DDF0F3;
+    --warn:#AE4A2E;
+    --warn-soft:#FAEBE4;
+    --good:#1E8F74;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12141C;
+      --raised:#1A1D28;
+      --ink:#E9EAF2;
+      --ink-soft:#B2B6C8;
+      --ink-faint:#80869C;
+      --line:#2D3140;
+      --line-soft:#242736;
+      --accent:#8CA0FF;
+      --accent-ink:#B7C3FF;
+      --accent-soft:#232A47;
+      --unit-atoms:#8CA0FF;
+      --unit-atoms-soft:#222A47;
+      --unit-trends:#C3AAFF;
+      --unit-trends-soft:#2A2345;
+      --unit-ionic:#E3A465;
+      --unit-ionic-soft:#332618;
+      --unit-covalent:#6FD5B9;
+      --unit-covalent-soft:#1A332C;
+      --unit-orbital:#F08DBD;
+      --unit-orbital-soft:#3A2030;
+      --unit-forces:#E6C25A;
+      --unit-forces-soft:#332B12;
+      --unit-metal:#A9BBD0;
+      --unit-metal-soft:#222A33;
+      --unit-crystal:#D8B96A;
+      --unit-crystal-soft:#352D1B;
+      --unit-defect:#E39DB6;
+      --unit-defect-soft:#3A2230;
+      --unit-diffusion:#7FCBD9;
+      --unit-diffusion-soft:#1B3237;
+      --warn:#E89579;
+      --warn-soft:#3A241C;
+      --good:#6FD5B9;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12141C;
+    --raised:#1A1D28;
+    --ink:#E9EAF2;
+    --ink-soft:#B2B6C8;
+    --ink-faint:#80869C;
+    --line:#2D3140;
+    --line-soft:#242736;
+    --accent:#8CA0FF;
+    --accent-ink:#B7C3FF;
+    --accent-soft:#232A47;
+    --unit-atoms:#8CA0FF;
+    --unit-atoms-soft:#222A47;
+    --unit-trends:#C3AAFF;
+    --unit-trends-soft:#2A2345;
+    --unit-ionic:#E3A465;
+    --unit-ionic-soft:#332618;
+    --unit-covalent:#6FD5B9;
+    --unit-covalent-soft:#1A332C;
+      --unit-orbital:#F08DBD;
+      --unit-orbital-soft:#3A2030;
+      --unit-forces:#E6C25A;
+      --unit-forces-soft:#332B12;
+      --unit-metal:#A9BBD0;
+      --unit-metal-soft:#222A33;
+      --unit-crystal:#D8B96A;
+      --unit-crystal-soft:#352D1B;
+      --unit-defect:#E39DB6;
+      --unit-defect-soft:#3A2230;
+      --unit-diffusion:#7FCBD9;
+      --unit-diffusion-soft:#1B3237;
+    --warn:#E89579;
+    --warn-soft:#3A241C;
+    --good:#6FD5B9;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Fraunces", Georgia, serif;
+    text-wrap:balance;
+    color:var(--ink);
+    font-weight:600;
+    line-height:1.15;
+  }
+  code, .mono, table.data, .formula, .kbd{
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  a{color:var(--accent-ink);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  ::selection{background:var(--accent-soft);}
+
+  .shell{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 clamp(16px,3vw,40px) 120px;
+    display:grid;
+    grid-template-columns:240px minmax(0,1fr);
+    gap:clamp(20px,4vw,56px);
+  }
+  @media (max-width:880px){
+    .shell{grid-template-columns:minmax(0,1fr);}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    grid-column:1/-1;
+    padding:clamp(28px,5vw,52px) clamp(18px,4vw,40px) clamp(26px,4vw,38px);
+    margin:clamp(16px,3vw,28px) 0 8px;
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:
+      radial-gradient(640px 220px at 8% -10%, var(--accent-soft), transparent 60%),
+      var(--raised);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-eyebrow{
+    font-family:"IBM Plex Mono";
+    font-size:12.5px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--accent-ink);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;}
+  .hero h1{
+    font-size:clamp(34px,5.2vw,54px);
+    margin:14px 0 6px;
+    font-weight:700;
+  }
+  .hero h1 em{font-style:italic; color:var(--accent-ink); font-weight:500;}
+  .hero .sub{
+    font-size:clamp(16px,2vw,19px);
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin:0 0 22px;
+  }
+  .hero-stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .stat-pill{
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:999px;
+    padding:7px 14px;
+    font-family:"IBM Plex Mono";
+    font-size:12.5px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-variant-numeric:tabular-nums;
+  }
+  .stat-pill b{color:var(--ink); font-weight:600;}
+
+  /* ---------- TOC ---------- */
+  .toc-wrap{position:relative;}
+  .toc{
+    position:sticky;
+    top:18px;
+    max-height:calc(100vh - 36px);
+    overflow-y:auto;
+    padding-right:6px;
+    font-size:14px;
+  }
+  .toc-title{
+    font-family:"IBM Plex Mono";
+    font-size:11.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 10px 2px;
+  }
+  .toc ol{list-style:none; margin:0; padding:0;}
+  .toc > ol > li{margin-bottom:3px;}
+  .toc a{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding:6px 8px;
+    border-radius:8px;
+    line-height:1.3;
+  }
+  .toc a:hover{background:var(--line-soft); color:var(--ink);}
+  .toc .u-dot{width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--c,var(--accent));}
+  .toc .sub-list{list-style:none; margin:2px 0 6px 25px; padding:0; border-left:1px solid var(--line-soft);}
+  .toc .sub-list a{font-size:12.8px; padding:4px 10px; color:var(--ink-faint);}
+  .toc .sub-list a:hover{color:var(--ink);}
+  details.toc-mobile{display:none;}
+  @media (max-width:880px){
+    .toc-wrap .toc{display:none;}
+    details.toc-mobile{
+      display:block;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--raised);
+      padding:12px 16px;
+      margin-bottom:4px;
+    }
+    details.toc-mobile summary{font-family:"IBM Plex Mono"; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-ink); cursor:pointer;}
+    details.toc-mobile .toc{position:static; max-height:none; display:block; margin-top:10px;}
+  }
+
+  /* ---------- MAIN CONTENT ---------- */
+  main{min-width:0;}
+  .lede{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:66ch;
+    margin:4px 0 36px;
+  }
+  .lede strong{color:var(--ink);}
+
+  section.unit{margin-top:64px; scroll-margin-top:18px;}
+  .unit-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--c, var(--line));
+    margin-bottom:22px;
+  }
+  .unit-num{
+    font-family:"IBM Plex Mono";
+    font-size:14px;
+    font-weight:600;
+    color:var(--c, var(--accent));
+    border:1px solid var(--c, var(--accent));
+    border-radius:8px;
+    padding:3px 9px;
+    letter-spacing:.03em;
+  }
+  .unit-head h2{font-size:clamp(24px,3.4vw,32px); margin:0;}
+  .unit-tag{
+    font-family:"IBM Plex Mono";
+    font-size:12px;
+    color:var(--ink-faint);
+    margin-left:auto;
+    white-space:nowrap;
+  }
+
+  h3.topic{
+    font-size:21px;
+    margin:40px 0 10px;
+    padding-left:14px;
+    border-left:3px solid var(--c, var(--line));
+    scroll-margin-top:18px;
+  }
+  h4{font-size:17px; margin:22px 0 8px;}
+  p{margin:0 0 14px;}
+  ul, ol{margin:0 0 16px; padding-left:1.3em;}
+  li{margin-bottom:6px;}
+
+  /* callouts */
+  .box{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    margin:18px 0;
+    background:var(--raised);
+  }
+  .box-head{
+    font-family:"IBM Plex Mono";
+    font-size:11.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .def{background:var(--accent-soft); border-color:transparent;}
+  .def .box-head{color:var(--accent-ink);}
+  .formula-box{background:var(--raised); border-color:var(--line);}
+  .formula-box .box-head{color:var(--ink-faint);}
+  .formula-box .eq{
+    font-family:"IBM Plex Mono";
+    font-size:17px;
+    font-weight:600;
+    color:var(--ink);
+    margin:4px 0 10px;
+    overflow-x:auto;
+  }
+  .formula-box .vars{font-size:14px; color:var(--ink-soft);}
+  .formula-box .vars code{color:var(--ink); background:var(--line-soft); padding:1px 5px; border-radius:5px; font-size:13px;}
+  .example{background:var(--raised); border-left:3px solid var(--good);}
+  .example .box-head{color:var(--good);}
+  .trap{background:var(--warn-soft); border-color:transparent;}
+  .trap .box-head{color:var(--warn);}
+  .analogy{background:transparent; border:1px dashed var(--line); }
+  .analogy .box-head{color:var(--ink-faint);}
+
+  /* tables */
+  .tscroll{overflow-x:auto; margin:16px 0; border:1px solid var(--line); border-radius:12px;}
+  table{border-collapse:collapse; width:100%; font-size:14.5px;}
+  table.data{font-size:13.5px;}
+  th,td{
+    padding:9px 13px;
+    text-align:left;
+    border-bottom:1px solid var(--line-soft);
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+  th{
+    font-family:"IBM Plex Mono";
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    background:var(--paper);
+    position:sticky;
+    top:0;
+  }
+  tr:last-child td{border-bottom:none;}
+  td.wrap, th.wrap{white-space:normal;}
+
+  figure{margin:22px 0; padding:0;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{
+    font-size:13px;
+    color:var(--ink-faint);
+    margin-top:8px;
+    text-align:center;
+  }
+  .fig-frame{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 14px;
+    background:var(--raised);
+  }
+
+  /* archetype cards */
+  .arch-grid{display:flex; flex-direction:column; gap:14px; margin:20px 0;}
+  .arch-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--raised);
+    padding:16px 18px;
+  }
+  .arch-card summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:"Fraunces";
+    font-weight:600;
+    font-size:16.5px;
+  }
+  .arch-card summary::-webkit-details-marker{display:none;}
+  .arch-card summary::before{
+    content:"+";
+    font-family:"IBM Plex Mono";
+    font-weight:600;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:6px;
+    width:20px; height:20px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+    flex-shrink:0;
+  }
+  .arch-card[open] summary::before{content:"\2212";}
+  .arch-card .arch-n{font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--ink-faint); font-weight:400;}
+  .arch-body{margin-top:14px; padding-top:14px; border-top:1px solid var(--line-soft);}
+
+  .pill{
+    display:inline-block;
+    font-family:"IBM Plex Mono";
+    font-size:11px;
+    padding:2px 9px;
+    border-radius:999px;
+    background:var(--c-soft, var(--line-soft));
+    color:var(--c, var(--ink-soft));
+    margin-right:6px;
+  }
+
+  .backtop{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:"IBM Plex Mono";
+    font-size:12px;
+    color:var(--ink-faint);
+    text-decoration:none;
+    margin-top:36px;
+  }
+  .backtop:hover{color:var(--accent-ink);}
+
+  .closing{
+    margin-top:70px;
+    padding:28px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--raised);
+    text-align:center;
+  }
+  .closing h2{font-size:24px; margin:0 0 8px;}
+  .closing p{max-width:52ch; margin:0 auto; color:var(--ink-soft);}
+
+  strong{color:var(--ink); font-weight:600;}
+  .small{font-size:13.5px; color:var(--ink-faint);}
+  /* ---------- VSEPR diagrams ---------- */
+  .sv-bond{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;fill:none;}
+  .sv-wedge{fill:var(--ink);}
+  .sv-atom{fill:var(--ink-soft);}
+  .sv-center{fill:var(--unit-covalent);}
+  .sv-lp{fill:var(--unit-covalent-soft);stroke:var(--unit-covalent);stroke-width:1.4;}
+  .sv-dot{fill:var(--unit-covalent);}
+  .vs-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--raised);padding:14px;margin:18px 0;}
+  .vs-grid{display:grid;grid-template-columns:92px repeat(4,minmax(124px,1fr));gap:8px;min-width:640px;}
+  .vs-colhead{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);text-align:center;padding-bottom:6px;border-bottom:1px solid var(--line);}
+  .vs-corner{border-bottom:1px solid var(--line);}
+  .vs-rowhead{display:flex;flex-direction:column;justify-content:center;gap:1px;padding-right:6px;}
+  .vs-rowhead b{font-family:"Fraunces",serif;font-size:26px;line-height:1;color:var(--unit-covalent);}
+  .vs-rowhead span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);}
+  .vs-rowhead em{font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:3px;}
+  .vs-cell{border:1px solid var(--line-soft);border-radius:10px;padding:6px 4px 9px;text-align:center;background:var(--paper);}
+  .vs-cell.vs-lp1,.vs-cell.vs-lp2,.vs-cell.vs-lp3{background:var(--unit-covalent-soft);border-color:transparent;}
+  .vs-cell svg{width:100%;max-width:118px;height:auto;display:block;margin:0 auto 2px;}
+  .vs-name{font-family:"Fraunces",serif;font-weight:600;font-size:13.5px;line-height:1.2;}
+  .vs-meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+  .vs-axe{font-weight:600;color:var(--ink);}
+  .vs-ex{font-size:12px;color:var(--ink-faint);margin-top:2px;}
+  .vs-empty{border:1px dashed var(--line-soft);border-radius:10px;opacity:.55;}
+  .sv-dash{stroke:var(--ink);stroke-width:1.5;stroke-linecap:butt;}
+  .sv-arc{fill:none;stroke:var(--unit-ionic);stroke-width:1.6;stroke-linecap:round;}
+  .sv-txt{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;fill:var(--ink);}
+  .sv-txt-w{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:700;fill:#fff;}
+  .sv-ctr{fill:var(--unit-covalent);}
+  .sv-bd{stroke:var(--unit-ionic);stroke-width:1.9;stroke-linecap:round;}
+  .sv-bd-h{fill:var(--unit-ionic);}
+  .sv-net{stroke:var(--unit-covalent);stroke-width:3.4;stroke-linecap:round;}
+  .sv-net-h{fill:var(--unit-covalent);}
+  .gp-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin:18px 0;}
+  .gp-cell{position:relative;border:1px solid var(--line-soft);border-radius:12px;padding:8px 6px 10px;text-align:center;background:var(--raised);}
+  .gp-cell svg{width:100%;max-width:118px;height:auto;display:block;margin:0 auto 2px;}
+  .gp-n{font-family:"Fraunces",serif;font-weight:700;font-size:20px;color:var(--unit-covalent);line-height:1;}
+  .sq-ang{font-family:"Fraunces",serif;font-weight:700;font-size:22px;color:var(--unit-ionic);line-height:1.1;margin-top:2px;}
+  .dp-verdict{display:inline-block;margin-top:6px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:999px;}
+  .dp-zero .dp-verdict{background:var(--line-soft);color:var(--ink-soft);}
+  .dp-net .dp-verdict{background:var(--unit-covalent-soft);color:var(--unit-covalent);}
+  .sv-ghost{stroke:var(--ink-faint);stroke-width:1.3;stroke-dasharray:3 3;opacity:.8;}
+  .sq-row .gp-cell svg{max-width:200px;}
+  .sq-row{grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px;margin-left:auto;margin-right:auto;}
+  @media (max-width:560px){ .sq-row{grid-template-columns:1fr;} }
+
+  /* ---------- orbital + MO figures ---------- */
+  .ph-pos{fill:var(--unit-atoms);fill-opacity:.62;}
+  .ph-neg{fill:var(--warn);fill-opacity:.58;}
+  .ph-txt{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;fill:#fff;pointer-events:none;}
+  .ph-nuc{fill:var(--ink);}
+  .ph-node{stroke:var(--ink-soft);stroke-width:1.3;stroke-dasharray:3 3;}
+  .op-lab{font-family:"IBM Plex Mono",monospace;font-size:9px;fill:var(--ink-soft);}
+  .op-note{font-size:12px;color:var(--ink-faint);margin-top:2px;line-height:1.35;}
+  .op-note b{color:var(--ink-soft);font-weight:600;}
+  .op-row{grid-template-columns:repeat(2,minmax(0,1fr));max-width:600px;margin-left:auto;margin-right:auto;}
+  .mo-lv{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;}
+  .mo-lv-hi{stroke:var(--unit-orbital);stroke-width:2.8;}
+  .mo-e{fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .mo-cn{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3 3;opacity:.75;}
+  .mo-ax{fill:none;stroke:var(--ink-faint);stroke-width:1.4;}
+  .mo-lab{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;fill:var(--ink);paint-order:stroke;stroke:var(--raised);stroke-width:4px;stroke-linejoin:round;}
+  .mo-ao{font-family:"IBM Plex Mono",monospace;font-size:12px;fill:var(--ink-soft);}
+  .mo-title{font-family:"Fraunces",serif;font-size:13.5px;font-weight:600;fill:var(--ink);}
+  .mo-hi{fill:var(--unit-orbital-soft);}
+  .mo-hi-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:700;fill:var(--unit-orbital);paint-order:stroke;stroke:var(--raised);stroke-width:5px;stroke-linejoin:round;}
+  .mo-mini svg{max-width:210px;}
+  .mo-zero{opacity:.85;}
+  .ic-band{fill:var(--unit-covalent-soft);}
+  .ic-grid{stroke:var(--line);stroke-width:1;}
+  .ic-axis{stroke:var(--ink-faint);stroke-width:1.4;}
+  .ic-tick{font-family:"IBM Plex Mono",monospace;font-size:11px;fill:var(--ink-soft);}
+  .ic-lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;fill:var(--ink-soft);}
+  .ic-curve{fill:none;stroke:var(--unit-ionic);stroke-width:3;stroke-linejoin:round;}
+  .ic-band-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--unit-covalent);font-weight:600;}
+  .ic-pt{fill:var(--unit-ionic);}
+  .ic-pt-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--ink);}
+  .ic-real{fill:var(--raised);stroke:var(--ink);stroke-width:2;}
+  .ic-real-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:700;fill:var(--ink);}
+
+  /* ---------- cheat-code components ---------- */
+  .stat-link{text-decoration:none;color:var(--accent-ink);border-color:var(--accent);}
+  .stat-link:hover{background:var(--accent-soft);}
+  .box.cheat{border:2px solid var(--c, var(--accent));background:var(--raised);padding:16px 20px;}
+  .cheat .box-head{color:var(--c, var(--accent));}
+  .cc-steps{margin:0 0 8px;padding-left:1.3em;}
+  .cc-steps li{margin-bottom:6px;}
+  .cc-list{margin:0 0 8px;padding-left:1.2em;}
+  .cc-list li{margin-bottom:7px;}
+  .cc-foot{margin:0;padding-top:9px;border-top:1px dashed var(--line);font-size:15.5px;}
+  .cc-ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:0 0 20px;}
+  .cc-idea{border:1px solid var(--line);border-top:3px solid var(--c);border-radius:4px 4px 12px 12px;background:var(--raised);padding:12px 14px 14px;}
+  .cc-idea b{display:block;font-family:"Fraunces",serif;font-size:17px;margin-bottom:5px;color:var(--c);}
+  .cc-idea span{font-size:14.5px;color:var(--ink-soft);line-height:1.5;}
+  .cc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:0 0 22px;}
+  .cc-card{border:1px solid var(--line);border-radius:14px;background:var(--raised);padding:14px 16px 10px;}
+  .cc-tag{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--c);margin-bottom:4px;font-weight:600;}
+  .cc-code{font-family:"Fraunces",serif;font-weight:600;font-size:19px;line-height:1.2;margin:0 0 9px;}
+  .cc-card p{font-size:14.5px;line-height:1.5;margin:0 0 8px;color:var(--ink-soft);}
+  .cc-card p b{color:var(--ink);}
+  /* ---------- hybridization rows ---------- */
+  .hy-list{display:flex;flex-direction:column;gap:10px;margin:18px 0 8px;}
+  .hy-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px 14px;background:var(--raised);}
+  .hy-name{font-family:"Fraunces",serif;font-weight:700;font-size:23px;color:var(--unit-orbital);}
+  .hy-body{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;}
+  .hy-grp{display:inline-flex;flex-wrap:wrap;gap:5px;}
+  .hy-arrow{font-family:"IBM Plex Mono",monospace;color:var(--ink-faint);font-size:16px;}
+  .ob{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:26px;padding:0 6px;border:1.5px solid var(--ink-faint);border-radius:5px;font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:12px;background:var(--paper);color:var(--ink-soft);}
+  .ob.use{border-color:var(--unit-orbital);color:var(--ink);}
+  .ob.hy{background:var(--unit-orbital-soft);border-color:var(--unit-orbital);color:var(--unit-orbital);font-weight:600;}
+  .ob.un{border-style:dashed;color:var(--ink-faint);background:transparent;}
+  .hy-desc{flex-basis:100%;font-size:14.5px;color:var(--ink-soft);line-height:1.45;}
+  .hy-desc b{color:var(--ink);}
+  @media (max-width:560px){ .hy-row{grid-template-columns:1fr;gap:6px;} }
+  .cc-grid .cc-card:last-child{grid-column:1/-1;}
+  /* ---------- small-screen fixes ---------- */
+  .fig-frame{overflow-x:auto;}
+  .fig-frame > svg{min-width:640px;}
+  .vs-wrap > svg{min-width:520px;}
+  .vs-wrap > figure, .vs-wrap{max-width:100%;}
+  .unit-head{flex-wrap:wrap;row-gap:6px;}
+  .unit-tag{white-space:normal;}
+  @media (max-width:640px){ .unit-tag{margin-left:0;flex-basis:100%;} }
+  /* ---------- hybridization / forces / metals figures ---------- */
+  .fm-t,.fm-h,.fm-note,.fm-cap,.fm-cap-s,.fm-ao,.fm-hy-t,.fm-orb-t,.fm-op,.fm-ax-t,.fm-tiny,.fm-lab-r,.fm-hb-t,.hy-lab,.pl-t,.bd-blk-t{font-family:"IBM Plex Mono",monospace;fill:var(--ink);}
+  .fm-h{font-family:"Fraunces",serif;font-size:14.5px;font-weight:600;}
+  .fm-note{font-size:11.5px;fill:var(--ink-soft);}
+  .fm-cap{font-size:13px;font-weight:600;}
+  .fm-cap-s{font-size:11.5px;fill:var(--ink-soft);}
+  .fm-ao{font-size:12px;fill:var(--ink-soft);}
+  .fm-hy-t{font-size:12.5px;font-weight:700;fill:var(--unit-orbital);}
+  .fm-orb-t{font-size:12.5px;font-weight:600;}
+  .fm-op{font-size:22px;font-weight:600;fill:var(--ink-faint);}
+  .fm-ax-t{font-size:11px;fill:var(--ink-faint);}
+  .fm-tiny{font-size:9px;font-weight:700;fill:var(--ink);}
+  .fm-lab-r{font-size:12px;}
+  .fm-hb-t{font-size:12px;font-weight:700;fill:var(--unit-forces);}
+  .fm-box{fill:var(--paper);stroke:var(--ink);stroke-width:1.8;}
+  .fm-box-hi{stroke:var(--unit-orbital);stroke-width:2.6;fill:var(--unit-orbital-soft);}
+  .fm-box-hy{stroke:var(--unit-orbital);stroke-width:2.2;fill:var(--unit-orbital-soft);}
+  .fm-sp{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .fm-ax{fill:none;stroke:var(--ink-faint);stroke-width:1.4;}
+  .fm-curve{fill:none;stroke:var(--unit-orbital);stroke-width:2.4;stroke-linecap:round;}
+  .fm-big-arrow{fill:none;stroke:var(--ink-faint);stroke-width:2.4;}
+  .fm-arrow-h{fill:var(--ink-faint);}
+  .fm-sigma{stroke:var(--ink);stroke-width:3;stroke-linecap:round;}
+  .fm-bond{stroke:var(--ink-soft);stroke-width:2.4;stroke-linecap:round;}
+  .fm-dim{stroke:var(--ink-faint);stroke-width:1.4;stroke-dasharray:4 3;fill:none;}
+  .fm-dim2{stroke:var(--ink);stroke-width:1.6;fill:none;}
+  .hb-dot{stroke:var(--unit-forces);stroke-width:3;stroke-dasharray:1.5 6;stroke-linecap:round;fill:none;}
+  .hb-dim{stroke:var(--unit-forces);}
+  .at-o{fill:var(--warn);}
+  .at-h{fill:var(--raised);stroke:var(--ink-soft);stroke-width:1.6;}
+  .at-c{fill:var(--ink-soft);}
+  .fm-contact{fill:var(--warn);fill-opacity:.85;}
+  .fm-contact-bar{fill:var(--warn);fill-opacity:.22;}
+  .pl-pos{fill:var(--warn);fill-opacity:.7;} .pl-neg{fill:var(--unit-atoms);fill-opacity:.7;}
+  .pl-t{font-size:8.5px;font-weight:700;fill:#fff;}
+  .fm-attr{stroke:var(--unit-covalent);stroke-width:2.6;fill:none;} .fm-attr-h{fill:var(--unit-covalent);}
+  .fm-rep{stroke:var(--warn);stroke-width:2.6;fill:none;} .fm-rep-h{fill:var(--warn);}
+  .ip-row{grid-template-columns:repeat(4,minmax(0,1fr));max-width:760px;margin-left:auto;margin-right:auto;}
+  @media (max-width:560px){.ip-row{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  .cl-cloud{fill:var(--unit-atoms);fill-opacity:.14;stroke:var(--unit-atoms);stroke-width:1.6;}
+  .hy-line{fill:none;stroke-width:2.6;stroke-linejoin:round;}
+  .hy-g14{stroke:var(--unit-trends);}
+  .hy-g15{stroke:var(--unit-covalent);}
+  .hy-g16{stroke:var(--warn);}
+  .hy-g17{stroke:var(--unit-atoms);}
+  .hy-pt.hy-g14{fill:var(--unit-trends);} .hy-pt.hy-g15{fill:var(--unit-covalent);} .hy-pt.hy-g16{fill:var(--warn);} .hy-pt.hy-g17{fill:var(--unit-atoms);}
+  .hy-line.hy-g14,.hy-line.hy-g15,.hy-line.hy-g16,.hy-line.hy-g17{fill:none;}
+  .hy-lab{font-size:11.5px;font-weight:700;}
+  .bd-lv{stroke:var(--ink-faint);stroke-width:2.4;stroke-linecap:round;}
+  .bd-fill{stroke:var(--unit-metal);stroke-width:3;}
+  .bd-filled{fill:var(--unit-metal);fill-opacity:.55;}
+  .bd-filled-hi{fill:var(--unit-metal);fill-opacity:.8;}
+  .bd-empty{fill:var(--line);fill-opacity:.9;}
+  .bd-overlap{fill:var(--unit-metal);fill-opacity:.95;}
+  .bd-3s{fill:var(--unit-metal);fill-opacity:.18;stroke:var(--unit-metal);stroke-width:1.2;}
+  .bd-3p{fill:var(--unit-atoms);fill-opacity:.14;stroke:var(--unit-atoms);stroke-width:1.2;}
+  .bd-blk-t{font-size:11.5px;font-weight:600;}
+  .gp-bar.gp-ins{fill:var(--warn);} .gp-bar.gp-semi{fill:var(--unit-forces);} .gp-bar.gp-met{fill:var(--unit-metal);}
+  .gp-bar.rs-bar{fill:var(--unit-metal);} .gp-bar.rs-top{fill:var(--unit-ionic);} .gp-bar.rs-alloy{fill:var(--unit-trends);}
+  .ph-nuc-line{stroke:var(--ink);stroke-width:1.6;}
+  .fm-photon{fill:none;stroke:var(--unit-atoms);stroke-width:2.4;stroke-linecap:round;}
+  .fm-sub{font-size:8.5px;}
+  .fm-halo{paint-order:stroke;stroke:var(--raised);stroke-width:5px;stroke-linejoin:round;}
+  .mo-lv.fm-pi{stroke:var(--unit-covalent);stroke-width:3;}
+  .fm-pi-t{fill:var(--unit-covalent);}
+  .hy-t14{fill:var(--unit-trends);} .hy-t15{fill:var(--unit-covalent);} .hy-t16{fill:var(--warn);} .hy-t17{fill:var(--unit-atoms);}
+  .hy-lab{stroke:none;}
+  .ip-row .gp-cell svg{max-width:100%;}
+
+  .hy-puzzle{display:flex;flex-direction:column;gap:6px;margin:10px 0 14px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--raised);width:fit-content;max-width:100%;}
+  .hp-row{display:flex;align-items:center;gap:10px;}
+  .hp-lab{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);width:24px;}
+  .ob.up,.ob.up2{border-color:var(--ink);color:var(--ink);font-size:15px;background:var(--paper);}
+  .ob.up2{letter-spacing:2px;}
+  /* ---------- units 09-11 figures ---------- */
+  .cx-edge{stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;}
+  .cx-hid{stroke:var(--ink-faint);stroke-dasharray:4 4;stroke-width:1.4;}
+  .cx-atom{stroke:var(--ink);stroke-width:1.4;}
+  .cx-corner{fill:var(--unit-trends);fill-opacity:.85;}
+  .cx-centre{fill:var(--unit-atoms);}
+  .cx-face{fill:var(--unit-ionic);}
+  .cx-plane{stroke:var(--ink-faint);stroke-width:1.2;}
+  .cx-ray{fill:none;stroke:var(--unit-atoms);stroke-width:2.4;}
+  .cx-ray2{stroke:var(--warn);}
+  .cx-arc{fill:none;stroke:var(--ink);stroke-width:1.4;}
+  .cx-plane-fill{fill:var(--unit-orbital);fill-opacity:.35;stroke:var(--unit-orbital);stroke-width:2;}
+  .cx-origin{fill:var(--ink);}
+  .cx-normal{fill:none;stroke:var(--warn);stroke-width:2.6;}
+  .cx-normal-h{fill:var(--warn);}
+  .cx-normal-t{fill:var(--warn);font-weight:700;}
+  .cx-bond{stroke:var(--ink-soft);stroke-width:1.6;stroke-dasharray:3 3;}
+  .cx-dis{font-family:"IBM Plex Mono",monospace;font-size:34px;font-weight:700;fill:var(--warn);}
+  .ion-an{fill:var(--unit-atoms);fill-opacity:.55;stroke:var(--unit-atoms);stroke-width:1.4;}
+  .ion-cat{fill:var(--warn);fill-opacity:.7;stroke:var(--warn);stroke-width:1.4;}
+  .ion-t{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:700;fill:#fff;}
+  .cx-vac{fill:none;stroke:var(--ink-faint);stroke-width:1.6;stroke-dasharray:3 3;}
+  .vc{fill:none;stroke-width:2.6;stroke-linecap:round;}
+  .vc-sl{stroke:var(--warn);} .vc-bo{stroke:var(--unit-covalent);} .vc-96{stroke:var(--unit-atoms);} .vc-fs{stroke:var(--unit-orbital);}
+  .vc-sl-t{fill:var(--warn);} .vc-bo-t{fill:var(--unit-covalent);} .vc-96-t{fill:var(--unit-atoms);} .vc-fs-t{fill:var(--unit-orbital);}
+  .vc-ref{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:2 4;}
+  .vc-grid{opacity:.35;}
+  .dif-a{stroke:var(--unit-covalent);stroke-width:2.6;} .dif-b{stroke:var(--warn);stroke-width:2.6;}
+  .dif-a-t{fill:var(--unit-covalent);} .dif-b-t{fill:var(--warn);}
+  .dif{fill:none;stroke-width:2.6;}
+  .dif-t1{stroke:var(--unit-trends);} .dif-t2{stroke:var(--unit-atoms);} .dif-t3{stroke:var(--unit-orbital);}
+
+  
+
+  .ex-shell{max-width:900px;margin:0 auto;padding:20px 16px 80px;}
+  .ex-shell .hero{margin-bottom:18px;}
+  .ck{display:flex;gap:10px;align-items:flex-start;margin:0 0 7px;font-size:16px;line-height:1.45;}
+  .ck input{margin-top:5px;accent-color:var(--accent);flex:none;width:17px;height:17px;}
+  .ck span{min-width:0;}
+  .ck input:checked + span{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--line);}
+  .ck-bar{height:6px;border-radius:999px;background:var(--line-soft);overflow:hidden;margin:4px 0 12px;}
+  .ck-bar > i{display:block;height:100%;width:0;background:var(--good);transition:width .25s;}
+  .plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:12px 0;}
+  .plan .box{margin:0;}
+  .tl{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);}
+  .go{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:9px;border:1px solid var(--accent);background:var(--accent);color:#fff;text-decoration:none;margin:2px 6px 2px 0;}
+  :root[data-theme="dark"] .go{color:#10131c;}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .go{color:#10131c;}}
+  .go.alt,:root[data-theme="dark"] .go.alt{background:transparent!important;color:var(--accent-ink)!important;}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .go.alt{background:transparent!important;color:var(--accent-ink)!important;}}
+  .facts{columns:2 280px;column-gap:26px;}
+  .facts .ck{break-inside:avoid;}
+  td a, li a{overflow-wrap:anywhere;}
+</style>
+</head>
+<body>
+
+<div class="ex-shell">
+  <header class="hero">
+    <div class="hero-eyebrow"><span class="dot"></span> MIT 3.091 &middot; Fall 2026 &middot; Exam 2 &middot; Monday Nov 2</div>
+    <h1>Exam 2 Prep: <em>everything on one page</em></h1>
+    <p class="sub">Scope: <b>Lectures 10&ndash;20, Recitations 7&ndash;13, Problem Sets 4&ndash;7</b> (covalent bonding through diffusion). A plan for the two days left, what the exam is likely to ask, the facts to know cold, and links to the explanations and practice. Progress ticks are saved in this browser.</p>
+    <div class="hero-stats"><a class="go" href="quiz-review.html#pq-quiz">&#9733; Start the Exam 2 mock</a><a class="go alt" href="index.html">The Field Guide</a><a class="go alt" href="quiz-review.html">All practice questions</a></div>
+  </header>
+
+  <h3 class="topic" style="--c:var(--warn)">What I could and could not get</h3>
+  <div class="box trap">
+    <div class="box-head">Read this first</div>
+    <ul style="margin-bottom:0">
+      <li><b>In the guide:</b> every lecture L10&ndash;L20 (slide by slide) and Recitations 7, 8, 9, 9.5, 10, 11, 12. Recitation 12 is a slide deck (XRD selection rules, defects, work hardening, slip planes); all of it is in Unit 09/10.</li>
+      <li><b>Not available to me:</b> <b>Problem Sets 4&ndash;7</b> (only PP1&ndash;3 are in your folder), <b>Recitation 13</b>, and any <b>past exams</b>. The shared Drive folder contains only the Fall 2024 quizzes and recitations, not exams or problem sets. If you drop PP4&ndash;7 and Rec 13 into the chat, I add them with matching practice questions.</li>
+      <li><b>Closest thing to a past Exam 2:</b> the Fall 2024 <b>Recitation 15 &ldquo;Exam 2 Review&rdquo;</b> (covering the same lectures). Its twelve problems are the &ldquo;question types&rdquo; table below, and the Exam 2 mock uses the same styles.</li>
+      <li><b>Aid sheet:</b> the 2024 exam allowed one 8.5&times;11&Prime; sheet, <b>double-sided</b>, plus periodic table, constants table and a calculator. Check this year&rsquo;s rules. A two-sided Exam 2 aid sheet is in the repo (<code>aid-sheet-exam2.pdf</code>).</li>
+    </ul>
+  </div>
+
+  <h3 class="topic" style="--c:var(--accent)">The two-day plan</h3>
+  <p>About 8&ndash;9 hours of work in total, split so you never read for more than 90 minutes without answering questions. Rule for every block: <b>cover the solutions, answer on paper, then check</b>.</p>
+  <div class="plan">
+    <div class="box cheat"><div class="box-head">Saturday &middot; molecules and bands</div><label class="ck"><input type="checkbox" data-k="p1a"><span><b>Unit 05 VSEPR</b> (read, then all 13 &ldquo;Check yourself&rdquo; questions) <span class="tl">&middot; 75 min</span></span></label><label class="ck"><input type="checkbox" data-k="p1b"><span><b>Unit 06 hybridization + MO</b> (include the CO example), do the questions <span class="tl">&middot; 90 min</span></span></label><label class="ck"><input type="checkbox" data-k="p1c"><span><b>Unit 07 intermolecular forces</b> and the questions <span class="tl">&middot; 40 min</span></span></label><label class="ck"><input type="checkbox" data-k="p1d"><span><b>Unit 08 bands, semiconductors, doping</b> and the questions <span class="tl">&middot; 75 min</span></span></label><label class="ck"><input type="checkbox" data-k="p1e"><span>Quiz Review: timed 10-minute quiz for each of Quiz 4 and Quiz 5 style; redo every miss tomorrow <span class="tl">&middot; 30 min</span></span></label></div>
+    <div class="box cheat"><div class="box-head">Sunday &middot; solids, then the mock</div><label class="ck"><input type="checkbox" data-k="p2a"><span><b>Unit 09 crystals, Miller, Bragg, selection rules</b> and the questions <span class="tl">&middot; 100 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2b"><span><b>Unit 10 defects, glass, polymers</b> and the questions <span class="tl">&middot; 50 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2c"><span><b>Unit 11 diffusion</b> and the questions <span class="tl">&middot; 40 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2d"><span><b>Exam 2 mock</b> on the Quiz Review page (12 questions, 40 min, then read every solution) <span class="tl">&middot; 70 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2e"><span>Retry list in &ldquo;My practice&rdquo;: redo every question you missed or peeked at <span class="tl">&middot; 40 min</span></span></label></div>
+    <div class="box cheat"><div class="box-head">Sunday night &middot; Monday morning</div><label class="ck"><input type="checkbox" data-k="p3a"><span>Open the aid sheet PDF; copy it by hand if the rules want handwriting (copying is a study session) <span class="tl">&middot; 40 min</span></span></label><label class="ck"><input type="checkbox" data-k="p3b"><span>Read the &ldquo;last-hour facts&rdquo; below out loud, tick each one only if you can say it without looking <span class="tl">&middot; 30 min</span></span></label><label class="ck"><input type="checkbox" data-k="p3c"><span>Re-read <a href='index.html#traps'>Exam traps</a> and the &ldquo;typical slips&rdquo; for VSEPR, MO, XRD <span class="tl">&middot; 20 min</span></span></label><label class="ck"><input type="checkbox" data-k="p3d"><span>Sleep. Calculator in <b>degree</b> mode; periodic table and constants table packed <span class="tl">&middot; &mdash;</span></span></label></div>
+  </div>
+
+  <h3 class="topic" style="--c:var(--accent)">What the exam is likely to ask</h3>
+  <p>From the twelve problems of the Fall 2024 Exam 2 review, which covers the same material. For each type: where to read it and where to practise it.</p>
+  <div class="tscroll"><table class="data"><thead><tr><th>Type</th><th class="wrap">What they ask</th><th class="wrap">Seen in</th><th>Go to</th></tr></thead><tbody><tr><td><b>VSEPR chain</b></td><td class="wrap">Lewis &rarr; AXE &rarr; shape &rarr; bond angles &rarr; polar? (SF<sub>4</sub>, XeF<sub>4</sub>, IF<sub>5</sub>, SeO<sub>2</sub>)</td><td class="wrap">Rec 8, Rec 15 p2, Quiz 4</td><td><a href="index.html#unit5">guide</a> &middot; <a href="quiz-review.html#t-vsepr">practice</a></td></tr><tr><td><b>Strongest IMF and boiling-point reasoning</b></td><td class="wrap">HF, NO, CH<sub>3</sub>OH; SF<sub>4</sub> vs SF<sub>6</sub>; big molecule = more polarizable</td><td class="wrap">Rec 9.5, Rec 15 p2&ndash;3</td><td><a href="index.html#unit7">guide</a> &middot; <a href="quiz-review.html#t-imf">practice</a></td></tr><tr><td><b>Draw an MO diagram, bond order</b></td><td class="wrap">CO (10 e<sup>&minus;</sup>, N<sub>2</sub>-like, O lower), O<sub>2</sub>, N<sub>2</sub>, NO, HCl, H<sub>2</sub></td><td class="wrap">Rec 9, Rec 15 p4, Quiz 4</td><td><a href="index.html#unit6">guide</a> &middot; <a href="quiz-review.html#t-hybmo">practice</a></td></tr><tr><td><b>Band gap &rarr; LED wavelength, doping, band diagram</b></td><td class="wrap">1240/E; GaN vs GaP; Ca on Ga is p-type; label VB, CB, gap, acceptor level</td><td class="wrap">Rec 10, Rec 15 p5, Quiz 5</td><td><a href="index.html#unit8">guide</a> &middot; <a href="quiz-review.html#t-bands">practice</a></td></tr><tr><td><b>Glass and cooling rate</b></td><td class="wrap">faster cooling &rarr; higher molar volume, higher T<sub>g</sub>; network modifiers</td><td class="wrap">L19, Rec 15 p6</td><td><a href="index.html#unit10">guide</a> &middot; <a href="quiz-review.html#t-defects">practice</a></td></tr><tr><td><b>Draw directions and planes</b></td><td class="wrap">&lt;100&gt; 6, &lt;110&gt; 12; {110} and {111} planes; Miller from intercepts</td><td class="wrap">Rec 11, Rec 15 p7&ndash;8</td><td><a href="index.html#unit9">guide</a> &middot; <a href="quiz-review.html#t-miller">practice</a></td></tr><tr><td><b>r, a and d; touching lines</b></td><td class="wrap">FCC face diagonal, BCC body diagonal, with a labelled sketch</td><td class="wrap">Rec 11, Rec 15 p9</td><td><a href="index.html#unit9">guide</a> &middot; <a href="quiz-review.html#t-lattice">practice</a></td></tr><tr><td><b>XRD pattern: label peaks, find a and r</b></td><td class="wrap">selection rules, sin&sup2;&theta; ratios, &theta; vs 2&theta;</td><td class="wrap">Rec 12, Rec 15 p10, Quiz 6</td><td><a href="index.html#unit9">guide</a> &middot; <a href="quiz-review.html#t-miller">practice</a></td></tr><tr><td><b>Point defects</b></td><td class="wrap">substitutional vs interstitial (compare sizes); Schottky, Frenkel</td><td class="wrap">Rec 12, Rec 15 p11, Quiz 6</td><td><a href="index.html#unit10">guide</a> &middot; <a href="quiz-review.html#t-defects">practice</a></td></tr><tr><td><b>Dislocations, work hardening, annealing</b></td><td class="wrap">why hammering hardens, why annealing fixes brittleness</td><td class="wrap">Rec 12, Rec 15 p12</td><td><a href="index.html#unit10">guide</a> &middot; <a href="quiz-review.html#t-defects">practice</a></td></tr><tr><td><b>Diffusion</b></td><td class="wrap">Fick&rsquo;s first law flux &times; area; Arrhenius slope; interstitial vs vacancy</td><td class="wrap">L20, Rec 15 p1</td><td><a href="index.html#unit11">guide</a> &middot; <a href="quiz-review.html#t-diffusion">practice</a></td></tr></tbody></table></div>
+
+  <h3 class="topic" style="--c:var(--accent)">Coverage map</h3>
+  <div class="tscroll"><table class="data"><thead><tr><th>Lecture</th><th class="wrap">Topic</th><th>Go to</th></tr></thead><tbody><tr><td><b>L10</b></td><td class="wrap">Properties of covalent compounds; % ionic, dipoles; Rec 7</td><td><a href="index.html#unit5">guide</a> &middot; <a href="quiz-review.html#t-lewis">practice</a></td></tr><tr><td><b>L11</b></td><td class="wrap">VSEPR; Rec 8</td><td><a href="index.html#unit5">guide</a> &middot; <a href="quiz-review.html#t-vsepr">practice</a></td></tr><tr><td><b>L12</b></td><td class="wrap">Hybridization, molecular orbitals; Rec 9</td><td><a href="index.html#unit6">guide</a> &middot; <a href="quiz-review.html#t-hybmo">practice</a></td></tr><tr><td><b>L13</b></td><td class="wrap">Intermolecular forces; Rec 9.5</td><td><a href="index.html#unit7">guide</a> &middot; <a href="quiz-review.html#t-imf">practice</a></td></tr><tr><td><b>L14</b></td><td class="wrap">Metals, bands, work function</td><td><a href="index.html#unit8">guide</a> &middot; <a href="quiz-review.html#t-bands">practice</a></td></tr><tr><td><b>L15</b></td><td class="wrap">Semiconductors, doping, compound semiconductors; Rec 10</td><td><a href="index.html#unit8">guide</a> &middot; <a href="quiz-review.html#t-bands">practice</a></td></tr><tr><td><b>L16</b></td><td class="wrap">Crystallography I: lattice, Bravais, cubic; Rec 11</td><td><a href="index.html#unit9">guide</a> &middot; <a href="quiz-review.html#t-lattice">practice</a></td></tr><tr><td><b>L17</b></td><td class="wrap">Crystallography II: holes, Miller, d-spacing, Bragg</td><td><a href="index.html#unit9">guide</a> &middot; <a href="quiz-review.html#t-miller">practice</a></td></tr><tr><td><b>L18</b></td><td class="wrap">Diffraction, point &amp; line defects; Rec 12</td><td><a href="index.html#unit10">guide</a> &middot; <a href="quiz-review.html#t-defects">practice</a></td></tr><tr><td><b>L19</b></td><td class="wrap">Noncrystalline solids: glass, polymers</td><td><a href="index.html#unit10">guide</a> &middot; <a href="quiz-review.html#t-defects">practice</a></td></tr><tr><td><b>L20</b></td><td class="wrap">Diffusion</td><td><a href="index.html#unit11">guide</a> &middot; <a href="quiz-review.html#t-diffusion">practice</a></td></tr></tbody></table></div>
+
+  <h3 class="topic" style="--c:var(--accent)">Last-hour facts: tick only what you can say without looking</h3>
+  <div class="ck-bar"><i id="fbar"></i></div>
+  <div class="facts"><label class="ck"><input type="checkbox" data-k="fa0"><span>hc = 1240 eV&middot;nm; visible 400&ndash;750 nm (1.65&ndash;3.1 eV)</span></label><label class="ck"><input type="checkbox" data-k="fa1"><span>% ionic = 1 &minus; exp(&minus;&Delta;&chi;&sup2;/4); &mu; = &delta;r; 1 D = 0.2082 e&middot;&Aring;</span></label><label class="ck"><input type="checkbox" data-k="fa2"><span>VSEPR: groups = atoms + lone pairs; name the shape by atoms only; LP: 5 groups equatorial, 6 groups opposite</span></label><label class="ck"><input type="checkbox" data-k="fa3"><span>Nonpolar needs identical groups placed symmetrically (XeF<sub>4</sub>, PCl<sub>5</sub>, CO<sub>2</sub>); HCN and CF<sub>2</sub>H<sub>2</sub> are polar</span></label><label class="ck"><input type="checkbox" data-k="fa4"><span>Hybridization: 2 sp, 3 sp&sup2;, 4 sp<sup>3</sup>, 5 sp<sup>3</sup>d, 6 sp<sup>3</sup>d&sup2;; triple bond = 1 &sigma; + 2 &pi;</span></label><label class="ck"><input type="checkbox" data-k="fa5"><span>Bond order = &frac12;(bonding &minus; antibonding): O<sub>2</sub> 2, N<sub>2</sub> 3, NO 2.5, CO 3, O<sub>2</sub><sup>+</sup> 2.5, He<sub>2</sub><sup>+</sup> 0.5</span></label><label class="ck"><input type="checkbox" data-k="fa6"><span>&pi;2p below &sigma;2p for N<sub>2</sub> and lighter; O<sub>2</sub> and F<sub>2</sub> normal order</span></label><label class="ck"><input type="checkbox" data-k="fa7"><span>IMF decision: ions? &rarr; H on N/O/F? &rarr; polar shape? &rarr; dispersion. Boiling point follows IMF strength; CaO &gt; NaCl</span></label><label class="ck"><input type="checkbox" data-k="fa8"><span>E<sub>g</sub> (eV): C 5.4, Si 1.1, Ge 0.67, Sn 0.08, Pb 0; decreases down a group; longer bond = smaller gap</span></label><label class="ck"><input type="checkbox" data-k="fa9"><span>n-type: more valence e<sup>&minus;</sup> than the atom replaced (donor level below CB). p-type: fewer (acceptor level above VB)</span></label><label class="ck"><input type="checkbox" data-k="fa10"><span>Semiconductor conductivity rises with T; metal falls; &sigma; = 1/&rho;</span></label><label class="ck"><input type="checkbox" data-k="fa11"><span>KE = h&nu; &minus; &phi;; no emission if h&nu; &lt; &phi;</span></label></div>
+  <div class="facts"><label class="ck"><input type="checkbox" data-k="fb0"><span>Crystal = lattice + motif; 7 systems, 14 Bravais, 3 cubic; CsCl is simple cubic, NaCl FCC</span></label><label class="ck"><input type="checkbox" data-k="fb1"><span>Points per cell 1, 2, 4; a = 2r, 4r/&radic;3, 2&radic;2 r; packing 0.52, 0.68, 0.74; # nn 6, 8, 12</span></label><label class="ck"><input type="checkbox" data-k="fb2"><span>Density = (points &times; M)/(N<sub>A</sub>a&sup3;); planar density = atoms on plane / area (BCC (110): 2/(a&sup2;&radic;2))</span></label><label class="ck"><input type="checkbox" data-k="fb3"><span>Miller: intercepts &rarr; reciprocals &rarr; clear fractions; &infin; = 0; (hkl) &perp; [hkl] only in cubic</span></label><label class="ck"><input type="checkbox" data-k="fb4"><span>Family counts: &lt;100&gt; 6, &lt;110&gt; 12, &lt;111&gt; 8; {110} 6 planes, {111} 4 planes</span></label><label class="ck"><input type="checkbox" data-k="fb5"><span>d = a/&radic;(h&sup2;+k&sup2;+l&sup2;) (cubic only); 2d sin&theta; = n&lambda;; peaks are at 2&theta;, so halve it</span></label><label class="ck"><input type="checkbox" data-k="fb6"><span>Selection rules: BCC h+k+l even; FCC all odd or all even; sin&sup2;&theta; ratios FCC 3:4:8:11:12, BCC 1:2:3:4:5:6</span></label><label class="ck"><input type="checkbox" data-k="fb7"><span>Interstitial = small atom in a gap; substitutional = similar size; Schottky = vacancy pair; Frenkel = vacancy + interstitial</span></label><label class="ck"><input type="checkbox" data-k="fb8"><span>Dislocations give plastic deformation; blocking them hardens; hammering = work hardening; annealing softens</span></label><label class="ck"><input type="checkbox" data-k="fb9"><span>Slip planes FCC {111}, BCC {110}</span></label><label class="ck"><input type="checkbox" data-k="fb10"><span>Glass: no long-range order; modifiers (Na, Ca) lower the softening T; fast cooling = higher T<sub>g</sub> and volume; crosslinked polymers don&rsquo;t melt</span></label><label class="ck"><input type="checkbox" data-k="fb11"><span>J = &minus;D dC/dx; D = D<sub>0</sub>e<sup>&minus;Q/RT</sup>; slope of ln D vs 1/T = &minus;Q/R; interstitial Q &lt; vacancy Q; depth &asymp; &radic;(Dt)</span></label></div>
+
+  <h3 class="topic" style="--c:var(--warn)">The ten ways people lose points on this exam</h3>
+  <ol>
+    <li>Answering with the <b>electron geometry</b> when asked for the <b>shape</b> (XeF<sub>4</sub> is square planar, not octahedral).</li>
+    <li>Calling a molecule nonpolar because it has polar bonds, or polar because it has a lone pair (XeF<sub>4</sub>, XeF<sub>2</sub> are nonpolar).</li>
+    <li>Forgetting the &frac12; in bond order, or filling N<sub>2</sub> with the O<sub>2</sub> orbital order.</li>
+    <li>Using the wrong touching line for r &harr; a (edge, body diagonal, face diagonal).</li>
+    <li>Using <b>2&theta;</b> in Bragg&rsquo;s law, or a calculator in radian mode.</li>
+    <li>Using d = a/&radic;(h&sup2;+k&sup2;+l&sup2;) on a non-cubic crystal, or confusing r, a and d.</li>
+    <li>Forgetting that a peak must satisfy the <b>selection rule</b> (FCC: all odd or all even).</li>
+    <li>Not giving a <b>reason</b> in &ldquo;briefly explain&rdquo; parts (strained Si: longer bond, weaker, smaller gap).</li>
+    <li>Reversing n and p (compare the dopant&rsquo;s valence electrons with the atom it replaces).</li>
+    <li>Eliminating units: eV with J, Q in kJ with R in J, cm&sup3; vs m&sup3;.</li>
+  </ol>
+
+  <h3 class="topic" style="--c:var(--accent)">Morning of the exam</h3>
+  <label class="ck"><input type="checkbox" data-k="m0"><span>Aid sheet printed or copied, with your name if required</span></label><label class="ck"><input type="checkbox" data-k="m1"><span>Calculator in <b>degree</b> mode, fresh batteries; periodic table and constants table</span></label><label class="ck"><input type="checkbox" data-k="m2"><span>Eat; read only the first two items of the facts list, then stop</span></label><label class="ck"><input type="checkbox" data-k="m3"><span>In the exam: start with the 1-point recall parts, write the formula and numbers even if unsure, check the units on every line</span></label>
+</div>
+<script>
+(function(){
+  var KEY='3091-exam2-prep-v1',st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+  var boxes=document.querySelectorAll('input[data-k]');
+  function bar(){var f=document.querySelectorAll('input[data-k^="fa"],input[data-k^="fb"]'),n=0;
+    Array.prototype.forEach.call(f,function(b){if(b.checked)n++;});
+    var el=document.getElementById('fbar');if(el)el.style.width=Math.round(100*n/Math.max(1,f.length))+'%';}
+  Array.prototype.forEach.call(boxes,function(b){
+    b.checked=!!st[b.getAttribute('data-k')];
+    b.addEventListener('change',function(){st[b.getAttribute('data-k')]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}bar();});
+  });
+  bar();
+})();
+</script>
+</body>
+</html>

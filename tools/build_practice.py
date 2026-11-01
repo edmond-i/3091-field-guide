@@ -20,7 +20,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import practice_lib as L  # noqa: E402
 
-for letter in "abcd":
+for letter in "abcde":
     exec(compile(open(os.path.join(HERE, "practice_bank_%s.py" % letter)).read(), "practice_bank_%s.py" % letter, "exec"), {"__name__": "bank"})
 
 # ---------------------------------------------------------------- inline subsets for the Field Guide
@@ -32,10 +32,10 @@ INLINE = {
     "unit5": ["lewis-3", "lewis-4", "lewis-5", "lewis-9", "vsepr-1", "vsepr-2", "vsepr-3", "vsepr-4", "vsepr-6", "vsepr-7", "vsepr-10", "vsepr-11", "vsepr-12"],
     "unit6": ["hybmo-1", "hybmo-2", "hybmo-3", "hybmo-4", "hybmo-5", "hybmo-6", "hybmo-8", "hybmo-9"],
     "unit7": ["imf-1", "imf-2", "imf-3", "imf-4", "imf-5", "imf-7"],
-    "unit8": ["bands-1", "bands-2", "bands-3", "bands-4", "bands-5", "bands-6", "bands-7", "bands-8", "bands-11", "bands-12"],
-    "unit9": ["lattice-1", "lattice-2", "lattice-3", "lattice-5", "lattice-7", "lattice-9", "lattice-16", "lattice-17", "miller-1", "miller-3", "miller-5", "miller-7", "miller-9"],
-    "unit10": ["defects-1", "defects-2", "defects-3", "defects-4", "defects-6", "defects-7", "defects-8", "defects-9"],
-    "unit11": ["diffusion-1", "diffusion-3", "diffusion-4", "diffusion-5", "diffusion-6", "diffusion-7"],
+    "unit8": ["bands-1", "bands-2", "bands-3", "bands-4", "bands-5", "bands-6", "bands-7", "bands-8", "bands-11", "bands-12", "bands-15", "bands-16"],
+    "unit9": ["lattice-1", "lattice-2", "lattice-3", "lattice-5", "lattice-7", "lattice-9", "lattice-16", "lattice-17", "miller-1", "miller-3", "miller-5", "miller-7", "miller-9", "miller-14", "miller-15", "miller-16", "miller-17", "miller-19", "miller-21"],
+    "unit10": ["defects-1", "defects-2", "defects-3", "defects-4", "defects-6", "defects-7", "defects-8", "defects-9", "defects-15", "defects-16", "defects-17"],
+    "unit11": ["diffusion-1", "diffusion-3", "diffusion-4", "diffusion-5", "diffusion-6", "diffusion-7", "diffusion-11", "diffusion-12"],
 }
 LEADS = {
     "unit1": "Cover the solutions, write your answer on paper first, <em>then</em> press Check. Quiz 1 is exactly this kind of problem.",
@@ -160,7 +160,7 @@ def build_quiz_page():
     <div class="hero-eyebrow"><span class="dot"></span> MIT 3.091 &middot; Fall 2026 &middot; quiz prep</div>
     <h1>Quiz Review: <em>the page to open before any quiz</em></h1>
     <p class="sub">%d practice questions with worked solutions, grouped by what the quizzes actually ask. Every answer can be checked instantly, wrong answers go on your retry list, and a timed mode runs a 10-minute mock quiz drawn from the topics you choose. Modelled on the six past quizzes in your Drive folder (Fall 2024, Q1&ndash;Q6) and on the recitations. The questions are written for this guide with new numbers (a few are close variants of a recitation problem and say so in their tag).</p>
-    <div class="hero-stats"><span class="stat-pill"><b>%d</b> questions</span><span class="stat-pill"><b>%d</b> auto-checked</span><span class="stat-pill"><b>%d</b> topics</span><a class="stat-pill stat-link" href="index.html">&larr; the Field Guide</a></div>
+    <div class="hero-stats"><span class="stat-pill"><b>%d</b> questions</span><span class="stat-pill"><b>%d</b> auto-checked</span><span class="stat-pill"><b>%d</b> topics</span><a class="stat-pill stat-link" href="exam2-prep.html">&#9733; Exam 2 prep</a><a class="stat-pill stat-link" href="index.html">&larr; the Field Guide</a></div>
   </header>
 
   <div class="pq-intro">
@@ -180,7 +180,7 @@ def build_quiz_page():
   <div class="pq-quizbox" id="pq-quiz">
     <h3>Timed mock quiz</h3>
     <p style="margin:0 0 6px">Random questions from the topics you tick (only auto-checked ones), solutions hidden until you submit or the clock ends. Real quizzes give you 10 minutes.</p>
-    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
+    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="lewis,vsepr,hybmo,imf,bands,lattice,miller,defects,diffusion" data-n="12" data-min="40">&#9733; Exam 2 mock (L10&ndash;L20)</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
     <div class="qz-row"><div id="qz-topics">%s</div></div>
     <div class="qz-row"><label>Questions <select id="qz-n"><option>4</option><option selected>5</option><option>8</option><option>10</option></select></label><label>Minutes <select id="qz-min"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label><button class="pq-btn" id="qz-start" type="button">Start</button><span id="qz-msg" class="small"></span></div>
   </div>
@@ -204,7 +204,7 @@ def build_quiz_page():
   Array.prototype.forEach.call(presets,function(b){b.addEventListener('click',function(){
     var v=b.getAttribute('data-preset'),all=v==='all',set=v.split(',');
     Array.prototype.forEach.call(document.querySelectorAll('#qz-topics input'),function(i){i.checked=all?false:set.indexOf(i.value)>-1;});
-    var n=document.getElementById('qz-n');n.value='5';document.getElementById('qz-start').click();
+    var n=document.getElementById('qz-n');var want=b.getAttribute('data-n')||'5';if(!Array.prototype.some.call(n.options,function(o){return o.value===want;})){var o=document.createElement('option');o.value=want;o.textContent=want;n.appendChild(o);}n.value=want;var m=document.getElementById('qz-min');var wm=b.getAttribute('data-min')||'10';if(!Array.prototype.some.call(m.options,function(o){return o.value===wm;})){var o2=document.createElement('option');o2.value=wm;o2.textContent=wm;m.appendChild(o2);}m.value=wm;document.getElementById('qz-start').click();
   });});
 })();
 """
