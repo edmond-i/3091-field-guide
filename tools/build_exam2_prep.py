@@ -140,6 +140,8 @@ body = """
     <div class="hero-stats"><a class="go" href="%(Q)s#pq-quiz">&#9733; Start the Exam 2 mock</a><a class="go alt" href="%(G)s">The Field Guide</a><a class="go alt" href="%(Q)s">All practice questions</a></div>
   </header>
 
+  <div class="box def"><div class="box-head">Update</div><p style="margin-bottom:0">Exam 2 took place on Monday, Nov 2. This page stays up as a review of L10&ndash;L20. Lectures 21&ndash;23 (kinetics and thermodynamics) are in <a href="%(G)s#unit12">Units 12&ndash;13 of the guide</a>, with practice in the <a href="%(Q)s#t-kinetics">Quiz Review</a>.</p></div>
+
   <h3 class="topic" style="--c:var(--warn)">What I could and could not get</h3>
   <div class="box trap">
     <div class="box-head">Read this first</div>

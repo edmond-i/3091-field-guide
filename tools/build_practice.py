@@ -20,7 +20,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import practice_lib as L  # noqa: E402
 
-for letter in "abcde":
+for letter in "abcdef":
     exec(compile(open(os.path.join(HERE, "practice_bank_%s.py" % letter)).read(), "practice_bank_%s.py" % letter, "exec"), {"__name__": "bank"})
 
 # ---------------------------------------------------------------- inline subsets for the Field Guide
@@ -35,6 +35,8 @@ INLINE = {
     "unit8": ["bands-1", "bands-2", "bands-3", "bands-4", "bands-5", "bands-6", "bands-7", "bands-8", "bands-11", "bands-12", "bands-15", "bands-16"],
     "unit9": ["lattice-1", "lattice-2", "lattice-3", "lattice-5", "lattice-7", "lattice-9", "lattice-16", "lattice-17", "miller-1", "miller-3", "miller-5", "miller-7", "miller-9", "miller-14", "miller-15", "miller-16", "miller-17", "miller-19", "miller-21"],
     "unit10": ["defects-1", "defects-2", "defects-3", "defects-4", "defects-6", "defects-7", "defects-8", "defects-9", "defects-15", "defects-16", "defects-17"],
+    "unit12": ["kinetics-1", "kinetics-2", "kinetics-3", "kinetics-4", "kinetics-5", "kinetics-6", "kinetics-7", "kinetics-8", "kinetics-9", "kinetics-10", "kinetics-11", "kinetics-12", "kinetics-13", "kinetics-16", "kinetics-17", "kinetics-21", "kinetics-22"],
+    "unit13": ["thermo-1", "thermo-2", "thermo-3", "thermo-4", "thermo-5", "thermo-7", "thermo-8", "thermo-10"],
     "unit11": ["diffusion-1", "diffusion-3", "diffusion-4", "diffusion-5", "diffusion-6", "diffusion-7", "diffusion-11", "diffusion-12"],
 }
 LEADS = {
@@ -48,6 +50,8 @@ LEADS = {
     "unit8": "Quiz 5: match the diagram, say what strain does to the gap, n- or p-type, and convert a gap to a wavelength.",
     "unit9": "Quiz 6 starts here: a from r, packing and density, then Miller indices and Bragg&rsquo;s law.",
     "unit10": "Mostly one-sentence reasons. Say <em>why</em>, because the rubrics award a point for the reason.",
+    "unit12": "Rates and mechanisms: do the arithmetic first, then the reasoning questions. Past Quiz 7 (2024) is this kind of question.",
+    "unit13": "Spontaneity: sign table, &Delta;G = &Delta;H &minus; T&Delta;S with correct units, and what &Delta;G does and does not tell you.",
     "unit11": "L20 is light on equations; these questions practise the logic (and the standard Arrhenius / &radic;(Dt) forms, tagged extra).",
 }
 QUIZ_PAGE = "quiz-review.html"
@@ -67,6 +71,8 @@ SLIPS = {
     "lattice": ["Using the wrong touching line (edge / body diagonal / face diagonal).", "Counting atoms instead of lattice points.", "Forgetting &radic;2 in the (110) area."],
     "miller": ["Calculator in radians.", "Using 2&theta; as &theta; (or the reverse).", "Using d = a instead of a/&radic;(h&sup2;+k&sup2;+l&sup2;)."],
     "defects": ["&ldquo;Softer&rdquo; after hammering (confusing it with annealing).", "Substitutional for a small atom like C.", "Thinking glass melts at one temperature."],
+    "kinetics": ["Using the stoichiometric coefficients as the rate-law exponents for a reaction that is not elementary.", "Forgetting that 1/[A] vs t has slope +k (not &minus;k).", "kJ vs J with R in the Arrhenius calculation; reading &lsquo;steeper&rsquo; as &lsquo;faster&rsquo;."],
+    "thermo": ["Mixing J/K and kJ in &Delta;G = &Delta;H &minus; T&Delta;S.", "Thinking &Delta;G &lt; 0 means the reaction is fast.", "Using Celsius for T."],
     "diffusion": ["Q in kJ with R in J.", "Reading &ldquo;steeper&rdquo; as &ldquo;faster&rdquo;.", "Forgetting that depth goes as the square root of time."],
 }
 QUIZMAP = [
@@ -76,9 +82,10 @@ QUIZMAP = [
     ("Quiz 4", "vsepr, hybmo, imf", "L10&ndash;L13", "XeF<sub>4</sub> Lewis + AXE + shape; H<sub>2</sub> MO diagram + bond order; strongest IMF"),
     ("Quiz 5", "bands", "L14&ndash;L15", "match bands to Au / Ge / diamond; strained-Si gap; n- or p-type; LED wavelength"),
     ("Quiz 6", "lattice, miller, defects", "L16&ndash;L18", "BCC planar density; equivalent planes; Bragg&rsquo;s law; interstitial vs substitutional; work hardening"),
+    ("Quiz 7", "kinetics", "L21&ndash;L22", "label lines on a log k vs 1/T plot by E<sub>a</sub>; what removing a catalyst does; why a cold catalytic converter pollutes; energy balance (J, kJ, MJ)"),
 ]
 
-TOPIC_ORDER = ["gas", "bohr", "config", "trends", "ionic", "lewis", "vsepr", "hybmo", "imf", "bands", "lattice", "miller", "defects", "diffusion"]
+TOPIC_ORDER = ["gas", "bohr", "config", "trends", "ionic", "lewis", "vsepr", "hybmo", "imf", "bands", "lattice", "miller", "defects", "diffusion", "kinetics", "thermo"]
 UNIT_OF_TOPIC = {k: v["unit"] for k, v in L.TOPICS.items()}
 
 
@@ -180,7 +187,7 @@ def build_quiz_page():
   <div class="pq-quizbox" id="pq-quiz">
     <h3>Timed mock quiz</h3>
     <p style="margin:0 0 6px">Random questions from the topics you tick (only auto-checked ones), solutions hidden until you submit or the clock ends. Real quizzes give you 10 minutes.</p>
-    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="lewis,vsepr,hybmo,imf,bands,lattice,miller,defects,diffusion" data-n="12" data-min="40">&#9733; Exam 2 mock (L10&ndash;L20)</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
+    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="kinetics,thermo">Kinetics &amp; thermo</button><button class="pq-chip" type="button" data-preset="lewis,vsepr,hybmo,imf,bands,lattice,miller,defects,diffusion" data-n="12" data-min="40">&#9733; Exam 2 mock (L10&ndash;L20)</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
     <div class="qz-row"><div id="qz-topics">%s</div></div>
     <div class="qz-row"><label>Questions <select id="qz-n"><option>4</option><option selected>5</option><option>8</option><option>10</option></select></label><label>Minutes <select id="qz-min"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label><button class="pq-btn" id="qz-start" type="button">Start</button><span id="qz-msg" class="small"></span></div>
   </div>

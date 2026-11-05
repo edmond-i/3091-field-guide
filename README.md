@@ -35,11 +35,13 @@ No build step and no dependencies. Open `index.html` in a browser. (Web fonts lo
 | L16-L17 | Early crystallography, lattices and motifs, 7 systems / 14 Bravais lattices, SC/BCC/FCC, close packing, holes and ionic structures, Miller indices, d-spacing, Bragg's law | 09 |
 | L18-L19 | Point and line defects, alloys, dislocations, amorphous solids, silica glass, polymers | 10 |
 | L20 | Diffusion: Fick's laws, activation energy, Exam 2 scope | 11 |
+| L21-L22 (Rec 14-15) | Rates, rate laws, integrated laws, Arrhenius, energy diagrams, catalysts, mechanisms | 12 |
+| L23 | Spontaneity, Gibbs free energy, free energy as work | 13 |
 | all | Cheat codes, practice archetypes, formula sheet, exam traps | end of page |
 
-Recitations 01-11 (including 9.5) and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
+Recitations 01-12, 14 and 15 (including 9.5) and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
 
-**Not yet covered:** the Recitation 11 slide deck was unreadable (the Rec 11 solutions are covered), and material after Lecture 20 (kinetics, equilibrium, phase diagrams, organic) is not in the guide yet.
+**Not yet covered:** the Recitation 11 slide deck was unreadable (the Rec 11 solutions are covered), Recitation 13 slides were not provided, and material after Lecture 23 (equilibrium, solutions, phase diagrams, organic) is not in the guide yet.
 
 ## Practice and quiz review
 

@@ -29,3 +29,10 @@
   .dif-a-t{fill:var(--unit-covalent);} .dif-b-t{fill:var(--warn);}
   .dif{fill:none;stroke-width:2.6;}
   .dif-t1{stroke:var(--unit-trends);} .dif-t2{stroke:var(--unit-atoms);} .dif-t3{stroke:var(--unit-orbital);}
+  /* ---------- units 12-13 figures ---------- */
+  .kx-curve{fill:none;stroke:var(--unit-kinetics);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .kx-cat{fill:none;stroke:var(--unit-thermo);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .kx-line{fill:none;stroke:var(--unit-kinetics);stroke-width:2.8;stroke-linecap:round;}
+  .kx-catline{fill:none;stroke:var(--unit-thermo);stroke-width:1.8;}
+  .kx-cat-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-thermo);}
+  .kx-slope{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-kinetics);}

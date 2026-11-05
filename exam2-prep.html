@@ -39,6 +39,10 @@
     --unit-defect-soft:#F5E2E9;
     --unit-diffusion:#1F7A8C;
     --unit-diffusion-soft:#DDF0F3;
+    --unit-kinetics:#3B8F2E;
+    --unit-kinetics-soft:#E3F2DE;
+    --unit-thermo:#C2410C;
+    --unit-thermo-soft:#FBE8DC;
     --warn:#AE4A2E;
     --warn-soft:#FAEBE4;
     --good:#1E8F74;
@@ -75,6 +79,10 @@
       --unit-defect-soft:#3A2230;
       --unit-diffusion:#7FCBD9;
       --unit-diffusion-soft:#1B3237;
+      --unit-kinetics:#8FD17A;
+      --unit-kinetics-soft:#1E3319;
+      --unit-thermo:#FB9A6B;
+      --unit-thermo-soft:#3B2216;
       --warn:#E89579;
       --warn-soft:#3A241C;
       --good:#6FD5B9;
@@ -111,6 +119,10 @@
       --unit-defect-soft:#3A2230;
       --unit-diffusion:#7FCBD9;
       --unit-diffusion-soft:#1B3237;
+      --unit-kinetics:#8FD17A;
+      --unit-kinetics-soft:#1E3319;
+      --unit-thermo:#FB9A6B;
+      --unit-thermo-soft:#3B2216;
     --warn:#E89579;
     --warn-soft:#3A241C;
     --good:#6FD5B9;
@@ -685,6 +697,13 @@
   .dif{fill:none;stroke-width:2.6;}
   .dif-t1{stroke:var(--unit-trends);} .dif-t2{stroke:var(--unit-atoms);} .dif-t3{stroke:var(--unit-orbital);}
 
+  /* ---------- units 12-13 figures ---------- */
+  .kx-curve{fill:none;stroke:var(--unit-kinetics);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .kx-cat{fill:none;stroke:var(--unit-thermo);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .kx-line{fill:none;stroke:var(--unit-kinetics);stroke-width:2.8;stroke-linecap:round;}
+  .kx-catline{fill:none;stroke:var(--unit-thermo);stroke-width:1.8;}
+  .kx-cat-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-thermo);}
+  .kx-slope{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-kinetics);}
   
 
   .ex-shell{max-width:900px;margin:0 auto;padding:20px 16px 80px;}
@@ -717,6 +736,8 @@
     <p class="sub">Scope: <b>Lectures 10&ndash;20, Recitations 7&ndash;13, Problem Sets 4&ndash;7</b> (covalent bonding through diffusion). A plan for the two days left, what the exam is likely to ask, the facts to know cold, and links to the explanations and practice. Progress ticks are saved in this browser.</p>
     <div class="hero-stats"><a class="go" href="quiz-review.html#pq-quiz">&#9733; Start the Exam 2 mock</a><a class="go alt" href="index.html">The Field Guide</a><a class="go alt" href="quiz-review.html">All practice questions</a></div>
   </header>
+
+  <div class="box def"><div class="box-head">Update</div><p style="margin-bottom:0">Exam 2 took place on Monday, Nov 2. This page stays up as a review of L10&ndash;L20. Lectures 21&ndash;23 (kinetics and thermodynamics) are in <a href="index.html#unit12">Units 12&ndash;13 of the guide</a>, with practice in the <a href="quiz-review.html#t-kinetics">Quiz Review</a>.</p></div>
 
   <h3 class="topic" style="--c:var(--warn)">What I could and could not get</h3>
   <div class="box trap">
