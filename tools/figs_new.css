@@ -36,3 +36,10 @@
   .kx-catline{fill:none;stroke:var(--unit-thermo);stroke-width:1.8;}
   .kx-cat-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-thermo);}
   .kx-slope{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-kinetics);}
+  .ex-zl{fill:var(--unit-equil-soft);stroke:var(--unit-equil);stroke-width:1.2;opacity:.55;}
+  .ex-zm{fill:var(--unit-equil-soft);stroke:var(--unit-equil);stroke-width:1.2;opacity:.85;}
+  .ex-zr{fill:var(--unit-equil-soft);stroke:var(--unit-equil);stroke-width:1.2;}
+  .ex-dot{fill:var(--unit-equil);stroke:var(--surface,#fff);stroke-width:1.5;}
+  .ex-curve{fill:none;stroke:var(--unit-equil);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .ex-k{stroke:var(--unit-thermo);stroke-width:2;stroke-dasharray:6 4;}
+  .ex-kt{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-thermo);}
