@@ -153,7 +153,7 @@ selfq("equil-25", "equil", 2, "L24 slide 9",
       "<p><b>Model answer.</b> Write Q with the K expression (products over reactants, coefficients as exponents) using the concentrations now. If Q &lt; K there is too little product, so the reaction proceeds to the right; if Q &gt; K it proceeds to the left; at Q = K there is no net change. Equilibrium is dynamic because forward and reverse reactions both keep going at the <em>same</em> rate, so the amounts stay constant without anything having stopped.</p>")
 
 # ================================================================== THERMODYNAMICS FOUNDATIONS (Rec 16)
-topic("laws", "Thermodynamics foundations: heat, work, H &amp; S", "unit14", "Rec 16",
+topic("laws", "Thermodynamics foundations: heat, work, H &amp; S", "unit13", "Rec 16",
       "Recitation 16 recap. Recipe: <b>&Delta;E = Q + W</b> with <b>W = &minus;P&Delta;V</b> (work done <em>on</em> the system is +); "
       "<b>&Delta;H = Q</b> at constant pressure; <b>&Delta;H&deg;<sub>rxn</sub> = &Sigma;&Delta;H&deg;<sub>f</sub>(products) &minus; &Sigma;&Delta;H&deg;<sub>f</sub>(reactants)</b> (elements = 0); "
       "state functions (U, H, S, G, P, V, T) vs path functions (Q, W); entropy: crystal &lt; amorphous &lt; liquid &lt; gas, &Delta;S<sub>universe</sub> &ge; 0.")

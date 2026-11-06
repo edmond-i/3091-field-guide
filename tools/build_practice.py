@@ -36,8 +36,8 @@ INLINE = {
     "unit9": ["lattice-1", "lattice-2", "lattice-3", "lattice-5", "lattice-7", "lattice-9", "lattice-16", "lattice-17", "miller-1", "miller-3", "miller-5", "miller-7", "miller-9", "miller-14", "miller-15", "miller-16", "miller-17", "miller-19", "miller-21"],
     "unit10": ["defects-1", "defects-2", "defects-3", "defects-4", "defects-6", "defects-7", "defects-8", "defects-9", "defects-15", "defects-16", "defects-17"],
     "unit12": ["kinetics-1", "kinetics-2", "kinetics-3", "kinetics-4", "kinetics-5", "kinetics-6", "kinetics-7", "kinetics-8", "kinetics-9", "kinetics-10", "kinetics-11", "kinetics-12", "kinetics-13", "kinetics-16", "kinetics-17", "kinetics-21", "kinetics-22"],
-    "unit13": ["thermo-1", "thermo-2", "thermo-3", "thermo-4", "thermo-5", "thermo-7", "thermo-8", "thermo-10"],
-    "unit14": ["equil-1", "equil-2", "equil-3", "equil-4", "equil-6", "equil-7", "equil-9", "equil-10", "equil-12", "equil-14", "equil-15", "equil-17", "equil-19", "equil-20", "equil-22", "equil-23", "laws-2", "laws-3", "laws-4", "laws-5", "laws-6", "laws-7", "laws-8", "laws-10", "laws-11", "laws-13"],
+    "unit13": ["laws-2", "laws-3", "laws-4", "laws-5", "laws-6", "laws-7", "laws-8", "laws-10", "laws-11", "laws-13", "thermo-1", "thermo-2", "thermo-3", "thermo-4", "thermo-5", "thermo-7", "thermo-8", "thermo-10"],
+    "unit14": ["equil-1", "equil-2", "equil-3", "equil-4", "equil-6", "equil-7", "equil-9", "equil-10", "equil-12", "equil-14", "equil-15", "equil-17", "equil-19", "equil-20", "equil-22", "equil-23"],
     "unit11": ["diffusion-1", "diffusion-3", "diffusion-4", "diffusion-5", "diffusion-6", "diffusion-7", "diffusion-11", "diffusion-12"],
 }
 LEADS = {
@@ -52,8 +52,8 @@ LEADS = {
     "unit9": "Quiz 6 starts here: a from r, packing and density, then Miller indices and Bragg&rsquo;s law.",
     "unit10": "Mostly one-sentence reasons. Say <em>why</em>, because the rubrics award a point for the reason.",
     "unit12": "Rates and mechanisms: do the arithmetic first, then the reasoning questions. Past Quiz 7 (2024) is this kind of question.",
-    "unit13": "Spontaneity: sign table, &Delta;G = &Delta;H &minus; T&Delta;S with correct units, and what &Delta;G does and does not tell you.",
-    "unit14": "Equilibrium: write K, compare Q with K, convert &Delta;G&deg; to K, then the Rec 16 bookkeeping (W = &minus;P&Delta;V, &Delta;H from formation values, entropy and the three laws). Quiz 8 (2024) is this kind of question.",
+    "unit13": "First the Rec 16 bookkeeping (W = &minus;P&Delta;V, &Delta;H from formation values, entropy and the three laws), then spontaneity: sign table, &Delta;G = &Delta;H &minus; T&Delta;S with correct units, and what &Delta;G does and does not tell you.",
+    "unit14": "Equilibrium: write K, compare Q with K, convert &Delta;G&deg; to K, then a RICE table. Quiz 8 (2024) is this kind of question.",
     "unit11": "L20 is light on equations; these questions practise the logic (and the standard Arrhenius / &radic;(Dt) forms, tagged extra).",
 }
 QUIZ_PAGE = "quiz-review.html"
@@ -87,10 +87,10 @@ QUIZMAP = [
     ("Quiz 5", "bands", "L14&ndash;L15", "match bands to Au / Ge / diamond; strained-Si gap; n- or p-type; LED wavelength"),
     ("Quiz 6", "lattice, miller, defects", "L16&ndash;L18", "BCC planar density; equivalent planes; Bragg&rsquo;s law; interstitial vs substitutional; work hardening"),
     ("Quiz 7", "kinetics", "L21&ndash;L22", "label lines on a log k vs 1/T plot by E<sub>a</sub>; what removing a catalyst does; why a cold catalytic converter pollutes; energy balance (J, kJ, MJ)"),
-    ("Quiz 8", "equil, laws", "L23&ndash;L24, Rec 16", "RICE table and K; Q vs K and which way it shifts; Le Ch&acirc;telier and the catalyst; K and &Delta;G&deg; (2024: Sabatier volcano, CO vs O<sub>2</sub> in hemoglobin)"),
+    ("Quiz 8", "equil, thermo", "L23&ndash;L24", "RICE table and K; Q vs K and which way it shifts; Le Ch&acirc;telier and the catalyst; K and &Delta;G&deg; (2024: Sabatier volcano, CO vs O<sub>2</sub> in hemoglobin)"),
 ]
 
-TOPIC_ORDER = ["gas", "bohr", "config", "trends", "ionic", "lewis", "vsepr", "hybmo", "imf", "bands", "lattice", "miller", "defects", "diffusion", "kinetics", "thermo", "equil", "laws"]
+TOPIC_ORDER = ["gas", "bohr", "config", "trends", "ionic", "lewis", "vsepr", "hybmo", "imf", "bands", "lattice", "miller", "defects", "diffusion", "kinetics", "laws", "thermo", "equil"]
 UNIT_OF_TOPIC = {k: v["unit"] for k, v in L.TOPICS.items()}
 
 
@@ -192,7 +192,7 @@ def build_quiz_page():
   <div class="pq-quizbox" id="pq-quiz">
     <h3>Timed mock quiz</h3>
     <p style="margin:0 0 6px">Random questions from the topics you tick (only auto-checked ones), solutions hidden until you submit or the clock ends. Real quizzes give you 10 minutes.</p>
-    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="kinetics,thermo">Kinetics &amp; thermo</button><button class="pq-chip" type="button" data-preset="equil,laws">Quiz 8 style: equilibrium</button><button class="pq-chip" type="button" data-preset="lewis,vsepr,hybmo,imf,bands,lattice,miller,defects,diffusion" data-n="12" data-min="40">&#9733; Exam 2 mock (L10&ndash;L20)</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
+    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="kinetics,laws,thermo">Kinetics &amp; thermo</button><button class="pq-chip" type="button" data-preset="thermo,equil">Quiz 8 style: equilibrium</button><button class="pq-chip" type="button" data-preset="lewis,vsepr,hybmo,imf,bands,lattice,miller,defects,diffusion" data-n="12" data-min="40">&#9733; Exam 2 mock (L10&ndash;L20)</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
     <div class="qz-row"><div id="qz-topics">%s</div></div>
     <div class="qz-row"><label>Questions <select id="qz-n"><option>4</option><option selected>5</option><option>8</option><option>10</option></select></label><label>Minutes <select id="qz-min"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label><button class="pq-btn" id="qz-start" type="button">Start</button><span id="qz-msg" class="small"></span></div>
   </div>
