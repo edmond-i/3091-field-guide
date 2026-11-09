@@ -43,3 +43,9 @@
   .ex-curve{fill:none;stroke:var(--unit-equil);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
   .ex-k{stroke:var(--unit-thermo);stroke-width:2;stroke-dasharray:6 4;}
   .ex-kt{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-thermo);}
+  .ca-box{fill:var(--unit-cat-soft);stroke:var(--unit-cat);stroke-width:1.4;}
+  .ca-prod{fill:var(--unit-cat);fill-opacity:.18;stroke:var(--unit-cat);stroke-width:2;}
+  .ca-arr{fill:none;stroke:var(--ink-soft);stroke-width:2;}
+  .ca-rec{fill:none;stroke:var(--unit-thermo);stroke-width:2;stroke-dasharray:6 4;}
+  .ca-lev{stroke:var(--unit-cat);stroke-width:3;stroke-linecap:round;}
+  .ca-curve{fill:none;stroke:var(--unit-cat);stroke-width:1.8;opacity:.8;}

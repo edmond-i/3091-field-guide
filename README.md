@@ -38,11 +38,12 @@ No build step and no dependencies. Open `index.html` in a browser. (Web fonts lo
 | L21-L22 (Rec 14-15) | Rates, rate laws, integrated laws, Arrhenius, energy diagrams, catalysts, mechanisms | 12 |
 | L23 (Rec 16) | System, work, heat, first law, enthalpy, entropy and the three laws; spontaneity, Gibbs free energy, free energy as work | 13 |
 | L24 | Equilibrium constant K, Q vs K, K and G (extra), RICE tables (extra), Le Chatelier (extra) | 14 |
+| L25 | Catalysis: Ertl mechanism on iron, Haber-Bosch plant, cost of ammonia, catalytic converters, heterogeneous/homogeneous/enzymatic catalysis, nitrogenase, nitrogen recovery | 15 |
 | all | Cheat codes, practice archetypes, formula sheet, exam traps | end of page |
 
 Recitations 01-12, 14 and 15 (including 9.5) and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
 
-**Not yet covered:** the Recitation 11 slide deck was unreadable (the Rec 11 solutions are covered), Recitation 13 slides were not provided, and material after Lecture 24 (solutions, phase diagrams, organic) is not in the guide yet.
+**Not yet covered:** the Recitation 11 slide deck was unreadable (the Rec 11 solutions are covered), Recitation 13 slides were not provided, and material after Lecture 25 (solutions, phase diagrams, organic) is not in the guide yet.
 
 ## Practice and quiz review
 
