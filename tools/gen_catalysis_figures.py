@@ -75,6 +75,28 @@ def fig_ertl():
     save("cat_ertl", svg)
 
 
+def fig_volcano():
+    o = []
+    x0, y0, x1, y1 = 60, 20, 560, 220
+    mid = 300
+    o.append('<rect class="ca-zs" x="%d" y="%d" width="%d" height="%d"/><rect class="ca-zw" x="%d" y="%d" width="%d" height="%d"/>' % (x0, 70, mid - x0, y1 - 70, mid, 70, x1 - mid, y1 - 70))
+    o.append('<path class="fm-ax" d="M%d,%d V%d M%d,%d H%d"/>' % (x0, y1, y0, x0, y1, x1))
+    pts = []
+    for i in range(0, 101):
+        t = i / 100.0
+        x = x0 + 8 + t * (x1 - x0 - 16)
+        y = y1 - 8 - 170 * (1 - ((t - 0.46) / 0.54 if t > 0.46 else (0.46 - t) / 0.46) ** 2) * 1.0
+        pts.append("%.1f,%.1f" % (x, y))
+    o.append('<polyline class="ex-curve" points="%s"/>' % " ".join(pts))
+    o.append('<text class="fm-h" x="%d" y="%d" text-anchor="middle">Sabatier optimum</text>' % (x0 + 8 + 0.46 * (x1 - x0 - 16), 28))
+    o.append('<text class="kx-slope" x="%d" y="%d" text-anchor="middle">limited by desorption</text><text class="kx-slope" x="%d" y="%d" text-anchor="middle">of the product</text>' % ((x0 + mid) // 2 - 10, 178, (x0 + mid) // 2 - 10, 194))
+    o.append('<text class="kx-slope" x="%d" y="%d" text-anchor="middle">limited by activation</text><text class="kx-slope" x="%d" y="%d" text-anchor="middle">of the reactant</text>' % ((mid + x1) // 2 + 20, 178, (mid + x1) // 2 + 20, 194))
+    o.append('<text class="fm-note" x="%d" y="%d">strong</text><text class="fm-note" x="%d" y="%d" text-anchor="end">weak</text>' % (x0 + 4, y1 + 16, x1, y1 + 16))
+    o.append('<text class="ic-lab" x="%d" y="%d" text-anchor="middle">bond strength of reactant to the catalyst surface</text><text class="ic-lab" transform="rotate(-90 22 120)" x="22" y="120" text-anchor="middle">rate</text>' % ((x0 + x1) // 2, y1 + 34))
+    svg = ('<svg viewBox="0 0 600 262" role="img" aria-label="Volcano plot: reaction rate against how strongly the reactant binds to the catalyst surface. Very strong binding is limited by the product leaving the surface, very weak binding is limited by activating the reactant, and the rate peaks at an intermediate binding strength, the Sabatier optimum.">' + "".join(o) + '</svg>')
+    save("cat_volcano", svg)
+
+
 if __name__ == "__main__":
-    fig_loop(); fig_ertl()
+    fig_loop(); fig_ertl(); fig_volcano()
     print("ok")

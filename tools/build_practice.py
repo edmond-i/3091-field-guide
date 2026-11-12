@@ -20,7 +20,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import practice_lib as L  # noqa: E402
 
-for letter in "abcdefgh":
+for letter in "abcdefghi":
     exec(compile(open(os.path.join(HERE, "practice_bank_%s.py" % letter)).read(), "practice_bank_%s.py" % letter, "exec"), {"__name__": "bank"})
 
 # ---------------------------------------------------------------- inline subsets for the Field Guide
@@ -37,8 +37,8 @@ INLINE = {
     "unit10": ["defects-1", "defects-2", "defects-3", "defects-4", "defects-6", "defects-7", "defects-8", "defects-9", "defects-15", "defects-16", "defects-17"],
     "unit12": ["kinetics-1", "kinetics-2", "kinetics-3", "kinetics-4", "kinetics-5", "kinetics-6", "kinetics-7", "kinetics-8", "kinetics-9", "kinetics-10", "kinetics-11", "kinetics-12", "kinetics-13", "kinetics-16", "kinetics-17", "kinetics-21", "kinetics-22"],
     "unit13": ["laws-2", "laws-3", "laws-4", "laws-5", "laws-6", "laws-7", "laws-8", "laws-10", "laws-11", "laws-13", "thermo-1", "thermo-2", "thermo-3", "thermo-4", "thermo-5", "thermo-7", "thermo-8", "thermo-10"],
-    "unit14": ["equil-1", "equil-2", "equil-3", "equil-4", "equil-6", "equil-7", "equil-9", "equil-10", "equil-12", "equil-14", "equil-15", "equil-17", "equil-19", "equil-20", "equil-22", "equil-23"],
-    "unit15": ["catalysis-1", "catalysis-2", "catalysis-4", "catalysis-6", "catalysis-7", "catalysis-8", "catalysis-10", "catalysis-12", "catalysis-13", "catalysis-14", "catalysis-16", "catalysis-17", "catalysis-18", "catalysis-19", "catalysis-24", "catalysis-26"],
+    "unit14": ["equil-1", "equil-2", "equil-3", "equil-4", "equil-6", "equil-7", "equil-9", "equil-10", "equil-12", "equil-14", "equil-15", "equil-17", "equil-19", "equil-20", "equil-22", "equil-23", "equil-26", "equil-28", "equil-29", "equil-33", "equil-34", "equil-36", "equil-37"],
+    "unit15": ["catalysis-1", "catalysis-2", "catalysis-4", "catalysis-6", "catalysis-7", "catalysis-8", "catalysis-10", "catalysis-12", "catalysis-13", "catalysis-14", "catalysis-16", "catalysis-17", "catalysis-18", "catalysis-19", "catalysis-24", "catalysis-26", "catalysis-29", "catalysis-31", "catalysis-33"],
     "unit11": ["diffusion-1", "diffusion-3", "diffusion-4", "diffusion-5", "diffusion-6", "diffusion-7", "diffusion-11", "diffusion-12"],
 }
 LEADS = {

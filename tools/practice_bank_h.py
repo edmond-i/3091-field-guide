@@ -139,7 +139,7 @@ mc("catalysis-25", "catalysis", 3, "L25 slides 18&ndash;19 &middot; extra",
    ["The equilibrium shifts right and NH<sub>3</sub> is released", "The equilibrium shifts left", "K increases", "Nothing, because H<sup>+</sup> is not in K"],
    "<p>Removing a product makes Q &lt; K, so the reaction proceeds right and releases NH<sub>3</sub> (Le Ch&acirc;telier). K itself is unchanged.</p>")
 
-mc("catalysis-26", "catalysis", 3, "L25 slide 5 &middot; extra",
+mc("catalysis-26", "catalysis", 3, "Rec 17 slides 14&ndash;15",
    "A good catalyst surface binds N atoms strongly enough to break N&equiv;N but not so strongly that NH<sub>3</sub> cannot leave. What is this idea called?",
    ["The Sabatier principle (a volcano plot of activity against binding strength)", "Le Ch&acirc;telier&rsquo;s principle", "Hund&rsquo;s rule", "The Born&ndash;Haber cycle"],
    "<p>Too weak a grip: reactants never split. Too strong: products stay stuck. Activity peaks at intermediate binding, a volcano shape.</p>")

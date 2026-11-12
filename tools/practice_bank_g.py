@@ -60,47 +60,47 @@ mc("equil-9", "equil", 2, "L24 slide 9",
    "<p>Q &gt; K means too much product, so the reverse reaction wins until Q has dropped to K. On the L24 plot this is the upper curve falling toward the Q = K line.</p>")
 
 K_val = math.exp(20000.0 / (R * T0))
-num("equil-10", "equil", 3, "L24 &middot; extra",
+num("equil-10", "equil", 3, "Rec 17 slides 10&ndash;11",
     "A reaction has &Delta;G&deg; = &minus;20.0 kJ/mol at 298 K. Calculate K. (R = 8.314 J/(mol&middot;K).)",
     K_val, "",
     "<p>&Delta;G&deg; = &minus;RT ln K &rArr; ln K = 20 000 / (8.314 &times; 298) = %s, so K = <b>%s</b>. Use J with R, so convert &minus;20.0 kJ to &minus;20 000 J first.</p>" % (fmt(20000.0 / (R * T0), 4), fmt(K_val, 3)),
     hint="ln K = &minus;&Delta;G&deg;/(RT), with &Delta;G&deg; in joules.", tol=0.03, text=fmt(K_val, 3))
 
 dG = -R * 300 * math.log(4.2e13) / 1000.0
-num("equil-11", "equil", 3, "L24 slide 8 &middot; extra",
+num("equil-11", "equil", 3, "Rec 17 slides 10&ndash;11",
     "From the L24 table, 2NO + O<sub>2</sub> &rlarr; 2NO<sub>2</sub> has K = 4.2&times;10<sup>13</sup> at 300 K. Find &Delta;G&deg; in kJ/mol.",
     dG, "kJ/mol",
     "<p>&Delta;G&deg; = &minus;RT ln K = &minus;8.314 &times; 300 &times; ln(4.2&times;10<sup>13</sup>) = &minus;8.314 &times; 300 &times; %s = &minus;%s J, so <b>%s kJ/mol</b>. Very negative &Delta;G&deg; &harr; very large K.</p>" % (fmt(math.log(4.2e13), 4), fmt(-dG * 1000, 4), fmt(dG, 4)),
     tol=0.02, text="%s kJ/mol" % fmt(dG, 4))
 
 dG3 = -R * T0 * math.log(1e3) / 1000.0
-num("equil-12", "equil", 3, "L24 slide 8 &middot; extra",
+num("equil-12", "equil", 3, "Rec 17 slides 10&ndash;11",
     "What &Delta;G&deg; (in kJ/mol, at 298 K) corresponds to K = 10<sup>3</sup>, the boundary of the &ldquo;large K&rdquo; zone on the L24 slide?",
     dG3, "kJ/mol",
     "<p>&Delta;G&deg; = &minus;RT ln(10<sup>3</sup>) = &minus;8.314 &times; 298 &times; 6.908 = &minus;17 114 J = <b>%s kJ/mol</b>. So at room temperature, &ldquo;mostly products&rdquo; means &Delta;G&deg; more negative than about &minus;17 kJ/mol.</p>" % fmt(dG3, 3),
     text="%s kJ/mol" % fmt(dG3, 3))
 
 dGq = -10.0 + R * T0 * math.log(0.01) / 1000.0
-num("equil-13", "equil", 3, "L24 &middot; extra",
+num("equil-13", "equil", 3, "Rec 17 slide 10",
     "A reaction has &Delta;G&deg; = &minus;10.0 kJ/mol. At 298 K the mixture has Q = 0.010. What is &Delta;G (kJ/mol) for the reaction under these conditions?",
     dGq, "kJ/mol",
     "<p>&Delta;G = &Delta;G&deg; + RT ln Q = &minus;10.0 + (8.314 &times; 298 / 1000) &times; ln(0.010) = &minus;10.0 + 2.478 &times; (&minus;4.605) = <b>%s kJ/mol</b>. Q is far below K, so the push to the right is even stronger than under standard conditions.</p>" % fmt(dGq, 3),
     hint="ln(0.010) = &minus;4.605.", text="%s kJ/mol" % fmt(dGq, 3))
 
-num("equil-14", "equil", 2, "RICE &middot; extra",
+num("equil-14", "equil", 2, "Rec 17 slide 8 (RICE)",
     "H<sub>2</sub> + I<sub>2</sub> &rlarr; 2HI has K = 64 (made-up value). Starting with 1.0 M H<sub>2</sub>, 1.0 M I<sub>2</sub> and no HI, find [HI] at equilibrium in M.",
     1.6, "M",
     "<p>RICE: change = &minus;x, &minus;x, +2x. K = (2x)&sup2;/(1.0 &minus; x)&sup2; = 64. Square root: 2x/(1.0 &minus; x) = 8, so 2x = 8 &minus; 8x, x = 0.80. [HI] = 2x = <b>1.6 M</b>; [H<sub>2</sub>] = [I<sub>2</sub>] = 0.20 M. Check: 1.6&sup2;/0.20&sup2; = 64.</p>",
     hint="K is a perfect square (64 = 8&sup2;): take the square root of both sides.", text="1.6 M")
 
-num("equil-15", "equil", 2, "RICE &middot; extra",
+num("equil-15", "equil", 2, "Rec 17 slide 8 (RICE)",
     "A &rlarr; B has K = 4.0. Start with [A] = 1.0 M and no B. What is [B] at equilibrium (M)?",
     0.8, "M",
     "<p>Change: A &minus;x, B +x. K = x/(1.0 &minus; x) = 4.0 &rArr; x = 4.0 &minus; 4.0x &rArr; 5.0x = 4.0 &rArr; x = <b>0.80 M</b>, so [A] = 0.20 M. Check: 0.80/0.20 = 4.0.</p>",
     text="0.80 M")
 
 Kc = 0.60 / (0.20 * 0.30)
-num("equil-16", "equil", 2, "RICE &middot; extra",
+num("equil-16", "equil", 2, "Rec 17 slide 8 (RICE)",
     "For A + B &rlarr; C the equilibrium concentrations are [A] = 0.20 M, [B] = 0.30 M and [C] = 0.60 M. Find K.",
     Kc, "",
     "<p>K = [C]/([A][B]) = 0.60 / (0.20 &times; 0.30) = 0.60 / 0.060 = <b>%s</b>. Each exponent is 1 because every coefficient is 1.</p>" % fmt(Kc, 3),
@@ -118,22 +118,22 @@ num("equil-18", "equil", 2, "extra",
     "<p>Multiplying all coefficients by n raises K to the n<sup>th</sup> power: K = 3.0<sup>2</sup> = <b>9.0</b>. (Check with the expression: [B]&sup2;/[A]&sup2; = (K)&sup2;.)</p>",
     text="9.0")
 
-mc("equil-19", "equil", 2, "extra",
+mc("equil-19", "equil", 2, "Rec 17 slides 9, 12",
     "For the exothermic reaction N<sub>2</sub> + 3H<sub>2</sub> &rlarr; 2NH<sub>3</sub> (&Delta;H = &minus;92 kJ), what does <b>raising the temperature</b> do?",
    ["K decreases, so less NH<sub>3</sub> at equilibrium", "K increases, so more NH<sub>3</sub>", "K is unchanged because only pressure matters", "K is unchanged but equilibrium is reached more slowly"],
    "<p>Heating favours the endothermic direction, here the reverse (NH<sub>3</sub> &rarr; N<sub>2</sub> + H<sub>2</sub>). So K gets smaller. A catalyst plus a moderate temperature gives a workable rate without losing too much equilibrium yield.</p>")
 
-mc("equil-20", "equil", 2, "extra",
+mc("equil-20", "equil", 2, "Rec 17 slide 9",
     "For N<sub>2</sub> + 3H<sub>2</sub> &rlarr; 2NH<sub>3</sub>, what does <b>raising the pressure</b> (squeezing the container) do?",
     ["Shifts the equilibrium to the right (4 mol gas &rarr; 2 mol gas); K is unchanged", "Shifts it to the left; K is unchanged", "Shifts it to the right and increases K", "Nothing, because the reaction is exothermic"],
     "<p>Le Ch&acirc;telier: the system relieves the pressure by moving toward the side with fewer gas molecules. The reactant side has 4 mol of gas and the product side 2 mol, so it moves right. Only temperature changes K.</p>")
 
-mc("equil-21", "equil", 2, "extra",
+mc("equil-21", "equil", 2, "Rec 17 slide 9",
     "Extra N<sub>2</sub> is added to an equilibrium mixture of N<sub>2</sub>, H<sub>2</sub> and NH<sub>3</sub> at constant temperature. What happens?",
     ["Q drops below K, so the reaction shifts right and makes more NH<sub>3</sub>; K is unchanged", "K increases", "Q rises above K and the reaction shifts left", "Nothing: equilibrium cannot be disturbed"],
     "<p>More N<sub>2</sub> makes the denominator of Q larger, so Q &lt; K. The reaction runs to the right until Q = K again. K itself never changes at fixed temperature.</p>")
 
-mc("equil-22", "equil", 1, "L24 slide 11 &middot; extra",
+mc("equil-22", "equil", 1, "Rec 17 slide 13",
     "What does adding a catalyst do to an equilibrium?",
     ["It reaches equilibrium faster, but K and the equilibrium amounts do not change", "It increases K", "It decreases K", "It moves the equilibrium toward products"],
     "<p>A catalyst lowers E<sub>a</sub> for forward <em>and</em> reverse reactions equally. The rate of approach increases; the destination (K, set by &Delta;G&deg;) does not.</p>")
@@ -143,7 +143,7 @@ mc("equil-23", "equil", 2, "L24 slide 8 &middot; L23",
     ["K says where the reaction ends up, not how fast it gets there; the activation energy makes the rate negligible", "K is too small", "&Delta;G&deg; is positive", "Large K means the reaction needs high pressure"],
     "<p>Thermodynamics (K, &Delta;G) and kinetics (E<sub>a</sub>, k) are separate questions. Haber&rsquo;s process combines a catalyst and elevated temperature so that equilibrium is approached in reasonable time.</p>")
 
-mc("equil-24", "equil", 2, "extra",
+mc("equil-24", "equil", 2, "Rec 17 slide 10",
     "&Delta;G&deg; for a reaction is +5 kJ/mol at 298 K. What does that say about K?",
     ["K &lt; 1, but some product still forms at equilibrium", "K &gt; 1", "K = 1", "No product can ever form"],
     "<p>&Delta;G&deg; = &minus;RT ln K &gt; 0 means ln K &lt; 0, so K &lt; 1. Here K = e<sup>&minus;5000/(8.314&times;298)</sup> &asymp; 0.13: not zero, so some product exists at equilibrium.</p>")

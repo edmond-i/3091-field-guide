@@ -49,3 +49,5 @@
   .ca-rec{fill:none;stroke:var(--unit-thermo);stroke-width:2;stroke-dasharray:6 4;}
   .ca-lev{stroke:var(--unit-cat);stroke-width:3;stroke-linecap:round;}
   .ca-curve{fill:none;stroke:var(--unit-cat);stroke-width:1.8;opacity:.8;}
+  .ca-zs{fill:var(--unit-cat-soft);opacity:.55;}
+  .ca-zw{fill:var(--unit-equil-soft);opacity:.55;}
