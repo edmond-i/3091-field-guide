@@ -47,6 +47,10 @@
     --unit-equil-soft:#D3F0EB;
     --unit-cat:#7C3AED;
     --unit-cat-soft:#EADDFB;
+    --unit-soln:#0369A1;
+    --unit-soln-soft:#D9EDF8;
+    --unit-acid:#4D7C0F;
+    --unit-acid-soft:#E4F1CC;
     --warn:#AE4A2E;
     --warn-soft:#FAEBE4;
     --good:#1E8F74;
@@ -91,6 +95,10 @@
       --unit-equil-soft:#12302D;
       --unit-cat:#C4A0FA;
       --unit-cat-soft:#2A1D3D;
+      --unit-soln:#7DD3FC;
+      --unit-soln-soft:#10303F;
+      --unit-acid:#BEF264;
+      --unit-acid-soft:#26310F;
       --warn:#E89579;
       --warn-soft:#3A241C;
       --good:#6FD5B9;
@@ -135,6 +143,10 @@
       --unit-equil-soft:#12302D;
       --unit-cat:#C4A0FA;
       --unit-cat-soft:#2A1D3D;
+      --unit-soln:#7DD3FC;
+      --unit-soln-soft:#10303F;
+      --unit-acid:#BEF264;
+      --unit-acid-soft:#26310F;
     --warn:#E89579;
     --warn-soft:#3A241C;
     --good:#6FD5B9;
@@ -731,6 +743,13 @@
   .ca-curve{fill:none;stroke:var(--unit-cat);stroke-width:1.8;opacity:.8;}
   .ca-zs{fill:var(--unit-cat-soft);opacity:.55;}
   .ca-zw{fill:var(--unit-equil-soft);opacity:.55;}
+  .sl-lev{stroke:var(--ink-soft);stroke-width:3;stroke-linecap:round;}
+  .sl-sol{stroke:var(--unit-soln);stroke-width:4;stroke-linecap:round;}
+  .ab-s{fill:none;stroke:var(--unit-acid);stroke-width:2.4;stroke-dasharray:6 3;}
+  .ab-w{fill:none;stroke:var(--unit-soln);stroke-width:2.8;}
+  .ab-dot{fill:var(--unit-soln);stroke:var(--surface,#fff);stroke-width:1.5;}
+  .ab-dot2{fill:var(--unit-thermo);stroke:var(--surface,#fff);stroke-width:1.5;}
+  .ab-st{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;fill:var(--unit-acid);}
   
 
   .ex-shell{max-width:900px;margin:0 auto;padding:20px 16px 80px;}

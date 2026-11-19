@@ -20,7 +20,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import practice_lib as L  # noqa: E402
 
-for letter in "abcdefghi":
+for letter in "abcdefghij":
     exec(compile(open(os.path.join(HERE, "practice_bank_%s.py" % letter)).read(), "practice_bank_%s.py" % letter, "exec"), {"__name__": "bank"})
 
 # ---------------------------------------------------------------- inline subsets for the Field Guide
@@ -39,6 +39,8 @@ INLINE = {
     "unit13": ["laws-2", "laws-3", "laws-4", "laws-5", "laws-6", "laws-7", "laws-8", "laws-10", "laws-11", "laws-13", "thermo-1", "thermo-2", "thermo-3", "thermo-4", "thermo-5", "thermo-7", "thermo-8", "thermo-10"],
     "unit14": ["equil-1", "equil-2", "equil-3", "equil-4", "equil-6", "equil-7", "equil-9", "equil-10", "equil-12", "equil-14", "equil-15", "equil-17", "equil-19", "equil-20", "equil-22", "equil-23", "equil-26", "equil-28", "equil-29", "equil-33", "equil-34", "equil-36", "equil-37"],
     "unit15": ["catalysis-1", "catalysis-2", "catalysis-4", "catalysis-6", "catalysis-7", "catalysis-8", "catalysis-10", "catalysis-12", "catalysis-13", "catalysis-14", "catalysis-16", "catalysis-17", "catalysis-18", "catalysis-19", "catalysis-24", "catalysis-26", "catalysis-29", "catalysis-31", "catalysis-33"],
+    "unit16": ["solutions-1", "solutions-2", "solutions-3", "solutions-4", "solutions-5", "solutions-7", "solutions-9", "solutions-10", "solutions-11", "solutions-13", "solutions-14"],
+    "unit17": ["acidbase-1", "acidbase-3", "acidbase-4", "acidbase-5", "acidbase-7", "acidbase-8", "acidbase-11", "acidbase-13", "acidbase-14", "acidbase-16", "acidbase-17", "acidbase-18", "acidbase-21", "acidbase-22", "acidbase-23", "acidbase-24", "acidbase-26", "acidbase-28"],
     "unit11": ["diffusion-1", "diffusion-3", "diffusion-4", "diffusion-5", "diffusion-6", "diffusion-7", "diffusion-11", "diffusion-12"],
 }
 LEADS = {
@@ -56,6 +58,8 @@ LEADS = {
     "unit13": "First the Rec 16 bookkeeping (W = &minus;P&Delta;V, &Delta;H from formation values, entropy and the three laws), then spontaneity: sign table, &Delta;G = &Delta;H &minus; T&Delta;S with correct units, and what &Delta;G does and does not tell you.",
     "unit14": "Equilibrium: write K, compare Q with K, convert &Delta;G&deg; to K, then a RICE table. Quiz 8 (2024) is this kind of question.",
     "unit15": "Catalysis: what a catalyst does and does not change, why Haber&ndash;Bosch is run the way it is, and the three kinds of catalyst. Quiz 8 (2024) asks about catalysts.",
+    "unit16": "Solutions: the three-step enthalpy picture, like dissolves like, and unit conversions (molality vs molarity).",
+    "unit17": "Acids and bases: definitions, conjugate pairs, pH arithmetic, K<sub>a</sub> and pK<sub>a</sub>, Henderson&ndash;Hasselbalch and titration curves (Rec 19 problems 1&ndash;4 are here).",
     "unit11": "L20 is light on equations; these questions practise the logic (and the standard Arrhenius / &radic;(Dt) forms, tagged extra).",
 }
 QUIZ_PAGE = "quiz-review.html"
@@ -80,6 +84,8 @@ SLIPS = {
     "equil": ["Writing K as reactants over products.", "Comparing Q and K the wrong way round (Q &lt; K goes right).", "Leaving the factor of 2 or the square out, or using kJ with R in J."],
     "laws": ["Getting the sign of W wrong (work done on the system is +).", "Forgetting the stoichiometric coefficient in &Sigma;&Delta;H&deg;<sub>f</sub>, or products &minus; reactants reversed.", "Calling heat or work a state function."],
     "catalysis": ["Saying a catalyst changes K, &Delta;G or the equilibrium yield.", "Mixing up homogeneous (same phase) and heterogeneous (different phase).", "Forgetting that high T lowers K for an exothermic reaction like NH<sub>3</sub> synthesis."],
+    "solutions": ["Using kg of solution instead of kg of solvent for molality.", "Saying &Delta;H<sub>soln</sub> &gt; 0 means it cannot dissolve (entropy can pay).", "Assuming solubility always rises (or falls) with T from the sign of &Delta;H alone."],
+    "acidbase": ["Reversing the sign in pH = &minus;log[H<sup>+</sup>] or forgetting pOH.", "Putting acid over base in Henderson&ndash;Hasselbalch.", "Assuming every equivalence point is at pH 7."],
     "diffusion": ["Q in kJ with R in J.", "Reading &ldquo;steeper&rdquo; as &ldquo;faster&rdquo;.", "Forgetting that depth goes as the square root of time."],
 }
 QUIZMAP = [
@@ -93,7 +99,7 @@ QUIZMAP = [
     ("Quiz 8", "equil, thermo, catalysis", "L23&ndash;L25", "RICE table and K; Q vs K and which way it shifts; Le Ch&acirc;telier and the catalyst; K and &Delta;G&deg; (2024: Sabatier volcano, CO vs O<sub>2</sub> in hemoglobin)"),
 ]
 
-TOPIC_ORDER = ["gas", "bohr", "config", "trends", "ionic", "lewis", "vsepr", "hybmo", "imf", "bands", "lattice", "miller", "defects", "diffusion", "kinetics", "laws", "thermo", "equil", "catalysis"]
+TOPIC_ORDER = ["gas", "bohr", "config", "trends", "ionic", "lewis", "vsepr", "hybmo", "imf", "bands", "lattice", "miller", "defects", "diffusion", "kinetics", "laws", "thermo", "equil", "catalysis", "solutions", "acidbase"]
 UNIT_OF_TOPIC = {k: v["unit"] for k, v in L.TOPICS.items()}
 
 
@@ -195,7 +201,7 @@ def build_quiz_page():
   <div class="pq-quizbox" id="pq-quiz">
     <h3>Timed mock quiz</h3>
     <p style="margin:0 0 6px">Random questions from the topics you tick (only auto-checked ones), solutions hidden until you submit or the clock ends. Real quizzes give you 10 minutes.</p>
-    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="kinetics,laws,thermo">Kinetics &amp; thermo</button><button class="pq-chip" type="button" data-preset="thermo,equil,catalysis">Quiz 8 style: equilibrium &amp; catalysis</button><button class="pq-chip" type="button" data-preset="lewis,vsepr,hybmo,imf,bands,lattice,miller,defects,diffusion" data-n="12" data-min="40">&#9733; Exam 2 mock (L10&ndash;L20)</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
+    <div class="qr-presets"><button class="pq-chip" type="button" data-preset="gas,bohr">Quiz 1 style</button><button class="pq-chip" type="button" data-preset="config,trends">Quiz 2 style</button><button class="pq-chip" type="button" data-preset="ionic,lewis">Quiz 3 style</button><button class="pq-chip" type="button" data-preset="vsepr,hybmo,imf">Quiz 4 style</button><button class="pq-chip" type="button" data-preset="bands">Quiz 5 style</button><button class="pq-chip" type="button" data-preset="lattice,miller,defects">Quiz 6 style</button><button class="pq-chip" type="button" data-preset="kinetics,laws,thermo">Kinetics &amp; thermo</button><button class="pq-chip" type="button" data-preset="thermo,equil,catalysis">Quiz 8 style: equilibrium &amp; catalysis</button><button class="pq-chip" type="button" data-preset="solutions,acidbase">Solutions &amp; acids/bases</button><button class="pq-chip" type="button" data-preset="lewis,vsepr,hybmo,imf,bands,lattice,miller,defects,diffusion" data-n="12" data-min="40">&#9733; Exam 2 mock (L10&ndash;L20)</button><button class="pq-chip" type="button" data-preset="all">everything</button></div>
     <div class="qz-row"><div id="qz-topics">%s</div></div>
     <div class="qz-row"><label>Questions <select id="qz-n"><option>4</option><option selected>5</option><option>8</option><option>10</option></select></label><label>Minutes <select id="qz-min"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label><button class="pq-btn" id="qz-start" type="button">Start</button><span id="qz-msg" class="small"></span></div>
   </div>

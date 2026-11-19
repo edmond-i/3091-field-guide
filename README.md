@@ -39,11 +39,13 @@ No build step and no dependencies. Open `index.html` in a browser. (Web fonts lo
 | L23 (Rec 16) | System, work, heat, first law, enthalpy, entropy and the three laws; spontaneity, Gibbs free energy, free energy as work | 13 |
 | L24 (Rec 17) | Equilibrium constant K, law of mass action, van't Hoff, Q vs K, K and G (extra), RICE tables (extra), Le Chatelier (extra) | 14 |
 | L25 (Rec 17) | Catalysis, Sabatier volcano: Ertl mechanism on iron, Haber-Bosch plant, cost of ammonia, catalytic converters, heterogeneous/homogeneous/enzymatic catalysis, nitrogenase, nitrogen recovery | 15 |
+| L26 (Rec 19) | Solutions: solvent/solute, three-step enthalpy of solution, like dissolves like, temperature and solubility, concentration units | 16 |
+| L27 (Rec 19) | Acids and bases: definitions, conjugate pairs, pH, Ka/pKa, leveling and bond-strength trends, titration curves, buffers | 17 |
 | all | Cheat codes, practice archetypes, formula sheet, exam traps | end of page |
 
 Recitations 01-12, 14 and 15 (including 9.5) and practice problem sets 01-03 are folded in as worked examples and "archetypes" (the question types that keep coming back).
 
-**Not yet covered:** the Recitation 11 slide deck was unreadable (the Rec 11 solutions are covered), Recitation 13 slides were not provided (Rec 17 is covered; Rec 17 problems 1-3 are worked on the board and were not in the slides), and material after Lecture 25 (solutions, phase diagrams, organic) is not in the guide yet.
+**Not yet covered:** the Recitation 11 slide deck was unreadable (the Rec 11 solutions are covered), Recitation 13 slides were not provided (Rec 17 is covered; Rec 17 problems 1-3 are worked on the board and were not in the slides), and material after Lecture 27 (phase diagrams, organic); Recitation 13 and 18 slides were not provided is not in the guide yet.
 
 ## Practice and quiz review
 
