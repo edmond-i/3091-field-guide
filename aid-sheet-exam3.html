@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.091 Exam 3 Aid Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* on-screen chrome (follows the viewer's theme) */
+    --page-bg:#E7E9F1;
+    --chrome-ink:#2A2D3A;
+
+    /* the sheet itself is simulated paper: always white with dark ink */
+    --ink:#141620;
+    --ink-soft:#4A4E5E;
+    --hair:#C7CAD6;
+    --hair-soft:#E2E4EC;
+    --blue:#2546B8;     /* atoms */
+    --blue-soft:#EAEEFC;
+    --violet:#6B3FC2;   /* trends */
+    --violet-soft:#F0E9FB;
+    --copper:#9C5E24;   /* ionic */
+    --copper-soft:#F7EBDC;
+    --teal:#136F58;     /* covalent */
+    --teal-soft:#E2F3EE;
+    --rose:#9A2F66;     /* orbitals / MO */
+    --rose-soft:#F9E6F0;
+    --warn:#9C3A22;
+    --warn-soft:#FBEAE3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --page-bg:#0F1117; --chrome-ink:#C9CCDA; }
+  }
+  :root[data-theme="dark"]{ --page-bg:#0F1117; --chrome-ink:#C9CCDA; }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--page-bg);
+    color:var(--chrome-ink);
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    -webkit-font-smoothing:antialiased;
+  }
+  .screen-chrome{
+    max-width:940px;
+    margin:0 auto;
+    padding:22px 16px 60px;
+    text-align:center;
+  }
+  .screen-chrome h1{
+    font-family:"Fraunces";
+    font-weight:700;
+    font-size:22px;
+    margin:0 0 4px;
+    color:var(--chrome-ink);
+  }
+  .screen-chrome p{
+    font-size:12.5px;
+    color:var(--chrome-ink);
+    opacity:0.72;
+    margin:0 0 18px;
+    line-height:1.5;
+  }
+  .screen-chrome .kbd{
+    font-family:"IBM Plex Mono";
+    background:rgba(127,127,127,.18);
+    border-radius:5px;
+    padding:1px 6px;
+    font-size:11.5px;
+  }
+
+  /* ---------------- THE SHEET (always white/black, simulated paper) ---------------- */
+  .sheet{
+    width:8.5in;
+    min-height:11in;
+    margin:0 auto;
+    background:#FFFFFF;
+    color:var(--ink);
+    padding:0.38in 0.42in 0.3in;
+    box-shadow:0 18px 50px -14px rgba(0,0,0,.45);
+    border-radius:3px;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .head{
+    border-bottom:2.2pt solid var(--ink);
+    padding-bottom:3.5pt;
+    margin-bottom:5.5pt;
+  }
+  .head .t1{font-family:"Fraunces"; font-weight:700; font-style:italic; font-size:15.5pt; letter-spacing:.01em;}
+  .head .t2{font-size:7.3pt; color:var(--ink-soft); line-height:1.4; margin-top:2pt;}
+  .head .t2 b{color:var(--ink);}
+
+  /* Columns are floats with explicit widths on purpose: CSS grid/flex let long lines
+     run past the page edge in headless-Chrome PDF output. Keep it this way. */
+  .cols{overflow:hidden;}
+  .cols::after{content:""; display:block; clear:both;}
+  .col{
+    float:left;
+    width:2.3in;
+    margin-right:0.26in;
+    border-right:0.6pt solid var(--hair-soft);
+    padding-right:0.18in;
+  }
+  .col:nth-child(3){border-right:none; padding-right:0; margin-right:0;}
+  .blk{
+    break-inside:avoid;
+    margin-bottom:5pt;
+    overflow-wrap:break-word;
+    word-break:break-word;
+    max-width:100%;
+    min-width:0;
+  }
+  .blk h2{
+    font-family:"Fraunces";
+    font-weight:700;
+    font-size:8pt;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    margin:0 0 2pt;
+    padding:1pt 5pt;
+    border-radius:3pt;
+    display:inline-block;
+  }
+  .c-atoms h2{background:var(--blue-soft); color:var(--blue);}
+  .c-trends h2{background:var(--violet-soft); color:var(--violet);}
+  .c-ionic h2{background:var(--copper-soft); color:var(--copper);}
+  .c-covalent h2{background:var(--teal-soft); color:var(--teal);}
+  .c-orbital h2{background:var(--rose-soft); color:var(--rose);}
+
+  .ln{font-size:6.7pt; line-height:1.34; margin:0 0 1pt;}
+  .ln b{font-weight:700;}
+  .lbl{color:var(--ink-soft); font-size:6.3pt;}
+
+  table.ref{border-collapse:collapse; width:100%; table-layout:fixed; margin:1.5pt 0 0;}
+  table.ref th, table.ref td{
+    font-size:6.2pt;
+    padding:0.9pt 3pt;
+    text-align:left;
+    border-bottom:0.5pt solid var(--hair-soft);
+    line-height:1.25;
+    vertical-align:top;
+    overflow-wrap:break-word;
+  }
+  table.ref th{font-weight:700; color:var(--ink-soft); border-bottom:0.8pt solid var(--hair);}
+  table.ref tr:last-child td{border-bottom:none;}
+  table.w12 th:first-child{width:12%;}
+  table.w40 th:first-child{width:50%;}
+  table.w30 th:nth-child(1){width:33%;}
+  table.w30 th:nth-child(2){width:28%;}
+  table.w30 th:nth-child(3){width:12%;}
+  table.w30 th:nth-child(4){width:27%;}
+
+  .eqbox{
+    background:#F4F5F9;
+    border-radius:3pt;
+    padding:2pt 5pt;
+    margin:1.5pt 0;
+    font-size:6.8pt;
+    font-weight:600;
+    display:block;
+    overflow-wrap:break-word;
+  }
+
+  .steps{margin:1.5pt 0 0; padding-left:10pt;}
+  .steps li{font-size:6.5pt; line-height:1.32; margin-bottom:0.5pt;}
+
+  .traps{
+    margin-top:4pt;
+    padding-top:3.5pt;
+    border-top:2.2pt solid var(--warn);
+  }
+  .traps h2{
+    font-family:"Fraunces"; font-weight:700; font-size:8.2pt; text-transform:uppercase; letter-spacing:.03em;
+    color:var(--warn); margin:0 0 3pt;
+  }
+  .traps-grid{overflow:hidden;}
+  .traps-grid::after{content:""; display:block; clear:both;}
+  .traps-grid ul{float:left; width:3.56in; margin:0; padding:0;}
+  .traps-grid ul:first-child{margin-right:0.3in;}
+  .traps-grid li{
+    font-size:6.4pt;
+    line-height:1.3;
+    margin-bottom:1.8pt;
+    list-style:none;
+    padding-left:8pt;
+    position:relative;
+    overflow-wrap:break-word;
+  }
+  .traps-grid li::before{
+    content:"▸";
+    position:absolute; left:0; color:var(--warn); font-size:6.5pt;
+  }
+
+  @media print{
+    @page{ size: letter; margin:0; }
+    body{background:#fff;}
+    .screen-chrome{display:none;}
+    .sheet{box-shadow:none; margin:0; border-radius:0; width:100%; height:11in; max-height:11in; overflow:hidden;}
+  }
+
+  .c-forces h2{background:#F5EDCF; color:#7A5C08;}
+  .c-metal h2{background:#E4E9EF; color:#3E5266;}
+  .c-crystal h2{background:#F1EAD6; color:#7C5F18;}
+  .c-defect h2{background:#F5E2E9; color:#932E50;}
+  .c-diff h2{background:#DDF0F3; color:#176A7B;}
+  .sheet + .sheet{margin-top:22px;}
+  .ln{font-size:7.35pt; line-height:1.36; margin-bottom:1.6pt;}
+  .lbl{font-size:7pt;}
+  .eqbox{font-size:7.5pt; padding:2.5pt 5pt;}
+  table.ref th, table.ref td{font-size:6.9pt; padding:1pt 2.5pt; line-height:1.25;}
+  .blk{margin-bottom:6.5pt;}
+  .blk h2{font-size:8.6pt; margin-bottom:2.5pt;}
+  .head .t1{font-size:17pt;} .head .t2{font-size:8.2pt;}
+  @media print{
+    .sheet{page-break-after:always; break-after:page;}
+    .sheet:last-of-type{page-break-after:auto; break-after:auto;}
+    .sheet + .sheet{margin-top:0;}
+  }
+
+  .c-kin h2{background:#E2F3EE; color:#136F58;}
+  .c-th h2{background:#FBEAE3; color:#9C3A22;}
+  .c-eq h2{background:#EAEEFC; color:#2546B8;}
+  .c-cat h2{background:#F0E9FB; color:#6B3FC2;}
+  .c-sol h2{background:#DDF0F3; color:#176A7B;}
+  .c-acid h2{background:#F9E6F0; color:#9A2F66;}
+  .c-ksp h2{background:#F7EBDC; color:#9C5E24;}
+  .trp{color:#9C3A22;}
+  .trp b{color:#9C3A22;}
+  .ln{font-size:7.15pt; line-height:1.33; margin-bottom:1.4pt;}
+  .eqbox{font-size:7.3pt; padding:2pt 5pt; margin:1.2pt 0;}
+  .blk{margin-bottom:5.5pt;}
+  .blk h2{font-size:8.3pt; margin-bottom:2pt;}
+  table.ref th, table.ref td{font-size:6.7pt; padding:0.8pt 2.2pt; line-height:1.22;}
+</style>
+</head>
+<body>
+<div class="screen-chrome"><h1>3.091 &mdash; Exam 3 Aid Sheet (front and back)</h1><p>L21&ndash;L28 &middot; Rec 14&ndash;20. Print double-sided on letter paper at <span class="kbd">100%</span> scale, margins none, background graphics on. Check that this year&rsquo;s rules allow a double-sided sheet; side 1 (kinetics, thermodynamics, equilibrium) stands alone if only one side is allowed.</p></div>
+<div class="sheet"><div class="head"><div class="t1">3.091 Exam 3 &middot; side 1</div><div class="t2"><b>Kinetics &rarr; Gibbs free energy, enthalpy, entropy &rarr; equilibrium</b> (L21&ndash;L24, Rec 14&ndash;17)</div></div><div class="cols"><div class="col"><div class="blk c-kin"><h2>L21–22 · Rate &amp; rate law</h2><div class="eqbox">v = −(1/a) d[A]/dt = +(1/p) d[P]/dt &nbsp; (M/s)</div><div class="ln">Instantaneous = slope of the tangent; average = Δ[ ]/Δt. Collision model: needs collisions with E ≥ E<sub>a</sub> <b>and</b> the right orientation. Rate ↑ with [ ], T, catalyst.</div><div class="eqbox">v = k[A]<sup>α</sup>[B]<sup>β</sup> &nbsp; order = α + β</div><div class="ln">Exponents come from <b>experiment</b> (initial rates), not coefficients, unless the step is <b>elementary</b>. Two runs: v₂/v₁ = ([A]₂/[A]₁)<sup>α</sup>; hold the other reactant fixed. k units = M<sup>1−n</sup>s<sup>−1</sup> (units of k reveal the order).</div><div class="ln trp"><b>Trap:</b>  coefficients ≠ exponents for a multistep reaction; a rate-law exponent can be 0, fraction or negative.</div></div><div class="blk c-kin"><h2>Integrated laws (table)</h2><div class="ln"><table class="ref"><tr><th>order</th><th>plot</th><th>slope</th><th>k units</th><th>t<sub>½</sub></th></tr><tr><td>0</td><td>[A] vs t</td><td>−k</td><td>M/s</td><td>[A]₀/2k</td></tr><tr><td>1</td><td>ln[A] vs t</td><td>−k</td><td>s⁻¹</td><td><b>ln2/k</b></td></tr><tr><td>2</td><td>1/[A] vs t</td><td><b>+k</b></td><td>M⁻¹s⁻¹</td><td>1/(k[A]₀)</td></tr></table></div><div class="eqbox">[A] = [A]₀ − kt &nbsp; ln[A] = ln[A]₀ − kt &nbsp; 1/[A] = 1/[A]₀ + kt</div><div class="ln">First order t<sub>½</sub> does <b>not</b> depend on [A]₀ (radioactive decay); after n half-lives [A]₀/2<sup>n</sup>. The plot that is straight gives the order.</div></div><div class="blk c-kin"><h2>Arrhenius &amp; energy diagram</h2><div class="eqbox">k = A e<sup>−E<sub>a</sub>/RT</sup> &nbsp; ln k = ln A − (E<sub>a</sub>/R)(1/T)</div><div class="eqbox">ln(k₂/k₁) = (E<sub>a</sub>/R)(1/T₁ − 1/T₂)</div><div class="ln">ln k vs 1/T: slope = <b>−E<sub>a</sub>/R</b>, intercept ln A. <b>Steeper = larger E<sub>a</sub></b> (more T-sensitive), not “faster”. T in K, E<sub>a</sub> in J/mol (R in J).</div><div class="ln">Diagram: E<sub>a</sub>(fwd) = TS − reactants; E<sub>a</sub>(rev) = TS − products; ΔE = products − reactants (&lt;0 exothermic). Peak = activated complex/TS; valley = <b>intermediate</b>. Catalyst: lower E<sub>a</sub> both ways, same ΔE.</div><div class="ln"><b>Mechanism</b>: sum of elementary steps; slow step = rate-determining → sets the rate law; intermediates cancel in the overall equation; a catalyst is used then regenerated. Elementary step: exponents = coefficients (molecularity).</div></div></div><div class="col"><div class="blk c-th"><h2>L23 · Gibbs free energy &amp; spontaneity</h2><div class="eqbox">ΔG = ΔH − TΔS &nbsp; (constant T, P)</div><div class="ln"><b>ΔG &lt; 0</b> spontaneous · <b>ΔG = 0</b> equilibrium · <b>ΔG &gt; 0</b> not spontaneous as written (reverse is). <b>Spontaneous ≠ fast</b> (rate = E<sub>a</sub>, kinetics).</div><div class="ln">Where it comes from: ΔS<sub>surr</sub> = −ΔH/T and ΔS<sub>univ</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub> ≥ 0 → <b>ΔG = −TΔS<sub>univ</sub></b>.</div><div class="ln"><table class="ref"><tr><th>ΔH</th><th>ΔS</th><th>ΔG = ΔH−TΔS</th><th>example</th></tr><tr><td>−</td><td>+</td><td>always &lt; 0</td><td>burning</td></tr><tr><td>+</td><td>−</td><td>never &lt; 0</td><td>—</td></tr><tr><td>−</td><td>−</td><td>&lt; 0 at <b>low T</b></td><td>freezing</td></tr><tr><td>+</td><td>+</td><td>&lt; 0 at <b>high T</b></td><td>boiling, melting</td></tr></table></div><div class="eqbox">Crossover T = ΔH/ΔS (ΔG = 0)</div><div class="ln">Example: ΔH = +44 kJ, ΔS = +118 J/K → T = 44000/118 = <b>373 K</b>. Above it spontaneous (+,+). At a phase change T<sub>b</sub>: ΔG = 0, ΔS = ΔH/T.</div><div class="ln">ΔG vs T is a line: <b>slope = −ΔS</b>, intercept = ΔH. Max useful (non-PV) work = |ΔG| (w<sub>max</sub> = ΔG, system does work if ΔG &lt; 0). ΔG of coupled steps adds.</div><div class="ln trp"><b>Trap:</b>  ΔH in kJ, ΔS in J/K: ×1000. Kelvin only. A ΔG&lt;0 reaction can still be slow.</div></div><div class="blk c-th"><h2>Standard values &amp; Hess</h2><div class="eqbox">ΔH°<sub>rxn</sub> = ΣnΔH°<sub>f</sub>(prod) − ΣnΔH°<sub>f</sub>(react)</div><div class="eqbox">ΔG°<sub>rxn</sub> = ΣnΔG°<sub>f</sub>(prod) − ΣnΔG°<sub>f</sub>(react)</div><div class="eqbox">ΔS°<sub>rxn</sub> = ΣnS°(prod) − ΣnS°(react)</div><div class="ln">ΔH°<sub>f</sub> and ΔG°<sub>f</sub> of an <b>element in its standard state = 0</b>; S° of an element is <b>not</b> 0 (only a perfect crystal at 0 K). Multiply by the coefficients. Hess: reverse a step → flip sign; ×n → ×n; add steps → add ΔH (or ΔG).</div><div class="ln">ΔG° = ΔH° − TΔS° (standard) vs ΔG = ΔG° + RT ln Q (any conditions); <b>ΔH ≈ ΔH°, ΔS = ΔS° − R ln Q</b>.</div></div></div><div class="col"><div class="blk c-th"><h2>Rec 16 · Enthalpy, work, entropy</h2><div class="eqbox">ΔE = Q + W &nbsp; W = −PΔV</div><div class="ln"><b>Q + / W +</b> = energy <b>into</b> the system. Expansion (ΔV &gt; 0) → W &lt; 0 (system does work); compression → W &gt; 0. Example: 2.0 atm, ΔV = −1.5 L → W = +3.0 L·atm = <b>+304 J</b>.</div><div class="ln">Constant V: W = 0, ΔE = Q<sub>v</sub>. Isothermal ideal gas: ΔE = 0 → Q = −W. Adiabatic: Q = 0. Isolated: ΔE = 0.</div><div class="eqbox">H = E + PV &nbsp; ΔH = ΔE + PΔV = <b>Q<sub>p</sub></b> &nbsp; (gases: ΔH = ΔE + Δn<sub>g</sub>RT)</div><div class="ln">ΔH &lt; 0 exothermic (heat out), ΔH &gt; 0 endothermic. <b>State functions</b>: E, H, S, G (path-independent). <b>Path functions</b>: Q, W.</div><div class="eqbox">S = k ln W &nbsp; ΔS<sub>univ</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub> ≥ 0</div><div class="ln"><b>ΔS ↑</b> when: solid → liquid → gas; more moles of gas (Δn<sub>g</sub> &gt; 0); dissolving/mixing; heating; more particles. S: crystal &lt; amorphous &lt; liquid ≪ gas. Units J/(mol·K).</div><div class="ln"><b>2nd law</b>: ΔS<sub>univ</sub> ≥ 0 (system may decrease if the surroundings gain more). <b>3rd law</b>: S = 0 for a perfect crystal at 0 K. <b>1st law</b>: energy conserved.</div><div class="ln trp"><b>Trap:</b>  sign of W (on system = +); exothermic does not mean spontaneous; entropy of a system can fall in a spontaneous process.</div></div><div class="blk c-eq"><h2>L24 · Equilibrium constant</h2><div class="eqbox">aA + bB ⇌ cC + dD &nbsp; K = [C]<sup>c</sup>[D]<sup>d</sup> / ([A]<sup>a</sup>[B]<sup>b</sup>)</div><div class="ln">Products over reactants; coefficients are exponents; <b>solids and pure liquids left out</b>; K has no units (K<sub>p</sub> for gases in pressure). Reverse: <b>1/K</b>; ×n: <b>K<sup>n</sup></b>; add reactions: <b>K₁K₂</b>. K ≫ 1 products favoured; K ≪ 1 reactants.</div><div class="ln"><b>Q vs K</b> (same form as K, any moment): Q &lt; K → <b>right</b> (forward); Q &gt; K → <b>left</b>; Q = K equilibrium.</div><div class="eqbox">ΔG = ΔG° + RT ln Q &nbsp; ΔG° = −RT ln K &nbsp; K = e<sup>−ΔG°/RT</sup></div><div class="ln">ΔG° &lt; 0 ↔ K &gt; 1; ΔG° = 0 ↔ K = 1; at equilibrium ΔG = 0 and Q = K. Only <b>T</b> changes K (not P, [ ], catalyst).</div></div><div class="blk c-atoms"><h2>Constants</h2><div class="ln">R = <b>8.314 J/(mol·K)</b> = 0.0821 L·atm/(mol·K) &nbsp; 1 L·atm = <b>101.3 J</b> &nbsp; K = °C + 273.15</div><div class="ln">K<sub>w</sub> = 10<sup>−14</sup> (25 °C) &nbsp; ln x = 2.303 log x &nbsp; N<sub>A</sub> = 6.022×10²³ &nbsp; <b>ΔH in kJ, ΔS in J/K, R in J: convert!</b></div></div></div></div></div>
+<div class="sheet"><div class="head"><div class="t1">3.091 Exam 3 &middot; side 2</div><div class="t2"><b>Equilibrium tools &rarr; catalysis &rarr; solutions &rarr; acids &amp; bases &rarr; K<sub>sp</sub></b> (L24&ndash;L28, Rec 17&ndash;20)</div></div><div class="cols"><div class="col"><div class="blk c-eq"><h2>RICE · van't Hoff · Le Châtelier</h2><div class="ln"><b>RICE</b>: Reaction · Initial · Change (±coefficient·x) · Equilibrium → plug in K. If K tiny and x ≪ initial, drop x (check &lt;5%); else quadratic. Mixing/dilution: use <b>total</b> volume.</div><div class="eqbox">ln K = −ΔH°/(RT) + ΔS°/R &nbsp; ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁)</div><div class="ln">ln K vs 1/T: slope = <b>−ΔH°/R</b>. <b>Exothermic: K falls as T rises</b>; endothermic: K rises. (Combine ΔG° = ΔH° − TΔS° = −RT ln K.)</div><div class="ln"><table class="ref"><tr><th>stress</th><th>shift</th></tr><tr><td>add reactant / remove product</td><td>right</td></tr><tr><td>compress (↑P)</td><td>fewer moles of gas</td></tr><tr><td>heat</td><td>endothermic direction (K changes)</td></tr><tr><td>catalyst, inert gas at const V</td><td>none; K same</td></tr></table></div><div class="ln trp"><b>Trap:</b>  K changes only with T. Le Châtelier shifts Q, not K, for [ ] and P.</div></div><div class="blk c-cat"><h2>L25 · Catalysis &amp; Haber–Bosch</h2><div class="ln">A catalyst gives an <b>alternative path with lower E<sub>a</sub></b> (forward and reverse equally). <b>Unchanged: ΔH, ΔG, K, equilibrium yield.</b> Not consumed; speeds approach to equilibrium. It cannot make ΔG &gt; 0 go.</div><div class="ln"><b>Homogeneous</b>: same phase as reactants. <b>Heterogeneous</b>: different phase (solid surface). <b>Enzyme</b>: protein catalyst, active site, selective, mild conditions.</div><div class="eqbox">N₂ + 3H₂ ⇌ 2NH₃ &nbsp; ΔH = −92 kJ (−46 per mol NH₃)</div><div class="ln"><b>Fe catalyst, 400–500 °C, high P</b>. High P: 4 mol gas → 2 (Le Châtelier). Exothermic, so low T favours yield but is too slow → compromise. <b>Liquefy NH₃</b> (polar, H-bonds, higher bp) → removes product, shifts right; recycle N₂ + H₂. H₂ from <b>CH₄ + H₂O → CO + 3H₂</b> (≈1.8 % of world energy and CO₂).</div><div class="ln"><b>Ertl (Fe surface)</b>: N₂, H₂ adsorb → N≡N splits on the surface; H₂ splits → N–H forms stepwise N → NH → NH₂ → NH₃ → NH₃ desorbs, surface freed.</div><div class="ln"><b>Sabatier</b>: best catalyst binds <b>intermediately</b> (volcano plot, rate vs binding strength). Too strong: product stays stuck (desorption-limited). Too weak: reactant will not bind/activate. Better catalyst = lower T needed.</div><div class="ln"><b>Nitrogenase</b>: Fe₇MoS₉C cluster, N₂ + 8H⁺ + 8e⁻ + 16 ATP → 2NH₃ + H₂ at room T, P. N: 0 → −3 (fixation).</div></div></div><div class="col"><div class="blk c-sol"><h2>L26 · Solutions</h2><div class="eqbox">ΔH<sub>soln</sub> = ΔH₁(solvent–solvent broken, +) + ΔH₂(solute–solute broken, +) + ΔH₃(A–B formed, −)</div><div class="ln">ΔS<sub>soln</sub> &gt; 0, so ΔH usually decides: |ΔH₃| &gt; ΔH₁ + ΔH₂ → exothermic. ΔG<sub>soln</sub> = ΔH<sub>soln</sub> − TΔS<sub>soln</sub> &lt; 0 dissolves. <b>Like dissolves like</b>: polar/ionic in water, non-polar in non-polar.</div><div class="ln">Solubility vs T is not fixed by the sign of ΔH alone (NH₄NO₃ +25.7 kJ/mol rises; CaCl₂ −68.2 kJ/mol also rises).</div><div class="eqbox">M = mol/L <u>solution</u> &nbsp; m = mol/kg <u>solvent</u> &nbsp; X = n/n<sub>tot</sub></div><div class="ln">mass % = mass solute/mass soln ×100; ppm = mass solute/mass soln ×10⁶ (dilute water: 1 ppm ≈ 1 mg/L); ppb ×10⁹. Only <b>M</b> changes with T. Dilution M₁V₁ = M₂V₂.</div></div><div class="blk c-acid"><h2>L27 · Acids &amp; bases</h2><div class="ln">Brønsted: acid donates H⁺, base accepts. <b>Conjugate pair</b> differs by one H⁺ (HA/A⁻, BH⁺/B). Water and HCO₃⁻ are amphoteric. Strong acid → negligible conjugate base.</div><div class="eqbox">pH = −log[H₃O⁺] &nbsp; pH + pOH = 14 &nbsp; K<sub>w</sub> = [H⁺][OH⁻] = 10⁻¹⁴ (25 °C)</div><div class="eqbox">K<sub>a</sub> = [H⁺][A⁻]/[HA] &nbsp; pK<sub>a</sub> = −log K<sub>a</sub> &nbsp; K<sub>a</sub>K<sub>b</sub> = K<sub>w</sub> &nbsp; pK<sub>a</sub> + pK<sub>b</sub> = 14</div><div class="ln"><b>Small pK<sub>a</sub> = strong acid</b>; stronger acid = weaker conjugate base. pK<sub>a</sub>: HI −9.3 · HNO₃ −1.4 · H₃O⁺ 0 · HF 3.2 · acetic 4.76 · HCN 9.2 · NH₄⁺ 9.25 · H₂O 14. Weaker X–H bond / more stable A⁻ → stronger (HF &lt; HCl &lt; HBr &lt; HI).</div><div class="ln">Weak acid: K<sub>a</sub> = x²/(C − x) ≈ x²/C → [H⁺] = x ≈ √(K<sub>a</sub>C). From pH: [H⁺] = 10<sup>−pH</sup>.</div><div class="eqbox">pH = pK<sub>a</sub> + log([A⁻]/[HA]) &nbsp; (base over acid)</div><div class="ln">Buffer: weak acid + conjugate base, works at pK<sub>a</sub> ± 1; equal amounts → pH = pK<sub>a</sub>; ratio 10 → ±1. <b>Titration</b>: V<sub>eq</sub> = M<sub>A</sub>V<sub>A</sub>/M<sub>B</sub> moles match; midpoint (½V<sub>eq</sub>) pH = pK<sub>a</sub>; equivalence pH: strong/strong <b>7</b>, weak acid + strong base <b>&gt; 7</b>, weak base + strong acid <b>&lt; 7</b>. Polyprotic: lowest pK<sub>a</sub> leaves first (alanine COOH 2.34, NH₃⁺ 9.69).</div><div class="ln trp"><b>Trap:</b>  pH 7 neutral and pH + pOH = 14 hold at 25 °C only; equivalence point ≠ midpoint.</div></div></div><div class="col"><div class="blk c-ksp"><h2>L28 · Solubility product K<sub>sp</sub></h2><div class="eqbox">BaSO₄(s) ⇌ Ba²⁺ + SO₄²⁻ &nbsp; K<sub>sp</sub> = [Ba²⁺][SO₄²⁻]</div><div class="ln">Solid left out; coefficients are exponents (Ca₃(PO₄)₂: [Ca²⁺]³[PO₄³⁻]²). Dissolution gives ions by coefficient × x.</div><div class="ln"><table class="ref"><tr><th>type</th><th>K<sub>sp</sub> =</th><th>x =</th></tr><tr><td>AB</td><td>x²</td><td>√K<sub>sp</sub></td></tr><tr><td>AB₂ / A₂B</td><td>4x³</td><td>(K<sub>sp</sub>/4)<sup>1/3</sup></td></tr><tr><td>A₃B₂</td><td>108x⁵</td><td>(K<sub>sp</sub>/108)<sup>1/5</sup></td></tr></table></div><div class="ln">x = <b>molar solubility</b>, not [ion]: Ca₃(PO₄)₂ [Ca²⁺] = 3x, [PO₄³⁻] = 2x. BaSO₄ 1.5×10⁻⁹ → 3.87×10⁻⁵ M. PbI₂ 7.9×10⁻⁹ → [Pb²⁺] 1.25×10⁻³, [I⁻] 2.5×10⁻³ M.</div><div class="ln"><b>Compare K<sub>sp</sub> only for the same formula type</b>: AgCl 1.8×10⁻¹⁰ (x 1.3×10⁻⁵) vs Ag₂CrO₄ 1.1×10⁻¹² (x 6.5×10⁻⁵ — larger solubility).</div><div class="ln"><b>Q vs K<sub>sp</sub></b>: Q &lt; K<sub>sp</sub> unsaturated (more dissolves) · = saturated · <b>Q &gt; K<sub>sp</sub> precipitates</b>. Mixing: dilute each ion by the <b>total volume</b> first.</div><div class="ln"><b>Common ion</b> lowers solubility: PbI₂ in 0.1 M NaI → [I⁻] ≈ 0.1, [Pb²⁺] = K<sub>sp</sub>/0.01 = 7.9×10⁻⁷ M (1600× lower). <b>pH</b>: basic anions (OH⁻, CO₃²⁻, PO₄³⁻, F⁻) dissolve more in acid; Mg(OH)₂ less soluble at high pH.</div><div class="ln"><b>Complexation</b>: ligand binds the metal ion → lowers free [M], Q &lt; K<sub>sp</sub>, solid dissolves (opposite of common ion). EQ:K<sub>f</sub> = K₁K₂K₃K₄</div><div class="ln">Big K<sub>f</sub> = stable. Chelators (EDTA, 6 donor atoms) are extreme. AgBr + S₂O₃²⁻ → [Ag(S₂O₃)₂]³⁻ (K<sub>f</sub> 2.9×10¹³) fixes film; Nd/Dy magnet recycling: ligand holds Nd³⁺, Dy precipitates. Karst: CaCO₃ + CO₂ + H₂O ⇌ Ca²⁺ + 2HCO₃⁻ (reverse deposits stalactites).</div></div><div class="blk c-ksp"><h2>Order of attack for any problem</h2><div class="ln">① write the balanced equation · ② write K / K<sub>sp</sub> / rate law (solids out) · ③ units: K, J vs kJ, K not °C · ④ RICE or Q vs K · ⑤ sanity check (does the sign / direction match Le Châtelier?) · ⑥ “briefly explain” needs a <b>reason</b>, not just the answer.</div></div></div></div></div>
+</body>
+</html>
