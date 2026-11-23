@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.091 Exam 3 Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F5F9;
+    --raised:#FFFFFF;
+    --ink:#171A24;
+    --ink-soft:#4C5062;
+    --ink-faint:#787D92;
+    --line:#DBDEE8;
+    --line-soft:#E9EAF1;
+    --accent:#2F55D4;
+    --accent-ink:#1E3BA3;
+    --accent-soft:#E8ECFB;
+    --unit-atoms:#2F55D4;
+    --unit-atoms-soft:#E8ECFB;
+    --unit-trends:#7A4FD6;
+    --unit-trends-soft:#EFE9FB;
+    --unit-ionic:#AD6A2A;
+    --unit-ionic-soft:#F7ECDD;
+    --unit-covalent:#1E8F74;
+    --unit-covalent-soft:#E3F3EE;
+    --unit-orbital:#A8336E;
+    --unit-orbital-soft:#F8E7F0;
+    --unit-forces:#8A6A0C;
+    --unit-forces-soft:#F5EDCF;
+    --unit-metal:#4F6378;
+    --unit-metal-soft:#E4E9EF;
+    --unit-crystal:#8A6A1F;
+    --unit-crystal-soft:#F1EAD6;
+    --unit-defect:#A33F5F;
+    --unit-defect-soft:#F5E2E9;
+    --unit-diffusion:#1F7A8C;
+    --unit-diffusion-soft:#DDF0F3;
+    --unit-kinetics:#3B8F2E;
+    --unit-kinetics-soft:#E3F2DE;
+    --unit-thermo:#C2410C;
+    --unit-thermo-soft:#FBE8DC;
+    --unit-equil:#0F766E;
+    --unit-equil-soft:#D3F0EB;
+    --unit-cat:#7C3AED;
+    --unit-cat-soft:#EADDFB;
+    --unit-soln:#0369A1;
+    --unit-soln-soft:#D9EDF8;
+    --unit-acid:#4D7C0F;
+    --unit-acid-soft:#E4F1CC;
+    --unit-ksp:#9D174D;
+    --unit-ksp-soft:#F8E1EA;
+    --warn:#AE4A2E;
+    --warn-soft:#FAEBE4;
+    --good:#1E8F74;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12141C;
+      --raised:#1A1D28;
+      --ink:#E9EAF2;
+      --ink-soft:#B2B6C8;
+      --ink-faint:#80869C;
+      --line:#2D3140;
+      --line-soft:#242736;
+      --accent:#8CA0FF;
+      --accent-ink:#B7C3FF;
+      --accent-soft:#232A47;
+      --unit-atoms:#8CA0FF;
+      --unit-atoms-soft:#222A47;
+      --unit-trends:#C3AAFF;
+      --unit-trends-soft:#2A2345;
+      --unit-ionic:#E3A465;
+      --unit-ionic-soft:#332618;
+      --unit-covalent:#6FD5B9;
+      --unit-covalent-soft:#1A332C;
+      --unit-orbital:#F08DBD;
+      --unit-orbital-soft:#3A2030;
+      --unit-forces:#E6C25A;
+      --unit-forces-soft:#332B12;
+      --unit-metal:#A9BBD0;
+      --unit-metal-soft:#222A33;
+      --unit-crystal:#D8B96A;
+      --unit-crystal-soft:#352D1B;
+      --unit-defect:#E39DB6;
+      --unit-defect-soft:#3A2230;
+      --unit-diffusion:#7FCBD9;
+      --unit-diffusion-soft:#1B3237;
+      --unit-kinetics:#8FD17A;
+      --unit-kinetics-soft:#1E3319;
+      --unit-thermo:#FB9A6B;
+      --unit-thermo-soft:#3B2216;
+      --unit-equil:#5EEAD4;
+      --unit-equil-soft:#12302D;
+      --unit-cat:#C4A0FA;
+      --unit-cat-soft:#2A1D3D;
+      --unit-soln:#7DD3FC;
+      --unit-soln-soft:#10303F;
+      --unit-acid:#BEF264;
+      --unit-acid-soft:#26310F;
+      --unit-ksp:#F9A8D4;
+      --unit-ksp-soft:#3A1A2A;
+      --warn:#E89579;
+      --warn-soft:#3A241C;
+      --good:#6FD5B9;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12141C;
+    --raised:#1A1D28;
+    --ink:#E9EAF2;
+    --ink-soft:#B2B6C8;
+    --ink-faint:#80869C;
+    --line:#2D3140;
+    --line-soft:#242736;
+    --accent:#8CA0FF;
+    --accent-ink:#B7C3FF;
+    --accent-soft:#232A47;
+    --unit-atoms:#8CA0FF;
+    --unit-atoms-soft:#222A47;
+    --unit-trends:#C3AAFF;
+    --unit-trends-soft:#2A2345;
+    --unit-ionic:#E3A465;
+    --unit-ionic-soft:#332618;
+    --unit-covalent:#6FD5B9;
+    --unit-covalent-soft:#1A332C;
+      --unit-orbital:#F08DBD;
+      --unit-orbital-soft:#3A2030;
+      --unit-forces:#E6C25A;
+      --unit-forces-soft:#332B12;
+      --unit-metal:#A9BBD0;
+      --unit-metal-soft:#222A33;
+      --unit-crystal:#D8B96A;
+      --unit-crystal-soft:#352D1B;
+      --unit-defect:#E39DB6;
+      --unit-defect-soft:#3A2230;
+      --unit-diffusion:#7FCBD9;
+      --unit-diffusion-soft:#1B3237;
+      --unit-kinetics:#8FD17A;
+      --unit-kinetics-soft:#1E3319;
+      --unit-thermo:#FB9A6B;
+      --unit-thermo-soft:#3B2216;
+      --unit-equil:#5EEAD4;
+      --unit-equil-soft:#12302D;
+      --unit-cat:#C4A0FA;
+      --unit-cat-soft:#2A1D3D;
+      --unit-soln:#7DD3FC;
+      --unit-soln-soft:#10303F;
+      --unit-acid:#BEF264;
+      --unit-acid-soft:#26310F;
+      --unit-ksp:#F9A8D4;
+      --unit-ksp-soft:#3A1A2A;
+    --warn:#E89579;
+    --warn-soft:#3A241C;
+    --good:#6FD5B9;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Fraunces", Georgia, serif;
+    text-wrap:balance;
+    color:var(--ink);
+    font-weight:600;
+    line-height:1.15;
+  }
+  code, .mono, table.data, .formula, .kbd{
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  a{color:var(--accent-ink);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  ::selection{background:var(--accent-soft);}
+
+  .shell{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 clamp(16px,3vw,40px) 120px;
+    display:grid;
+    grid-template-columns:240px minmax(0,1fr);
+    gap:clamp(20px,4vw,56px);
+  }
+  @media (max-width:880px){
+    .shell{grid-template-columns:minmax(0,1fr);}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    grid-column:1/-1;
+    padding:clamp(28px,5vw,52px) clamp(18px,4vw,40px) clamp(26px,4vw,38px);
+    margin:clamp(16px,3vw,28px) 0 8px;
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:
+      radial-gradient(640px 220px at 8% -10%, var(--accent-soft), transparent 60%),
+      var(--raised);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-eyebrow{
+    font-family:"IBM Plex Mono";
+    font-size:12.5px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--accent-ink);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;}
+  .hero h1{
+    font-size:clamp(34px,5.2vw,54px);
+    margin:14px 0 6px;
+    font-weight:700;
+  }
+  .hero h1 em{font-style:italic; color:var(--accent-ink); font-weight:500;}
+  .hero .sub{
+    font-size:clamp(16px,2vw,19px);
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin:0 0 22px;
+  }
+  .hero-stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .stat-pill{
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:999px;
+    padding:7px 14px;
+    font-family:"IBM Plex Mono";
+    font-size:12.5px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-variant-numeric:tabular-nums;
+  }
+  .stat-pill b{color:var(--ink); font-weight:600;}
+
+  /* ---------- TOC ---------- */
+  .toc-wrap{position:relative;}
+  .toc{
+    position:sticky;
+    top:18px;
+    max-height:calc(100vh - 36px);
+    overflow-y:auto;
+    padding-right:6px;
+    font-size:14px;
+  }
+  .toc-title{
+    font-family:"IBM Plex Mono";
+    font-size:11.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 10px 2px;
+  }
+  .toc ol{list-style:none; margin:0; padding:0;}
+  .toc > ol > li{margin-bottom:3px;}
+  .toc a{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding:6px 8px;
+    border-radius:8px;
+    line-height:1.3;
+  }
+  .toc a:hover{background:var(--line-soft); color:var(--ink);}
+  .toc .u-dot{width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--c,var(--accent));}
+  .toc .sub-list{list-style:none; margin:2px 0 6px 25px; padding:0; border-left:1px solid var(--line-soft);}
+  .toc .sub-list a{font-size:12.8px; padding:4px 10px; color:var(--ink-faint);}
+  .toc .sub-list a:hover{color:var(--ink);}
+  details.toc-mobile{display:none;}
+  @media (max-width:880px){
+    .toc-wrap .toc{display:none;}
+    details.toc-mobile{
+      display:block;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--raised);
+      padding:12px 16px;
+      margin-bottom:4px;
+    }
+    details.toc-mobile summary{font-family:"IBM Plex Mono"; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-ink); cursor:pointer;}
+    details.toc-mobile .toc{position:static; max-height:none; display:block; margin-top:10px;}
+  }
+
+  /* ---------- MAIN CONTENT ---------- */
+  main{min-width:0;}
+  .lede{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:66ch;
+    margin:4px 0 36px;
+  }
+  .lede strong{color:var(--ink);}
+
+  section.unit{margin-top:64px; scroll-margin-top:18px;}
+  .unit-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--c, var(--line));
+    margin-bottom:22px;
+  }
+  .unit-num{
+    font-family:"IBM Plex Mono";
+    font-size:14px;
+    font-weight:600;
+    color:var(--c, var(--accent));
+    border:1px solid var(--c, var(--accent));
+    border-radius:8px;
+    padding:3px 9px;
+    letter-spacing:.03em;
+  }
+  .unit-head h2{font-size:clamp(24px,3.4vw,32px); margin:0;}
+  .unit-tag{
+    font-family:"IBM Plex Mono";
+    font-size:12px;
+    color:var(--ink-faint);
+    margin-left:auto;
+    white-space:nowrap;
+  }
+
+  h3.topic{
+    font-size:21px;
+    margin:40px 0 10px;
+    padding-left:14px;
+    border-left:3px solid var(--c, var(--line));
+    scroll-margin-top:18px;
+  }
+  h4{font-size:17px; margin:22px 0 8px;}
+  p{margin:0 0 14px;}
+  ul, ol{margin:0 0 16px; padding-left:1.3em;}
+  li{margin-bottom:6px;}
+
+  /* callouts */
+  .box{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    margin:18px 0;
+    background:var(--raised);
+  }
+  .box-head{
+    font-family:"IBM Plex Mono";
+    font-size:11.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .def{background:var(--accent-soft); border-color:transparent;}
+  .def .box-head{color:var(--accent-ink);}
+  .formula-box{background:var(--raised); border-color:var(--line);}
+  .formula-box .box-head{color:var(--ink-faint);}
+  .formula-box .eq{
+    font-family:"IBM Plex Mono";
+    font-size:17px;
+    font-weight:600;
+    color:var(--ink);
+    margin:4px 0 10px;
+    overflow-x:auto;
+  }
+  .formula-box .vars{font-size:14px; color:var(--ink-soft);}
+  .formula-box .vars code{color:var(--ink); background:var(--line-soft); padding:1px 5px; border-radius:5px; font-size:13px;}
+  .example{background:var(--raised); border-left:3px solid var(--good);}
+  .example .box-head{color:var(--good);}
+  .trap{background:var(--warn-soft); border-color:transparent;}
+  .trap .box-head{color:var(--warn);}
+  .analogy{background:transparent; border:1px dashed var(--line); }
+  .analogy .box-head{color:var(--ink-faint);}
+
+  /* tables */
+  .tscroll{overflow-x:auto; margin:16px 0; border:1px solid var(--line); border-radius:12px;}
+  table{border-collapse:collapse; width:100%; font-size:14.5px;}
+  table.data{font-size:13.5px;}
+  th,td{
+    padding:9px 13px;
+    text-align:left;
+    border-bottom:1px solid var(--line-soft);
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+  th{
+    font-family:"IBM Plex Mono";
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    background:var(--paper);
+    position:sticky;
+    top:0;
+  }
+  tr:last-child td{border-bottom:none;}
+  td.wrap, th.wrap{white-space:normal;}
+
+  figure{margin:22px 0; padding:0;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{
+    font-size:13px;
+    color:var(--ink-faint);
+    margin-top:8px;
+    text-align:center;
+  }
+  .fig-frame{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 14px;
+    background:var(--raised);
+  }
+
+  /* archetype cards */
+  .arch-grid{display:flex; flex-direction:column; gap:14px; margin:20px 0;}
+  .arch-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--raised);
+    padding:16px 18px;
+  }
+  .arch-card summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:"Fraunces";
+    font-weight:600;
+    font-size:16.5px;
+  }
+  .arch-card summary::-webkit-details-marker{display:none;}
+  .arch-card summary::before{
+    content:"+";
+    font-family:"IBM Plex Mono";
+    font-weight:600;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:6px;
+    width:20px; height:20px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+    flex-shrink:0;
+  }
+  .arch-card[open] summary::before{content:"\2212";}
+  .arch-card .arch-n{font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--ink-faint); font-weight:400;}
+  .arch-body{margin-top:14px; padding-top:14px; border-top:1px solid var(--line-soft);}
+
+  .pill{
+    display:inline-block;
+    font-family:"IBM Plex Mono";
+    font-size:11px;
+    padding:2px 9px;
+    border-radius:999px;
+    background:var(--c-soft, var(--line-soft));
+    color:var(--c, var(--ink-soft));
+    margin-right:6px;
+  }
+
+  .backtop{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:"IBM Plex Mono";
+    font-size:12px;
+    color:var(--ink-faint);
+    text-decoration:none;
+    margin-top:36px;
+  }
+  .backtop:hover{color:var(--accent-ink);}
+
+  .closing{
+    margin-top:70px;
+    padding:28px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--raised);
+    text-align:center;
+  }
+  .closing h2{font-size:24px; margin:0 0 8px;}
+  .closing p{max-width:52ch; margin:0 auto; color:var(--ink-soft);}
+
+  strong{color:var(--ink); font-weight:600;}
+  .small{font-size:13.5px; color:var(--ink-faint);}
+  /* ---------- VSEPR diagrams ---------- */
+  .sv-bond{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;fill:none;}
+  .sv-wedge{fill:var(--ink);}
+  .sv-atom{fill:var(--ink-soft);}
+  .sv-center{fill:var(--unit-covalent);}
+  .sv-lp{fill:var(--unit-covalent-soft);stroke:var(--unit-covalent);stroke-width:1.4;}
+  .sv-dot{fill:var(--unit-covalent);}
+  .vs-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--raised);padding:14px;margin:18px 0;}
+  .vs-grid{display:grid;grid-template-columns:92px repeat(4,minmax(124px,1fr));gap:8px;min-width:640px;}
+  .vs-colhead{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);text-align:center;padding-bottom:6px;border-bottom:1px solid var(--line);}
+  .vs-corner{border-bottom:1px solid var(--line);}
+  .vs-rowhead{display:flex;flex-direction:column;justify-content:center;gap:1px;padding-right:6px;}
+  .vs-rowhead b{font-family:"Fraunces",serif;font-size:26px;line-height:1;color:var(--unit-covalent);}
+  .vs-rowhead span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);}
+  .vs-rowhead em{font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:3px;}
+  .vs-cell{border:1px solid var(--line-soft);border-radius:10px;padding:6px 4px 9px;text-align:center;background:var(--paper);}
+  .vs-cell.vs-lp1,.vs-cell.vs-lp2,.vs-cell.vs-lp3{background:var(--unit-covalent-soft);border-color:transparent;}
+  .vs-cell svg{width:100%;max-width:118px;height:auto;display:block;margin:0 auto 2px;}
+  .vs-name{font-family:"Fraunces",serif;font-weight:600;font-size:13.5px;line-height:1.2;}
+  .vs-meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);margin-top:2px;}
+  .vs-axe{font-weight:600;color:var(--ink);}
+  .vs-ex{font-size:12px;color:var(--ink-faint);margin-top:2px;}
+  .vs-empty{border:1px dashed var(--line-soft);border-radius:10px;opacity:.55;}
+  .sv-dash{stroke:var(--ink);stroke-width:1.5;stroke-linecap:butt;}
+  .sv-arc{fill:none;stroke:var(--unit-ionic);stroke-width:1.6;stroke-linecap:round;}
+  .sv-txt{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:600;fill:var(--ink);}
+  .sv-txt-w{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:700;fill:#fff;}
+  .sv-ctr{fill:var(--unit-covalent);}
+  .sv-bd{stroke:var(--unit-ionic);stroke-width:1.9;stroke-linecap:round;}
+  .sv-bd-h{fill:var(--unit-ionic);}
+  .sv-net{stroke:var(--unit-covalent);stroke-width:3.4;stroke-linecap:round;}
+  .sv-net-h{fill:var(--unit-covalent);}
+  .gp-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin:18px 0;}
+  .gp-cell{position:relative;border:1px solid var(--line-soft);border-radius:12px;padding:8px 6px 10px;text-align:center;background:var(--raised);}
+  .gp-cell svg{width:100%;max-width:118px;height:auto;display:block;margin:0 auto 2px;}
+  .gp-n{font-family:"Fraunces",serif;font-weight:700;font-size:20px;color:var(--unit-covalent);line-height:1;}
+  .sq-ang{font-family:"Fraunces",serif;font-weight:700;font-size:22px;color:var(--unit-ionic);line-height:1.1;margin-top:2px;}
+  .dp-verdict{display:inline-block;margin-top:6px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:999px;}
+  .dp-zero .dp-verdict{background:var(--line-soft);color:var(--ink-soft);}
+  .dp-net .dp-verdict{background:var(--unit-covalent-soft);color:var(--unit-covalent);}
+  .sv-ghost{stroke:var(--ink-faint);stroke-width:1.3;stroke-dasharray:3 3;opacity:.8;}
+  .sq-row .gp-cell svg{max-width:200px;}
+  .sq-row{grid-template-columns:repeat(3,minmax(0,1fr));max-width:720px;margin-left:auto;margin-right:auto;}
+  @media (max-width:560px){ .sq-row{grid-template-columns:1fr;} }
+
+  /* ---------- orbital + MO figures ---------- */
+  .ph-pos{fill:var(--unit-atoms);fill-opacity:.62;}
+  .ph-neg{fill:var(--warn);fill-opacity:.58;}
+  .ph-txt{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;fill:#fff;pointer-events:none;}
+  .ph-nuc{fill:var(--ink);}
+  .ph-node{stroke:var(--ink-soft);stroke-width:1.3;stroke-dasharray:3 3;}
+  .op-lab{font-family:"IBM Plex Mono",monospace;font-size:9px;fill:var(--ink-soft);}
+  .op-note{font-size:12px;color:var(--ink-faint);margin-top:2px;line-height:1.35;}
+  .op-note b{color:var(--ink-soft);font-weight:600;}
+  .op-row{grid-template-columns:repeat(2,minmax(0,1fr));max-width:600px;margin-left:auto;margin-right:auto;}
+  .mo-lv{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;}
+  .mo-lv-hi{stroke:var(--unit-orbital);stroke-width:2.8;}
+  .mo-e{fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .mo-cn{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:3 3;opacity:.75;}
+  .mo-ax{fill:none;stroke:var(--ink-faint);stroke-width:1.4;}
+  .mo-lab{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;fill:var(--ink);paint-order:stroke;stroke:var(--raised);stroke-width:4px;stroke-linejoin:round;}
+  .mo-ao{font-family:"IBM Plex Mono",monospace;font-size:12px;fill:var(--ink-soft);}
+  .mo-title{font-family:"Fraunces",serif;font-size:13.5px;font-weight:600;fill:var(--ink);}
+  .mo-hi{fill:var(--unit-orbital-soft);}
+  .mo-hi-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:700;fill:var(--unit-orbital);paint-order:stroke;stroke:var(--raised);stroke-width:5px;stroke-linejoin:round;}
+  .mo-mini svg{max-width:210px;}
+  .mo-zero{opacity:.85;}
+  .ic-band{fill:var(--unit-covalent-soft);}
+  .ic-grid{stroke:var(--line);stroke-width:1;}
+  .ic-axis{stroke:var(--ink-faint);stroke-width:1.4;}
+  .ic-tick{font-family:"IBM Plex Mono",monospace;font-size:11px;fill:var(--ink-soft);}
+  .ic-lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;fill:var(--ink-soft);}
+  .ic-curve{fill:none;stroke:var(--unit-ionic);stroke-width:3;stroke-linejoin:round;}
+  .ic-band-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--unit-covalent);font-weight:600;}
+  .ic-pt{fill:var(--unit-ionic);}
+  .ic-pt-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--ink);}
+  .ic-real{fill:var(--raised);stroke:var(--ink);stroke-width:2;}
+  .ic-real-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:700;fill:var(--ink);}
+
+  /* ---------- cheat-code components ---------- */
+  .stat-link{text-decoration:none;color:var(--accent-ink);border-color:var(--accent);}
+  .stat-link:hover{background:var(--accent-soft);}
+  .box.cheat{border:2px solid var(--c, var(--accent));background:var(--raised);padding:16px 20px;}
+  .cheat .box-head{color:var(--c, var(--accent));}
+  .cc-steps{margin:0 0 8px;padding-left:1.3em;}
+  .cc-steps li{margin-bottom:6px;}
+  .cc-list{margin:0 0 8px;padding-left:1.2em;}
+  .cc-list li{margin-bottom:7px;}
+  .cc-foot{margin:0;padding-top:9px;border-top:1px dashed var(--line);font-size:15.5px;}
+  .cc-ideas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:0 0 20px;}
+  .cc-idea{border:1px solid var(--line);border-top:3px solid var(--c);border-radius:4px 4px 12px 12px;background:var(--raised);padding:12px 14px 14px;}
+  .cc-idea b{display:block;font-family:"Fraunces",serif;font-size:17px;margin-bottom:5px;color:var(--c);}
+  .cc-idea span{font-size:14.5px;color:var(--ink-soft);line-height:1.5;}
+  .cc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:0 0 22px;}
+  .cc-card{border:1px solid var(--line);border-radius:14px;background:var(--raised);padding:14px 16px 10px;}
+  .cc-tag{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--c);margin-bottom:4px;font-weight:600;}
+  .cc-code{font-family:"Fraunces",serif;font-weight:600;font-size:19px;line-height:1.2;margin:0 0 9px;}
+  .cc-card p{font-size:14.5px;line-height:1.5;margin:0 0 8px;color:var(--ink-soft);}
+  .cc-card p b{color:var(--ink);}
+  /* ---------- hybridization rows ---------- */
+  .hy-list{display:flex;flex-direction:column;gap:10px;margin:18px 0 8px;}
+  .hy-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px 14px;background:var(--raised);}
+  .hy-name{font-family:"Fraunces",serif;font-weight:700;font-size:23px;color:var(--unit-orbital);}
+  .hy-body{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;}
+  .hy-grp{display:inline-flex;flex-wrap:wrap;gap:5px;}
+  .hy-arrow{font-family:"IBM Plex Mono",monospace;color:var(--ink-faint);font-size:16px;}
+  .ob{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:26px;padding:0 6px;border:1.5px solid var(--ink-faint);border-radius:5px;font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:12px;background:var(--paper);color:var(--ink-soft);}
+  .ob.use{border-color:var(--unit-orbital);color:var(--ink);}
+  .ob.hy{background:var(--unit-orbital-soft);border-color:var(--unit-orbital);color:var(--unit-orbital);font-weight:600;}
+  .ob.un{border-style:dashed;color:var(--ink-faint);background:transparent;}
+  .hy-desc{flex-basis:100%;font-size:14.5px;color:var(--ink-soft);line-height:1.45;}
+  .hy-desc b{color:var(--ink);}
+  @media (max-width:560px){ .hy-row{grid-template-columns:1fr;gap:6px;} }
+  .cc-grid .cc-card:last-child{grid-column:1/-1;}
+  /* ---------- small-screen fixes ---------- */
+  .fig-frame{overflow-x:auto;}
+  .fig-frame > svg{min-width:640px;}
+  .vs-wrap > svg{min-width:520px;}
+  .vs-wrap > figure, .vs-wrap{max-width:100%;}
+  .unit-head{flex-wrap:wrap;row-gap:6px;}
+  .unit-tag{white-space:normal;}
+  @media (max-width:640px){ .unit-tag{margin-left:0;flex-basis:100%;} }
+  /* ---------- hybridization / forces / metals figures ---------- */
+  .fm-t,.fm-h,.fm-note,.fm-cap,.fm-cap-s,.fm-ao,.fm-hy-t,.fm-orb-t,.fm-op,.fm-ax-t,.fm-tiny,.fm-lab-r,.fm-hb-t,.hy-lab,.pl-t,.bd-blk-t{font-family:"IBM Plex Mono",monospace;fill:var(--ink);}
+  .fm-h{font-family:"Fraunces",serif;font-size:14.5px;font-weight:600;}
+  .fm-note{font-size:11.5px;fill:var(--ink-soft);}
+  .fm-cap{font-size:13px;font-weight:600;}
+  .fm-cap-s{font-size:11.5px;fill:var(--ink-soft);}
+  .fm-ao{font-size:12px;fill:var(--ink-soft);}
+  .fm-hy-t{font-size:12.5px;font-weight:700;fill:var(--unit-orbital);}
+  .fm-orb-t{font-size:12.5px;font-weight:600;}
+  .fm-op{font-size:22px;font-weight:600;fill:var(--ink-faint);}
+  .fm-ax-t{font-size:11px;fill:var(--ink-faint);}
+  .fm-tiny{font-size:9px;font-weight:700;fill:var(--ink);}
+  .fm-lab-r{font-size:12px;}
+  .fm-hb-t{font-size:12px;font-weight:700;fill:var(--unit-forces);}
+  .fm-box{fill:var(--paper);stroke:var(--ink);stroke-width:1.8;}
+  .fm-box-hi{stroke:var(--unit-orbital);stroke-width:2.6;fill:var(--unit-orbital-soft);}
+  .fm-box-hy{stroke:var(--unit-orbital);stroke-width:2.2;fill:var(--unit-orbital-soft);}
+  .fm-sp{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .fm-ax{fill:none;stroke:var(--ink-faint);stroke-width:1.4;}
+  .fm-curve{fill:none;stroke:var(--unit-orbital);stroke-width:2.4;stroke-linecap:round;}
+  .fm-big-arrow{fill:none;stroke:var(--ink-faint);stroke-width:2.4;}
+  .fm-arrow-h{fill:var(--ink-faint);}
+  .fm-sigma{stroke:var(--ink);stroke-width:3;stroke-linecap:round;}
+  .fm-bond{stroke:var(--ink-soft);stroke-width:2.4;stroke-linecap:round;}
+  .fm-dim{stroke:var(--ink-faint);stroke-width:1.4;stroke-dasharray:4 3;fill:none;}
+  .fm-dim2{stroke:var(--ink);stroke-width:1.6;fill:none;}
+  .hb-dot{stroke:var(--unit-forces);stroke-width:3;stroke-dasharray:1.5 6;stroke-linecap:round;fill:none;}
+  .hb-dim{stroke:var(--unit-forces);}
+  .at-o{fill:var(--warn);}
+  .at-h{fill:var(--raised);stroke:var(--ink-soft);stroke-width:1.6;}
+  .at-c{fill:var(--ink-soft);}
+  .fm-contact{fill:var(--warn);fill-opacity:.85;}
+  .fm-contact-bar{fill:var(--warn);fill-opacity:.22;}
+  .pl-pos{fill:var(--warn);fill-opacity:.7;} .pl-neg{fill:var(--unit-atoms);fill-opacity:.7;}
+  .pl-t{font-size:8.5px;font-weight:700;fill:#fff;}
+  .fm-attr{stroke:var(--unit-covalent);stroke-width:2.6;fill:none;} .fm-attr-h{fill:var(--unit-covalent);}
+  .fm-rep{stroke:var(--warn);stroke-width:2.6;fill:none;} .fm-rep-h{fill:var(--warn);}
+  .ip-row{grid-template-columns:repeat(4,minmax(0,1fr));max-width:760px;margin-left:auto;margin-right:auto;}
+  @media (max-width:560px){.ip-row{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  .cl-cloud{fill:var(--unit-atoms);fill-opacity:.14;stroke:var(--unit-atoms);stroke-width:1.6;}
+  .hy-line{fill:none;stroke-width:2.6;stroke-linejoin:round;}
+  .hy-g14{stroke:var(--unit-trends);}
+  .hy-g15{stroke:var(--unit-covalent);}
+  .hy-g16{stroke:var(--warn);}
+  .hy-g17{stroke:var(--unit-atoms);}
+  .hy-pt.hy-g14{fill:var(--unit-trends);} .hy-pt.hy-g15{fill:var(--unit-covalent);} .hy-pt.hy-g16{fill:var(--warn);} .hy-pt.hy-g17{fill:var(--unit-atoms);}
+  .hy-line.hy-g14,.hy-line.hy-g15,.hy-line.hy-g16,.hy-line.hy-g17{fill:none;}
+  .hy-lab{font-size:11.5px;font-weight:700;}
+  .bd-lv{stroke:var(--ink-faint);stroke-width:2.4;stroke-linecap:round;}
+  .bd-fill{stroke:var(--unit-metal);stroke-width:3;}
+  .bd-filled{fill:var(--unit-metal);fill-opacity:.55;}
+  .bd-filled-hi{fill:var(--unit-metal);fill-opacity:.8;}
+  .bd-empty{fill:var(--line);fill-opacity:.9;}
+  .bd-overlap{fill:var(--unit-metal);fill-opacity:.95;}
+  .bd-3s{fill:var(--unit-metal);fill-opacity:.18;stroke:var(--unit-metal);stroke-width:1.2;}
+  .bd-3p{fill:var(--unit-atoms);fill-opacity:.14;stroke:var(--unit-atoms);stroke-width:1.2;}
+  .bd-blk-t{font-size:11.5px;font-weight:600;}
+  .gp-bar.gp-ins{fill:var(--warn);} .gp-bar.gp-semi{fill:var(--unit-forces);} .gp-bar.gp-met{fill:var(--unit-metal);}
+  .gp-bar.rs-bar{fill:var(--unit-metal);} .gp-bar.rs-top{fill:var(--unit-ionic);} .gp-bar.rs-alloy{fill:var(--unit-trends);}
+  .ph-nuc-line{stroke:var(--ink);stroke-width:1.6;}
+  .fm-photon{fill:none;stroke:var(--unit-atoms);stroke-width:2.4;stroke-linecap:round;}
+  .fm-sub{font-size:8.5px;}
+  .fm-halo{paint-order:stroke;stroke:var(--raised);stroke-width:5px;stroke-linejoin:round;}
+  .mo-lv.fm-pi{stroke:var(--unit-covalent);stroke-width:3;}
+  .fm-pi-t{fill:var(--unit-covalent);}
+  .hy-t14{fill:var(--unit-trends);} .hy-t15{fill:var(--unit-covalent);} .hy-t16{fill:var(--warn);} .hy-t17{fill:var(--unit-atoms);}
+  .hy-lab{stroke:none;}
+  .ip-row .gp-cell svg{max-width:100%;}
+
+  .hy-puzzle{display:flex;flex-direction:column;gap:6px;margin:10px 0 14px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--raised);width:fit-content;max-width:100%;}
+  .hp-row{display:flex;align-items:center;gap:10px;}
+  .hp-lab{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);width:24px;}
+  .ob.up,.ob.up2{border-color:var(--ink);color:var(--ink);font-size:15px;background:var(--paper);}
+  .ob.up2{letter-spacing:2px;}
+  /* ---------- units 09-11 figures ---------- */
+  .cx-edge{stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;}
+  .cx-hid{stroke:var(--ink-faint);stroke-dasharray:4 4;stroke-width:1.4;}
+  .cx-atom{stroke:var(--ink);stroke-width:1.4;}
+  .cx-corner{fill:var(--unit-trends);fill-opacity:.85;}
+  .cx-centre{fill:var(--unit-atoms);}
+  .cx-face{fill:var(--unit-ionic);}
+  .cx-plane{stroke:var(--ink-faint);stroke-width:1.2;}
+  .cx-ray{fill:none;stroke:var(--unit-atoms);stroke-width:2.4;}
+  .cx-ray2{stroke:var(--warn);}
+  .cx-arc{fill:none;stroke:var(--ink);stroke-width:1.4;}
+  .cx-plane-fill{fill:var(--unit-orbital);fill-opacity:.35;stroke:var(--unit-orbital);stroke-width:2;}
+  .cx-origin{fill:var(--ink);}
+  .cx-normal{fill:none;stroke:var(--warn);stroke-width:2.6;}
+  .cx-normal-h{fill:var(--warn);}
+  .cx-normal-t{fill:var(--warn);font-weight:700;}
+  .cx-bond{stroke:var(--ink-soft);stroke-width:1.6;stroke-dasharray:3 3;}
+  .cx-dis{font-family:"IBM Plex Mono",monospace;font-size:34px;font-weight:700;fill:var(--warn);}
+  .ion-an{fill:var(--unit-atoms);fill-opacity:.55;stroke:var(--unit-atoms);stroke-width:1.4;}
+  .ion-cat{fill:var(--warn);fill-opacity:.7;stroke:var(--warn);stroke-width:1.4;}
+  .ion-t{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:700;fill:#fff;}
+  .cx-vac{fill:none;stroke:var(--ink-faint);stroke-width:1.6;stroke-dasharray:3 3;}
+  .vc{fill:none;stroke-width:2.6;stroke-linecap:round;}
+  .vc-sl{stroke:var(--warn);} .vc-bo{stroke:var(--unit-covalent);} .vc-96{stroke:var(--unit-atoms);} .vc-fs{stroke:var(--unit-orbital);}
+  .vc-sl-t{fill:var(--warn);} .vc-bo-t{fill:var(--unit-covalent);} .vc-96-t{fill:var(--unit-atoms);} .vc-fs-t{fill:var(--unit-orbital);}
+  .vc-ref{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:2 4;}
+  .vc-grid{opacity:.35;}
+  .dif-a{stroke:var(--unit-covalent);stroke-width:2.6;} .dif-b{stroke:var(--warn);stroke-width:2.6;}
+  .dif-a-t{fill:var(--unit-covalent);} .dif-b-t{fill:var(--warn);}
+  .dif{fill:none;stroke-width:2.6;}
+  .dif-t1{stroke:var(--unit-trends);} .dif-t2{stroke:var(--unit-atoms);} .dif-t3{stroke:var(--unit-orbital);}
+
+  /* ---------- units 12-13 figures ---------- */
+  .kx-curve{fill:none;stroke:var(--unit-kinetics);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .kx-cat{fill:none;stroke:var(--unit-thermo);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .kx-line{fill:none;stroke:var(--unit-kinetics);stroke-width:2.8;stroke-linecap:round;}
+  .kx-catline{fill:none;stroke:var(--unit-thermo);stroke-width:1.8;}
+  .kx-cat-t{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-thermo);}
+  .kx-slope{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-kinetics);}
+  .ex-zl{fill:var(--unit-equil-soft);stroke:var(--unit-equil);stroke-width:1.2;opacity:.55;}
+  .ex-zm{fill:var(--unit-equil-soft);stroke:var(--unit-equil);stroke-width:1.2;opacity:.85;}
+  .ex-zr{fill:var(--unit-equil-soft);stroke:var(--unit-equil);stroke-width:1.2;}
+  .ex-dot{fill:var(--unit-equil);stroke:var(--surface,#fff);stroke-width:1.5;}
+  .ex-curve{fill:none;stroke:var(--unit-equil);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;}
+  .ex-k{stroke:var(--unit-thermo);stroke-width:2;stroke-dasharray:6 4;}
+  .ex-kt{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;fill:var(--unit-thermo);}
+  .ca-box{fill:var(--unit-cat-soft);stroke:var(--unit-cat);stroke-width:1.4;}
+  .ca-prod{fill:var(--unit-cat);fill-opacity:.18;stroke:var(--unit-cat);stroke-width:2;}
+  .ca-arr{fill:none;stroke:var(--ink-soft);stroke-width:2;}
+  .ca-rec{fill:none;stroke:var(--unit-thermo);stroke-width:2;stroke-dasharray:6 4;}
+  .ca-lev{stroke:var(--unit-cat);stroke-width:3;stroke-linecap:round;}
+  .ca-curve{fill:none;stroke:var(--unit-cat);stroke-width:1.8;opacity:.8;}
+  .ca-zs{fill:var(--unit-cat-soft);opacity:.55;}
+  .ca-zw{fill:var(--unit-equil-soft);opacity:.55;}
+  .sl-lev{stroke:var(--ink-soft);stroke-width:3;stroke-linecap:round;}
+  .sl-sol{stroke:var(--unit-soln);stroke-width:4;stroke-linecap:round;}
+  .ab-s{fill:none;stroke:var(--unit-acid);stroke-width:2.4;stroke-dasharray:6 3;}
+  .ab-w{fill:none;stroke:var(--unit-soln);stroke-width:2.8;}
+  .ab-dot{fill:var(--unit-soln);stroke:var(--surface,#fff);stroke-width:1.5;}
+  .ab-dot2{fill:var(--unit-thermo);stroke:var(--surface,#fff);stroke-width:1.5;}
+  .ab-st{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;fill:var(--unit-acid);}
+  
+
+  .ex-shell{max-width:900px;margin:0 auto;padding:20px 16px 80px;}
+  .ex-shell .hero{margin-bottom:18px;}
+  .ck{display:flex;gap:10px;align-items:flex-start;margin:0 0 7px;font-size:16px;line-height:1.45;}
+  .ck input{margin-top:5px;accent-color:var(--accent);flex:none;width:17px;height:17px;}
+  .ck span{min-width:0;}
+  .ck input:checked + span{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--line);}
+  .ck-bar{height:6px;border-radius:999px;background:var(--line-soft);overflow:hidden;margin:4px 0 12px;}
+  .ck-bar > i{display:block;height:100%;width:0;background:var(--good);transition:width .25s;}
+  .plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:12px 0;}
+  .plan .box{margin:0;}
+  .tl{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);}
+  .go{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:9px;border:1px solid var(--accent);background:var(--accent);color:#fff;text-decoration:none;margin:2px 6px 2px 0;}
+  :root[data-theme="dark"] .go{color:#10131c;}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .go{color:#10131c;}}
+  .go.alt,:root[data-theme="dark"] .go.alt{background:transparent!important;color:var(--accent-ink)!important;}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .go.alt{background:transparent!important;color:var(--accent-ink)!important;}}
+  .facts{columns:2 280px;column-gap:26px;}
+  .facts .ck{break-inside:avoid;}
+  td a, li a{overflow-wrap:anywhere;}
+</style>
+</head>
+<body>
+
+<div class="ex-shell">
+  <header class="hero">
+    <div class="hero-eyebrow"><span class="dot"></span> MIT 3.091 &middot; Fall 2026 &middot; Exam 3 study guide</div>
+    <h1>Exam 3 Prep: <em>Lectures 21&ndash;28 on one page</em></h1>
+    <p class="sub">Scope: <b>Lectures 21&ndash;28</b> (reactions and rates through solubility product) with <b>Recitations 14&ndash;20</b>. A plan, what the exam is likely to ask, the facts to know cold, and links to the explanations and the practice questions. Everything on this page links into the Field Guide (Units 12&ndash;18) and the Quiz Review page.</p>
+    <div class="hero-stats"><a class="go" href="quiz-review.html#pq-quiz">&#9733; Start the Exam 3 mock</a><a class="go alt" href="index.html#unit12">Start the Field Guide at Unit 12</a><a class="go alt" href="quiz-review.html">All practice questions</a></div>
+  </header>
+
+  <h3 class="topic" style="--c:var(--warn)">What I could and could not get</h3>
+  <div class="box trap">
+    <div class="box-head">Read this first</div>
+    <ul style="margin-bottom:0">
+      <li><b>In the guide:</b> L21&ndash;L28 slide by slide and Recitations 14, 15, 16, 17, 19 and 20 (Units 12&ndash;18). Items the slides do not state are tagged <span class="pill" style="--c:var(--ink-soft);--c-soft:var(--line-soft)">extra</span>.</li>
+      <li><b>Not available to me:</b> <b>Recitations 13 and 18</b>, the problem sets for this stretch, and any <b>past Exam 3</b>. The Drive folder only has the Fall 2024 quizzes, so the &ldquo;likely question types&rdquo; below come from <b>2024 Quizzes 7, 8 and 9</b>, the recitation problems and the practice questions, not from a real exam. <b>Phase diagrams (2024 Quiz 9) are not in L21&ndash;L28</b> as far as the slides I have show; if your exam includes them I have not covered them.</li>
+      <li><b>Check this year&rsquo;s rules</b> on aid sheets and equation sheets; I do not know them.</li>
+      <li><b>Slide errors to know:</b> Rec 17 prints van&rsquo;t Hoff with &Delta;S&deg;/T (it should be &Delta;S&deg;/R); Rec 19 calls K<sub>w</sub> a &ldquo;solubility product&rdquo; (it is the water ion product); the L24 slide lists K = 2.7&times;10<sup>8</sup> for ammonia at 300 K while Unit 13&rsquo;s &Delta;G&deg; gives about 5&times;10<sup>5</sup>. Use the data the question gives.</li>
+    </ul>
+  </div>
+
+  <h3 class="topic" style="--c:var(--accent)">The plan</h3>
+  <p>About 8&ndash;9 hours in total; if you only have <b>3 hours</b>, do this order: the last-hour facts (30 min), the <b>Exam 3 mock</b> (50 min), then re-read the solutions of everything you missed and the matching &ldquo;typical slips&rdquo; (the rest). Rule for every block: <b>cover the solutions, answer on paper, then check</b>.</p>
+  <div class="plan">
+    <div class="box cheat"><div class="box-head">Day 1 &middot; kinetics, thermodynamics, equilibrium</div><label class="ck"><input type="checkbox" data-k="p1a"><span><b>Unit 12 kinetics</b>: read, then the 17 &ldquo;Check yourself&rdquo; questions; redo rate-law, half-life and Arrhenius without looking <span class="tl">&middot; 90 min</span></span></label><label class="ck"><input type="checkbox" data-k="p1b"><span><b>Unit 13 thermodynamics</b> (Rec 16 basics first, then &Delta;G) and the questions <span class="tl">&middot; 60 min</span></span></label><label class="ck"><input type="checkbox" data-k="p1c"><span><b>Unit 14 equilibrium</b>: K, Q, RICE, van&rsquo;t Hoff, Le Ch&acirc;telier and the questions <span class="tl">&middot; 75 min</span></span></label><label class="ck"><input type="checkbox" data-k="p1d"><span><b>Unit 15 catalysis</b> (short) and the questions <span class="tl">&middot; 30 min</span></span></label></div>
+    <div class="box cheat"><div class="box-head">Day 2 &middot; solutions, acids, solubility, mock</div><label class="ck"><input type="checkbox" data-k="p2a"><span><b>Unit 16 solutions</b> and the questions <span class="tl">&middot; 35 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2b"><span><b>Unit 17 acids and bases</b>: pH arithmetic, K<sub>a</sub>, titration curve, Henderson&ndash;Hasselbalch and the questions <span class="tl">&middot; 80 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2c"><span><b>Unit 18 solubility product</b> and the questions (do all three molar-solubility types by hand) <span class="tl">&middot; 50 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2d"><span><b>Exam 3 mock</b> on the Quiz Review page (14 questions, 50 min, then read every solution) <span class="tl">&middot; 75 min</span></span></label><label class="ck"><input type="checkbox" data-k="p2e"><span>Retry list in &ldquo;My practice&rdquo;: redo every question you missed or peeked at <span class="tl">&middot; 40 min</span></span></label></div>
+    <div class="box cheat"><div class="box-head">Night before &middot; morning</div><label class="ck"><input type="checkbox" data-k="p3a"><span>If the rules allow an aid sheet: write one from the cheat codes and the formula sheet (copying is a study session) <span class="tl">&middot; 40 min</span></span></label><label class="ck"><input type="checkbox" data-k="p3b"><span>Read the &ldquo;last-hour facts&rdquo; below out loud, tick each one only if you can say it without looking <span class="tl">&middot; 30 min</span></span></label><label class="ck"><input type="checkbox" data-k="p3c"><span>Re-read <a href='index.html#traps'>Exam traps</a> and the &ldquo;typical slips&rdquo; for kinetics, equilibrium, acid&ndash;base <span class="tl">&middot; 20 min</span></span></label><label class="ck"><input type="checkbox" data-k="p3d"><span>Calculator: <b>log, ln, e<sup>x</sup>, 10<sup>x</sup></b> keys checked (this exam is logs and exponentials); constants and periodic table packed <span class="tl">&middot; &mdash;</span></span></label></div>
+  </div>
+
+  <h3 class="topic" style="--c:var(--accent)">What the exam is likely to ask</h3>
+  <p>Built from the 2024 Quizzes 7&ndash;9 (kinetics and catalysis, equilibrium, and the Sabatier / hemoglobin questions), the recitation problems and the lecture slides. For each type: where to read it and where to practise it.</p>
+  <div class="tscroll"><table class="data"><thead><tr><th>Type</th><th class="wrap">What they ask</th><th class="wrap">Seen in</th><th>Go to</th></tr></thead><tbody><tr><td><b>Rate law from initial-rate data</b></td><td class="wrap">ratios of rates vs ratios of concentrations; overall order; k with units</td><td class="wrap">Rec 14, Quiz 7</td><td><a href="index.html#unit12">guide</a> &middot; <a href="quiz-review.html#t-kinetics">practice</a></td></tr><tr><td><b>Order from a plot or from half-life</b></td><td class="wrap">[A], ln[A], 1/[A] vs t; t<sub>1/2</sub> = ln 2/k for first order; units of k</td><td class="wrap">L22, Rec 15</td><td><a href="index.html#unit12">guide</a> &middot; <a href="quiz-review.html#t-kinetics">practice</a></td></tr><tr><td><b>Arrhenius plot and activation energy</b></td><td class="wrap">ln k vs 1/T, slope = &minus;E<sub>a</sub>/R; label lines for E<sub>a</sub> and for a catalyst</td><td class="wrap">Quiz 7</td><td><a href="index.html#unit12">guide</a> &middot; <a href="quiz-review.html#t-kinetics">practice</a></td></tr><tr><td><b>Energy diagram</b></td><td class="wrap">E<sub>a</sub>, &Delta;E, activated complex; catalyst lowers E<sub>a</sub> only</td><td class="wrap">L22, Rec 14</td><td><a href="index.html#unit12">guide</a> &middot; <a href="quiz-review.html#t-kinetics">practice</a></td></tr><tr><td><b>Mechanism and rate-limiting step</b></td><td class="wrap">slow step sets the rate law; intermediates cancel; sum the steps</td><td class="wrap">Rec 14&ndash;15</td><td><a href="index.html#unit12">guide</a> &middot; <a href="quiz-review.html#t-kinetics">practice</a></td></tr><tr><td><b>Spontaneity and the crossover temperature</b></td><td class="wrap">sign table; T = &Delta;H/&Delta;S; kJ vs J/K; &Delta;H&deg; from &Delta;H&deg;<sub>f</sub></td><td class="wrap">L23, Rec 16</td><td><a href="index.html#unit13">guide</a> &middot; <a href="quiz-review.html#t-thermo">practice</a></td></tr><tr><td><b>First law, work, entropy</b></td><td class="wrap">W = &minus;P&Delta;V sign; &Delta;E = Q + W; entropy ordering; 2nd and 3rd law in a sentence</td><td class="wrap">Rec 16</td><td><a href="index.html#unit13">guide</a> &middot; <a href="quiz-review.html#t-laws">practice</a></td></tr><tr><td><b>K, Q and the direction of a reaction</b></td><td class="wrap">write K; Q vs K; RICE table; Le Ch&acirc;telier (concentration, pressure, temperature)</td><td class="wrap">Rec 17, Quiz 8</td><td><a href="index.html#unit14">guide</a> &middot; <a href="quiz-review.html#t-equil">practice</a></td></tr><tr><td><b>K, &Delta;G&deg; and temperature</b></td><td class="wrap">&Delta;G&deg; = &minus;RT ln K; van&rsquo;t Hoff; exothermic K falls on heating</td><td class="wrap">Rec 17</td><td><a href="index.html#unit14">guide</a> &middot; <a href="quiz-review.html#t-equil">practice</a></td></tr><tr><td><b>Catalysts</b></td><td class="wrap">what changes (E<sub>a</sub>) and what does not (K); homogeneous vs heterogeneous; Sabatier volcano; Haber&ndash;Bosch conditions</td><td class="wrap">L25, Rec 17, Quiz 8</td><td><a href="index.html#unit15">guide</a> &middot; <a href="quiz-review.html#t-catalysis">practice</a></td></tr><tr><td><b>Solutions</b></td><td class="wrap">three-step &Delta;H<sub>soln</sub>; polar vs non-polar; molality vs molarity; ppm</td><td class="wrap">L26, Rec 19</td><td><a href="index.html#unit16">guide</a> &middot; <a href="quiz-review.html#t-solutions">practice</a></td></tr><tr><td><b>Acids and bases</b></td><td class="wrap">conjugate pairs; pH of strong and weak acids; K<sub>a</sub> from pH; Henderson&ndash;Hasselbalch; titration curve</td><td class="wrap">L27, Rec 19</td><td><a href="index.html#unit17">guide</a> &middot; <a href="quiz-review.html#t-acidbase">practice</a></td></tr><tr><td><b>Solubility product</b></td><td class="wrap">K<sub>sp</sub> expression; molar solubility; Q vs K<sub>sp</sub>; common ion; pH effect; complexation</td><td class="wrap">L28, Rec 20</td><td><a href="index.html#unit18">guide</a> &middot; <a href="quiz-review.html#t-ksp">practice</a></td></tr></tbody></table></div>
+
+  <h3 class="topic" style="--c:var(--accent)">Coverage map</h3>
+  <div class="tscroll"><table class="data"><thead><tr><th>Lecture</th><th class="wrap">Topic</th><th>Go to</th></tr></thead><tbody><tr><td><b>L21</b></td><td class="wrap">Reactions and rates: rate, average vs instantaneous, collision model; Rec 14</td><td><a href="index.html#unit12">guide</a> &middot; <a href="quiz-review.html#t-kinetics">practice</a></td></tr><tr><td><b>L22</b></td><td class="wrap">Rate laws, integrated laws, Arrhenius, energy diagrams, mechanisms; Rec 14&ndash;15</td><td><a href="index.html#unit12">guide</a> &middot; <a href="quiz-review.html#t-kinetics">practice</a></td></tr><tr><td><b>L23</b></td><td class="wrap">Thermodynamics: spontaneity, &Delta;G = &Delta;H &minus; T&Delta;S, free energy as work; Rec 16 (heat, work, first law, enthalpy, entropy)</td><td><a href="index.html#unit13">guide</a> &middot; <a href="quiz-review.html#t-thermo">practice</a></td></tr><tr><td><b>L24</b></td><td class="wrap">Chemical equilibrium: K, Q vs K, RICE, &Delta;G&deg; and K, van&rsquo;t Hoff; Rec 17</td><td><a href="index.html#unit14">guide</a> &middot; <a href="quiz-review.html#t-equil">practice</a></td></tr><tr><td><b>L25</b></td><td class="wrap">Catalysis and ammonia production: Haber&ndash;Bosch, Sabatier volcano; Rec 17</td><td><a href="index.html#unit15">guide</a> &middot; <a href="quiz-review.html#t-catalysis">practice</a></td></tr><tr><td><b>L26</b></td><td class="wrap">Solutions: &Delta;H<sub>soln</sub> in three steps, like dissolves like, concentration units; Rec 19</td><td><a href="index.html#unit16">guide</a> &middot; <a href="quiz-review.html#t-solutions">practice</a></td></tr><tr><td><b>L27</b></td><td class="wrap">Acids and bases: conjugate pairs, pH, K<sub>a</sub>, titration, buffers; Rec 19</td><td><a href="index.html#unit17">guide</a> &middot; <a href="quiz-review.html#t-acidbase">practice</a></td></tr><tr><td><b>L28</b></td><td class="wrap">Solubility product and complexation: K<sub>sp</sub>, Q, common ion, K<sub>f</sub>; Rec 20</td><td><a href="index.html#unit18">guide</a> &middot; <a href="quiz-review.html#t-ksp">practice</a></td></tr></tbody></table></div>
+
+  <h3 class="topic" style="--c:var(--accent)">Last-hour facts: tick only what you can say without looking</h3>
+  <div class="ck-bar"><i id="fbar"></i></div>
+  <div class="facts"><label class="ck"><input type="checkbox" data-k="fa0"><span>Rate = &minus;(1/a)d[A]/dt; rate law v = k[A]<sup>&alpha;</sup>[B]<sup>&beta;</sup> with exponents from <b>experiment</b>, not from coefficients (unless elementary)</span></label><label class="ck"><input type="checkbox" data-k="fa1"><span>Zeroth: [A] = [A]<sub>0</sub> &minus; kt (k in M/s); first: ln[A] = ln[A]<sub>0</sub> &minus; kt (s<sup>&minus;1</sup>); second: 1/[A] = 1/[A]<sub>0</sub> + kt (M<sup>&minus;1</sup>s<sup>&minus;1</sup>); only the 2nd order line has slope +k</span></label><label class="ck"><input type="checkbox" data-k="fa2"><span>t<sub>1/2</sub> = ln 2/k for first order (independent of [A]<sub>0</sub>)</span></label><label class="ck"><input type="checkbox" data-k="fa3"><span>Arrhenius: k = Ae<sup>&minus;E<sub>a</sub>/RT</sup>; ln k vs 1/T slope = &minus;E<sub>a</sub>/R; steeper = larger E<sub>a</sub>; R = 8.314 J/(mol&middot;K) so E<sub>a</sub> in J</span></label><label class="ck"><input type="checkbox" data-k="fa4"><span>Catalyst: lower E<sub>a</sub> (forward and reverse), same &Delta;E, &Delta;G, K; not consumed</span></label><label class="ck"><input type="checkbox" data-k="fa5"><span>Slow step sets the rate law; intermediates cancel from the overall equation</span></label><label class="ck"><input type="checkbox" data-k="fa6"><span>&Delta;G = &Delta;H &minus; T&Delta;S: (&minus;,+) always, (+,&minus;) never, (&minus;,&minus;) low T, (+,+) high T; crossover T = &Delta;H/&Delta;S; spontaneous &ne; fast</span></label><label class="ck"><input type="checkbox" data-k="fa7"><span>W = &minus;P&Delta;V (work on the system is +); &Delta;E = Q + W; &Delta;H = Q at constant P; H, S, G, U are state functions, Q and W path functions</span></label><label class="ck"><input type="checkbox" data-k="fa8"><span>&Delta;H&deg;<sub>rxn</sub> = &Sigma;&Delta;H&deg;<sub>f</sub>(products) &minus; &Sigma;&Delta;H&deg;<sub>f</sub>(reactants); elements = 0</span></label><label class="ck"><input type="checkbox" data-k="fa9"><span>Entropy: crystal &lt; amorphous &lt; liquid &lt; gas; &Delta;S<sub>universe</sub> &ge; 0; 3rd law: perfect crystal at 0 K</span></label></div>
+  <div class="facts"><label class="ck"><input type="checkbox" data-k="fb0"><span>K = products over reactants (coefficients as exponents, no units, solids and liquids left out); two steps: K<sub>1</sub>K<sub>2</sub>; reverse: 1/K</span></label><label class="ck"><input type="checkbox" data-k="fb1"><span>Q &lt; K goes right, Q &gt; K goes left, Q = K equilibrium (&Delta;G = 0); &Delta;G = &Delta;G&deg; + RT ln Q; &Delta;G&deg; = &minus;RT ln K</span></label><label class="ck"><input type="checkbox" data-k="fb2"><span>Van&rsquo;t Hoff: ln K = &minus;&Delta;H&deg;/RT + &Delta;S&deg;/R; exothermic: K falls as T rises; only T changes K</span></label><label class="ck"><input type="checkbox" data-k="fb3"><span>Le Ch&acirc;telier: add reactant &rarr; right; compress &rarr; fewer moles of gas; heat &rarr; endothermic direction; catalyst: no shift</span></label><label class="ck"><input type="checkbox" data-k="fb4"><span>Haber&ndash;Bosch: Fe, 400&ndash;500 &deg;C, high P, liquefy NH<sub>3</sub>, recycle N<sub>2</sub> + H<sub>2</sub>; H<sub>2</sub> from CH<sub>4</sub> + H<sub>2</sub>O &rarr; CO + 3H<sub>2</sub></span></label><label class="ck"><input type="checkbox" data-k="fb5"><span>Homogeneous = same phase as reactants; heterogeneous = different phase (solid); Sabatier: intermediate binding is best (volcano)</span></label><label class="ck"><input type="checkbox" data-k="fb6"><span>&Delta;H<sub>soln</sub> = (A&ndash;A broken +) + (B&ndash;B broken +) + (A&ndash;B formed &minus;); &Delta;S<sub>soln</sub> &gt; 0; molality = mol/kg <b>solvent</b>; only molarity depends on T</span></label><label class="ck"><input type="checkbox" data-k="fb7"><span>pH = &minus;log[H<sub>3</sub>O<sup>+</sup>]; pH + pOH = 14; K<sub>w</sub> = 10<sup>&minus;14</sup>; K<sub>a</sub>K<sub>b</sub> = K<sub>w</sub>; small pK<sub>a</sub> = strong acid; stronger acid = weaker conjugate base</span></label><label class="ck"><input type="checkbox" data-k="fb8"><span>pH = pK<sub>a</sub> + log([A<sup>&minus;</sup>]/[HA]); midpoint of a weak-acid titration pH = pK<sub>a</sub>; equivalence pH: strong/strong 7, weak acid &gt; 7, weak base &lt; 7</span></label><label class="ck"><input type="checkbox" data-k="fb9"><span>K<sub>sp</sub> (solid left out): AB &rarr; x&sup2;, AB<sub>2</sub> &rarr; 4x&sup3;, A<sub>3</sub>B<sub>2</sub> &rarr; 108x<sup>5</sup>; Q &gt; K<sub>sp</sub> precipitates; common ion lowers solubility; acid on a basic anion or a ligand raises it; K<sub>f</sub> = K<sub>1</sub>K<sub>2</sub>&hellip;</span></label></div>
+
+  <h3 class="topic" style="--c:var(--warn)">The twelve ways people lose points on this exam</h3>
+  <ol>
+    <li>Using the <b>coefficients</b> as rate-law exponents for a reaction that is not a single step.</li>
+    <li>Forgetting that only the <b>second-order</b> plot (1/[A] vs t) has slope <b>+k</b>; or steeper Arrhenius line = &ldquo;faster&rdquo; (it means larger E<sub>a</sub>).</li>
+    <li>Using kJ with R in J, or &Delta;S in J/K with &Delta;H in kJ; Celsius instead of kelvin.</li>
+    <li>Thinking &Delta;G &lt; 0 means fast, or that a catalyst changes K, &Delta;G or the equilibrium yield.</li>
+    <li>Getting the sign of W wrong (work done <em>on</em> the system is +).</li>
+    <li>Writing K as reactants over products, including solids, or comparing Q and K the wrong way round.</li>
+    <li>Forgetting that an exothermic reaction has a <b>smaller K at higher T</b> (van&rsquo;t Hoff).</li>
+    <li>pH arithmetic: sign of the log, pH + pOH = 14 only at 25 &deg;C, lower pK<sub>a</sub> = <b>stronger</b> acid.</li>
+    <li>Henderson&ndash;Hasselbalch upside down (it is [A<sup>&minus;</sup>]/[HA], base over acid); assuming every equivalence point is pH 7.</li>
+    <li>Mixing molarity (L of solution) with molality (kg of solvent).</li>
+    <li>In K<sub>sp</sub> problems: reporting x instead of [ion] (Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>: 3x and 2x), forgetting to halve concentrations on mixing, or comparing K<sub>sp</sub> across different formula types.</li>
+    <li>Not giving a <b>reason</b> in &ldquo;briefly explain&rdquo; parts, and eliminating units.</li>
+  </ol>
+
+  <h3 class="topic" style="--c:var(--accent)">Morning of the exam</h3>
+  <label class="ck"><input type="checkbox" data-k="m0"><span>Aid sheet or equation sheet as the rules allow; name written if required</span></label><label class="ck"><input type="checkbox" data-k="m1"><span>Calculator checked: ln, log, e<sup>x</sup>, 10<sup>x</sup>, scientific notation entry; constants (R, K<sub>w</sub>) on your sheet</span></label><label class="ck"><input type="checkbox" data-k="m2"><span>Eat; read only the first three items of the facts list, then stop</span></label><label class="ck"><input type="checkbox" data-k="m3"><span>In the exam: start with the 1-point recall parts, write the formula and numbers even if unsure, check units on every line</span></label>
+</div>
+<script>
+(function(){
+  var KEY='3091-exam3-prep-v1',st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+  var boxes=document.querySelectorAll('input[data-k]');
+  function bar(){var f=document.querySelectorAll('input[data-k^="fa"],input[data-k^="fb"]'),n=0;
+    Array.prototype.forEach.call(f,function(b){if(b.checked)n++;});
+    var el=document.getElementById('fbar');if(el)el.style.width=Math.round(100*n/Math.max(1,f.length))+'%';}
+  Array.prototype.forEach.call(boxes,function(b){
+    b.checked=!!st[b.getAttribute('data-k')];
+    b.addEventListener('change',function(){st[b.getAttribute('data-k')]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}bar();});
+  });
+  bar();
+})();
+</script>
+</body>
+</html>

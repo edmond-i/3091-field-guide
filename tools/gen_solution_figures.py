@@ -85,6 +85,21 @@ def fig_titration():
     save("ab_titration", svg)
 
 
+def fig_ksp():
+    o = []
+    zones = [(20, 220, "ex-zl", "Q &lt; K<tspan class=\"fm-sub\" dy=\"3\">sp</tspan>", "unsaturated", "more solid can dissolve"),
+             (230, 330, "ex-zm", "Q = K<tspan class=\"fm-sub\" dy=\"3\">sp</tspan>", "saturated", "equilibrium"),
+             (340, 580, "ex-zr", "Q &gt; K<tspan class=\"fm-sub\" dy=\"3\">sp</tspan>", "supersaturated", "solid precipitates")]
+    for x0, x1, cls, h, a, b in zones:
+        o.append('<rect class="%s" x="%d" y="40" width="%d" height="70" rx="8"/>' % (cls, x0, x1 - x0))
+        o.append('<text class="fm-h" x="%d" y="32" text-anchor="middle">%s</text>' % ((x0 + x1) // 2, h))
+        o.append('<text class="kx-slope" x="%d" y="72" text-anchor="middle">%s</text><text class="fm-note" x="%d" y="92" text-anchor="middle">%s</text>' % ((x0 + x1) // 2, a, (x0 + x1) // 2, b))
+    o.append('<path class="fm-dim2" d="M20,134 H580" marker-end="url(#ksA)"/><text class="ic-lab" x="300" y="152" text-anchor="middle">ion product Q increases</text>')
+    svg = ('<svg viewBox="0 0 600 166" role="img" aria-label="The ion product Q compared with the solubility product: below it the solution is unsaturated and more solid can dissolve; equal to it the solution is saturated; above it the solution is supersaturated and solid precipitates.">'
+           '<defs><marker id="ksA" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="fm-arrow-h"/></marker></defs>' + "".join(o) + '</svg>')
+    save("sol_ksp", svg)
+
+
 if __name__ == "__main__":
-    fig_solvation(); fig_titration()
+    fig_solvation(); fig_titration(); fig_ksp()
     print("ok")
